@@ -1,0 +1,108 @@
+.hero{
+    background-image: url('../../assets/heroImage1.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 70vh;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    background-blend-mode: multiply;
+    /* aspect-ratio: 16/9; */
+    padding: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.hero_heading{
+    font-size: 60px;
+    letter-spacing: 0.2rem;
+    width: 80%;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.hero_subheading{
+    color: #fff;
+    font-family: var(--primary-font);
+    width: 80%;
+    margin-top: 30px;
+    letter-spacing: 0.1rem;
+}
+.hero_arrow{
+    width: 200px;
+    aspect-ratio: 1/1;
+    object-fit: contain;
+}
+.hero_button_container{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border:2px solid var(--white-text);
+    color: var(--white-text);
+    border-radius: 1rem;
+    /* margin-left: 50px; */
+    width: fit-content;
+    gap: 0;
+    transition: 0.5s;
+}
+.get_in_touch{
+    background-color: transparent;
+    color: var(--white-text);
+    border: none;
+    font-size: 25px;
+    transition: 0.5s;
+}
+.get_in_touch:hover{
+    cursor: pointer;
+}
+.hero_button_container:hover{
+    background-color: var(--primary);
+    border-color: var(--primary);
+    border-radius: 50rem;
+    padding-left: 20px;
+    gap: 50px;
+}
+
+@media screen and (max-width:850px){
+    .hero{
+        padding: 20px;
+        aspect-ratio: 16/9;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .hero_heading{
+        font-size: 54px;
+        letter-spacing: normal;
+    }
+    .hero_arrow{
+        width: 100px;
+    }
+    .get_in_touch{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:450px){
+    .hero_heading{
+        font-size: 25px;
+        /* width: 100%; */
+    }
+    .hero_arrow{
+        display: none;
+    }
+    .hero_button_container{
+        margin: 0;
+        padding: 0;
+        border-width: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .get_in_touch{
+        font-size: 12px;
+        padding: 0px;
+        margin: 0;
+    }
+}

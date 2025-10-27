@@ -1,0 +1,27 @@
+.profile_page{
+    padding: 20px;
+}
+.profile_page_top{
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 2px solid rgb(232, 240, 254);
+    border-radius: 15px;
+}
+.profile_pic{
+    background-color: var(--primary);
+    padding: 20px;
+    width: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    aspect-ratio: 1/1;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    font-weight: 900;
+    color: white;
+}
+.logout_button{
+    margin-top: 20px;
+}

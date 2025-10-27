@@ -1,0 +1,378 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #F7F5F2;
+  color: #2A3D45;
+  padding-top: 50px;
+}
+
+.containerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .containerInner {
+    padding: 2rem;
+  }
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mainTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #2A3D45;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Business Need Section */
+.businessNeedSection {
+  margin-bottom: 4rem;
+}
+
+.businessNeedContent {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #2A3D45;
+  margin-bottom: 1rem;
+}
+
+.businessNeedText {
+  color: #374151;
+  line-height: 1.75;
+}
+
+/* Ecosystem Section */
+.ecosystemSection {
+  margin-bottom: 4rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+}
+
+.sectionTitleCenter {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: #2A3D45;
+  margin-bottom: 2rem;
+}
+
+.ecosystemGrid {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .ecosystemGrid {
+    flex-direction: row;
+  }
+}
+
+.ecosystemCard {
+  text-align: center;
+  padding: 1.5rem;
+  border-radius: 0.5rem;
+  background-color: #F9FAFB;
+  width: 100%;
+}
+
+@media (min-width: 768px) {
+  .ecosystemCard {
+    width: 50%;
+  }
+}
+
+.ecosystemIcon {
+  font-size: 3.75rem;
+  margin-bottom: 1rem;
+}
+
+.ecosystemCardTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+.ecosystemCardText {
+  color: #6B7280;
+}
+
+/* Challenges Section */
+.challengesSection {
+  margin-bottom: 4rem;
+}
+
+.challengesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 80rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .challengesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Benefit Card Styles */
+.benefitCard {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px solid #EAEAEA;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.05);
+}
+
+.benefitIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.benefitTitle {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #C17C74;
+}
+
+.benefitText {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+/* Benefits Section */
+.benefitsSection {
+  margin-bottom: 4rem;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.chartSection {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+  height: 100%;
+}
+
+.chartTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #2A3D45;
+  margin-bottom: 1rem;
+}
+
+.chartSubtitle {
+  text-align: center;
+  color: #6B7280;
+  margin-bottom: 1rem;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 320px;
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .chartContainer {
+    height: 350px;
+  }
+}
+
+.benefitsContent {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .benefitsContent {
+    text-align: left;
+  }
+}
+
+.benefitsTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #2A3D45;
+  margin-bottom: 1rem;
+}
+
+.benefitsDescription {
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 1.5rem;
+}
+
+.benefitsList {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.benefitItem {
+  display: flex;
+  align-items: flex-start;
+}
+
+.checkmark {
+  color: #10B981;
+  font-size: 1.5rem;
+  margin-right: 0.75rem;
+}
+
+.benefitItemTitle {
+  font-weight: 700;
+}
+
+.benefitItemText {
+  color: #6B7280;
+}
+
+/* Features Section */
+.featuresSection {
+  margin-bottom: 4rem;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .featuresGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .featuresGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #E5E7EB;
+}
+
+.footerTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #2A3D45;
+  margin-bottom: 1rem;
+}
+
+.techStack {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  color: #6B7280;
+}
+
+@media (min-width: 768px) {
+  .techStack {
+    gap: 2rem;
+  }
+}
+
+.separator {
+  color: #D1D5DB;
+}
+
+.footerText {
+  margin-top: 2rem;
+  color: #9CA3AF;
+}
+
+/* Flow Step Styles (if needed for future enhancements) */
+.flowStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 150px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowStep:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #C17C74;
+  padding: 0 1rem;
+}
+
+@media (max-width: 767px) {
+  .flowArrow {
+    transform: rotate(90deg);
+    padding: 1.5rem 0;
+  }
+}

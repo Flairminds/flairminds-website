@@ -1,0 +1,195 @@
+.main{
+    height: 100vh;
+    /* background: url('../../assets/fmbg1.png'); */
+    background: linear-gradient(to bottom, 
+    #a2d9ff 0%,     /* light blue sky */
+    #d0ebff 30%,    /* fading blue */
+    #ffffff 50%,    /* horizon white */
+    #e9fdd3 70%,    /* soft green */
+    #dAf9a5 100%);  /* light green grass */
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: var(--primary-font);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    padding: 20px;
+    gap: 30px;
+}
+.inner_container{
+    padding-top: 70px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+.flairminds{
+    font-size: 2rem;
+    color: var(--primary);
+}
+.heading{
+    font-size: 3rem;
+    text-align: center;
+    color: var(--primary);
+    letter-spacing: 0.1rem;
+    line-height: 3rem;
+    display: inline-block;
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    transform: translateY(0);
+    animation:headingIn 1s ease-in-out forwards ;
+    padding: 5px 0px;
+}
+.heading:nth-child(2) {
+    animation-delay: 0.3s;
+  }
+.sub_heading{
+    margin-top: 30px;
+    text-align: center;
+    width: 50%;
+}
+.hero_button_container{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 1.5rem;
+    font-weight: 600;
+    border:2px solid var(--primary);
+    color: var(--primary);
+    border-radius: 1rem;
+    width: fit-content;
+    gap: 10px;
+    margin-top: 50px;
+    transition: 0.5s;
+}
+.get_in_touch{
+    background-color: transparent;
+    color: var(--primary);
+    border: none;
+    font-size: 25px;
+    transition: 0.5s;
+}
+.get_in_touch:hover{
+    cursor: pointer;
+}
+.hero_button_container:hover{
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+    border-radius: 50rem;
+    padding-left: 20px;
+    gap: 50px;
+}
+.hero_button_container:hover .get_in_touch{
+    color: white;
+}
+.down_arrow{
+    background-color: rgb(235, 235, 235);
+    border-radius: 50rem;
+    scale: 200%;
+    width: 25px;
+    aspect-ratio: 1/1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0px 5px 5px var(--primary-translucent);
+    color: var(--primary);
+    animation: downArrow 2s ease-in-out 0 infinite forwards;
+}
+.down_arrow:hover{
+    cursor: pointer;
+}
+.carousel_wrapper{
+    display: flex;
+    gap: 40px;
+    transform: translateY(1000px);
+}
+.swiper_button_next_custom{
+    background-color: #fff;
+}
+.swiper_button_prev_custom{
+    background-color: #fff;
+}
+@keyframes downArrow {
+    0%{
+        transform: translateY(20);
+    }25%{
+        transform: translateY(0);
+    }50%{
+        transform: translateY(20);
+    }75%{
+        transform: translateY(0);
+    }100%{
+        transform: translateY(20);
+    }
+}
+@keyframes headingIn {
+    0% {
+        max-height: 0;
+        opacity: 0;
+        transform: translateY(20px); /* entry from bottom */
+      }100%{
+        max-height: 100px;
+        opacity: 1;
+        transform: translateY(0);
+      }
+}
+
+@keyframes flairInOut {
+   
+    25% {
+      max-height: 100px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    75% {
+      max-height: 100px;
+      opacity: 1;
+      transform: translateY(0);
+    }
+    100% {
+      max-height: 0;
+      opacity: 0;
+      transform: translateY(-60px); /* exit upward */
+    }
+  }  
+@media screen and (max-width:1100px) {
+    .heading{
+        font-size: 1.8rem;
+        line-height: 2rem;
+    }
+    .sub_heading{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width:850px){
+    .hero_arrow{
+        width: 100px;
+    }
+    .get_in_touch{
+        font-size: 15px;
+    }
+}
+@media screen and (max-width:540px){
+    .heading{
+        font-size: 1.5rem;
+    }
+    .sub_heading{
+        font-style: 1rem;
+    }
+    .hero_button_container{
+        margin: 0;
+        padding: 0;
+        margin-top: 30px;
+        border-width: 1px;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+    .get_in_touch{
+        font-size: 1.4rem;
+        padding: 0px;
+    }
+}

@@ -1,0 +1,461 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
+
+.container {
+  font-family: 'Inter', sans-serif;
+  background-color: #f8f9fa;
+  color: #374151;
+  padding-top: 50px;
+}
+
+.containerInner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 1rem;
+}
+
+@media (min-width: 768px) {
+  .containerInner {
+    padding: 2rem;
+  }
+}
+
+/* Header Styles */
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.mainTitle {
+  font-size: 2.25rem;
+  font-weight: 800;
+  color: #073B4C;
+  margin-bottom: 0.5rem;
+}
+
+@media (min-width: 768px) {
+  .mainTitle {
+    font-size: 3rem;
+  }
+}
+
+.subtitle {
+  font-size: 1.125rem;
+  color: #6B7280;
+}
+
+@media (min-width: 768px) {
+  .subtitle {
+    font-size: 1.25rem;
+  }
+}
+
+/* Business Need Section */
+.businessNeedSection {
+  margin-bottom: 4rem;
+}
+
+.businessNeedContent {
+  max-width: 64rem;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.sectionTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #073B4C;
+  margin-bottom: 1rem;
+}
+
+.businessNeedText {
+  color: #374151;
+  line-height: 1.75;
+}
+
+/* Challenges Section */
+.challengesSection {
+  margin-bottom: 4rem;
+}
+
+.sectionTitleCenter {
+  font-size: 1.875rem;
+  font-weight: 700;
+  text-align: center;
+  color: #073B4C;
+  margin-bottom: 2rem;
+}
+
+.challengesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.5rem;
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 640px) {
+  .challengesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (min-width: 1024px) {
+  .challengesGrid {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+.challengeCard {
+  background-color: white;
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  text-align: center;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+}
+
+.challengeIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.challengeTitleBlue {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #118AB2;
+}
+
+.challengeTitleGreen {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #06D6A0;
+}
+
+.challengeTitleYellow {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #FFD166;
+}
+
+.challengeTitleRed {
+  font-weight: 700;
+  font-size: 1.125rem;
+  color: #FF6B6B;
+}
+
+.challengeText {
+  font-size: 0.875rem;
+  color: #6B7280;
+}
+
+/* Integration Section */
+.integrationSection {
+  margin-bottom: 4rem;
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  padding: 2rem;
+}
+
+.flowContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: center;
+  width: 100%;
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .flowContainer {
+    flex-direction: row;
+  }
+}
+
+.flowStepBlue {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 150px;
+  background-color: #EBF8FF;
+  color: #1E3A8A;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowStepGreen {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 150px;
+  background-color: #ECFDF5;
+  color: #14532D;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowStepYellow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 150px;
+  background-color: #FEFCE8;
+  color: #713F12;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.flowStepRed {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem 1rem;
+  border-radius: 0.75rem;
+  min-height: 150px;
+  background-color: #FEF2F2;
+  color: #7F1D1D;
+  width: 100%;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+@media (min-width: 768px) {
+  .flowStepBlue,
+  .flowStepGreen,
+  .flowStepYellow,
+  .flowStepRed {
+    width: 25%;
+  }
+}
+
+.flowStepBlue:hover,
+.flowStepGreen:hover,
+.flowStepYellow:hover,
+.flowStepRed:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.flowArrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  color: #118AB2;
+  padding: 0 1rem;
+}
+
+@media (max-width: 767px) {
+  .flowArrow {
+    transform: rotate(90deg);
+    padding: 1.5rem 0;
+  }
+}
+
+.flowIcon {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.flowTitle {
+  font-weight: 700;
+}
+
+.flowText {
+  font-size: 0.875rem;
+}
+
+/* Growth Section */
+.growthSection {
+  margin-bottom: 4rem;
+}
+
+.growthGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  align-items: center;
+}
+
+@media (min-width: 768px) {
+  .growthGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.growthContent {
+  text-align: center;
+}
+
+@media (min-width: 768px) {
+  .growthContent {
+    text-align: left;
+  }
+}
+
+.growthTitle {
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: #073B4C;
+  margin-bottom: 1rem;
+}
+
+.growthDescription {
+  color: #374151;
+  line-height: 1.75;
+  margin-bottom: 1rem;
+}
+
+.statsContainer {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+}
+
+@media (min-width: 768px) {
+  .statsContainer {
+    justify-content: flex-start;
+  }
+}
+
+.stat {
+  text-align: center;
+}
+
+.statNumber {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #118AB2;
+}
+
+.statNumberGreen {
+  font-size: 3rem;
+  font-weight: 800;
+  color: #06D6A0;
+}
+
+.statLabel {
+  font-size: 1.125rem;
+  font-weight: 500;
+  color: #6B7280;
+}
+
+.chartSection {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+}
+
+.chartTitle {
+  font-size: 1.5rem;
+  font-weight: 700;
+  text-align: center;
+  color: #073B4C;
+  margin-bottom: 1rem;
+}
+
+.chartSubtitle {
+  text-align: center;
+  color: #6B7280;
+  margin-bottom: 1rem;
+}
+
+.chartContainer {
+  position: relative;
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 320px;
+  max-height: 400px;
+}
+
+@media (min-width: 768px) {
+  .chartContainer {
+    height: 350px;
+  }
+}
+
+/* Benefits Section */
+.benefitsSection {
+  margin-bottom: 4rem;
+}
+
+.benefitsGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  max-width: 96rem;
+  margin: 0 auto;
+}
+
+@media (min-width: 768px) {
+  .benefitsGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.benefitCard {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+  padding: 1.5rem;
+}
+
+.benefitTitleBlue {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #118AB2;
+  margin-bottom: 0.75rem;
+}
+
+.benefitTitleGreen {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #06D6A0;
+  margin-bottom: 0.75rem;
+}
+
+.benefitList {
+  list-style-type: disc;
+  list-style-position: inside;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  color: #374151;
+}
+
+.benefitBold {
+  font-weight: 600;
+}
+
+/* Footer Styles */
+.footer {
+  text-align: center;
+  padding-top: 2rem;
+  border-top: 1px solid #D1D5DB;
+}
+
+.footerText {
+  color: #6B7280;
+}
+
+.footerSubtext {
+  font-size: 0.875rem;
+  color: #9CA3AF;
+  margin-top: 0.5rem;
+}

@@ -1,0 +1,88 @@
+import logo from "../../assets/flairminds-logo.png";
+import navbarStyles from "./Navbar.module.css";
+import React,{ useEffect, useState, useCallback } from "react";
+import { RxHamburgerMenu } from "react-icons/rx";
+import { RxCross2 } from "react-icons/rx";
+import { useNavigate, useLocation } from "react-router-dom";
+
+const Navbar = React.memo(({ scrolled }) => {
+  const location = useLocation();
+  const [activeNavbar, setActiveNavbar] = useState(false);
+  const [user, setUser] = useState(false);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setUser(document.cookie.includes("auth=true"));
+  }, []);
+
+  const navLinks = [
+    {
+      name: "Case Study",
+      activePath: "/case-study"
+    },
+    {
+      name: "Contact",
+      activePath: "/contact",
+    }
+  ];
+
+  const handleNavLinkClick = useCallback((path) => {
+    setActiveNavbar(false);
+    navigate(path);
+  }, [navigate]);
+
+  return (
+    <div
+      className={`${navbarStyles.navbar} ${
+        scrolled ? navbarStyles.scrolled_navbar : ""
+      }`}
+    >
+      <div className={`${navbarStyles.logo}`}>
+        <a href="https://flairminds.com/">
+          <img
+            src={logo}
+            alt="logo"
+            className={`${navbarStyles.nav_logo}`}
+          />
+        </a>
+      </div>
+      <RxHamburgerMenu
+        className={navbarStyles.hamburger}
+        onClick={() => setActiveNavbar(true)}
+      />
+      <ul
+        className={`${
+          activeNavbar ? navbarStyles.nav_list_active : navbarStyles.nav_list
+        }`}
+      >
+        <RxCross2
+          className={navbarStyles.close}
+          onClick={() => setActiveNavbar(false)}
+        />
+        {navLinks?.map((link, index) => (
+          <li
+            key={index}
+            className={`${
+              location.pathname.startsWith(link.activePath) ? navbarStyles.active : ""
+            }`}
+            onClick={() => handleNavLinkClick(link?.activePath)}
+          >
+            {link.name}
+          </li>
+        ))}
+        {user && (
+          <li
+            className={`${
+              location.pathname.startsWith("/dashboard") ? navbarStyles.active : ""
+            }`}
+            onClick={() => handleNavLinkClick("/dashboard")}
+          >
+            Dashboard
+          </li>
+        )}
+      </ul>
+    </div>
+  );
+});
+
+export default Navbar;
