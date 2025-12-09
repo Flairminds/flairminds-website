@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Financial Analyzer Project Documentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom styles for code blocks (only used for setup commands now) */
+        .code-block-container {
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+        }
+        .code-block-header {
+            background-color: #374151; /* gray-700 */
+            color: #d1d5db; /* gray-300 */
+            padding: 0.5rem 1rem;
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+            font-size: 0.875rem; /* text-sm */
+            font-weight: 600; /* semi-bold */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .code-block-content {
+            background-color: #1f2937; /* gray-800 */
+            padding: 1rem;
+            border-bottom-left-radius: 0.5rem;
+            border-bottom-right-radius: 0.5rem;
+        }
+        .code-block-content pre {
+            margin: 0;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+            font-size: 0.875rem; /* text-sm */
+            line-height: 1.5;
+            color: #d1fae5; /* green-100 */
+        }
+        .diagram-placeholder {
+            min-height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #f3f4f6;
+            border: 2px dashed #d1d5db;
+            color: #6b7280;
+            font-style: italic;
+            border-radius: 0.5rem;
+            margin-top: 1rem;
+            margin-bottom: 1rem;
+            padding: 1rem; /* Added padding to the placeholder */
+            min-height: 0; /* Adjusted min-height for text */
+            text-align: center;
+            line-height: 1.5;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 min-h-screen p-4 sm:p-8 font-sans">
+
+    <div class="max-w-5xl mx-auto bg-white shadow-xl rounded-xl p-6 sm:p-10">
+
+        <!-- Title --><h1 class="text-4xl sm:text-5xl font-extrabold text-gray-900 mb-6 border-b-4 border-indigo-600 pb-3">
+            Financial Analyzer: From PDFs to Interactive Insights
+        </h1>
+        <p class="text-lg text-gray-700 mb-8">
+            Turn messy financial PDFs into analyzable, interactive insights. Upload a PDF, extract structured metrics via <strong>LLM Model</strong>, visualize trends, preview the exact PDF page for each data point, and ask contextual questions with a RAG-backed chat.
+        </p>
+        <p class="text-lg text-indigo-600 mb-8 underline">
+            <a href="https://pepper.azurewebsites.net/" target="_blank">Try Out the Financial Analyzer</a>
+        </p>
+
+        <p class="text-gray-600 mb-8">
+            This document provides an overview of the Financial Analyzer's architecture, key features, and implementation highlights, focusing on the <em>what</em> and <em>why</em> rather than the low-level code.
+        </p>
+
+        <hr class="my-10 border-gray-300">
+
+        <!-- What problem does Financial Analyzer solve? --><h2 class="text-3xl font-bold text-gray-800 mb-4">The Challenge: Context and Consistency</h2>
+        <p class="text-gray-700 mb-6">Financial analysts spend countless hours manually extracting performance metrics from varying PDF report formats. This process is slow, prone to errors, and makes historical trend analysis cumbersome. Furthermore, when questions arise, analysts must manually search the source document for context.</p>
+
+        <h3 class="text-2xl font-semibold text-gray-700 mt-6 mb-3">The Financial Analyzer Solution:</h3>
+        <ul class="list-disc list-inside space-y-3 mb-8 ml-5 text-gray-700">
+            <li><strong>Structured Extraction:</strong> It uses <strong>LLM Model</strong> with a strict prompt contract to pull specific, canonical metrics (like "Total Net Sales") from any uploaded PDF into a clean, unified data format.</li>
+            <li><strong>Traceable Visualization:</strong> It charts the extracted time-series data and provides the ability to <strong>instantly jump to the original page</strong> in the PDF for verification.</li>
+            <li><strong>Contextual Q&amp;A (RAG):</strong> It indexes the entire document library using <strong>FAISS</strong> to enable a chatbot that answers questions based <em>only</em> on the uploaded documents.</li>
+        </ul>
+        
+        <!-- START: Diagram Note 1 -->
+         <div class="w-full mx-auto my-8 p-4 bg-white border border-gray-200 rounded-xl shadow-lg">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Data Processing and Visualization Workflow</h3>
+            <div class="diagram-placeholder text-sm p-4 text-gray-800">
+            </div>
+        </div>
+        <!-- END: Diagram Note 1 --><hr class="my-10 border-gray-300">
+
+        <!-- Architecture and key design choices --><h2 class="text-3xl font-bold text-gray-800 mb-4">Architecture and Key Design Choices</h2>
+        <p class="text-gray-700 mb-6">The application is built as a single-page <strong>Streamlit</strong> application in Python, designed for rapid prototyping and interactive data display. The key architectural decision was to create two concurrent processing paths upon document upload: one for structured data extraction and one for contextual indexing.</p>
+        <ul class="list-disc list-inside space-y-3 mb-8 ml-5 text-gray-700">
+            <li><strong>Single-Page Orchestration:</strong> Streamlit manages the entire lifecycle, from file upload and processing status to visualization and the interactive chat window.</li>
+            <li><strong>Dual-Path Processing:</strong> Every uploaded document is immediately fed into both the <strong>LLM Model extraction pipeline</strong> (for structured data) and the <strong>FAISS indexing pipeline</strong> (for RAG context).</li>
+            <li><strong>Interactive UI:</strong> Uses Plotly for rich line charts and `st-aggrid` for customizable data tables, ensuring the UI is highly reactive to user input.</li>
+        </ul>
+
+        <!-- START: Diagram Note 2 --><div class="w-full mx-auto my-8 p-4 bg-white border border-gray-200 rounded-xl shadow-lg">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">Core Application Architecture: Dual-Path Processing</h3>
+            <div class="diagram-placeholder text-sm p-4 text-gray-800">
+                Architecture: Streamlit orchestrates the single-page app, triggering concurrent paths for **LLM Model structured extraction** and **FAISS contextual indexing** upon file upload.
+            </div>
+        </div>
+        <!-- END: Diagram Note 2 -->
+
+        <hr class="my-10 border-gray-300">
+
+        <!-- Implementation Highlights --><h2 class="text-3xl font-bold text-gray-800 mb-4">Core Implementation Highlights</h2>
+
+        <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3">1. Guaranteed Data Quality via Strict Prompting</h3>
+        <p class="text-gray-700">
+            We use <strong>LLM Model's structured output capability</strong> to enforce a <em>canonical JSON schema</em> for all extracted metrics. This means we are not just asking the LLM to find numbers; we are demanding they be returned with standardized metric names and normalized month formats. This tight <strong>prompt contract</strong> drastically reduces the need for complex, fragile post-processing and ensures the time-series charts are built on reliable, consistent data.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3">2. Full Traceability (Data to Source)</h3>
+        <p class="text-gray-700">
+            A critical feature for analysts is the ability to <strong>audit the source</strong> of any number. The data grid is linked to a <strong>built-in PDF viewer</strong>. When an analyst selects a metric row in the table, the PDF viewer automatically jumps to the <strong>exact page</strong> from which that data point was extracted. This linkage ensures high trust and quick verification of the LLM's output.
+        </p>
+
+        <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3">3. Scalable Context with Incremental RAG Indexing</h3>
+        <p class="text-gray-700">
+            The Retreival-Augmented Generation (RAG) chat uses <strong>FAISS</strong> to store vectorized representations of the uploaded documents. To handle a growing library of documents efficiently, the system is designed to <strong>incrementally merge new documents</strong> into the existing FAISS index rather than rebuilding the entire index every time a new file is added. This ensures the chat feature remains fast and ready for grounded Q&amp;A, even with many gigabytes of data.
+        </p>
+        
+        <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3">4. Robust Data Persistence and Deduplication</h3>
+        <p class="text-gray-700">
+            For prototyping and a single-user environment, all extracted metrics are stored in a simple, readable <strong>CSV file</strong> (`financial_data.csv`). To maintain data integrity, the system implements a strict <strong>deduplication logic</strong> that prevents metric rows from being duplicated if the same document is uploaded or processed multiple times. This keeps the data history clean and the trend analyses accurate.
+        </p>
+
+        <!-- START: Diagram Note 3 --><div class="w-full mx-auto my-8 p-4 bg-white border border-gray-200 rounded-xl shadow-lg">
+            <h3 class="text-lg font-bold text-gray-800 mb-4 text-center">RAG Chat Workflow: From Query to Grounded Response</h3>
+            <div class="diagram-placeholder text-sm p-4 text-gray-800">
+                RAG Workflow: A user query triggers a similarity search in FAISS to retrieve relevant context, which is then passed to the LLM (via LangChain) to generate a grounded response.
+            </div>
+        </div>
+        <!-- END: Diagram Note 3 --><hr class="my-10 border-gray-300">
+
+        <!-- Performance, scalability, and usability considerations --><h2 class="text-3xl font-bold text-gray-800 mb-4">Performance and Usability Trade-offs</h2>
+        <ul class="list-disc list-inside space-y-3 mb-8 ml-5 text-gray-700">
+            <li><strong>Indexing vs. Quality:</strong> We chose a <strong>chunk size of 1000</strong> for RAG indexing to balance retrieval quality (giving the LLM enough context) against index size and search speed.</li>
+            <li><strong>Latency Management:</strong> Since <strong>LLM Model extraction is an API call per document</strong>, which can introduce latency, the application uses visual spinners and status messages to inform the user that processing is underway, improving perceived responsiveness.</li>
+            <li><strong>Storage Simplicity vs. Scale:</strong> The reliance on local FAISS and CSV files works perfectly for a rapid prototype or single analyst, but moving to a proper <strong>database (e.g., Postgres)</strong> and a distributed vector store would be required for enterprise-level, multi-user deployment.</li>
+        </ul>
+
+        <hr class="my-10 border-gray-300">
+
+        <!-- Setup and running the app (Kept concise and technical) --><h2 class="text-3xl font-bold text-gray-800 mb-4">Running the Application</h2>
+        <h3 class="text-xl font-semibold text-gray-700 mt-6 mb-3">Usage:</h3>
+        <ul class="list-disc list-inside space-y-3 mb-8 ml-5 text-gray-700">
+            <li>Upload a financial PDF in the left panel.</li>
+            <li>Wait for the "Analysis complete" and "Data Stored in database" messages.</li>
+            <li>Explore the line chart and per-metric tables.</li>
+            <li>Click a table row to preview the exact PDF page.</li>
+            <li>Open the "Ask Me" popover to chat with the document.</li>
+        </ul>
+        
+
+        <hr class="my-10 border-gray-300">
+
+        <!-- Future improvements and extensions (UPDATED) --><h2 class="text-3xl font-bold text-gray-800 mb-4">Future Vision and Scalability</h2>
+        <ul class="list-disc list-inside space-y-3 mb-8 ml-5 text-gray-700">
+            
+            <li><strong>Secure API/Model Access (Closed Environment):</strong> To meet strict financial compliance standards, future iterations must route all <strong>LLM Model extraction and RAG calls</strong> through a secure, internal API gateway. This prevents sensitive financial data from being transmitted to external endpoints, effectively running the model in a "closed environment" or VPC (Virtual Private Cloud).</li>
+            
+            <li><strong>Role-Based Access Control (RBAC):</strong> The current 'Access Control' will be formalized into <strong>Role-Based Access Control (RBAC)</strong>. This implementation will grant explicit permissions based on user roles (e.g., Analyst, Admin, Auditor), governing document visibility, upload/deletion rights, and chat history access.</li>
+            
+            <li><strong>Managed Document Repositories:</strong> Replace simple file upload with integrations to <strong>secure, managed document repositories</strong> (like SharePoint, Amazon S3, or internal file servers). This provides version control, audit trails, and automated ingestion pipelines for new financial filings.</li>
+
+            <li><strong>Full Database Migration:</strong> Moving away from CSV/FAISS to a secure, relational database backend (like Postgres) with a dedicated vector store to support thousands of documents and concurrent users.</li>
+
+            <li><strong>API Service Layer Decoupling:</strong> Introduce a stateless <strong>API service layer</strong> (e.g., built with FastAPI) between the Streamlit UI and the core processing logic. This decouples the application, enabling independent scaling of the UI, extraction, and RAG services.</li>
+            
+            <li><strong>Multi-Document Analytics:</strong> Implementing tools to compare metrics across different companies or files, enabling sophisticated cohort analysis and benchmarking.</li>
+            <li><strong>Robust Error Handling:</strong> Introducing server-side schema validation on LLM output and automated retry logic to make the extraction process virtually failure-proof.</li>
+            <li><strong>Batch Processing:</strong> Integrating background workers (e.g., Celery) to handle large queues of document uploads asynchronously, ensuring the UI remains fast and responsive.</li>
+            <li><strong>Observability:</strong> Integrating structured logging, metrics (LLM latency, token usage), and error tracing for better monitoring and debugging in production.</li>
+        </ul>
+        <div class="diagram-placeholder text-sm p-4">
+            Placeholder for Diagram: "Future state architecture: Streamlit UI $\leftrightarrow$ API service $\leftrightarrow$ DB + Vector store; background workers for extraction/indexing"
+        </div>
+
+        <hr class="my-10 border-gray-300">
+
+        <!-- Closing thoughts --><h2 class="text-3xl font-bold text-gray-800 mb-4">Closing Thoughts</h2>
+        <p class="text-gray-700 mb-6">
+            Financial Analyzer demonstrates the immediate, practical value of combining a powerful large language model like <strong>LLM Model</strong> with structured data engineering and modern search (RAG). By prioritizing <strong>traceability, consistency, and a strong user experience</strong>, the application transforms a tedious manual task into a fast, auditable, and intelligent workflow.
+        </p>
+
+        <p class="text-lg text-indigo-600 mb-8 underline">
+            <a href="https://pepper.azurewebsites.net/" target="_blank">Try Out the Financial Analyzer</a>
+        </p>
+
+        <p class="text-l font-bold text-indigo-600">
+            Share your thoughts!
+        </p>
+
+    </div>
+</body>
+</html>

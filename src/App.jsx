@@ -26,6 +26,8 @@ import CloudOptimization from './pages/cloudOptimization/CloudOptimization'
 import QuantFinance from './pages/quantFinance/QuantFinance'
 import ESignPlatform from './pages/eSignPlatform/ESignPlatform'
 import FableFintech from './pages/fableFintech/FableFintech'
+import Blogs from './pages/blogs/Blogs'
+import { BlogsLayout } from './blogs/BlogsLayout'
 // ✅ Corrected Component for Tracking Page Views
 // const TrackPage = () => {
 //   const location = useLocation(); // ✅ Uses useLocation() to dynamically track route changes
@@ -47,7 +49,7 @@ function App() {
     // Simulate content loading
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 2000); // 2 seconds loading for demo
+    }, 1000); // 2 seconds loading for demo
 
     return () => clearTimeout(timer);
   }, []);
@@ -70,6 +72,8 @@ function App() {
         <Route exact path='/case-study/quant_finance' element={<QuantFinance/>}/>
         <Route exact path='/case-study/e_sign_platform' element={<ESignPlatform/>}/>
         <Route exact path='/case-study/fable_fintech' element={<FableFintech/>}/>
+        <Route exact path='/blogs' element={<Blogs/>}/>
+        <Route exact path='/blogs/*' element={<BlogsLayout/>}/>
       </Route>
       <Route exact path='dashboard' element={<DashboardWrapper />}>
         <Route index element={<Protected allowedRoles={['all']}><Dashboard/></Protected>}/>

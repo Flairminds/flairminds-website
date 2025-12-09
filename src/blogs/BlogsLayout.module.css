@@ -1,0 +1,15 @@
+.backButton {
+  align-self: flex-start;
+  background: none;
+  border: 1px solid #6e8efb;
+  color: #6e8efb;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}

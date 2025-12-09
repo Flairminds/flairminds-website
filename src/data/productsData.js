@@ -9,10 +9,32 @@ import iksula from '../assets/productMatching.png'
 import scrapManagement from '../assets/scrapManagement.png'
 import legalai from '../assets/legalai.png'
 import aiagent from '../assets/aiagent.png'
+import n8nCiCd from '../assets/product-displays/n8n-cicd.png'
 // import legalai from '../assets/Legal AI solution.mp4'
 export const products=[
-    {
+	{
       id:1,
+      linkDisplay: "n8n_ci_cd",
+      name: "Agentic AI + CI/CD using n8n",
+      image: n8nCiCd,
+      detailsParagraphs:["Your AI-powered automated solution for code reviews and security reviews"],
+      subHeading:"Key Features of the Platform:",
+      list:["Closed environment access to ensure data security",
+        "Tailored workflows for project specific requirements and enriched context",
+        "Get suggestions on fixing issues directly on PRs",
+      ],
+      highlight:["Closed environment","Tailored workflows","suggestions","BFSI Portfolio Managers","Find Critical Data 10x Faster."],
+	  tags: ["DevOps", "Tech Managers", "Code Review"],
+	  techTags: ["n8n", "CI/CD"],
+      upcomingFeatures:[],
+      buttonText:"Try Now",
+      projectLink: "https://n8n.flairminds.com/workflow/TTS3rskm8Stfhtn1",
+      status: "released",
+      tagline: "Find any file, clause, or contract instantly—AI-driven search built for compliance and speed",
+      cta:"",
+    },
+    {
+      id:2,
       linkDisplay:"document_search",
       name:"Document Search Platform",
       image:documentSearchImage,
@@ -24,6 +46,8 @@ export const products=[
         "Built for Auditors: Compliance-ready storage & search, so you’re always prepared.",
       ],
       highlight:["Zero Waiting","Elasticsearch on Steroids","Built for Auditors","BFSI Portfolio Managers","Find Critical Data 10x Faster."],
+	  tags: ["BFSI", "Portfolio Managers", "Auditors"],
+	  techTags: ["Elasticsearch"],
       upcomingFeatures:[],
       buttonText:"Try Now",
       projectLink:"http://dev-docsearch.centralindia.azurecontainer.io",
@@ -44,7 +68,7 @@ export const products=[
       subHeading:"Key Features of the Platform:",
       upcomingFeatures:[],
       list:[
-        " FM Doc Summarizer: Get boardroom-ready insights from lengthy reports in seconds.",
+        "FM Doc Summarizer: Get boardroom-ready insights from lengthy reports in seconds.",
         "TeleConnect Companion: Resolve customer queries instantly (no human needed).",
         "Jargon-Smart AI: Answers in plain English or industry-specific terms.",
         "Each chatbot is uniquely optimized for accuracy, these chatbots are perfect for professionals, researchers, and everyday users."
@@ -115,7 +139,7 @@ export const products=[
       buttonText:"Try Now",
       status:"released",
       tagline:"From logs to insights—visualize, monitor, and predict app performance with Grafana-driven intelligence.",
-      cta:"",
+      cta:"Predict app performance with Grafana-driven intelligence",
     },
     {              
       id:5,      

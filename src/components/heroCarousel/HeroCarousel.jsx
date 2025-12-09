@@ -18,7 +18,7 @@ const HeroCarousel = ({product,customClass}) => {
     <div 
     className={heroCarouselStyles[customClass]}>
         <h3>{product?.name}</h3>
-        <p className={heroCarouselStyles.tagline}>{product.tagline}</p>
+        <p className={heroCarouselStyles.tagline}>{product.cta}</p>
     </div>
     // <motion.div 
     // custom={product.id}

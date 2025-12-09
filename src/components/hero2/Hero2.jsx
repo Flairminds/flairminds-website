@@ -8,6 +8,9 @@ import { products } from '../../data/productsData';
 import HeroCarousel from '../heroCarousel/HeroCarousel';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import {motion} from 'motion/react'
+import n8n1 from '../../assets/homepage-assets/n8n-1.png'
+import langchain from '../../assets/homepage-assets/langchain.png'
+import rag from '../../assets/homepage-assets/rag.png'
 
 // Import Swiper styles
 import 'swiper/css';
@@ -22,17 +25,31 @@ import { Pagination, Navigation, Autoplay } from 'swiper/modules';
 
 
 const Hero2 = () => {
-  const [screenWidth,setScreenWidth]=useState();
-  const[scrollToId,setScrollToId]=useState();
-  const [activeIndex,setActiveIndex]=useState();
-  useEffect(()=>{
-    setScreenWidth(window.screen.width)
-  },[])
-  const [swiperRef, setSwiperRef] = useState(null);
-  const navigate=useNavigate()
-  useEffect(()=>{
-    scrollDown(scrollToId)
-  },[scrollToId])
+	const [screenWidth,setScreenWidth]=useState();
+	const[scrollToId,setScrollToId]=useState();
+	const [activeIndex,setActiveIndex]=useState();
+	
+	useEffect(()=>{
+		setScreenWidth(window.screen.width)
+	},[])
+	
+	const [swiperRef, setSwiperRef] = useState(null);
+	const navigate=useNavigate()
+	
+	useEffect(()=>{
+		scrollDown(scrollToId)
+	},[scrollToId])
+
+	const carauselImages = [{
+		id: 1,
+		image: n8n1
+	},{
+		id: 2,
+		image: langchain
+	}, {
+		id: 3,
+		image: rag
+	}]
 
   const scrollDown = (id) => {
     if (id !== undefined) {
@@ -59,56 +76,74 @@ const Hero2 = () => {
   return (
     <div className={hero2Styles.main}>
         <div className={hero2Styles.inner_container}>
-          {/* <h3 className={hero2Styles.flairminds}>FLAIRMINDS</h3> */} 
-          <h2 className={hero2Styles.heading}>AI That Works Like Your Best Analyst</h2>
-          <h2 className={hero2Styles.heading}>Faster, Smarter, and Built for Your Industry</h2>
-          <motion.p   className={hero2Styles.sub_heading}
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ duration: 1, delay: 0.6 }}>Portfolio Managers, Enterprise Leaders & Regulated Sectors: Ditch Manual Work. Get AI-Powered Precision for Documents, Data & Decisions.</motion.p>
-          <motion.div
-            className={hero2Styles.hero_button_container}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 1, delay: 1 }}
-          >
-            <button className={hero2Styles.get_in_touch} onClick={()=>navigate('/contact')}>Get in Touch</button>
-            <FaArrowRight />
-          </motion.div>
-        </div>  
-        {/* <div className={hero2Styles.down_arrow}>
-          <MdKeyboardArrowDown />
-        </div> */}
-        <Swiper
-        onSwiper={setSwiperRef}
-        breakpoints={{
-          0: { slidesPerView: 1.75 },
-          640: { slidesPerView: 2.5 },
-          900: { slidesPerView: 3.5 },
-          1220: { slidesPerView: 4.5 },
-        }}
-        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
-        centeredSlides={true}
-        // navigation={    
-        //   {
-        //     nextEl: `.${hero2Styles.swiper_button_next_custom}`,
-        //     prevEl: `.${hero2Styles.swiper_button_prev_custom}`
-        //   }}
-        // navigation={true}
-        modules={[Autoplay,Navigation]}
-        speed={4000}
-        loop={true}
-        autoplay={{
-          delay: 0, // 3 seconds
-          disableOnInteraction: false,
-        }}
-        style={{width:'100%',paddingBottom:'15px',height:"350px" , boxSizing:'border-box'}}
-      >
-        {products.map((product,index)=> <SwiperSlide key={product.id} onClick={()=>setScrollToId(product.id)}><HeroCarousel product={product} customClass={activeIndex===index?"main":"main1"}/></SwiperSlide>)}
-      </Swiper>
-        {/* <div className={hero2Styles.carousel_wrapper}>
-          {products.map(()=><HeroCarousel/>)}
-        </div> */}
+			<h2 className={hero2Styles.heading}>AI That Works Like Your Best Analyst</h2>
+			<h2 className={hero2Styles.heading}>Faster, Smarter, and Built for Your Industry</h2>
+			<motion.p   className={hero2Styles.sub_heading}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 1, delay: 0.6 }}>Portfolio Managers, Enterprise Leaders & Regulated Sectors: Ditch Manual Work. Get AI-Powered Precision for Documents, Data & Decisions.
+			</motion.p>
+			<motion.div
+				className={hero2Styles.hero_button_container}
+				initial={{ opacity: 0 }}
+				animate={{ opacity: 1 }}
+				transition={{ duration: 1, delay: 1 }}
+			>
+				<button className={hero2Styles.get_in_touch} onClick={()=>navigate('/contact')}>Get in Touch</button>
+				<FaArrowRight />
+			</motion.div>
+        </div>
+		<div className={hero2Styles.slideshow}>
+			<Swiper
+				modules={[Autoplay, Navigation, Pagination]}
+				slidesPerView={1}
+				loop={true}
+				navigation={true}
+				pagination={{ clickable: true }}
+				autoplay={{ delay: 3000, disableOnInteraction: false }}
+				speed={800}
+				style={{ width: '100%', height: '100%' }}
+			>
+				{carauselImages.map((product) => (
+					<SwiperSlide key={product.id}>
+						<img src={product.image} alt={product.name} className={hero2Styles.slide_img} />
+					</SwiperSlide>
+				))}
+			</Swiper>
+		</div>
+		{/* <div className={hero2Styles.slideshow}>
+			<Swiper
+				onSwiper={setSwiperRef}
+				breakpoints={{
+					0: { slidesPerView: 1.75 },
+					640: { slidesPerView: 2.5 },
+					900: { slidesPerView: 3.5 },
+					1220: { slidesPerView: 4.5 },
+				}}
+				onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+				centeredSlides={true}
+				// navigation={    
+				//   {
+				//     nextEl: `.${hero2Styles.swiper_button_next_custom}`,
+				//     prevEl: `.${hero2Styles.swiper_button_prev_custom}`
+				//   }}
+				// navigation={true}
+				modules={[Autoplay,Navigation]}
+				speed={4000}
+				loop={true}
+				autoplay={{
+				delay: 0, // 3 seconds
+				disableOnInteraction: false,
+				}}
+				style={{width:'100%'}}
+			>
+				{products.map((product,index) => {
+					return <SwiperSlide key={product.id} onClick={()=>setScrollToId(product.id)}>
+						<HeroCarousel product={product} customClass={activeIndex===index?"main":"main1"}/>
+					</SwiperSlide>
+				})}
+			</Swiper>
+		</div> */}
     </div>
   )
 }

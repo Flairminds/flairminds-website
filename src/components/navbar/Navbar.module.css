@@ -1,27 +1,21 @@
 .navbar{
     box-sizing: border-box;
-    position: relative;
     background-color: transparent;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    position: fixed;
+    position: sticky;
     top: 0;
     right: 0;
-    /* background-color: white; */
     z-index: 99;
     font-family: var(--primary-font);
     transition: 0.3s;
     width: 100%;
+    padding: 0.25rem 1rem;
+    background-color: #a2d9ff;
 }
 .scrolled_navbar{
     box-shadow: 0px 0px 10px var(--primary);
-    border-bottom-left-radius: 15px;
-    border-bottom-right-radius: 15px;
     transition: 0.3s;
     background-color: #fff;
 }
@@ -45,7 +39,7 @@
     transition: 0.3s;
 }
 .nav_list li{
-    padding: 10px;
+    padding: 5px;
     box-sizing: border-box;
     transition: 0.3s;
     
@@ -83,7 +77,7 @@ a{
         width: 100%;
     }
     .nav_list_active li{
-        padding: 10px;
+        padding: 5px;
         box-sizing: border-box;
     }
     .navbar{

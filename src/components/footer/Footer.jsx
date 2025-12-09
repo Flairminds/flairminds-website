@@ -77,7 +77,7 @@ const Footer = () => {
         </div>
         <div className={footerStyles.footer_bottom}>
             <img src={shortLogo} alt="logo" className={footerStyles.footer_logo}/>
-            <p className={footerStyles.copyright_text}>Copyright © 2024 FlairMinds. All rights reserved.</p>
+            <p className={footerStyles.copyright_text}>Copyright © 2025 FlairMinds. All rights reserved.</p>
         </div>
     </div>
   )

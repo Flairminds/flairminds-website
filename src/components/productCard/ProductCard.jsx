@@ -50,11 +50,11 @@ const ProductCard = React.memo(({ prop }) => {
   };
 
 
-  return (
-    <div className={productCardStyles.product_card} id={prop.id}>
-      <div className={productCardStyles.product_card_innner_container}>
-        <div className={productCardStyles.image_container}>
-          <div className={productCardStyles.product_card_image}>
+	return (
+		<div className={productCardStyles.product_card} id={prop.id}>
+		<div className={productCardStyles.product_card_innner_container}>
+			<div className={productCardStyles.image_container}>
+			<div className={productCardStyles.product_card_image}>
             {/* <Carousel className={productCardStyles.carousel} autoplay={{ dotDuration: true }} autoplaySpeed={2000}>
               <div>
                 <img src={prop?.image} alt="" style={{width:"100%",height:"100%"}} />
@@ -69,48 +69,62 @@ const ProductCard = React.memo(({ prop }) => {
                 <img src={prop?.image} alt="" style={{width:"100%",height:"100%"}} />
               </div>
             </Carousel> */}
-            {prop.image.endsWith('mp4')?<video src={`${prop.image}`} loop muted style={{width:'100%'}} autoPlay/>:<img src={prop?.image} alt="" style={{ width: "100%", height: "100%" }} />}
-          </div>
-        </div>
-        <motion.div 
-          className={productCardStyles.details_container}
-          variants={containerVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-      <motion.h1 variants={itemVariants}>
-        {prop?.name.toUpperCase()}
-      </motion.h1>
+				{prop.image.endsWith('mp4')?<video src={`${prop.image}`} loop muted style={{width:'100%'}} autoPlay/>:<img src={prop?.image} alt="" style={{ width: "100%", height: "100%" }} />}
+			</div>
+			</div>
+			<motion.div
+				className={productCardStyles.details_container}
+				variants={containerVariants}
+				initial="hidden"
+				whileInView="visible"
+				viewport={{ once: true, amount: 0.3 }}
+			>
+			<motion.h1 variants={itemVariants}>
+				{prop?.name.toUpperCase()}
+			</motion.h1>
+			
+			<motion.div>
+				{prop.tags?.map((tag, i) => (
+					<motion.div variants={itemVariants} key={i} style={{marginRight:"5px", display:"inline-block", backgroundColor:"#dae2ffff", padding:"5px 10px", borderRadius:"5px"}}>
+						{tag}
+					</motion.div>
+				))}
+				{prop.techTags?.map((tag, i) => (
+					<motion.div variants={itemVariants} key={i} style={{marginRight:"5px", display:"inline-block", backgroundColor:"#ecececff", padding:"5px 10px", borderRadius:"5px"}}>
+						{tag}
+					</motion.div>
+				))}
+			</motion.div>
 
-      {prop?.detailsParagraphs?.map((paragraph, i) => (
-        <motion.p variants={itemVariants} key={i}>
-          {/* {paragraph} */}
-          {highlightPhrases(paragraph, prop?.highlight)}
-        </motion.p>
-      ))}
+			<motion.div style={{fontSize: '17px', lineHeight: '1.5', margin: '0 0.2rem'}}>
+				{prop?.detailsParagraphs?.map((paragraph, i) => (
+					<motion.p variants={itemVariants} key={i}>
+					{/* {paragraph} */}
+					{highlightPhrases(paragraph, prop?.highlight)}
+					</motion.p>
+				))}
 
-      {prop?.subheading}
-      <motion.h4 variants={itemVariants}>
-        {prop.subHeading}
-      </motion.h4>
+				{/* <motion.h4 variants={itemVariants}>
+					{prop.subHeading}
+				</motion.h4> */}
 
-      <motion.ul
-        className={productCardStyles.bullets}
-        variants={containerVariants}
-      >
-        {prop?.list?.map((element, i) => (
-          <motion.li
-            // style={{ fontWeight: '600' }}
-            key={i}
-            variants={itemVariants}
-          >
-            {/* {element} */}
-            {highlightPhrases(element, prop?.highlight)}
-          </motion.li>
-        ))}
-      </motion.ul>
-      <motion.p variants={itemVariants}>{highlightPhrases(prop?.cta, prop?.highlight)}</motion.p>
+				<motion.ul
+					className={productCardStyles.bullets}
+					variants={containerVariants}
+				>
+					{prop?.list?.map((element, i) => (
+					<motion.li
+						// style={{ fontWeight: '600' }}
+						key={i}
+						variants={itemVariants}
+					>
+						{/* {element} */}
+						{highlightPhrases(element, prop?.highlight)}
+					</motion.li>
+					))}
+				</motion.ul>
+				<motion.p variants={itemVariants}>{highlightPhrases(prop?.cta, prop?.highlight)}</motion.p>
+			</motion.div>
       <motion.div className={productCardStyles.options} variants={itemVariants}>
         {prop.buttonText && (
           <div className={productCardStyles.button_container}>

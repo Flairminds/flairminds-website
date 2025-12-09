@@ -15,14 +15,18 @@ const Navbar = React.memo(({ scrolled }) => {
     setUser(document.cookie.includes("auth=true"));
   }, []);
 
-  const navLinks = [
-    {
-      name: "Case Study",
-      activePath: "/case-study"
-    },
-    {
-      name: "Contact",
-      activePath: "/contact",
+  const navLinks = [{
+    name: "Store",
+    activePath: "/"
+  }, {
+        name: "Blogs",
+        activePath: "/blogs"
+    }, {
+        name: "Case Study",
+        activePath: "/case-study"
+    }, {
+        name: "Contact",
+        activePath: "/contact",
     }
   ];
 
@@ -62,9 +66,6 @@ const Navbar = React.memo(({ scrolled }) => {
         {navLinks?.map((link, index) => (
           <li
             key={index}
-            className={`${
-              location.pathname.startsWith(link.activePath) ? navbarStyles.active : ""
-            }`}
             onClick={() => handleNavLinkClick(link?.activePath)}
           >
             {link.name}

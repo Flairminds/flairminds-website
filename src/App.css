@@ -8,6 +8,7 @@
 body{
   /* overflow-x: hidden; */
   /* background-color: #acb2b6; */
+  font-family: var(--primary-font);
 }
 :root{
   --white-text:white;
