@@ -55,6 +55,14 @@ const caseStudiesData = [
         altText: "fable_fintech",
         link: "fable_fintech"
     },
+    {
+        id: 7,
+        title: "Vendor Risk Assessment System",
+        description: "Our Vendor Risk Assessment System was built to solve a major challenge in modern banking: fast, accurate, and data-driven evaluation of third-party vendors and tenants. The platform enables banks to assess financial stability, operational capability, and overall vendor risk instantly—reducing underwriting time and strengthening portfolio-level risk visibility.",
+        imageUrl: aiagent,
+        altText: "vendor_risk_assessment",
+        link: "vendor_risk_assessment"
+    },
 ];
 
 // A base64 encoded SVG for the arrow to be used in the <img> tag
