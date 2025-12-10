@@ -1,14 +1,14 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap');
 
 :root {
-  --font-sans: 'Inter', sans-serif;
-  --color-text-main: #0f172a;
-  --color-text-sec: #334155;
-  --color-text-muted: #64748b;
-  --color-primary: #2563eb;
-  --color-primary-dark: #1d4ed8;
-  --color-primary-light: #dbeafe;
-  --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    --font-sans: 'Inter', sans-serif;
+    --color-text-main: #0f172a;
+    --color-text-sec: #334155;
+    --color-text-muted: #64748b;
+    --color-primary: #2563eb;
+    --color-primary-dark: #1d4ed8;
+    --color-primary-light: #dbeafe;
+    --shadow-sm: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
 }
 
 .page {
@@ -523,4 +523,20 @@
     background-color: var(--color-primary-dark);
     transform: scale(1.05);
     box-shadow: 0 20px 25px -5px rgba(37, 99, 235, 0.25);
+}
+
+.techStack {
+    margin-top: 4rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    font-size: 0.75rem;
+    color: #94a3b8;
+    letter-spacing: 0.025em;
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .techStack {
+        font-size: 1.25rem;
+    }
 }

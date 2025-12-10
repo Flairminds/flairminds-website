@@ -263,6 +263,10 @@ const VendorRiskAssessment = () => {
                         <button className={styles.ctaButton}>
                             Request a Demo
                         </button>
+
+                        <div className={styles.techStack}>
+                            Technology Stack: React.js | Django | MySQL | Redis | AWS | Docker | 
+                        </div>
                     </div>
                 </footer>
             </div>
