@@ -1,0 +1,136 @@
+.section {
+  position: relative;
+  padding: 1rem 0;
+  overflow: hidden;
+}
+
+.topGradient {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(var(--primary-rgb), 0.05), transparent);
+}
+
+.bottomGlow {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 800px;
+  height: 400px;
+  background: rgba(var(--primary-rgb), 0.1);
+  border-radius: 50%;
+  filter: blur(150px);
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.inner {
+  max-width: 900px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.heading {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.gradientText {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subheading {
+  color: var(--muted-foreground);
+  font-size: 1.125rem;
+  max-width: 600px;
+  margin: 0 auto 2rem;
+}
+
+/* Features */
+.featureWrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+
+.featureTag {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: var(--glass-bg);
+  border-radius: 9999px;
+  border: grey 1px solid;
+}
+
+.featureIcon {
+  width: 16px;
+  height: 16px;
+  color: darkgreen;
+}
+
+.featureText {
+  font-size: 0.85rem;
+}
+
+/* CTA Button */
+.ctaButton {
+  padding: 1.25rem 2.5rem;
+  background: var(--gradient-primary);
+  border-radius: 1rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  color: var(--primary-foreground);
+  box-shadow: 0 0 20px rgba(var(--primary-rgb), 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.ctaIcon {
+  width: 20px;
+  height: 20px;
+  transition: transform 0.3s;
+}
+
+.ctaButton:hover .ctaIcon {
+  transform: translateX(4px);
+}
+
+/* Tech Stack */
+.techStack {
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(var(--border-rgb), 0.3);
+}
+
+.techText {
+  font-size: 1.25rem;
+  color: var(--muted-foreground);
+}
+
+.techItems {
+  color: rgba(var(--foreground-rgb), 0.6);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .heading {
+    font-size: 2rem;
+  }
+}
