@@ -286,7 +286,7 @@ export const products = [
   },
   {
     id: 11,
-    linkDisplay: "ai_agent",
+    linkDisplay: "tpvra",
     name: "TPVRA: Financial Third-Party Risk Management",
     image: tpvra,
 
@@ -320,7 +320,7 @@ export const products = [
     projectLink: "https://tprva.flairminds.com",
     buttonText: "Try Now",
     status: "released",
-    demoLink: "https://res.cloudinary.com/dwphbjpi8/video/upload/v1745571793/nkjtzhwycu7aozc3ba0r.mp4",
+    demoLink: "https://res.cloudinary.com/dxvmidcow/video/upload/v1765790121/TPVRA.mp4",
     demoButton: true,
 
     tagline: "The definitive TPRM operating system for modern finance—unifying Admin oversight, Assessor analytics, and Vendor compliance.",

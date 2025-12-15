@@ -67,12 +67,26 @@ const Footer = () => {
             transition={{ delay: 0.5 }}
             className={styles.techStack}
           >
-            <p className={styles.techText}>
-              Technology Stack:{" "}
-              <span className={styles.techItems}>
-                React.js • Django • MySQL • Redis • AWS • Docker
-              </span>
-            </p>
+            {/* Tech stack – Neon Glass Pills */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.4 }}
+              className={styles.techStackBox}
+            >
+              <span className={styles.techLabel}>Technology Stack</span>
+
+              <div className={styles.techPills}>
+                <span className={styles.techPill}>⚛ React</span>
+                <span className={styles.techPill}>🐍 Django</span>
+                <span className={styles.techPill}>🛢 MySQL</span>
+                <span className={styles.techPill}>⚡ Redis</span>
+                <span className={styles.techPill}>☁ AWS</span>
+                <span className={styles.techPill}>🐳 Docker</span>
+                <span className={styles.techPill}>🧩 Microservices</span>
+              </div>
+            </motion.div>
           </motion.div>
         </motion.div>
       </div>

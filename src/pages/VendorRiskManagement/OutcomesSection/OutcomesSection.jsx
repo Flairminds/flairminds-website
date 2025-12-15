@@ -10,7 +10,7 @@ const outcomes = [
   { icon: TrendingUp, value: 100, suffix: "%", label: "Audit Readiness & Traceability" },
   { icon: Zap, value: 50, suffix: "%", label: "Faster Assessment Cycles" },
   { icon: Shield, value: 0, prefix: "Zero", label: "Compromise Regulatory Compliance" },
-  { icon: Briefcase, value: 3, suffix: "x", label: "ROI on Vendor Spend" },
+  { icon: Briefcase, value: 2, suffix: "x", label: "ROI on Vendor Spend" },
 ];
 
 const AnimatedCounter = ({ value, prefix, suffix }) => {
