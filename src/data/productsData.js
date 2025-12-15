@@ -35,64 +35,6 @@ export const products = [
     cta: "",
   },
   {
-    id: 2,
-    linkDisplay: "document_search",
-    name: "Document Search Platform",
-    image: documentSearchImage,
-    detailsParagraphs: ["Stop Hunting for Documents. Let AI Find What You Need – Before You Ask.",
-      "For BFSI Portfolio Managers: Secure, Instant Search Across Contracts, Reports & Compliance Files."],
-    subHeading: "Key Features of the Platform:",
-    list: [" Zero Waiting: Upload PDFs/Word files – AI organizes & retrieves them in seconds.",
-      "Elasticsearch on Steroids: Pinpoint clauses, figures, or risks with filters & OCR.",
-      "Built for Auditors: Compliance-ready storage & search, so you’re always prepared.",
-    ],
-    highlight: ["Zero Waiting", "Elasticsearch on Steroids", "Built for Auditors", "BFSI Portfolio Managers", "Find Critical Data 10x Faster."],
-    tags: ["BFSI", "Portfolio Managers", "Auditors"],
-    techTags: ["Elasticsearch"],
-    upcomingFeatures: [],
-    buttonText: "Try Now",
-    projectLink: "http://dev-docsearch.centralindia.azurecontainer.io",
-    status: "released",
-    tagline: "Find any file, clause, or contract instantly—AI-driven search built for compliance and speed",
-    cta: "Try AI-Powered Search – Find Critical Data 10x Faster.",
-  },
-  {
-    id: 2,
-    linkDisplay: "rag",
-    name: "RAG-Context Aware Chatbots",
-    image: chatbotCollage,
-    detailsParagraphs: ["Turn Your Knowledge Base into a Real-Time Decision Engine.",
-      "For Telecom, Banking & Regulated Industries: Chatbots That Understand Complexity."
-    ],
-    demoButton: true,
-    demoLink: 'https://app.storylane.io/share/hxz08unj5naz',
-    subHeading: "Key Features of the Platform:",
-    upcomingFeatures: [],
-    list: [
-      "FM Doc Summarizer: Get boardroom-ready insights from lengthy reports in seconds.",
-      "TeleConnect Companion: Resolve customer queries instantly (no human needed).",
-      "Jargon-Smart AI: Answers in plain English or industry-specific terms.",
-      "Each chatbot is uniquely optimized for accuracy, these chatbots are perfect for professionals, researchers, and everyday users."
-    ],
-    highlight: ["FM Doc Summarizer", "TeleConnect Companion", "Jargon-Smart AI", "Telecom, Banking & Regulated Industries", "Deploy a Chatbot That Talks Like Your Top Analyst"],
-    buttonText: null,
-    chatbot: [
-      {
-        id: 'chat1',
-        text: "FM Doc Summarizer",
-        link: "https://fm-doc-summarizer.streamlit.app/"
-      },
-      {
-        id: 'chat2',
-        text: "FM Doc Summary & Upload",
-        link: "https://fm-doc-summary-upload.streamlit.app/"
-      }
-    ],
-    status: "released",
-    tagline: "Smartest chatbots in regulated industries—turn your documents into real-time, decision-making machines.",
-    cta: "Deploy a Chatbot That Talks Like Your Top Analyst – Demo Today.",
-  },
-  {
     id: 3,
     linkDisplay: "intellivoice",
     name: "Intellivoice",
@@ -260,31 +202,6 @@ export const products = [
     cta: "Let AI Handle the Paperwork – Focus on Winning Cases.",
   },
   {
-    id: 10,
-    linkDisplay: "ai_agent",
-    name: "AI Agent for Integrations",
-    image: aiagent,
-    detailsParagraphs: [
-      "Cut POC Coding Time by 70% – Automate Integration, Minimize Redundancy.",
-      "AI That Builds POC Code Like a Tech Lead + Integrator, at Lightning Speed."
-    ],
-    subHeading: "Key Features of the Platform:",
-    upcomingFeatures: [],
-    list: [
-      "Excel-to-POC Converter: Auto-extracts partner API details from Excel sheets, generates integration-ready code in minutes.",
-      "Smart Decision Engine: Customizes logic per partner using LangGraph + GeminiAI.",
-      "Reusable AI Agents: Replicates integration workflows across APIs, ensuring consistency and scalability.",
-    ],
-    highlight: ["Cut POC Coding Time by 70%", "Excel-to-POC Converter:", "Smart Decision Engine:", "Reusable AI Agents:", "Let AI help you building", "Built for Tech Architects, Integration Engineers & Product Managers – Empower Your Development with AI. Focus on What Matters Most."],
-    projectLink: "http://4.186.25.221:8080/",
-    buttonText: "Try Now",
-    status: "released",
-    demoLink: 'https://res.cloudinary.com/dwphbjpi8/video/upload/v1745571793/nkjtzhwycu7aozc3ba0r.mp4',
-    demoButton: false,
-    tagline: "Accelerate backend development by letting AI generate reliable POC code from your API specs—so your team can focus on building real value.",
-    cta: "Built for Tech Architects, Integration Engineers & Product Managers – Empower Your Development with AI. Focus on What Matters Most.",
-  },
-  {
     id: 11,
     linkDisplay: "tpvra",
     name: "TPVRA: Financial Third-Party Risk Management",
@@ -325,5 +242,88 @@ export const products = [
 
     tagline: "The definitive TPRM operating system for modern finance—unifying Admin oversight, Assessor analytics, and Vendor compliance.",
     cta: "Where confidence meets compliance!"
+  },
+  {
+    id: 10,
+    linkDisplay: "ai_agent",
+    name: "AI Agent for Integrations",
+    image: aiagent,
+    detailsParagraphs: [
+      "Cut POC Coding Time by 70% – Automate Integration, Minimize Redundancy.",
+      "AI That Builds POC Code Like a Tech Lead + Integrator, at Lightning Speed."
+    ],
+    subHeading: "Key Features of the Platform:",
+    upcomingFeatures: [],
+    list: [
+      "Excel-to-POC Converter: Auto-extracts partner API details from Excel sheets, generates integration-ready code in minutes.",
+      "Smart Decision Engine: Customizes logic per partner using LangGraph + GeminiAI.",
+      "Reusable AI Agents: Replicates integration workflows across APIs, ensuring consistency and scalability.",
+    ],
+    highlight: ["Cut POC Coding Time by 70%", "Excel-to-POC Converter:", "Smart Decision Engine:", "Reusable AI Agents:", "Let AI help you building", "Built for Tech Architects, Integration Engineers & Product Managers – Empower Your Development with AI. Focus on What Matters Most."],
+    projectLink: "http://4.186.25.221:8080/",
+    buttonText: "Try Now",
+    status: "released",
+    demoLink: 'https://res.cloudinary.com/dwphbjpi8/video/upload/v1745571793/nkjtzhwycu7aozc3ba0r.mp4',
+    demoButton: false,
+    tagline: "Accelerate backend development by letting AI generate reliable POC code from your API specs—so your team can focus on building real value.",
+    cta: "Built for Tech Architects, Integration Engineers & Product Managers – Empower Your Development with AI. Focus on What Matters Most.",
+  },
+  {
+    id: 2,
+    linkDisplay: "document_search",
+    name: "Document Search Platform",
+    image: documentSearchImage,
+    detailsParagraphs: ["Stop Hunting for Documents. Let AI Find What You Need – Before You Ask.",
+      "For BFSI Portfolio Managers: Secure, Instant Search Across Contracts, Reports & Compliance Files."],
+    subHeading: "Key Features of the Platform:",
+    list: [" Zero Waiting: Upload PDFs/Word files – AI organizes & retrieves them in seconds.",
+      "Elasticsearch on Steroids: Pinpoint clauses, figures, or risks with filters & OCR.",
+      "Built for Auditors: Compliance-ready storage & search, so you’re always prepared.",
+    ],
+    highlight: ["Zero Waiting", "Elasticsearch on Steroids", "Built for Auditors", "BFSI Portfolio Managers", "Find Critical Data 10x Faster."],
+    tags: ["BFSI", "Portfolio Managers", "Auditors"],
+    techTags: ["Elasticsearch"],
+    upcomingFeatures: [],
+    buttonText: "Try Now",
+    projectLink: "http://dev-docsearch.centralindia.azurecontainer.io",
+    status: "released",
+    tagline: "Find any file, clause, or contract instantly—AI-driven search built for compliance and speed",
+    cta: "Try AI-Powered Search – Find Critical Data 10x Faster.",
+  },
+  {
+    id: 2,
+    linkDisplay: "rag",
+    name: "RAG-Context Aware Chatbots",
+    image: chatbotCollage,
+    detailsParagraphs: ["Turn Your Knowledge Base into a Real-Time Decision Engine.",
+      "For Telecom, Banking & Regulated Industries: Chatbots That Understand Complexity."
+    ],
+    demoButton: true,
+    demoLink: 'https://app.storylane.io/share/hxz08unj5naz',
+    subHeading: "Key Features of the Platform:",
+    upcomingFeatures: [],
+    list: [
+      "FM Doc Summarizer: Get boardroom-ready insights from lengthy reports in seconds.",
+      "TeleConnect Companion: Resolve customer queries instantly (no human needed).",
+      "Jargon-Smart AI: Answers in plain English or industry-specific terms.",
+      "Each chatbot is uniquely optimized for accuracy, these chatbots are perfect for professionals, researchers, and everyday users."
+    ],
+    highlight: ["FM Doc Summarizer", "TeleConnect Companion", "Jargon-Smart AI", "Telecom, Banking & Regulated Industries", "Deploy a Chatbot That Talks Like Your Top Analyst"],
+    buttonText: null,
+    chatbot: [
+      {
+        id: 'chat1',
+        text: "FM Doc Summarizer",
+        link: "https://fm-doc-summarizer.streamlit.app/"
+      },
+      {
+        id: 'chat2',
+        text: "FM Doc Summary & Upload",
+        link: "https://fm-doc-summary-upload.streamlit.app/"
+      }
+    ],
+    status: "released",
+    tagline: "Smartest chatbots in regulated industries—turn your documents into real-time, decision-making machines.",
+    cta: "Deploy a Chatbot That Talks Like Your Top Analyst – Demo Today.",
   },
 ]
