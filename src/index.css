@@ -1,0 +1,182 @@
+/* --------------------------------------------------
+   1️⃣ GOOGLE FONTS (must be FIRST)
+-------------------------------------------------- */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap");
+
+/* --------------------------------------------------
+   2️⃣ TAILWIND DIRECTIVES
+-------------------------------------------------- */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* --------------------------------------------------
+   3️⃣ LIGHT THEME VARIABLES
+-------------------------------------------------- */
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 220 20% 10%;
+
+    --card: 220 20% 98%;
+    --card-foreground: 220 20% 10%;
+
+    /* RGB versions for overlays, glow, hover tints */
+    --primary-rgb: 0, 140, 255;                 /* hsl(210 100% 50%) */
+    --accent-rgb: 40, 200, 170;
+    --risk-high-rgb: 255, 70, 70;
+    --risk-medium-rgb: 255, 180, 0;
+
+    /* HSL theme tokens */
+    --primary: 210 100% 50%;
+    --accent: 160 84% 40%;
+    --risk-high: 38 92% 50%;
+    --risk-medium: 160 84% 39%;
+
+    --glass-bg: hsla(0, 0%, 100%, 0.6);
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 20% 10%;
+
+    --primary-foreground: 0 0% 100%;
+    --secondary: 220 15% 94%;
+    --secondary-foreground: 220 20% 20%;
+
+    --muted: 220 15% 96%;
+    --muted-foreground: 220 10% 45%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 220 15% 88%;
+    --input: 220 15% 88%;
+    --ring: 210 100% 50%;
+
+    --font: "Poppins", "Inter", sans-serif;
+    --radius: 0.75rem;
+
+    /* Gradient definitions */
+    --gradient-primary: linear-gradient(
+      135deg,
+      hsl(210 100% 50%) 0%,
+      hsl(260 100% 60%) 100%
+    );
+    --gradient-accent: linear-gradient(
+      135deg,
+      hsl(160 84% 40%) 0%,
+      hsl(186 100% 38%) 100%
+    );
+    --gradient-dark: linear-gradient(
+      180deg,
+      hsl(220 20% 98%) 0%,
+      hsl(220 20% 94%) 100%
+    );
+    --gradient-card: linear-gradient(
+      145deg,
+      hsl(0 0% 100%) 0%,
+      hsl(220 20% 98%) 100%
+    );
+    --gradient-glow: radial-gradient(
+      ellipse at center,
+      hsl(210 100% 50% / 0.1) 0%,
+      transparent 70%
+    );
+
+    /* Shadows */
+    --shadow-glow: 0 0 60px hsl(210 100% 50% / 0.15);
+    --shadow-card: 0 4px 24px hsl(220 20% 10% / 0.08);
+  }
+
+  .dark {
+    --background: 220 20% 6%;
+    --foreground: 220 20% 96%;
+  }
+}
+
+/* --------------------------------------------------
+   4️⃣ BASE STYLES
+-------------------------------------------------- */
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: "Inter", sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Space Grotesk", sans-serif;
+  }
+}
+
+/* --------------------------------------------------
+   5️⃣ UTILITIES USED BY ALL COMPONENTS
+-------------------------------------------------- */
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-primary);
+  }
+
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-accent);
+  }
+
+  .bg-gradient-primary {
+    background-image: var(--gradient-primary);
+  }
+  .bg-gradient-accent {
+    background-image: var(--gradient-accent);
+  }
+  .bg-gradient-dark {
+    background-image: var(--gradient-dark);
+  }
+  .bg-gradient-card {
+    background-image: var(--gradient-card);
+  }
+
+  .shadow-glow {
+    box-shadow: var(--shadow-glow);
+  }
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .glass {
+    @apply backdrop-blur-xl border border-border/50;
+    background: hsl(var(--card) / 0.6);
+  }
+
+  .glass-hover {
+    @apply transition-all duration-300 hover:border-primary/30 hover:shadow-glow;
+    background: hsl(var(--card) / 0.8);
+  }
+}
+
+/* --------------------------------------------------
+   6️⃣ CUSTOM SCROLLBAR
+-------------------------------------------------- */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}

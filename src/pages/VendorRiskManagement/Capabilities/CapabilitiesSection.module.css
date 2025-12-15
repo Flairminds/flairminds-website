@@ -1,0 +1,229 @@
+.section {
+  width: 100%; 
+  padding: 2rem 0;
+  position: relative;
+  overflow: hidden; 
+}
+
+/* Soft accent blur circle */
+.accentCircle {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 480px;
+  height: 480px;
+  background: rgba(var(--accent-rgb), 0.05);
+  border-radius: 50%;
+  filter: blur(140px);
+}
+
+.container {
+  width: 100%;
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.headingBlock {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.heading {
+  font: var(--font);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.gradientAccent {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtext {
+  max-width: 600px;
+  margin: 0 auto;
+  color: hsl(var(--muted-foreground));
+}
+
+/* CAPABILITIES GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1.2rem;
+  max-width: 1200px;
+  margin: 0 auto 2rem;
+}
+
+@media (max-width: 1100px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* CARD */
+.card {
+  position: relative;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: 0.4s ease;
+  background: var(--glass-bg);
+  border: 1px solid rgb(200, 200, 200, 0.6);
+  overflow: hidden;
+  backdrop-filter: blur(20px);
+  transition: 0.35s ease;
+  min-height: 230px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.cardHover {
+  box-shadow: 0 0 25px rgba(var(--primary-rgb), 0.25);
+  border-color: rgba(var(--primary-rgb), 0.25);
+}
+
+/* GRADIENT OVERLAY — uses RGB color tokens */
+.cardOverlay {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: 0.4s ease;
+}
+
+.card:hover .cardOverlay {
+  opacity: 1;
+}
+
+/* Color overlays */
+.cardOverlay.primary {
+  background: linear-gradient(135deg, rgba(var(--primary-rgb), 0.1), transparent);
+}
+
+.cardOverlay.accent {
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.1), transparent);
+}
+
+.cardOverlay.risk-high {
+  background: linear-gradient(135deg, rgba(var(--risk-high-rgb), 0.1), transparent);
+}
+
+.cardOverlay.risk-medium {
+  background: linear-gradient(135deg, rgba(var(--risk-medium-rgb), 0.1), transparent);
+}
+
+.cardInner {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ICON BOX TINTS */
+.iconBox {
+  width: 48px;
+  height: 48px;
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1rem;
+}
+
+.primary.iconBox {
+  background: rgba(var(--primary-rgb), 0.12);
+}
+.accent.iconBox {
+  background: rgba(var(--accent-rgb), 0.12);
+}
+.risk-high.iconBox {
+  background: rgba(var(--risk-high-rgb), 0.12);
+}
+.risk-medium.iconBox {
+  background: rgba(var(--risk-medium-rgb), 0.12);
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+  color: hsl(var(--foreground));
+}
+
+/* TEXT */
+.cardTitle {
+  font: var(--font);
+  font-size: 1.25rem;
+  font-weight: 600;
+} 
+
+.cardDesc {
+  flex-grow: 1;
+  color: hsl(var(--muted-foreground));
+  font-size: 0.9rem;
+}
+
+/* UNDERLINE COLORS */
+.underline {
+  height: 3px;
+  margin-top: 1rem;
+  border-radius: 2px;
+}
+
+.primaryUnderline {
+  background: rgb(var(--primary-rgb));
+}
+.accentUnderline {
+  background: rgb(var(--accent-rgb));
+}
+.risk-highUnderline {
+  background: rgb(var(--risk-high-rgb));
+}
+.risk-mediumUnderline {
+  background: rgb(var(--risk-medium-rgb));
+}
+
+/* SECONDARY CAPABILITIES */
+.secondaryWrap {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+}
+
+.secondaryCard {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem 1.25rem;
+  background: var(--glass-bg);
+  border-radius: 9999px;
+  backdrop-filter: blur(12px);
+}
+
+.secondaryIcon {
+  width: 16px;
+  height: 16px;
+  color: rgb(var(--primary-rgb));
+}
+
+.secondaryTitle {
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.secondaryDesc {
+  margin-left: 0.5rem;
+  font-size: 0.75rem;
+  color: hsl(var(--muted-foreground));
+}

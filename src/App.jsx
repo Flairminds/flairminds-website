@@ -26,6 +26,7 @@ import CloudOptimization from './pages/cloudOptimization/CloudOptimization'
 import QuantFinance from './pages/quantFinance/QuantFinance'
 import ESignPlatform from './pages/eSignPlatform/ESignPlatform'
 import FableFintech from './pages/fableFintech/FableFintech'
+import VendorRiskAssessment from './pages/VendorRiskManagement/VendorRiskManagement'
 import Blogs from './pages/blogs/Blogs'
 import { BlogsLayout } from './blogs/BlogsLayout'
 // ✅ Corrected Component for Tracking Page Views
@@ -72,6 +73,7 @@ function App() {
         <Route exact path='/case-study/quant_finance' element={<QuantFinance/>}/>
         <Route exact path='/case-study/e_sign_platform' element={<ESignPlatform/>}/>
         <Route exact path='/case-study/fable_fintech' element={<FableFintech/>}/>
+        <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment/>}/>
         <Route exact path='/blogs' element={<Blogs/>}/>
         <Route exact path='/blogs/*' element={<BlogsLayout/>}/>
       </Route>

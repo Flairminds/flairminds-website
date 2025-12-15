@@ -1,0 +1,194 @@
+.section {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.darkOverlay {
+  position: absolute;
+  inset: 0;
+  background: var(--gradient-dark);
+  opacity: 0.3;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Heading */
+.headingBlock {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.heading {
+  font: var(--font);
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+.gradientText {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.subtext {
+  max-width: 600px;
+  margin: 0 auto;
+  color: var(--muted-foreground);
+}
+
+/* Tabs */
+.tabRow {
+  display: flex;
+  justify-content: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.tabButton {
+  padding: 0.75rem 1.25rem;
+  border-radius: 1rem;
+  font-weight: 500;
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  transition: 0.3s ease;
+  border: 1px solid transparent;
+}
+
+.tabIcon {
+  width: 16px;
+  height: 16px;
+}
+
+.tabInactive {
+  border: rgb(154, 154, 179) 1px solid;
+}
+
+.tabActive_primary {
+  background: rgba(var(--primary-rgb), 0.2);
+  border-color: rgba(var(--primary-rgb), 0.3);
+  color: var(--primary);
+}
+
+.tabActive_accent {
+  background: rgba(var(--accent-rgb), 0.2);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  color: green;
+}
+
+.tabActive_riskMedium {
+  background: rgba(255, 180, 0, 0.2);
+  border-color: rgba(255, 180, 0, 0.3);
+  color: rgb(255, 180, 0);
+}
+
+.tabActive_riskHigh {
+  background: rgba(255, 70, 70, 0.2);
+  border-color: rgba(255, 70, 70, 0.3);
+  color: rgb(255, 70, 70);
+}
+
+/* Persona Card */
+.personaWrapper {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.personaCard {
+  border: rgb(154, 154, 179) 1px solid;
+  padding: 2rem;
+  border-radius: 1.5rem;
+}
+
+.personaHeader {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.personaIconBox {
+  width: 56px;
+  height: 56px;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.personaIcon {
+  width: 28px;
+  height: 28px;
+}
+
+/* Persona color utilities */
+.personaColor_primary { background: rgba(var(--primary-rgb), 0.2); }
+.personaColor_accent { background: rgba(var(--accent-rgb), 0.2); }
+.personaColor_riskMedium { background: rgba(255, 180, 0, 0.2); }
+.personaColor_riskHigh { background: rgba(255, 70, 70, 0.2); }
+
+.personaText_primary { color: var(--primary); }
+.personaText_accent { color: green; }
+.personaText_riskMedium { color: rgb(255, 180, 0); }
+.personaText_riskHigh { color: rgb(255, 70, 70); }
+
+.personaLabel {
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
+.personaTitle {
+  font: var(--font);
+  font-size: 1.75rem;
+  font-weight: 700;
+}
+
+/* Features */
+.featureGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.75rem;
+}
+
+@media (min-width: 640px) {
+  .featureGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+.featureItem {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.75rem;
+  border-radius: 0.75rem;
+  background: rgba(var(--secondary-rgb), 0.3);
+}
+
+.featureDot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+.personaBg_primary { background: var(--primary); }
+.personaBg_accent { background: green; }
+.personaBg_riskMedium { background: rgb(255, 180, 0); }
+.personaBg_riskHigh { background: rgb(255, 70, 70); }
+
+.featureText {
+  font-size: 0.9rem;
+}

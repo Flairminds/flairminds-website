@@ -1,0 +1,174 @@
+.section {
+  padding: 3rem 0;
+  position: relative;
+}
+
+/* Background glow */
+.leftGlow {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  background: rgba(var(--primary-rgb), 0.05);
+  border-radius: 50%;
+  filter: blur(150px);
+}
+
+/* Layout */
+.container {
+  position: relative;
+  z-index: 10;
+  padding: 0 1.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 3rem;
+}
+
+@media (min-width: 1024px) {
+  .layout {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+/* Heading */
+.heading {
+  font: var(--font);
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 768px) {
+  .heading {
+    font-size: 2.5rem;
+  }
+}
+
+.gradientText {
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Outcomes Grid */
+.outcomeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+}
+
+.outcomeItem {
+  margin-bottom: 0.75rem;
+}
+
+.outcomeIconRow {
+  margin-bottom: 0.5rem;
+}
+
+.outcomeIcon {
+  width: 20px;
+  height: 20px;
+  color: var(--primary);
+}
+
+.counter {
+  font-size: 2.5rem;
+  font-weight: 700;
+  background: var(--gradient-accent);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.outcomeLabel {
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  color: var(--muted-foreground);
+}
+
+/* Chart Card */
+.chartCard {
+  padding: 2rem;
+  border-radius: 1.5rem;
+  background: rgb(243, 242, 242);
+  border: grey 1px solid;
+}
+
+.chartTitle {
+  font-size: 1.25rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
+
+/* Chart */
+.chartWrapper {
+  position: relative;
+  width: 16rem;
+  height: 16rem;
+  margin: 0 auto 1.5rem;
+}
+
+.chartCenter {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chartCenterValue {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.chartCenterLabel {
+  font-size: 0.7rem;
+  color: var(--muted-foreground);
+}
+
+/* Legend */
+.legendWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.legendItem {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.75rem;
+  border-radius: 9999px;
+  cursor: pointer;
+  transition: 0.3s ease;
+}
+
+.legendItemActive {
+  background: rgb(216, 214, 214);
+}
+
+.legendDot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
+
+.legendLabel {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+}
+
+.chartFooter {
+  font-size: 0.75rem;
+  color: var(--muted-foreground);
+  text-align: center;
+  margin-top: 1rem;
+}
