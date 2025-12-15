@@ -50,14 +50,14 @@ const Footer = () => {
           </div>
 
           {/* CTA button */}
-          <motion.button
+          {/* <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
             className={styles.ctaButton}
           >
             Request a Demo
             <ArrowRight className={styles.ctaIcon} />
-          </motion.button>
+          </motion.button> */}
 
           {/* Tech stack */}
           <motion.div

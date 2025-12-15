@@ -1,8 +1,13 @@
 import { motion } from "framer-motion";
 import { Shield, ArrowRight } from "lucide-react";
 import styles from "./IntroSection.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { setDemoLink, toggleDemoModal } from "../../../redux/slices/visitorDetailsModalSlice";
+import DemoModal from '../../../components/demoModal/DemoModal';
 
 const IntroSection = () => {
+  const dispatch = useDispatch();
+  const { demoModalOpen } = useSelector(state => state.visitorDetailsModal);
   return (
     <section className={styles.section}>
       {/* Background layers */}
@@ -52,18 +57,19 @@ const IntroSection = () => {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className={styles.primaryButton}
+              onClick={()=>{ dispatch(setDemoLink({ demoLink: 'https://res.cloudinary.com/dxvmidcow/video/upload/v1765790121/TPVRA.mp4' })); dispatch(toggleDemoModal()); }}
             >
-              Request Demo
+              View Demo
               <ArrowRight className={styles.primaryButtonIcon} />
             </motion.button>
 
-            <motion.button
+            {/* <motion.button
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               className={styles.secondaryButton}
             >
               Explore Platform
-            </motion.button>
+            </motion.button> */}
           </div>
         </motion.div>
 
@@ -87,6 +93,7 @@ const IntroSection = () => {
           ))}
         </motion.div>
       </div>
+      {demoModalOpen && <DemoModal />}
     </section>
   );
 };

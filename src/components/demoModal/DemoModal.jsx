@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux';
 const DemoModal = () => {
     const dispatch=useDispatch()
     const {demoLink} = useSelector(state=>state.visitorDetailsModal)
+    console.log(demoLink);
   return (
     <div className={demoModalStyles.main}>
         <div className={demoModalStyles.inner_container}>    
