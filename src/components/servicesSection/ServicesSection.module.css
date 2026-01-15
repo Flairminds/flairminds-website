@@ -1,0 +1,161 @@
+.servicesSection {
+    padding: 4rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    text-align: center;
+    color: hsl(var(--primary));
+    margin-bottom: 3rem;
+    font-family: 'Space Grotesk', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.contentWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.imageContainer {
+    position: sticky;
+    top: 100px;
+}
+
+.imageCard {
+    position: relative;
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow-card);
+    transition: all 0.4s ease;
+    background: hsl(var(--card));
+}
+
+.imageCard:hover {
+    transform: translateY(-8px);
+    box-shadow: var(--shadow-glow);
+}
+
+.image {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.imageCard:hover .image {
+    transform: scale(1.05);
+}
+
+.imageOverlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9), transparent);
+    padding: 2rem;
+    color: white;
+}
+
+.imageTitle {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.3;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.imageSubtitle {
+    font-size: 0.75rem;
+    opacity: 0.9;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.servicesContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.serviceItem {
+    padding: 1.5rem;
+    background: hsl(var(--card) / 0.5);
+    border-radius: var(--radius);
+    border: 1px solid hsl(var(--border));
+    transition: all 0.3s ease;
+    backdrop-filter: blur(10px);
+}
+
+.serviceItem:hover {
+    background: hsl(var(--card));
+    border-color: hsl(var(--primary) / 0.3);
+    transform: translateX(8px);
+    box-shadow: var(--shadow-card);
+}
+
+.serviceTitle {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: hsl(var(--foreground));
+    margin-bottom: 0.5rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.serviceDescription {
+    font-size: 0.95rem;
+    color: hsl(var(--muted-foreground));
+    line-height: 1.6;
+    margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .contentWrapper {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .imageContainer {
+        position: relative;
+        top: 0;
+    }
+
+    .sectionTitle {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .servicesSection {
+        padding: 3rem 1rem;
+    }
+
+    .sectionTitle {
+        font-size: 1.75rem;
+    }
+
+    .imageTitle {
+        font-size: 1rem;
+    }
+
+    .imageSubtitle {
+        font-size: 0.65rem;
+    }
+
+    .serviceItem {
+        padding: 1.25rem;
+    }
+
+    .serviceTitle {
+        font-size: 1rem;
+    }
+
+    .serviceDescription {
+        font-size: 0.9rem;
+    }
+}

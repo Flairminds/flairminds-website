@@ -1,0 +1,40 @@
+.clientLogosSection {
+    padding: 2rem 2rem 4rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.imageContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.image {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    border-radius: var(--radius);
+    box-shadow: var(--shadow-card);
+    transition: all 0.3s ease;
+}
+
+.image:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Responsive Design */
+@media (max-width: 968px) {
+    .clientLogosSection {
+        padding: 1.5rem 1.5rem 3rem;
+    }
+}
+
+@media (max-width: 640px) {
+    .clientLogosSection {
+        padding: 1rem 1rem 2rem;
+    }
+}
