@@ -12,7 +12,6 @@
 .scrolled {
     padding: 0.8rem 0;
     background: rgba(2, 6, 23, 0.85);
-    /* Dark Navy Glass */
     backdrop-filter: blur(20px);
     border-bottom: 1px solid rgba(255, 255, 255, 0.05);
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
@@ -59,7 +58,7 @@
 
 .crystalLogo:hover {
     transform: translateY(-2px);
-    border-color: rgba(185, 237, 94, 0.5);
+    border-color: #3b82f6;
     background: rgba(255, 255, 255, 0.12);
 }
 
@@ -69,32 +68,22 @@
 
 .navLogo {
     height: 45px;
-    /* width: auto; */
-    display: inline-block;
     transition: transform 0.3s ease;
 }
 
 .logoName {
-    /* position: relative; */
-    display: inline-block;
-    color: rgba(255, 255, 255, 0.8);
+    color: rgba(255, 255, 255, 0.9);
     font-size: 1.25rem;
     font-weight: 500;
     cursor: pointer;
-    transition: all 0.3s ease;
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.5px;
-}
-
-.navLogo:hover {
-    transform: scale(1.05);
 }
 
 .navLinks {
     display: flex;
     align-items: center;
-    gap: 1.5rem;
-    /* Slightly reduced gap for crystal buttons */
+    gap: 1.2rem;
     margin: 0;
     padding: 0;
     list-style: none;
@@ -103,18 +92,19 @@
 .navItem {
     position: relative;
     color: rgba(255, 255, 255, 0.8);
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     font-family: 'Space Grotesk', sans-serif;
     letter-spacing: 0.5px;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 1.2rem;
     background: rgba(255, 255, 255, 0.03);
     backdrop-filter: blur(8px);
     border: 1px solid rgba(255, 255, 255, 0.05);
     border-radius: 8px;
     overflow: hidden;
+    text-transform: uppercase;
 }
 
 .navItem:hover {
@@ -147,42 +137,19 @@
 
 .indicator {
     position: absolute;
-    bottom: -8px;
-    left: 0;
-    width: 0;
+    bottom: 0px;
+    left: 1.2rem;
+    right: 1.2rem;
     height: 2px;
-    background: #b9ed5e;
-    transition: width 0.3s ease;
-    box-shadow: 0 0 10px rgba(185, 237, 94, 0.5);
+    background: #3b82f6;
+    border-radius: 2px;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    box-shadow: 0 0 10px rgba(59, 130, 246, 0.5);
 }
 
-.navItem:hover .indicator,
 .activeItem .indicator {
-    width: 100%;
-}
-
-.navActions {
-    display: flex;
-    align-items: center;
-}
-
-.contactBtn {
-    background: rgba(0, 91, 161, 0.1);
-    color: #fff;
-    border: 1px solid rgba(0, 91, 161, 0.5);
-    padding: 0.6rem 1.5rem;
-    border-radius: 50px;
-    font-weight: 600;
-    font-family: 'Space Grotesk', sans-serif;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.contactBtn:hover {
-    background: #005ba1;
-    border-color: #005ba1;
-    box-shadow: 0 0 20px rgba(0, 91, 161, 0.3);
-    transform: translateY(-2px);
+    transform: scaleX(1);
 }
 
 .mobileToggle {
@@ -190,10 +157,8 @@
     color: #fff;
     font-size: 1.8rem;
     cursor: pointer;
-    z-index: 1001;
 }
 
-/* Mobile Menu Layout */
 .mobileOverlay {
     position: fixed;
     top: 0;
@@ -223,51 +188,25 @@
 }
 
 .mobileLinks li {
-    font-size: 2.5rem;
+    font-size: 2.2rem;
     color: #fff;
     font-weight: 700;
     margin: 1.5rem 0;
     cursor: pointer;
     font-family: 'Space Grotesk', sans-serif;
-    transform: translateY(20px);
-    transition: all 0.5s ease;
-    opacity: 0;
-}
-
-.showOverlay .mobileLinks li {
-    transform: translateY(0);
-    opacity: 1;
+    transition: all 0.3s ease;
 }
 
 .mobileLinks li:hover {
-    color: #b9ed5e;
-}
-
-/* Responsive Queries */
-@media (max-width: 1100px) {
-    .navLinks {
-        gap: 1.5rem;
-    }
+    color: #3b82f6;
 }
 
 @media (max-width: 900px) {
-
-    .navLinks,
-    .navActions {
+    .navLinks {
         display: none;
     }
 
     .mobileToggle {
         display: block;
-    }
-}
-
-@media (max-width: 480px) {
-    .navbarWrapper {
-        padding: 1rem 0;
-    }
-
-    .navLogo {
-        height: 35px;
     }
 }

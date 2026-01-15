@@ -51,7 +51,7 @@ const Navbar = React.memo(({ scrolled }) => {
               onClick={() => handleNavLinkClick(link.activePath)}
             >
               {link.name}
-              <span className={navbarStyles.indicator}></span>
+              {/* <span className={navbarStyles.indicator}></span> */}
             </li>
           ))}
           {user && (

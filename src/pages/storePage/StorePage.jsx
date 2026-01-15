@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useState, useCallback, useEffect as useCallbackEffect } from 'react'
 import ProductCard from '../../components/productCard/ProductCard'
 import { products } from '../../data/productsData'
-import homeStyles from "./StorePage.module.css"
+import styles from "./StorePage.module.css"
 import UpcomingProduct from '../../components/upcomingProduct/UpcomingProduct'
 import FeedbackModal from '../../components/feedbackModal/FeedbackModal'
 import { VscFeedback } from "react-icons/vsc";
@@ -82,87 +82,81 @@ const StorePage = () => {
   }, []);
 
   return (
-    <div className={homeStyles.main}>
-      {/* <Hero/> */}
-      {/* <Hero1/> */}
+    <div className={styles.main}>
       <Hero2 />
 
-      <div style={{ margin: '3rem 1rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
-          <h3 style={{ fontSize: '3rem', color: 'var(--primary)', margin: 0 }}>Our Solutions</h3>
-          <div style={{ position: 'relative', width: '100%', maxWidth: '500px' }}>
-            <input
-              type="text"
-              placeholder="Search products by name, features, or use cases..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
-              style={{
-                width: '100%',
-                padding: '0.8rem 1rem 0.8rem 3rem',
-                borderRadius: '50px',
-                border: '1px solid #ccc',
-                fontSize: '1rem',
-                outline: 'none',
-              }}
-            />
-            <FiSearch
-              style={{
-                position: 'absolute',
-                left: '1rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: '#666',
-                fontSize: '1.2rem'
-              }}
-            />
-            {searchQuery && (
-              <button
-                onClick={() => {
-                  setSearchQuery('');
-                  setSearchResults(null);
-                }}
-                style={{
-                  position: 'absolute',
-                  right: '1rem',
-                  top: '50%',
-                  transform: 'translateY(-50%)',
-                  background: 'none',
-                  border: 'none',
-                  cursor: 'pointer',
-                  color: '#666',
-                  fontSize: '1.2rem'
-                }}
-              >
-                ×
-              </button>
-            )}
+      <section className={styles.solutions_section}>
+        <div className={styles.section_header}>
+          <div className={styles.title_group}>
+            <span className={styles.sub_tag}>// ACTIVE_SOLUTIONS</span>
+            <h2 className={styles.main_title}>Our Mission Suite</h2>
+          </div>
+
+          <div className={styles.search_container}>
+            <div className={styles.search_input_wrapper}>
+              <FiSearch className={styles.search_icon} />
+              <input
+                type="text"
+                className={styles.search_input}
+                placeholder="Search solutions by name or features..."
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
+              />
+              {searchQuery && (
+                <button
+                  className={styles.clear_search}
+                  onClick={() => {
+                    setSearchQuery('');
+                    setSearchResults(null);
+                  }}
+                >
+                  ×
+                </button>
+              )}
+            </div>
           </div>
         </div>
+
         {isSearching ? (
-          <div style={{ textAlign: 'center', padding: '2rem' }}>Searching for "{searchQuery}"...</div>
+          <div className={styles.status_message}>
+            <span className={styles.sub_tag}>{">"} INITIATING_SEARCH...</span>
+            <p>Scanning intelligence database for "{searchQuery}"</p>
+          </div>
         ) : searchResults?.released?.length === 0 ? (
-          <div style={{ textAlign: 'center', padding: '2rem' }}>
-            No products found matching "{searchQuery}". Try different keywords.
+          <div className={styles.status_message}>
+            <span className={styles.sub_tag}>{">"} NO_MATCH_FOUND</span>
+            <p>Query "{searchQuery}" returned zero matches. Refine parameters.</p>
           </div>
         ) : (
-          availableProducts?.map((product, index) => <ProductCard prop={product} key={index} />)
+          <div className={styles.results_grid}>
+            {availableProducts?.map((product, index) => <ProductCard prop={product} key={index} />)}
+          </div>
         )}
-      </div>
-      {open && <UserDetailsModal />}
+      </section>
+
       {upcomingProducts.length > 0 && (
-        <>
-          <h1 className={homeStyles.heading}>Upcoming Products</h1>
-          <div className={homeStyles.upcoming_products}>
+        <section className={styles.solutions_section} style={{ paddingTop: 0 }}>
+          <div className={styles.section_header} style={{ borderBottom: 'none' }}>
+            <div className={styles.title_group}>
+              <span className={styles.sub_tag}>// R&D_PIPELINE</span>
+              <h2 className={styles.main_title}>Upcoming Projects</h2>
+            </div>
+          </div>
+          <div className={styles.upcoming_products}>
             {upcomingProducts?.map((product, index) => <UpcomingProduct prop={product} key={index} />)}
           </div>
-        </>
+        </section>
       )}
+
+      {open && <UserDetailsModal />}
       {feedBackOpen && <FeedbackModal />}
-      <div className={homeStyles.feedback_button_container} onClick={() => { dispatch(toggleFeedbackModal()) }}>
-        <VscFeedback className={homeStyles.feedback_icon} />
-        <button className={homeStyles.feedback_botton}>Feedback</button>
+
+      <div className={styles.feedback_button_container} onClick={() => { dispatch(toggleFeedbackModal()) }}>
+        <VscFeedback className={styles.feedback_icon} />
+        <button className={styles.feedback_botton}>SUBMIT_FEEDBACK</button>
       </div>
+
       {demoModalOpen && <DemoModal />}
       {shareName && <ShareModal />}
     </div>
