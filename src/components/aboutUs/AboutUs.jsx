@@ -32,7 +32,7 @@ const AboutUs = () => {
                         </p>
 
                         <button className={styles.exploreButton}>
-                            Explore More
+                            Know More
                         </button>
                     </div>
                 </div>
