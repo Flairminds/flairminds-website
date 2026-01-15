@@ -1,8 +1,10 @@
 import styles from './HeroSection.module.css';
-import archImage from '../../assets/software_architecture.png';
+import aiSolutionsImage from '../../assets/ai_solutions_hero.png';
 import { FaTerminal, FaServer, FaCogs, FaNetworkWired, FaCodeBranch } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const HeroSection = () => {
+    const navigate = useNavigate();
     return (
         <section className={styles.heroWrapper}>
             {/* Ambient Background with Particles */}
@@ -33,30 +35,29 @@ const HeroSection = () => {
                                 <div className={styles.terminalTitle}>flairminds_engine --active</div>
                             </div>
                             <div className={styles.terminalBody}>
-                                <p className={styles.codeLine}><span className={styles.label}>&gt; initializing</span> scalability_module...</p>
-                                <p className={styles.codeLine}><span className={styles.label}>&gt; status:</span> 200 OK | ready to deploy</p>
-                                <p className={styles.codeLine}><span className={styles.label}>&gt; expertise:</span> AI, Cloud, Enterprise Software</p>
+                                <p className={styles.codeLine}><span className={styles.label}>&gt; initializing</span> ai_integration_module...</p>
+                                <p className={styles.codeLine}><span className={styles.label}>&gt; status:</span> 200 OK | systems optimized</p>
+                                <p className={styles.codeLine}><span className={styles.label}>&gt; expertise:</span> AI, Cloud, Dynamic Solutions</p>
                                 <div className={styles.cursor}></div>
                             </div>
                         </div>
 
                         <div className={styles.actionRow}>
-                            <button className={styles.primaryBtn}>START PROJECT</button>
-                            <button className={styles.secondaryBtn}>VIEW TECH STACK</button>
+                            <button className={styles.primaryBtn} onClick={() => navigate('/contact')}>START YOUR JOURNEY</button>
                         </div>
                     </div>
 
-                    {/* Right: Holographic Architecture */}
+                    {/* Right: Holographic AI Integration Visual */}
                     <div className={styles.visualSection}>
                         <div className={styles.hologramFrame}>
-                            <img src={archImage} alt="Enterprise Architecture" className={styles.archVisual} />
+                            <img src={aiSolutionsImage} alt="AI Integration Solutions" className={styles.archVisual} />
 
                             {/* Floating Data Nodes */}
                             <div className={`${styles.dataNode} ${styles.topRight}`}>
-                                <FaServer /> <span>EDGE_NODES</span>
+                                <FaCogs /> <span>AI_CORE_READY</span>
                             </div>
                             <div className={`${styles.dataNode} ${styles.bottomLeft}`}>
-                                <FaNetworkWired /> <span>MESH_NET</span>
+                                <FaCodeBranch /> <span>INTELLIGENT_FLOW</span>
                             </div>
 
                             <div className={styles.hologramBase}></div>
@@ -65,18 +66,12 @@ const HeroSection = () => {
                         {/* System Monitor Sidebar */}
                         <div className={styles.monitorSidebar}>
                             <div className={styles.monitorItem}>
-                                <span className={styles.monitorLabel}>CPU_LOAD</span>
+                                <span className={styles.monitorLabel}>AI_LOAD_CAPACITY</span>
                                 <div className={styles.barWrapper}><div className={styles.barFill}></div></div>
                             </div>
                             <div className={styles.monitorItem}>
-                                <span className={styles.monitorLabel}>DATA_STREAM</span>
+                                <span className={styles.monitorLabel}>INTELLIGENCE_STREAM</span>
                                 <div className={styles.barWrapper}><div className={`${styles.barFill} ${styles.active}`}></div></div>
-                            </div>
-                            <div className={styles.monitorItem}>
-                                <div className={styles.connectivity}>
-                                    <FaCodeBranch />
-                                    <span>CONNECTED_NODES: 128</span>
-                                </div>
                             </div>
                         </div>
                     </div>
@@ -85,8 +80,8 @@ const HeroSection = () => {
             </div>
 
             {/* Side Labels */}
-            <div className={styles.sideLabelLeft}>CORE_DEVELOPMENT_UNIT</div>
-            <div className={styles.sideLabelRight}>EST_2024_FLAIRMINDS</div>
+            <div className={styles.sideLabelLeft}>AI_SOLUTIONS_UNIT</div>
+            <div className={styles.sideLabelRight}>DYNAMIC_ENTERPRISE_CORE</div>
         </section>
     );
 };

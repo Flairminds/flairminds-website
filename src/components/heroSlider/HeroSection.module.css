@@ -1,13 +1,22 @@
 .heroWrapper {
     position: relative;
     width: 100%;
-    height: 100vh;
+    min-height: 100vh;
     background-color: #020617;
     /* Very dark navy */
     overflow: hidden;
+    /* Strict clipping */
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    justify-content: center;
     font-family: 'Poppins', sans-serif;
+    padding-top: 80px;
+    /* Account for sticky navbar */
+    box-sizing: border-box;
+}
+
+.heroWrapper * {
+    box-sizing: border-box;
 }
 
 .ambientOverlay {
@@ -55,8 +64,12 @@
     z-index: 10;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 2rem;
     width: 100%;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    /* Clip any internal bleeding */
 }
 
 .dashboardGrid {
@@ -360,10 +373,10 @@
     font-size: 0.8rem;
 }
 
-/* Side Labels */
+/* Side Labels - Adjust to prevent overflow */
 .sideLabelLeft {
     position: absolute;
-    left: 2rem;
+    left: 1rem;
     bottom: 2rem;
     writing-mode: vertical-rl;
     transform: rotate(180deg);
@@ -371,17 +384,19 @@
     font-size: 0.7rem;
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.2);
+    z-index: 2;
 }
 
 .sideLabelRight {
     position: absolute;
-    right: 2rem;
+    right: 1rem;
     bottom: 2rem;
     writing-mode: vertical-rl;
     font-family: 'JetBrains Mono', monospace;
     font-size: 0.7rem;
     letter-spacing: 4px;
     color: rgba(255, 255, 255, 0.2);
+    z-index: 2;
 }
 
 /* Responsive */
