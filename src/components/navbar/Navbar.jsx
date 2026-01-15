@@ -22,6 +22,9 @@ const Navbar = React.memo(({ scrolled }) => {
     name: "About",
     activePath: "/about"
   }, {
+    name: "Careers",
+    activePath: "/careers"
+  }, {
     name: "Blogs",
     activePath: "/blogs"
   }, {

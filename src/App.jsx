@@ -31,6 +31,7 @@ import VendorRiskAssessment from './pages/VendorRiskManagement/VendorRiskManagem
 import Blogs from './pages/blogs/Blogs'
 import { BlogsLayout } from './blogs/BlogsLayout'
 import AboutUsPage from './pages/aboutUs/AboutUsPage'
+import CareersPage from './pages/careers/CareersPage'
 
 // ScrollToTop component to handle scroll on route change
 const ScrollToTop = () => {
@@ -82,6 +83,7 @@ function App() {
             {/* <Route exact path='/:id' element={<Home/>}/> */}
             <Route exact path='/contact' element={<Contactus />} />
             <Route exact path='/about' element={<AboutUsPage />} />
+            <Route exact path='/careers' element={<CareersPage />} />
             <Route exact path='/case-study' element={<CaseStudies />} />
             <Route exact path='/id' element={<ProductPage />} />
             <Route exact path='/case-study/ai_automation' element={<Deloitte />} />
