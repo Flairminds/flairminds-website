@@ -8,14 +8,16 @@ import HeroSlider from "../../components/heroSlider/HeroSlider"
 const Home = () => {
 
     return (
-        <div>
+        <>
             <HeroSlider />
-            <ServicesSection />
-            <ProjectsSection />
-            <AboutUs />
-            <ClientsSection />
-            <ClientLogos />
-        </div>
+            <div>
+                <ServicesSection />
+                <ProjectsSection />
+                <AboutUs />
+                <ClientsSection />
+                <ClientLogos />
+            </div>
+        </>
     )
 }
 

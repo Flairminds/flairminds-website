@@ -87,11 +87,6 @@ const StorePage = () => {
       {/* <Hero1/> */}
       <Hero2 />
 
-      {/* New Homepage Sections */}
-      <ServicesSection />
-      <ProjectsSection />
-      <ClientsSection />
-
       <div style={{ margin: '3rem 1rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '2rem', flexWrap: 'wrap', gap: '1rem' }}>
           <h3 style={{ fontSize: '3rem', color: 'var(--primary)', margin: 0 }}>Our Solutions</h3>

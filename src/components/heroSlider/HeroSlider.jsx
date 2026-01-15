@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import styles from './HeroSlider.module.css';
 import slide1 from '../../assets/hero_slide_1.png';
+import slide2 from '../../assets/hero_slide_2.png';
 
 const HeroSlider = () => {
     const [currentSlide, setCurrentSlide] = useState(0);
@@ -11,11 +12,16 @@ const HeroSlider = () => {
             id: 1,
             image: slide1,
             alt: 'Digital Transformation Partner - AI and Innovation'
+        },
+        {
+            id: 2,
+            image: slide2,
+            alt: 'End-to-End Product Development with AI Integration'
         }
         // Add more slides here in the future:
         // {
-        //   id: 2,
-        //   image: slide2,
+        //   id: 3,
+        //   image: slide3,
         //   alt: 'Description'
         // }
     ];

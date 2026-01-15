@@ -1,38 +1,45 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   text-decoration: none;
 }
-body{
-  /* overflow-x: hidden; */
+
+body {
+  overflow-x: hidden;
   /* background-color: #acb2b6; */
   font-family: var(--primary-font);
 }
-:root{
-  --white-text:white;
+
+:root {
+  --white-text: white;
   /* --text-primary-color: rgb(119, 118, 118); */
   --text-primary-color: rgb(70, 69, 69);
-  --background-blend:linear;
-  --primary-light:rgb(4, 204, 211);
-  --primary:#005ba1;
+  --background-blend: linear;
+  --primary-light: rgb(4, 204, 211);
+  --primary: #005ba1;
   /* --primary:#005ba1; */
-  --primary-translucent:rgba(0, 91, 161,0.5);
-  --primary-background:lightgrey;
-  --primary-shadow:lightblue;
-  --text:black;
+  --primary-translucent: rgba(0, 91, 161, 0.5);
+  --primary-background: lightgrey;
+  --primary-shadow: lightblue;
+  --text: black;
   /* --primary-font: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif; */
   /* --primary-font: "Montserrat", sans-serif; */
   --primary-font: "Poppins", sans-serif;
-  --secondary:#b9ed5e;
-  --error:red;
-  --card-background:#f0f0f0;
-  --input:rgb(232, 240, 254);
+  --secondary: #b9ed5e;
+  --error: red;
+  --card-background: #f0f0f0;
+  --input: rgb(232, 240, 254);
 }
+
 .no_select {
-  -webkit-user-select: none; /* Safari/Chrome */
-  -moz-user-select: none;    /* Firefox */
-  -ms-user-select: none;     /* Internet Explorer */
-  user-select: none; 
+  -webkit-user-select: none;
+  /* Safari/Chrome */
+  -moz-user-select: none;
+  /* Firefox */
+  -ms-user-select: none;
+  /* Internet Explorer */
+  user-select: none;
 }

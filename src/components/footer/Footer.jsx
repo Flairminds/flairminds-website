@@ -1,86 +1,111 @@
 import React from 'react'
 import footerStyles from './Footer.module.css'
 import shortLogo from '../../assets/flairminds-short-logo.png'
-import { FaLinkedin } from "react-icons/fa";
-import { FaYoutube } from "react-icons/fa";
-import { FaLocationDot } from "react-icons/fa6";
+import { FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaLocationDot, FaArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
-    const addresses=[
+    const addresses = [
         {
-            area:"India",
-            address:"1st Floor Alluring Sky Off Aundh Baner Link Road,Vidhate Vasti, Pune",
-            addressLink:"https://g.co/kgs/CUxozJv",
+            area: "India (HQ)",
+            address: "1st Floor Alluring Sky Off Aundh Baner Link Road, Vidhate Vasti, Pune",
+            addressLink: "https://g.co/kgs/CUxozJv",
         },
         {
-            area:"Paris",
-            address:"",
-            addressLink:"",
-        },
-        {
-            area:"Singapore",
-            address:"",
-            addressLink:"",
-        },
-        {
-            area:"New Jersey",
-            address:"",
-            addressLink:"",
-        },
+            area: "Global Presence",
+            address: "Paris | Singapore | New Jersey",
+            addressLink: "#",
+        }
     ]
-  return (
-    <div className={footerStyles.footer}>
-        <div className={footerStyles.footer_top}>
-            <p className={footerStyles.footer_heading}>Your Trusted Global Partner, Right Where You Are!</p>
-        </div>
-        <div className={footerStyles.footer_middle}>
-            <div className={footerStyles.contact_us}>
-                <div className={footerStyles.contact_details}>
-                <p className={footerStyles.footer_sub_heading}>Contact Us </p>
-                {/* <p>sales@flairminds.com</p> */}
-                <a href="mailto:sales@flairminds.com">sales@flairminds.com</a>
-                </div>
-                <p className={footerStyles.footer_sub_heading}>Follow us on </p>
-              <div className={footerStyles.social_icons}>
-                <a href="https://www.linkedin.com/company/flairmindssoftware/" target='blank'>
-                    <FaLinkedin className={footerStyles.linkedin_icon} />
-                </a>
-                <a href="https://www.youtube.com/@flairmindssoftware" target='blank'>
-                    <FaYoutube  className={footerStyles.youtube_icon}/>
-                </a>
-              </div>
-            </div>
-            <div className={footerStyles.menu}>
-                <ul>
-                    <li className={footerStyles.footer_sub_heading}>Menu</li>
-                    <li><a href="https://flairminds.com/">Home</a></li>
-                    <li><a href="https://flairminds.com/about-us">Who we are</a></li>
-                    <li><a href="https://store.flairminds.com">What we do</a></li>
-                    <li><a href="https://flairminds.com/services">Solutions</a></li>
-                    <li><a href="https://flairminds.com/resources">Resources</a></li>
-                    <li><a href="https://flairminds.com/career">Career</a></li>
-                </ul>
-            </div>
-            <div className={footerStyles.locations}>
-                <p className={footerStyles.footer_sub_heading}>locations</p>
-                <div style={{display:'flex', flexDirection:'column', gap:'10px'}}>
-                    {addresses.map((address)=>
-                        <>
-                            <a href={address.addressLink} target='blank'>
-                                <p><FaLocationDot /> {address.area}</p>
-                                <p style={{paddingLeft:'20px'}}>{address.address}</p>
+
+    const quickLinks = [
+        { name: "Home", link: "/" },
+        { name: "About Us", link: "/about" },
+        { name: "Store", link: "/store" },
+        { name: "Blogs", link: "/blogs" },
+        { name: "Case Study", link: "/case-study" },
+        { name: "Contact", link: "/contact" }
+    ]
+
+    return (
+        <footer className={footerStyles.footer}>
+            <div className={footerStyles.footerContainer}>
+                <div className={footerStyles.footerGrid}>
+                    {/* Brand Section */}
+                    <div className={footerStyles.brandSection}>
+                        <div className={footerStyles.logoWrapper}>
+                            <img src={shortLogo} alt="FlairMinds logo" className={footerStyles.footerLogo} />
+                            <span className={footerStyles.brandName}>FlairMinds</span>
+                        </div>
+                        <p className={footerStyles.brandTagline}>
+                            Your Trusted Global Partner for Innovation, Efficiency, and Resiliency in Tech Solutions.
+                        </p>
+                        <div className={footerStyles.socialLinks}>
+                            <a href="https://www.linkedin.com/company/flairmindssoftware/" target='_blank' rel="noreferrer" aria-label="LinkedIn">
+                                <FaLinkedin />
                             </a>
-                        </>
-                    )}
+                            <a href="https://www.youtube.com/@flairmindssoftware" target='_blank' rel="noreferrer" aria-label="YouTube">
+                                <FaYoutube />
+                            </a>
+                        </div>
+                    </div>
+
+                    {/* Quick Links Section */}
+                    <div className={footerStyles.linkSection}>
+                        <h3 className={footerStyles.sectionHeading}>Quick Links</h3>
+                        <ul className={footerStyles.linkList}>
+                            {quickLinks.map((item, index) => (
+                                <li key={index}>
+                                    <a href={item.link}>
+                                        <FaArrowRight className={footerStyles.linkIcon} /> {item.name}
+                                    </a>
+                                </li>
+                            ))}
+                        </ul>
+                    </div>
+
+                    {/* Contact Section */}
+                    <div className={footerStyles.contactSection}>
+                        <h3 className={footerStyles.sectionHeading}>Contact Us</h3>
+                        <div className={footerStyles.contactInfo}>
+                            <a href="mailto:sales@flairminds.com" className={footerStyles.contactEmail}>
+                                <FaEnvelope className={footerStyles.emailIcon} />
+                                sales@flairminds.com
+                            </a>
+                            <p className={footerStyles.contactText}>
+                                Reach out for partnerships, solutions, or career opportunities.
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Locations Section */}
+                    <div className={footerStyles.locationSection}>
+                        <h3 className={footerStyles.sectionHeading}>Locations</h3>
+                        <div className={footerStyles.locationList}>
+                            {addresses.map((address, index) => (
+                                <div key={index} className={footerStyles.locationItem}>
+                                    <h4 className={footerStyles.locationArea}>
+                                        <FaLocationDot className={footerStyles.locIcon} /> {address.area}
+                                    </h4>
+                                    <p className={footerStyles.locationAddress}>{address.address}</p>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+
+                <div className={footerStyles.footerBottom}>
+                    <p className={footerStyles.copyright}>
+                        © {new Date().getFullYear()} <span className={footerStyles.brandHighlight}>FlairMinds</span>. All rights reserved.
+                    </p>
+                    <div className={footerStyles.legalLinks}>
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div className={footerStyles.footer_bottom}>
-            <img src={shortLogo} alt="logo" className={footerStyles.footer_logo}/>
-            <p className={footerStyles.copyright_text}>Copyright © 2025 FlairMinds. All rights reserved.</p>
-        </div>
-    </div>
-  )
+        </footer>
+    )
 }
 
 export default Footer

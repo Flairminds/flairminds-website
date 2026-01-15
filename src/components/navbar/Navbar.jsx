@@ -17,7 +17,10 @@ const Navbar = React.memo(({ scrolled }) => {
 
   const navLinks = [{
     name: "Store",
-    activePath: "/"
+    activePath: "/store"
+  }, {
+    name: "About",
+    activePath: "/about"
   }, {
     name: "Blogs",
     activePath: "/blogs"

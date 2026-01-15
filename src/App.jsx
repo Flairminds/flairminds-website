@@ -30,6 +30,19 @@ import FableFintech from './pages/fableFintech/FableFintech'
 import VendorRiskAssessment from './pages/VendorRiskManagement/VendorRiskManagement'
 import Blogs from './pages/blogs/Blogs'
 import { BlogsLayout } from './blogs/BlogsLayout'
+import AboutUsPage from './pages/aboutUs/AboutUsPage'
+
+// ScrollToTop component to handle scroll on route change
+const ScrollToTop = () => {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location.pathname]);
+
+  return null;
+};
+
 // ✅ Corrected Component for Tracking Page Views
 // const TrackPage = () => {
 //   const location = useLocation(); // ✅ Uses useLocation() to dynamically track route changes
@@ -60,6 +73,7 @@ function App() {
     <>
 
       <BrowserRouter>
+        <ScrollToTop />
         {/* <TrackPage/> */}
         <Routes>
           <Route exact path='/' element={<GeneralLayout />}>
@@ -67,6 +81,7 @@ function App() {
             <Route exact path='/store' element={<StorePage />} />
             {/* <Route exact path='/:id' element={<Home/>}/> */}
             <Route exact path='/contact' element={<Contactus />} />
+            <Route exact path='/about' element={<AboutUsPage />} />
             <Route exact path='/case-study' element={<CaseStudies />} />
             <Route exact path='/id' element={<ProductPage />} />
             <Route exact path='/case-study/ai_automation' element={<Deloitte />} />

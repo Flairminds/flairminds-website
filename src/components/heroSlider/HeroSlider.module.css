@@ -1,23 +1,28 @@
 .sliderSection {
-    width: 100%;
+    width: 100vw;
     margin: 0;
     padding: 0;
-    background: hsl(var(--background));
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    overflow: hidden;
 }
 
 .sliderContainer {
     position: relative;
-    width: 100%;
+    width: 100vw;
     margin: 0;
+    padding: 0;
     overflow: hidden;
-    /* border-radius: var(--radius); */
     box-shadow: var(--shadow-card);
 }
 
 .slidesWrapper {
     position: relative;
     width: 100%;
-    aspect-ratio: 16 / 6;
+    height: 500px;
     overflow: hidden;
 }
 
@@ -42,6 +47,7 @@
     height: 100%;
     object-fit: cover;
     object-position: center;
+    display: block;
 }
 
 /* Navigation Buttons */
@@ -115,13 +121,13 @@
 /* Responsive Design */
 @media (max-width: 1200px) {
     .slidesWrapper {
-        aspect-ratio: 16 / 7;
+        height: 450px;
     }
 }
 
 @media (max-width: 968px) {
     .slidesWrapper {
-        aspect-ratio: 16 / 8;
+        height: 400px;
     }
 
     .navButton {
@@ -149,7 +155,7 @@
     }
 
     .slidesWrapper {
-        aspect-ratio: 4 / 3;
+        height: 300px;
     }
 
     .navButton {

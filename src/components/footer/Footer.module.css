@@ -1,75 +1,288 @@
-.footer{
-    /* background-color: var(--primary); */
-    background-color: black;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 20px;
-    font-family: var(--primary-font);
-    /* font-size: 1.2rem; */
-    gap: 50px;
+.footer {
+    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
     color: white;
+    padding: 5rem 2rem 2rem;
+    font-family: 'Poppins', sans-serif;
+    position: relative;
+    overflow: hidden;
 }
-a{
-    color: white;
+
+/* Subtle background accent */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(185, 237, 94, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
 }
-.footer_heading{
-    font-size: 1.7rem;
-    font-weight: bolder;
-    color: var(--text-white);
+
+.footerContainer {
+    max-width: 1400px;
+    margin: 0 auto;
 }
-.social_icons{
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: flex;
-    gap: 20px;
+
+.footerGrid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+    gap: 4rem;
+    margin-bottom: 4rem;
 }
-.linkedin_icon{
-    scale: 120%;
-}
-.youtube_icon{
-    scale: 155%;
-}
-.contact_details{
-    margin-bottom: 50px;
-    display: flex;
-    flex-direction: column;
-    
-}
-.footer_middle{
-    width: 100%;
-    display: flex;
-    justify-content: space-around;
-    font-weight: normal;
-}
-.copyright_text{
-    color: var(--primary-background);
-    opacity: 50%;
-}
-.footer ul{
+
+/* Brand Section */
+.brandSection {
     display: flex;
     flex-direction: column;
-    gap: 10px;
-    list-style-type: none;
+    gap: 1.5rem;
 }
-.footer_sub_heading{
-    font-weight: bolder;
-    font-size: 1.2rem;
-}
-.footer_bottom{
+
+.logoWrapper {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 1rem;
 }
-.footer_logo{
+
+.footerLogo {
     width: 50px;
-    aspect-ratio: 1/1;
+    height: 50px;
     object-fit: contain;
 }
 
-@media screen and (max-width:720px){
-    .footer_middle{
+.brandName {
+    font-size: 1.8rem;
+    font-weight: 800;
+    letter-spacing: 1px;
+}
+
+.brandTagline {
+    font-size: 1rem;
+    line-height: 1.6;
+    opacity: 0.85;
+    max-width: 300px;
+}
+
+.socialLinks {
+    display: flex;
+    gap: 1.2rem;
+    margin-top: 0.5rem;
+}
+
+.socialLinks a {
+    width: 45px;
+    height: 45px;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: white;
+    font-size: 1.4rem;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.socialLinks a:hover {
+    background: #b9ed5e;
+    color: #005ba1;
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+/* Common Section Styling */
+.sectionHeading {
+    font-size: 1.3rem;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    position: relative;
+    color: #b9ed5e;
+    font-family: 'Space Grotesk', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* Link Section */
+.linkList {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+}
+
+.linkList a {
+    color: rgba(255, 255, 255, 0.85);
+    text-decoration: none;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 1.05rem;
+}
+
+.linkIcon {
+    font-size: 0.8rem;
+    color: #b9ed5e;
+    opacity: 0;
+    transition: all 0.3s ease;
+    transform: translateX(-10px);
+}
+
+.linkList a:hover {
+    color: #b9ed5e;
+    transform: translateX(10px);
+}
+
+.linkList a:hover .linkIcon {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* Contact Section */
+.contactInfo {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contactEmail {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem;
+    transition: color 0.3s ease;
+}
+
+.contactEmail:hover {
+    color: #b9ed5e;
+}
+
+.emailIcon {
+    color: #b9ed5e;
+    font-size: 1.3rem;
+}
+
+.contactText {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.6;
+}
+
+/* Location Section */
+.locationList {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+}
+
+.locationItem {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.locationArea {
+    font-size: 1.1rem;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+}
+
+.locIcon {
+    color: #b9ed5e;
+}
+
+.locationAddress {
+    font-size: 0.95rem;
+    opacity: 0.8;
+    line-height: 1.6;
+    padding-left: 1.7rem;
+}
+
+/* Footer Bottom */
+.footerBottom {
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.copyright {
+    font-size: 0.95rem;
+    opacity: 0.7;
+}
+
+.brandHighlight {
+    color: #b9ed5e;
+    font-weight: 600;
+}
+
+.legalLinks {
+    display: flex;
+    gap: 2rem;
+}
+
+.legalLinks a {
+    font-size: 0.95rem;
+    color: white;
+    opacity: 0.7;
+    text-decoration: none;
+    transition: opacity 0.3s ease;
+}
+
+.legalLinks a:hover {
+    opacity: 1;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.footerGrid>div {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
+    .footerGrid {
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer {
+        padding: 4rem 1.5rem 2rem;
+    }
+
+    .footerGrid {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+    }
+
+    .footerBottom {
         flex-direction: column;
-        gap: 40px;
+        text-align: center;
+    }
+
+    .legalLinks {
+        justify-content: center;
     }
 }

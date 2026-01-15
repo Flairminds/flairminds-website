@@ -3,8 +3,10 @@ import Navbar from '../navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../footer/Footer'
 import Footer1 from '../footer1/Footer1'
+
 const GeneralLayout = () => {
   const [scrolled, setScrolled] = useState()
+
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 50) {
@@ -20,8 +22,9 @@ const GeneralLayout = () => {
       window.removeEventListener("scroll", handleScroll);
     };
   }, []);
+
   return (
-    <div>
+    <div style={{ overflow: 'hidden' }}>
       <div style={{ position: "sticky", top: 0, zIndex: 101 }}>
         <Navbar scrolled={scrolled} />
       </div>
