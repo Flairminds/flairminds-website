@@ -1,59 +1,65 @@
 import styles from './ClientsSection.module.css';
-import clientsImage from '../../assets/clients_team_photo_1768472800312.png';
+import collabImage from '../../assets/tech_collaboration.png';
+import { FaUserShield, FaGlobe, FaCertificate } from 'react-icons/fa';
 
 const ClientsSection = () => {
-    const clientHighlights = [
+    const trustFactors = [
         {
-            title: "Trusted by Industry Leaders & Innovators",
-            description: ""
+            icon: <FaUserShield />,
+            title: "Security & Trust",
+            description: "Adhering to global compliance and security standards."
         },
         {
-            title: "From Startups to Enterprises",
-            description: "Empowering businesses of all sizes with scalable and future-ready solutions."
+            icon: <FaGlobe />,
+            title: "Global Scalability",
+            description: "Solutions built to run seamlessly across borders and cultures."
         },
         {
-            title: "Industry-Specific Expertise",
-            description: "Delivering AI-driven, data-powered, and cloud-optimized solutions across healthcare, finance, e-commerce, and telecom."
-        },
-        {
-            title: "Tailor-Made Digital Transformation",
-            description: "Accelerating business growth with custom software development, automation, and advanced analytics."
-        },
-        {
-            title: "Agile & Scalable Technology",
-            description: "Ensuring seamless adaptability to industry demands, enhancing efficiency and innovation."
+            icon: <FaCertificate />,
+            title: "Certified Excellence",
+            description: "Industry-standard methodologies (Agile, DevSecOps) for quality."
         }
     ];
 
     return (
         <section className={styles.clientsSection}>
-            <h2 className={styles.sectionTitle}>CLIENTS</h2>
+            <div className={styles.container}>
+                <div className={styles.gridContainer}>
+                    {/* Left: Content */}
+                    <div className={styles.textCol}>
+                        <div className={styles.trustBadge}>TRUSTED PARTNERSHIPS</div>
+                        <h2 className={styles.sectionHeading}>Empowering Visionaries Across <span className={styles.highlight}>Agencies & Enterprises</span></h2>
+                        <p className={styles.description}>
+                            We don't just build software; we build the technological foundation for the world's most innovative companies.
+                            From disruptive startups to Fortune 500 giants.
+                        </p>
 
-            <div className={styles.contentWrapper}>
-                <div className={styles.highlightsContainer}>
-                    {clientHighlights.map((highlight, index) => (
-                        <div key={index} className={styles.highlightItem}>
-                            <div className={styles.bullet}></div>
-                            <div>
-                                <h4 className={styles.highlightTitle}>{highlight.title}</h4>
-                                {highlight.description && (
-                                    <p className={styles.highlightDescription}>{highlight.description}</p>
-                                )}
-                            </div>
+                        <div className={styles.trustGrid}>
+                            {trustFactors.map((factor, index) => (
+                                <div key={index} className={styles.trustItem}>
+                                    <div className={styles.iconBox}>{factor.icon}</div>
+                                    <div className={styles.factorInfo}>
+                                        <h4 className={styles.factorTitle}>{factor.title}</h4>
+                                        <p className={styles.factorDesc}>{factor.description}</p>
+                                    </div>
+                                </div>
+                            ))}
                         </div>
-                    ))}
+                    </div>
 
-                    <button className={styles.exploreButton}>
-                        Explore
-                    </button>
-                </div>
-
-                <div className={styles.imageContainer}>
-                    <img
-                        src={clientsImage}
-                        alt="Our Team"
-                        className={styles.image}
-                    />
+                    {/* Right: Visual */}
+                    <div className={styles.imageCol}>
+                        <div className={styles.visualContainer}>
+                            <img
+                                src={collabImage}
+                                alt="Modern Team Collaboration"
+                                className={styles.clientsImage}
+                            />
+                            {/* Accent elements */}
+                            <div className={styles.decorationDot}></div>
+                            <div className={styles.decorationSquare}></div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

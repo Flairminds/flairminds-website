@@ -1,146 +1,210 @@
 .projectsSection {
-    padding: 4rem 2rem;
-    max-width: 1400px;
-    margin: 0 auto;
-    background: linear-gradient(135deg, hsl(var(--card) / 0.3), transparent);
+    padding: 10rem 0;
+    background-color: #f8fafc;
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
 }
 
-.sectionTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
-    text-align: center;
-    color: hsl(var(--primary));
-    margin-bottom: 3rem;
-    font-family: 'Space Grotesk', sans-serif;
-    letter-spacing: 0.5px;
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 0 2rem;
 }
 
 .contentWrapper {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
     align-items: center;
 }
 
-.imageContainer {
-    border-radius: var(--radius);
-    overflow: hidden;
-    box-shadow: var(--shadow-card);
-    transition: all 0.4s ease;
-}
-
-.imageContainer:hover {
-    transform: scale(1.02);
-    box-shadow: var(--shadow-glow);
-}
-
-.image {
-    width: 100%;
-    height: auto;
-    display: block;
-}
-
-.highlightsContainer {
+/* Info Column */
+.infoCol {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2rem;
+}
+
+.sectionTitle {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #b9ed5e;
+    letter-spacing: 4px;
+    background: #005ba1;
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.mainHeading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.highlight {
+    color: #005ba1;
+}
+
+.highlightsList {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
 }
 
 .highlightItem {
     display: flex;
-    gap: 1rem;
-    align-items: start;
-    padding: 1rem;
-    border-radius: calc(var(--radius) - 4px);
-    transition: all 0.3s ease;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
 }
 
 .highlightItem:hover {
-    background: hsl(var(--card) / 0.5);
-    transform: translateX(8px);
+    transform: translateX(10px);
 }
 
-.bullet {
-    width: 8px;
-    height: 8px;
-    min-width: 8px;
-    background: hsl(var(--primary));
-    border-radius: 50%;
-    margin-top: 8px;
-    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
+.dash {
+    width: 30px;
+    height: 4px;
+    background-color: #b9ed5e;
+    margin-top: 0.8rem;
+    flex-shrink: 0;
+    border-radius: 2px;
 }
 
-.highlightTitle {
-    font-size: 1.1rem;
-    font-weight: 600;
-    color: hsl(var(--foreground));
-    margin-bottom: 0.3rem;
-    font-family: 'Space Grotesk', sans-serif;
+.itemTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #005ba1;
+    margin-bottom: 0.5rem;
 }
 
-.highlightDescription {
-    font-size: 0.95rem;
-    color: hsl(var(--muted-foreground));
+.itemDescription {
+    color: #555;
     line-height: 1.6;
-    margin: 0;
+    font-size: 1.05rem;
 }
 
-.exploreButton {
-    margin-top: 1rem;
-    padding: 0.875rem 3rem;
-    background: linear-gradient(135deg, hsl(160 84% 45%), hsl(160 84% 35%));
+.primaryButton {
+    background: #005ba1;
     color: white;
     border: none;
+    padding: 1.2rem 3rem;
     border-radius: 50px;
-    font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
+    font-size: 1.1rem;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px hsl(160 84% 40% / 0.3);
-    align-self: flex-start;
+    width: fit-content;
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    box-shadow: 0 10px 20px rgba(0, 91, 161, 0.2);
 }
 
-.exploreButton:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 6px 20px hsl(160 84% 40% / 0.4);
-    background: linear-gradient(135deg, hsl(160 84% 50%), hsl(160 84% 40%));
+.primaryButton:hover {
+    background: #003a66;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 91, 161, 0.3);
 }
 
-.exploreButton:active {
-    transform: translateY(0);
+.primaryButton svg {
+    transition: transform 0.3s ease;
 }
 
-/* Responsive Design */
-@media (max-width: 968px) {
+.primaryButton:hover svg {
+    transform: translateX(5px);
+}
+
+/* Visual Column */
+.visualCol {
+    position: relative;
+}
+
+.techImageCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 32px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.archImage {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+.glassBadge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.badgeLabel {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #b9ed5e;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    background: #005ba1;
+    width: fit-content;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+}
+
+.badgeText {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 1200px) {
     .contentWrapper {
         grid-template-columns: 1fr;
-        gap: 2rem;
+        gap: 4rem;
     }
 
-    .sectionTitle {
-        font-size: 2rem;
+    .mainHeading {
+        font-size: 2.8rem;
+    }
+
+    .visualCol {
+        max-width: 800px;
+        margin: 0 auto;
     }
 }
 
-@media (max-width: 640px) {
-    .projectsSection {
-        padding: 3rem 1rem;
+@media (max-width: 768px) {
+    .mainHeading {
+        font-size: 2.2rem;
     }
 
-    .sectionTitle {
-        font-size: 1.75rem;
-    }
-
-    .highlightTitle {
-        font-size: 1rem;
-    }
-
-    .highlightDescription {
-        font-size: 0.9rem;
-    }
-
-    .exploreButton {
-        padding: 0.75rem 2.5rem;
-        font-size: 0.95rem;
+    .glassBadge {
+        right: 0;
+        padding: 1.5rem;
     }
 }

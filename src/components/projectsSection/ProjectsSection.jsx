@@ -1,63 +1,73 @@
 import styles from './ProjectsSection.module.css';
-import projectsImage from '../../assets/projects_team_collaboration_1768472782220.png';
+import archImage from '../../assets/software_architecture.png';
 import { useNavigate } from 'react-router-dom';
+import { FaArrowRight } from 'react-icons/fa';
 
 const ProjectsSection = () => {
     const navigate = useNavigate();
 
     const highlights = [
         {
-            title: "Delivering Success",
-            description: "Proven expertise in executing high-impact projects across industries."
+            title: "Scalable Architectures",
+            description: "Designing systems that grow with your business using microservices and cloud-native patterns."
         },
         {
-            title: "Optimized Operations",
-            description: "Driving efficiency with AI-powered automation and data-driven insights."
+            title: "Performance Optimization",
+            description: "High-speed, low-latency execution for demanding enterprise workloads."
         },
         {
-            title: "Enterprise-Grade Excellence",
-            description: "Robust mobile apps and scalable enterprise solutions tailored for growth."
+            title: "Secure by Design",
+            description: "Rigorous security protocols embedded into every layer of development."
         },
         {
-            title: "Innovation in Action",
-            description: "A strong portfolio showcasing our commitment to digital transformation."
-        },
-        {
-            title: "Results-Driven Approach",
-            description: "Helping businesses achieve strategic goals through cutting-edge technology."
+            title: "Full-Stack Mastery",
+            description: "End-to-end expertise from intuitive frontend to robust, data-rich backends."
         }
     ];
 
     return (
         <section className={styles.projectsSection}>
-            <h2 className={styles.sectionTitle}>PROJECTS</h2>
+            <div className={styles.container}>
+                <div className={styles.contentWrapper}>
+                    {/* Left: Interactive Info */}
+                    <div className={styles.infoCol}>
+                        <h2 className={styles.sectionTitle}>OUR EXPERTISE</h2>
+                        <h3 className={styles.mainHeading}>Transforming Complexity into <span className={styles.highlight}>Clear Solutions</span></h3>
 
-            <div className={styles.contentWrapper}>
-                <div className={styles.imageContainer}>
-                    <img
-                        src={projectsImage}
-                        alt="Team Collaboration"
-                        className={styles.image}
-                    />
-                </div>
+                        <div className={styles.highlightsList}>
+                            {highlights.map((item, index) => (
+                                <div key={index} className={styles.highlightItem}>
+                                    <div className={styles.dash}></div>
+                                    <div className={styles.itemContent}>
+                                        <h4 className={styles.itemTitle}>{item.title}</h4>
+                                        <p className={styles.itemDescription}>{item.description}</p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
 
-                <div className={styles.highlightsContainer}>
-                    {highlights.map((highlight, index) => (
-                        <div key={index} className={styles.highlightItem}>
-                            <div className={styles.bullet}></div>
-                            <div>
-                                <h4 className={styles.highlightTitle}>{highlight.title}</h4>
-                                <p className={styles.highlightDescription}>{highlight.description}</p>
+                        <button
+                            className={styles.primaryButton}
+                            onClick={() => navigate('/case-study')}
+                        >
+                            Explore Portfolio <FaArrowRight />
+                        </button>
+                    </div>
+
+                    {/* Right: Technical Visual */}
+                    <div className={styles.visualCol}>
+                        <div className={styles.techImageCard}>
+                            <img
+                                src={archImage}
+                                alt="Technical Architecture"
+                                className={styles.archImage}
+                            />
+                            <div className={styles.glassBadge}>
+                                <div className={styles.badgeLabel}>VERSION 4.0</div>
+                                <div className={styles.badgeText}>Enterprise Ready Architecture</div>
                             </div>
                         </div>
-                    ))}
-
-                    <button
-                        className={styles.exploreButton}
-                        onClick={() => navigate('/case-study')}
-                    >
-                        Explore
-                    </button>
+                    </div>
                 </div>
             </div>
         </section>
