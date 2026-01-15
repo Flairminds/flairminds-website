@@ -15,11 +15,12 @@ const Navbar = React.memo(({ scrolled }) => {
   }, []);
 
   const navLinks = [
-    { name: "Store", activePath: "/store" },
+    { name: "Home", activePath: "/" },
     { name: "About", activePath: "/about" },
-    { name: "Careers", activePath: "/careers" },
-    { name: "Blogs", activePath: "/blogs" },
     { name: "Case Study", activePath: "/case-study" },
+    { name: "Our Solutions", activePath: "/store" },
+    { name: "Blogs", activePath: "/blogs" },
+    { name: "Careers", activePath: "/careers" },
     { name: "Contact", activePath: "/contact" },
   ];
 

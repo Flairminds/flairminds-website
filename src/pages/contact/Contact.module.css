@@ -1,219 +1,279 @@
 .main {
-    margin-top: 50px;
-    margin-bottom: 50px;
-    padding: 40px 20px;
-    font-family: var(--primary-font);
-    max-width: 1200px;
-    margin-left: auto;
-    margin-right: auto;
+    min-height: 100vh;
+    background-color: #f1f5f9;
+    /* Soft Slate Background for better card contrast */
+    color: #1a2a3a;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Executive Hero Section */
+.heroSection {
+    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
+    color: white;
+    padding: 10rem 2rem 5rem;
+    text-align: center;
+    width: 100%;
+}
+
+.heroContent {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.systemStatus {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #b9ed5e;
+    background: rgba(185, 237, 94, 0.1);
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.6rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(185, 237, 94, 0.2);
+}
+
+.statusDot {
+    width: 6px;
+    height: 6px;
+    background: #b9ed5e;
+    border-radius: 50%;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.4);
+        opacity: 0.5;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
 }
 
 .contact_heading {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: 600;
-    color: #3d5a80;
-    margin-bottom: 20px;
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    letter-spacing: 1px;
 }
 
-.description {
-    text-align: center;
-    font-size: 1rem;
+.heroDescription {
+    font-size: 1.2rem;
     line-height: 1.6;
-    color: #333;
-    max-width: 800px;
-    margin: 0 auto 60px;
-    padding: 0 20px;
+    color: rgba(255, 255, 255, 0.85);
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Content Layout */
+.contentWrapper {
+    max-width: 1300px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
 }
 
 .contactOptions {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 40px;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    margin-bottom: 6rem;
 }
 
+/* Compact Business Cards */
 .contactOption {
+    flex: 0 1 240px;
+    background: #ffffff;
+    border: 1px solid rgba(0, 91, 161, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
+    padding: 2rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     text-decoration: none;
-    color: inherit;
-    transition: transform 0.3s ease;
-    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
 }
 
 .contactOption:hover {
     transform: translateY(-5px);
+    border-color: #005ba1;
+    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.08);
+}
+
+.cardHeader {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.syncId {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.6rem;
+    color: rgba(0, 91, 161, 0.4);
+}
+
+.syncIcon {
+    font-size: 0.7rem;
+    color: rgba(0, 91, 161, 0.2);
+}
+
+.contactOption:hover .syncIcon {
+    color: #b9ed5e;
+    animation: rotate 2s linear infinite;
+}
+
+@keyframes rotate {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
 }
 
 .iconWrapper {
-    width: 120px;
-    height: 80px;
+    width: 55px;
+    height: 55px;
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
-    border-radius: 8px;
-    margin-bottom: 15px;
+    background: #f8fafc;
+    border-radius: 10px;
+    margin-bottom: 1.5rem;
+    color: #005ba1;
     transition: all 0.3s ease;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
 .contactOption:hover .iconWrapper {
-    box-shadow: 0 4px 16px rgba(255, 102, 0, 0.2);
-}
-
-.iconWrapper svg {
-    font-size: 2.5rem;
-    color: #ff6600;
-    transition: color 0.3s ease;
-}
-
-.contactOption:hover .iconWrapper svg {
-    color: #ff8533;
+    background: #005ba1;
+    color: white;
 }
 
 .label {
-    font-size: 1rem;
-    font-weight: 500;
-    color: #333;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #1e293b;
     text-align: center;
     margin: 0;
 }
 
-/* Responsive adjustments */
-@media (max-width: 768px) {
-    .contact_heading {
-        font-size: 2rem;
-    }
-
-    .description {
-        font-size: 0.95rem;
-        margin-bottom: 40px;
-    }
-
-    .contactOptions {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 30px;
-    }
-}
-
-@media (max-width: 480px) {
-    .contactOptions {
-        grid-template-columns: 1fr;
-        gap: 25px;
-    }
-}
-
-/* Location Section Styles */
+/* Compact Location Section */
 .locationSection {
-    margin-top: 80px;
-    background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
-    padding: 60px 40px;
-    border-radius: 12px;
+    margin-bottom: 6rem;
+    background: white;
+    padding: 4rem;
+    border-radius: 24px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.04);
 }
 
 .locationContent {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 3rem;
     align-items: center;
-}
-
-.locationAddresses {
-    display: flex;
-    flex-direction: column;
-    gap: 40px;
-}
-
-.locationItem {
-    display: flex;
-    gap: 20px;
-    align-items: flex-start;
-}
-
-.locationIcon {
-    flex-shrink: 0;
-    width: 50px;
-    height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: rgba(255, 102, 0, 0.1);
-    border-radius: 50%;
-}
-
-.locationIcon svg {
-    font-size: 1.8rem;
-    color: #ff6600;
-}
-
-.locationDetails {
-    flex: 1;
-}
-
-.locationTitle {
-    font-size: 1.2rem;
-    font-weight: 600;
-    color: #ff6600;
-    margin: 0 0 12px 0;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
-}
-
-.locationAddress {
-    font-size: 0.95rem;
-    line-height: 1.6;
-    color: #ecf0f1;
-    margin: 0;
 }
 
 .mapContainer {
     width: 100%;
-    height: 400px;
-    border-radius: 8px;
+    height: 350px;
+    border-radius: 12px;
     overflow: hidden;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    border: 3px solid #f1f5f9;
 }
 
-/* Responsive adjustments for location section */
-@media (max-width: 968px) {
+.locId {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.65rem;
+    color: #005ba1;
+    background: #f1f5f9;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
+}
+
+.locationTitle {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #0f172a;
+    margin: 0.5rem 0 1rem;
+}
+
+.locationAddress {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    color: #475569;
+}
+
+/* Form Section */
+.formSection {
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.formHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.subTag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.75rem;
+    color: #005ba1;
+    letter-spacing: 2px;
+}
+
+.formTitle {
+    font-size: 2.5rem;
+    font-weight: 800;
+    margin-top: 0.5rem;
+}
+
+.formWrapper {
+    background: white;
+    border-radius: 20px;
+    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.06);
+    overflow: hidden;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
     .locationContent {
         grid-template-columns: 1fr;
-        gap: 30px;
     }
 
-    .mapContainer {
-        height: 350px;
+    .contact_heading {
+        font-size: 2.8rem;
     }
 
     .locationSection {
-        padding: 40px 20px;
+        padding: 2.5rem;
     }
 }
 
-@media (max-width: 480px) {
-    .locationSection {
-        margin-top: 60px;
-        padding: 30px 15px;
+@media (max-width: 768px) {
+    .heroSection {
+        padding-top: 8rem;
     }
 
-    .locationAddresses {
-        gap: 30px;
+    .formTitle {
+        font-size: 2rem;
     }
 
-    .locationTitle {
-        font-size: 1rem;
-    }
-
-    .locationAddress {
-        font-size: 0.9rem;
-    }
-
-    .mapContainer {
-        height: 300px;
+    .contentWrapper {
+        padding: 3rem 1rem;
     }
 }

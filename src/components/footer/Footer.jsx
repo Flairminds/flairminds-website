@@ -8,7 +8,7 @@ const Footer = () => {
     const addresses = [
         {
             area: "India (HQ)",
-            address: "1st Floor Alluring Sky Off Aundh Baner Link Road, Vidhate Vasti, Pune",
+            address: "The Office Club, Alluring Sky, near Vimal Darshan Society, Vidhate Colony, New D.P. Road, Aundh, Pune - 411007",
             addressLink: "https://g.co/kgs/CUxozJv",
         },
         {
