@@ -3,21 +3,20 @@ import ProjectsSection from "../../components/projectsSection/ProjectsSection"
 import ClientsSection from "../../components/clientsSection/ClientsSection"
 import ClientLogos from "../../components/clientLogos/ClientLogos"
 import AboutUs from "../../components/aboutUs/AboutUs"
-import HeroSlider from "../../components/heroSlider/HeroSlider"
+import HeroSection from "../../components/heroSlider/HeroSection"
 
 const Home = () => {
-
     return (
-        <>
-            <HeroSlider />
-            <div>
+        <div className="home-container">
+            <HeroSection />
+            <div className="content-sections">
+                <AboutUs />
                 <ServicesSection />
                 <ProjectsSection />
-                <AboutUs />
                 <ClientsSection />
                 <ClientLogos />
             </div>
-        </>
+        </div>
     )
 }
 
