@@ -204,11 +204,73 @@
 }
 
 .manifestoText {
-    padding: 3rem;
+    padding: 3rem 3rem 1.5rem 3rem;
     font-size: 1.4rem;
     line-height: 1.8;
     color: rgba(255, 255, 255, 0.8);
     font-weight: 300;
+}
+
+.terminalManifest {
+    margin: 0 3rem 3rem 3rem;
+    background: #0f172a;
+    border-radius: 8px;
+    border: 1px solid rgba(185, 237, 94, 0.2);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.4);
+    overflow: hidden;
+}
+
+.terminalTop {
+    padding: 0.8rem 1rem;
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.dot:nth-child(1) {
+    background: #ff5f56;
+}
+
+.dot:nth-child(2) {
+    background: #ffbd2e;
+}
+
+.dot:nth-child(3) {
+    background: #27c93f;
+}
+
+.terminalBody {
+    padding: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #cbd5e1;
+}
+
+.commandLine {
+    margin-bottom: 1.5rem;
+}
+
+.prompt {
+    color: #b9ed5e;
+    margin-right: 0.8rem;
+}
+
+.commandOutput {
+    color: #94a3b8;
+}
+
+.asciiArt {
+    margin: 0;
+    line-height: 1.2;
+    color: #b9ed5e;
+    filter: drop-shadow(0 0 5px rgba(185, 237, 94, 0.4));
+    font-size: 0.6rem;
 }
 
 /* Culture Section */
@@ -477,6 +539,11 @@
     font-family: 'JetBrains Mono', monospace;
     color: rgba(255, 255, 255, 0.4);
     font-size: 1.1rem;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 1rem;
+    justify-content: center;
 }
 
 .noRoleNotice a {

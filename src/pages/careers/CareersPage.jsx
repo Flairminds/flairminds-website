@@ -77,12 +77,12 @@ const CareersPage = () => {
                         and dreamers to engineer the next generation of AI-driven solutions.
                     </p>
                     <div className={styles.actionRow}>
-                        <button className={styles.ctaButton} onClick={() => document.getElementById('open-roles').scrollIntoView({ behavior: 'smooth' })}>
-                            INITIATE_APPLICATION
-                        </button>
                         <div className={styles.terminalPrompt}>
                             <FaTerminal /> <span className={styles.typing}>npm run join-flairminds</span>
                         </div>
+                        <button className={styles.ctaButton} onClick={() => document.getElementById('open-roles').scrollIntoView({ behavior: 'smooth' })}>
+                            INITIATE_APPLICATION
+                        </button>
                     </div>
                 </div>
             </section>
@@ -102,6 +102,40 @@ const CareersPage = () => {
                             opportunities for continuous learning, skill enhancement, and career advancement.
                             Your next big career move starts here.
                         </p>
+                        <div className={styles.terminalManifest}>
+                            <div className={styles.terminalTop}>
+                                <span className={styles.dot}></span>
+                                <span className={styles.dot}></span>
+                                <span className={styles.dot}></span>
+                            </div>
+                            <div className={styles.terminalBody}>
+                                <div className={styles.commandLine}>
+                                    <span className={styles.prompt}>$</span> {`python3 -c "import json; stats = {'status': 'ONLINE', 'culture': 'ENG_EXCELLENCE', 'stack': ['AI/ML', 'React', 'Python', 'Cloud', 'AI Agents'], 'impact': 'GLOBAL'}; print('[SCAN] Analyzing FlairMinds DNA...\\n' + '\\n'.join([f'[OK] {k.upper()}: {v}' for k, v in stats.items()]) + '\\n\\n' + json.dumps(stats, indent=2))"`}
+                                </div>
+                                <div className={styles.commandOutput}>
+                                    <pre className={styles.asciiArt}>
+                                        {`[SCAN] Analyzing FlairMinds DNA...
+[OK] STATUS: ONLINE
+[OK] CULTURE: ENG_EXCELLENCE
+[OK] STACK: ['AI/ML', 'React', 'Python', 'Cloud', 'AI Agents']
+[OK] IMPACT: GLOBAL
+
+{
+  "status": "ONLINE",
+  "culture": "ENG_EXCELLENCE",
+  "stack": [
+    "AI/ML",
+    "React",
+    "Python",
+    "Cloud",
+    "AI Agents"
+  ],
+  "impact": "GLOBAL"
+}`}
+                                    </pre>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
@@ -189,7 +223,12 @@ const CareersPage = () => {
                     </div>
                     <div className={styles.noRoleNotice}>
                         <span className={styles.terminalIcon}>{">"}</span> NO_MATCHING_MISSION?
-                        <a href="mailto:hr@flairminds.com"> // TRANSMIT_RESUME_TO_COMMAND</a>
+                        <a href="mailto:hr@flairminds.com">
+                            <button className={styles.applyButton}>
+                                TRANSMIT_RESUME_TO_COMMAND
+                                <span className={styles.buttonGlow}></span>
+                            </button>
+                        </a>
                     </div>
                 </div>
             </section>
