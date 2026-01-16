@@ -1,5 +1,5 @@
 import styles from './HeroSection.module.css';
-import aiSolutionsImage from '../../assets/ai_solutions_hero.webp';
+import bannerVideo from '../../assets/banner_gif.mp4';
 import { FaTerminal, FaServer, FaCogs, FaNetworkWired, FaCodeBranch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 
@@ -51,7 +51,14 @@ const HeroSection = () => {
                     {/* Right: Holographic AI Integration Visual */}
                     <div className={styles.visualSection}>
                         <div className={styles.hologramFrame}>
-                            <img src={aiSolutionsImage} alt="AI Integration Solutions" className={styles.archVisual} />
+                            <video
+                                src={bannerVideo}
+                                autoPlay
+                                loop
+                                muted
+                                playsInline
+                                className={styles.archVisual}
+                            />
 
                             {/* Floating Data Nodes */}
                             <div className={`${styles.dataNode} ${styles.topRight}`}>
