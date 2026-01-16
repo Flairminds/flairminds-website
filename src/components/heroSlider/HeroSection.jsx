@@ -18,16 +18,17 @@ const HeroSection = () => {
 
                     {/* Left: Command Console */}
                     <div className={styles.consoleSection}>
-                        <div className={styles.systemTag}>
-                            <FaTerminal className={styles.tagIcon} />
-                            <span>FL-SYS_V4.0_DEPLOYED</span>
-                        </div>
 
                         <h1 className={styles.mainHeading}>
                             Engineering the <br />
                             <span className={styles.glowText}>Next Generation</span> <br />
                             of Digital Infrastructure
                         </h1>
+
+                        <div className={styles.systemTag}>
+                            <FaTerminal className={styles.tagIcon} />
+                            <span className={styles.flickerText}>FL_SYS_V4.0_DEPLOYED</span>
+                        </div>
 
                         <div className={styles.terminalWindow}>
                             <div className={styles.terminalHeader}>
