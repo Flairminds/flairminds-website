@@ -1,5 +1,5 @@
 import styles from './ServicesSection.module.css';
-import aiHologram from '../../assets/ai_hologram.png';
+import aiHologram from '../../assets/ai_hologram.webp';
 import { FaCode, FaCloud, FaBrain, FaCheckCircle, FaRocket, FaTasks } from 'react-icons/fa';
 
 const ServicesSection = () => {

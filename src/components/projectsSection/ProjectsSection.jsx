@@ -1,5 +1,5 @@
 import styles from './ProjectsSection.module.css';
-import archImage from '../../assets/software_architecture.png';
+import archImage from '../../assets/software_architecture.webp';
 import { useNavigate } from 'react-router-dom';
 import { FaArrowRight } from 'react-icons/fa';
 

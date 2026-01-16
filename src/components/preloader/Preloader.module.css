@@ -42,8 +42,8 @@
       rgba(255, 255, 255, 0.1),
       transparent);
   transform: skewX(-20deg);
-  animation: shimmerSweep 0.9s ease-in-out forwards;
-  animation-delay: 0.5s;
+  animation: shimmerSweep 0.8s ease-in-out forwards;
+  animation-delay: 0.3s;
 }
 
 

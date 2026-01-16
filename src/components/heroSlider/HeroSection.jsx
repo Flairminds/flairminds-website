@@ -1,5 +1,5 @@
 import styles from './HeroSection.module.css';
-import aiSolutionsImage from '../../assets/ai_solutions_hero.png';
+import aiSolutionsImage from '../../assets/ai_solutions_hero.webp';
 import { FaTerminal, FaServer, FaCogs, FaNetworkWired, FaCodeBranch } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 

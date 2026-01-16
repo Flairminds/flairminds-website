@@ -1,5 +1,5 @@
 import styles from './ClientLogos.module.css';
-import clientLogosImage from '../../assets/client_logos.png';
+import clientLogosImage from '../../assets/client_logos.webp';
 
 const ClientLogos = () => {
     return (
