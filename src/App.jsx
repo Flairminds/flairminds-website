@@ -1,37 +1,41 @@
 import './App.css'
-import Home from './pages/home/Home';
-import Contactus from './pages/contact/Contact'
-import StorePage from './pages/storePage/StorePage'
-import Login from './pages/login/Login'
 import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom'
-import CreateUser from './pages/createUser/CreateUser'
-import Dashboard from './pages/dashboard/Dashboard'
-import Protected from './components/protected/Protected'
-import Users from './pages/users/Users'
-import DashboardWrapper from './components/dashboardWrapper/DashboardLayout'
-import GeneralLayout from './components/generalLayout/GeneralLayout'
-import Visitors from './pages/visitors/Visitors'
-import Profile from './pages/profile/Profile'
-import ChangePassword from './pages/changePassword/ChangePassword'
-import VerifyLink from './components/verifyLink/VerifyLink'
-import RedirectToHome from './components/redirectToHome/RedirectToHome'
 import { useEffect, useState, Suspense, lazy } from 'react'
-import { initGA, setUser, trackPageView } from './services/googleAnalytics'
-import { paths } from './data/paths'
 import Preloader from './components/preloader/Preloader'
-import ProductPage from './pages/productPage/ProductPage'
-import Deloitte from './pages/deloitte/Deloitte'
-import CaseStudies from './pages/caseStudies/CaseStudies'
-import EntDataTransformation from './pages/entDataTransformation/EntDataTransformation'
-import CloudOptimization from './pages/cloudOptimization/CloudOptimization'
-import QuantFinance from './pages/quantFinance/QuantFinance'
-import ESignPlatform from './pages/eSignPlatform/ESignPlatform'
-import FableFintech from './pages/fableFintech/FableFintech'
-import VendorRiskAssessment from './pages/VendorRiskManagement/VendorRiskManagement'
-import Blogs from './pages/blogs/Blogs'
-import { BlogsLayout } from './blogs/BlogsLayout'
-import AboutUsPage from './pages/aboutUs/AboutUsPage'
-import CareersPage from './pages/careers/CareersPage'
+
+// Layouts
+const GeneralLayout = lazy(() => import('./components/generalLayout/GeneralLayout'));
+const DashboardWrapper = lazy(() => import('./components/dashboardWrapper/DashboardLayout'));
+
+// Pages
+const Home = lazy(() => import('./pages/home/Home'));
+const Contactus = lazy(() => import('./pages/contact/Contact'));
+const StorePage = lazy(() => import('./pages/storePage/StorePage'));
+const Login = lazy(() => import('./pages/login/Login'));
+const CreateUser = lazy(() => import('./pages/createUser/CreateUser'));
+const Dashboard = lazy(() => import('./pages/dashboard/Dashboard'));
+const Users = lazy(() => import('./pages/users/Users'));
+const Visitors = lazy(() => import('./pages/visitors/Visitors'));
+const Profile = lazy(() => import('./pages/profile/Profile'));
+const ChangePassword = lazy(() => import('./pages/changePassword/ChangePassword'));
+const ProductPage = lazy(() => import('./pages/productPage/ProductPage'));
+const Deloitte = lazy(() => import('./pages/deloitte/Deloitte'));
+const CaseStudies = lazy(() => import('./pages/caseStudies/CaseStudies'));
+const EntDataTransformation = lazy(() => import('./pages/entDataTransformation/EntDataTransformation'));
+const CloudOptimization = lazy(() => import('./pages/cloudOptimization/CloudOptimization'));
+const QuantFinance = lazy(() => import('./pages/quantFinance/QuantFinance'));
+const ESignPlatform = lazy(() => import('./pages/eSignPlatform/ESignPlatform'));
+const FableFintech = lazy(() => import('./pages/fableFintech/FableFintech'));
+const VendorRiskAssessment = lazy(() => import('./pages/VendorRiskManagement/VendorRiskManagement'));
+const Blogs = lazy(() => import('./pages/blogs/Blogs'));
+const AboutUsPage = lazy(() => import('./pages/aboutUs/AboutUsPage'));
+const CareersPage = lazy(() => import('./pages/careers/CareersPage'));
+
+// Components
+const Protected = lazy(() => import('./components/protected/Protected'));
+const VerifyLink = lazy(() => import('./components/verifyLink/VerifyLink'));
+const RedirectToHome = lazy(() => import('./components/redirectToHome/RedirectToHome'));
+const BlogsLayout = lazy(() => import('./blogs/BlogsLayout').then(module => ({ default: module.BlogsLayout })));
 
 // ScrollToTop component to handle scroll on route change
 const ScrollToTop = () => {
@@ -44,69 +48,54 @@ const ScrollToTop = () => {
   return null;
 };
 
-// ✅ Corrected Component for Tracking Page Views
-// const TrackPage = () => {
-//   const location = useLocation(); // ✅ Uses useLocation() to dynamically track route changes
-//   useEffect(() => {
-//     trackPageView(location.pathname, paths[location.pathname] || "Unknown Page");
-//   }, [location]); // ✅ Runs every time the route changes
-//   return null;
-// };
-
 function App() {
-  // useEffect(()=>{
-  //   initGA();
-  //   // setUser();
-  // },[])
   const [loading, setLoading] = useState(true);
-  // const Home = lazy(() => import('./pages/home/Home'));
 
   useEffect(() => {
-    // Simulate content loading
+    // Simulate initial content loading
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // 2 seconds loading for demo
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);
 
   return (
     <>
-
       <BrowserRouter>
         <ScrollToTop />
-        {/* <TrackPage/> */}
-        <Routes>
-          <Route exact path='/' element={<GeneralLayout />}>
-            <Route exact path='/' element={loading ? <Preloader /> : <Home />} />
-            <Route exact path='/store' element={<StorePage />} />
-            {/* <Route exact path='/:id' element={<Home/>}/> */}
-            <Route exact path='/contact' element={<Contactus />} />
-            <Route exact path='/about' element={<AboutUsPage />} />
-            <Route exact path='/careers' element={<CareersPage />} />
-            <Route exact path='/case-study' element={<CaseStudies />} />
-            <Route exact path='/id' element={<ProductPage />} />
-            <Route exact path='/case-study/ai_automation' element={<Deloitte />} />
-            <Route exact path='/case-study/ent_data_transformation' element={<EntDataTransformation />} />
-            <Route exact path='/case-study/cloud_optimization' element={<CloudOptimization />} />
-            <Route exact path='/case-study/quant_finance' element={<QuantFinance />} />
-            <Route exact path='/case-study/e_sign_platform' element={<ESignPlatform />} />
-            <Route exact path='/case-study/fable_fintech' element={<FableFintech />} />
-            <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
-            <Route exact path='/blogs' element={<Blogs />} />
-            <Route exact path='/blogs/*' element={<BlogsLayout />} />
-          </Route>
-          <Route exact path='dashboard' element={<DashboardWrapper />}>
-            <Route index element={<Protected allowedRoles={['all']}><Dashboard /></Protected>} />
-            <Route exact path='visitors' element={<Protected allowedRoles={['all']}><Visitors /></Protected>} />
-            <Route exact path='create-user' element={<Protected allowedRoles={[]}><CreateUser /></Protected>} />
-            <Route exact path='users' element={<Protected allowedRoles={['all']}><Users /></Protected>} />
-            <Route exact path='profile' element={<Protected allowedRoles={['all']}><Profile /></Protected>} />
-          </Route>
-          <Route exact path='/login' element={<Login />} />
-          <Route exact path='/change-password/:verification_token' element={<VerifyLink><ChangePassword /> </VerifyLink>} />
-          <Route path='*' element={<RedirectToHome />} />
-        </Routes>
+        <Suspense fallback={<Preloader />}>
+          <Routes>
+            <Route exact path='/' element={<GeneralLayout />}>
+              <Route exact path='/' element={loading ? <Preloader /> : <Home />} />
+              <Route exact path='/store' element={<StorePage />} />
+              <Route exact path='/contact' element={<Contactus />} />
+              <Route exact path='/about' element={<AboutUsPage />} />
+              <Route exact path='/careers' element={<CareersPage />} />
+              <Route exact path='/case-study' element={<CaseStudies />} />
+              <Route exact path='/id' element={<ProductPage />} />
+              <Route exact path='/case-study/ai_automation' element={<Deloitte />} />
+              <Route exact path='/case-study/ent_data_transformation' element={<EntDataTransformation />} />
+              <Route exact path='/case-study/cloud_optimization' element={<CloudOptimization />} />
+              <Route exact path='/case-study/quant_finance' element={<QuantFinance />} />
+              <Route exact path='/case-study/e_sign_platform' element={<ESignPlatform />} />
+              <Route exact path='/case-study/fable_fintech' element={<FableFintech />} />
+              <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
+              <Route exact path='/blogs' element={<Blogs />} />
+              <Route exact path='/blogs/*' element={<BlogsLayout />} />
+            </Route>
+            <Route exact path='dashboard' element={<DashboardWrapper />}>
+              <Route index element={<Protected allowedRoles={['all']}><Dashboard /></Protected>} />
+              <Route exact path='visitors' element={<Protected allowedRoles={['all']}><Visitors /></Protected>} />
+              <Route exact path='create-user' element={<Protected allowedRoles={[]}><CreateUser /></Protected>} />
+              <Route exact path='users' element={<Protected allowedRoles={['all']}><Users /></Protected>} />
+              <Route exact path='profile' element={<Protected allowedRoles={['all']}><Profile /></Protected>} />
+            </Route>
+            <Route exact path='/login' element={<Login />} />
+            <Route exact path='/change-password/:verification_token' element={<VerifyLink><ChangePassword /> </VerifyLink>} />
+            <Route path='*' element={<RedirectToHome />} />
+          </Routes>
+        </Suspense>
       </BrowserRouter>
     </>
   )
