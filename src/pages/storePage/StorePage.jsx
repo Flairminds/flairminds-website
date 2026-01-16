@@ -85,11 +85,32 @@ const StorePage = () => {
     <div className={styles.main}>
       <Hero2 />
 
+      {/* Executive Summary Bar */}
+      <section className={styles.executive_summary}>
+        <div className={styles.stat_item}>
+          <span className={styles.stat_number}>20+</span>
+          <span className={styles.stat_label}>AI Solutions</span>
+        </div>
+        <div className={styles.stat_divider}></div>
+        <div className={styles.stat_item}>
+          <span className={styles.stat_number}>100%</span>
+          <span className={styles.stat_label}>Enterprise Ready</span>
+        </div>
+        <div className={styles.stat_divider}></div>
+        <div className={styles.stat_item}>
+          <span className={styles.stat_number}>ROI</span>
+          <span className={styles.stat_label}>Focused Approach</span>
+        </div>
+      </section>
+
       <section className={styles.solutions_section}>
         <div className={styles.section_header}>
           <div className={styles.title_group}>
-            <span className={styles.sub_tag}>// ACTIVE_SOLUTIONS</span>
-            <h2 className={styles.main_title}>Our Mission Suite</h2>
+            <span className={styles.sub_tag}>// ENTERPRISE_SOLUTIONS</span>
+            <h2 className={styles.main_title}>Discover Our Solutions</h2>
+            <p className={styles.section_description}>
+              Transformative AI and automation solutions designed to drive measurable business value
+            </p>
           </div>
 
           <div className={styles.search_container}>
@@ -98,7 +119,7 @@ const StorePage = () => {
               <input
                 type="text"
                 className={styles.search_input}
-                placeholder="Search solutions by name or features..."
+                placeholder="Search by solution name or business need..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
                 onKeyDown={(e) => e.key === 'Enter' && handleSearch()}
@@ -120,13 +141,13 @@ const StorePage = () => {
 
         {isSearching ? (
           <div className={styles.status_message}>
-            <span className={styles.sub_tag}>{">"} INITIATING_SEARCH...</span>
-            <p>Scanning intelligence database for "{searchQuery}"</p>
+            <span className={styles.sub_tag}>{" >"} SEARCHING...</span>
+            <p>Finding solutions matching "{searchQuery}"</p>
           </div>
         ) : searchResults?.released?.length === 0 ? (
           <div className={styles.status_message}>
-            <span className={styles.sub_tag}>{">"} NO_MATCH_FOUND</span>
-            <p>Query "{searchQuery}" returned zero matches. Refine parameters.</p>
+            <span className={styles.sub_tag}>{" >"} NO RESULTS</span>
+            <p>No solutions found for "{searchQuery}". Try different keywords.</p>
           </div>
         ) : (
           <div className={styles.results_grid}>
@@ -152,10 +173,10 @@ const StorePage = () => {
       {open && <UserDetailsModal />}
       {feedBackOpen && <FeedbackModal />}
 
-      <div className={styles.feedback_button_container} onClick={() => { dispatch(toggleFeedbackModal()) }}>
+      {/* <div className={styles.feedback_button_container} onClick={() => { dispatch(toggleFeedbackModal()) }}>
         <VscFeedback className={styles.feedback_icon} />
         <button className={styles.feedback_botton}>SUBMIT_FEEDBACK</button>
-      </div>
+      </div> */}
 
       {demoModalOpen && <DemoModal />}
       {shareName && <ShareModal />}
