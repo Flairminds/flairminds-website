@@ -1,56 +1,93 @@
-.main{
-    height: 100vh;
-    max-height: 100vh;
-    background-color: white;
-    width: 100%;
-    position: fixed;
-    z-index: 100;
-    top: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    animation: mainInOut 3s ease-in-out forwards;
+.main {
+  height: 100vh;
+  width: 100%;
+  background-color: #020617;
+  /* Deep navy matching Hero */
+  position: fixed;
+  z-index: 9999;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  animation: mainExit 0.6s cubic-bezier(0.7, 0, 0.3, 1) 1.5s forwards;
+  overflow: hidden;
 }
-.flairminds {
-    font-family: var(--primary-font);
-    color: var(--primary);
-    max-height: 0;
-    overflow: hidden;
-    display: inline-block;
-    opacity: 0;
-    transform: translateY(0);
-    animation: flairInOut 2s ease-in-out forwards;
-  }
-  
-  @keyframes flairInOut {
-    0% {
-      max-height: 0;
-      opacity: 0;
-      transform: translateY(20px); /* entry from bottom */
-    }
-    25% {
-      max-height: 100px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    75% {
-      max-height: 100px;
-      opacity: 1;
-      transform: translateY(0);
-    }
-    100% {
-      max-height: 0;
-      opacity: 0;
-      transform: translateY(-60px); /* exit upward */
-    }
-  }  
 
-  @keyframes mainInOut {
-    0%{
-        max-height:100vh;
-    }80%{
-        max-height:100vh;
-    }100%{
-        max-height:0vh;
-    }
+.logoWrapper {
+  position: relative;
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  animation: logoReveal 1.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+  filter: drop-shadow(0 0 20px rgba(0, 91, 161, 0.3));
+}
+
+.shimmer {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg,
+      transparent,
+      rgba(255, 255, 255, 0.1),
+      transparent);
+  transform: skewX(-20deg);
+  animation: shimmerSweep 0.9s ease-in-out forwards;
+  animation-delay: 0.5s;
+}
+
+
+@keyframes logoReveal {
+  0% {
+    opacity: 0;
+    transform: scale(0.8) translateY(20px);
+    filter: blur(10px) drop-shadow(0 0 0 rgba(0, 91, 161, 0));
   }
+
+  10% {
+    opacity: 0.5;
+    /* Initial glitch flicker */
+  }
+
+  20% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+    filter: blur(0) drop-shadow(0 0 20px rgba(0, 91, 161, 0.4));
+  }
+}
+
+@keyframes shimmerSweep {
+  0% {
+    left: -100%;
+  }
+
+  100% {
+    left: 200%;
+  }
+}
+
+
+@keyframes mainExit {
+  0% {
+    transform: translateY(0);
+  }
+
+  100% {
+    transform: translateY(-100%);
+    visibility: hidden;
+  }
+}

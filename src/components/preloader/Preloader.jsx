@@ -1,13 +1,22 @@
 import React, { useEffect } from 'react';
-import preloadeeStyles from './Preloader.module.css'
+import preloaderStyles from './Preloader.module.css';
+import logo from '../../assets/flairminds-short-logo.png';
+
 const Preloader = () => {
-  useEffect(()=>{
-    console.log("loading")
-  },[])
-  console.log("loading")
+  useEffect(() => {
+    // Lock scroll while preloading
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.body.style.overflow = 'auto';
+    };
+  }, []);
+
   return (
-    <div className={preloadeeStyles.main}>
-      <h1 className={preloadeeStyles.flairminds}>Flairminds</h1>
+    <div className={preloaderStyles.main}>
+      <div className={preloaderStyles.logoWrapper}>
+        <img src={logo} alt="Flairminds Logo" className={preloaderStyles.logo} />
+        <div className={preloaderStyles.shimmer}></div>
+      </div>
     </div>
   );
 }

@@ -65,7 +65,7 @@ function App() {
     // Simulate content loading
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000); // 2 seconds loading for demo
+    }, 1500); // 2 seconds loading for demo
 
     return () => clearTimeout(timer);
   }, []);
