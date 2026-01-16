@@ -7,17 +7,74 @@
 
 /* Hero Section */
 .heroSection {
-    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
+    background:
+        /* Subtle dot pattern overlay */
+        radial-gradient(circle at 20% 50%, rgba(185, 237, 94, 0.08) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(255, 215, 0, 0.06) 0%, transparent 50%),
+        /* Main gradient */
+        linear-gradient(135deg, #005ba1 0%, #003a66 100%);
     /* Solid primary gradient */
     color: white !important;
     /* Force white text */
     padding: 8rem 2rem 6rem;
     text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Animated subtle background pattern */
+.heroSection::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        repeating-linear-gradient(0deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px),
+        repeating-linear-gradient(90deg,
+            transparent,
+            transparent 2px,
+            rgba(255, 255, 255, 0.02) 2px,
+            rgba(255, 255, 255, 0.02) 4px);
+    background-size: 50px 50px;
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Animated tech lines */
+.heroSection::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background:
+        linear-gradient(90deg, transparent 0%, rgba(185, 237, 94, 0.03) 50%, transparent 100%);
+    animation: techSweep 15s linear infinite;
+    pointer-events: none;
+}
+
+@keyframes techSweep {
+    0% {
+        transform: translateX(-50%) translateY(-50%) rotate(0deg);
+    }
+
+    100% {
+        transform: translateX(-50%) translateY(-50%) rotate(360deg);
+    }
 }
 
 .heroContent {
     max-width: 1000px;
     margin: 0 auto;
+    position: relative;
+    z-index: 1;
 }
 
 .mainTitle {

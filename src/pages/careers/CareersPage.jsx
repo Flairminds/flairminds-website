@@ -1,7 +1,7 @@
 import React from 'react';
 import styles from './CareersPage.module.css';
 import heroBg from '../../assets/careers_hero_bg.png';
-import { FaGraduationCap, FaRocket, FaUsers, FaLightbulb, FaTerminal, FaCode, FaMicrochip, FaGlobe } from 'react-icons/fa';
+import { FaGraduationCap, FaRocket, FaUsers, FaLightbulb, FaTerminal, FaCode, FaMicrochip, FaGlobe, FaAccessibleIcon, FaAnchor } from 'react-icons/fa';
 
 // Culture icons
 import youngDynamicIcon from '../../assets/culture_young_dynamic.png';
@@ -53,10 +53,9 @@ const CareersPage = () => {
     ];
 
     const openRoles = [
-        { id: "FM_SF_2024", title: "Senior Full Stack Developer", department: "Engineering", location: "Pune / Remote", status: "OPS_OPEN" },
-        { id: "FM_AI_2024", title: "AI/ML Engineer", department: "Data Science", location: "Pune", status: "OPS_OPEN" },
-        { id: "FM_UX_2024", title: "UI/UX Designer", department: "Design", location: "Remote", status: "OPS_OPEN" },
-        { id: "FM_PM_2024", title: "Product Manager", department: "Product", location: "Singapore / Remote", status: "OPS_URGENT" }
+        { id: "FM_SF_2026", title: "Senior Full Stack Developer", department: "Engineering", location: "Pune", status: "OPS_OPEN", experience: "3+ years" },
+        { id: "FM_AI_2026", title: "AI/ML Engineer", department: "Data Science", location: "Pune", status: "OPS_OPEN", experience: "3+ years" },
+        { id: "FM_AI_2026", title: "AI/ML Engineer", department: "Data Science", location: "Pune", status: "OPS_OPEN", experience: "0-3 years" },
     ];
 
     return (
@@ -208,6 +207,7 @@ const CareersPage = () => {
                                         <div className={styles.roleMeta}>
                                             <span className={styles.roleItem}><FaTerminal /> {role.department}</span>
                                             <span className={styles.roleItem}><FaGlobe /> {role.location}</span>
+                                            <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
                                         </div>
                                     </div>
                                     <button className={styles.applyButton}>
