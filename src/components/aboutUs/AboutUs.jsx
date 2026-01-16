@@ -1,5 +1,5 @@
 import styles from './AboutUs.module.css';
-import aboutBgImage from '../../assets/about_us_bg.jpg';
+import aboutBgImage from '../../assets/light_it_about_bg.png';
 
 const AboutUs = () => {
     return (

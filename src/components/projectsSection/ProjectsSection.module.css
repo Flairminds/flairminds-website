@@ -1,9 +1,28 @@
 .projectsSection {
     padding: 10rem 0;
     background-color: #f8fafc;
+    background-image:
+        linear-gradient(rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
     font-family: 'Poppins', sans-serif;
+    position: relative;
     overflow: hidden;
 }
+
+.projectsSection::before {
+    content: '';
+    position: absolute;
+    top: 10%;
+    left: -100px;
+    width: 400px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(185, 237, 94, 0.15) 0%, transparent 70%);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 0;
+}
+
 
 .container {
     max-width: 1400px;
