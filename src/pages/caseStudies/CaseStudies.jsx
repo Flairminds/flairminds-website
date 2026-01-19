@@ -11,7 +11,15 @@ import aiagent from "../../assets/aiagent.png"
 
 const caseStudiesData = [
     {
-        id: "CASE_AI_01",
+        id: "CASE_QA_01",
+        title: "Enterprise Test Automation",
+        description: "Fully automated UI regression suite for PLC programming - eliminating manual testing and delivering 85% reduction in regression time with 100% release confidence.",
+        imageUrl: infraMonitoring,
+        link: "test-automation",
+        status: "DEPLOYED"
+    },
+    {
+        id: "CASE_AI_02",
         title: "AI Automation",
         description: "An AI-powered solution to extract structured data from diverse commercial tax documents, enabling faster, more accurate financial due diligence for US, Netherlands, and Canada.",
         imageUrl: documentSearch,
@@ -19,7 +27,7 @@ const caseStudiesData = [
         status: "COMPLETED"
     },
     {
-        id: "CASE_DATA_02",
+        id: "CASE_DATA_03",
         title: "Enterprise Data Transformation",
         description: "A global investment leader overcame data silos and inconsistencies by centralizing fragmented data streams, reducing operational risk and improving reporting and compliance.",
         imageUrl: leverageModelling,
@@ -27,7 +35,7 @@ const caseStudiesData = [
         status: "PRODUCTION"
     },
     {
-        id: "CASE_CLOUD_03",
+        id: "CASE_CLOUD_04",
         title: "Cloud Optimization",
         description: "A rapidly growing SaaS AI platform required a complete redesign and migration of its existing cloud architecture. The goal was to build a robust, secure, and highly scalable foundation to support increasing customer demands.",
         imageUrl: infraMonitoring,
@@ -35,7 +43,7 @@ const caseStudiesData = [
         status: "SCALED"
     },
     {
-        id: "CASE_QUANT_04",
+        id: "CASE_QUANT_05",
         title: "Quantfinance Preparation Platform",
         description: "A specialized resource for mastering complex topics and succeeds in interviews. The client sought a platform to fill this gap and lead quant interview preparation.",
         imageUrl: infraMonitoring,
@@ -43,7 +51,7 @@ const caseStudiesData = [
         status: "ACTIVE"
     },
     {
-        id: "CASE_SIGN_05",
+        id: "CASE_SIGN_06",
         title: "E-Sign Platform",
         description: "A comprehensive e-signature platform replacement for manual paper-based workflows. The solution offers robust security, real-time authentication, and multi-party signing.",
         imageUrl: infraMonitoring,
@@ -51,7 +59,7 @@ const caseStudiesData = [
         status: "STABLE"
     },
     {
-        id: "CASE_FABLE_06",
+        id: "CASE_FABLE_07",
         title: "Fable Fintech",
         description: "A seamless and secure way to handle high-value remittance transactions across international corridors. Standardized API integration for global banking partners.",
         imageUrl: aiagent,
@@ -59,13 +67,13 @@ const caseStudiesData = [
         status: "DEPLOYED"
     },
     {
-        id: "CASE_RISK_07",
+        id: "CASE_RISK_08",
         title: "Vendor Risk Assessment",
         description: "Solving a major challenge in modern banking: fast, accurate, and data-driven evaluation of third-party vendors and tenants instantly—reducing underwriting time.",
         imageUrl: aiagent,
         link: "vendor_risk_assessment",
         status: "LIVE"
-    },
+    }
 ];
 
 const CaseStudyCard = ({ data, onNavigate }) => (

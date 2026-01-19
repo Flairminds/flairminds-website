@@ -1,0 +1,640 @@
+.container {
+    font-family: 'Inter', sans-serif;
+    background-color: #F8FAFC;
+    color: #1F2937;
+    padding-top: 100px;
+}
+
+.hero {
+    background: linear-gradient(135deg, #0A1929 0%, #1e3a52 100%);
+    text-align: center;
+    padding: 4rem 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: -100px 0 3rem 0;
+    padding-top: 120px;
+}
+
+.heroTitle {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.05em;
+    margin-bottom: 1rem;
+}
+
+.heroSubtitle {
+    font-size: 1.125rem;
+    color: #E0F2F1;
+    max-width: 48rem;
+    margin: 0 auto;
+    margin: 20px;
+}
+
+.problemSolution {
+    margin: 0px 20px;
+}
+
+.kpiCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.kpiCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.kpiCardBlue {
+    background-color: #005F73;
+    color: white;
+    text-align: center;
+}
+
+.kpiNumber {
+    font-size: 4.5rem;
+    font-weight: 900;
+    color: #EE9B00;
+}
+
+.kpiLabel {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 0.5rem;
+}
+
+.kpiDescription {
+    margin-top: 0.5rem;
+    color: #94D2BD;
+}
+
+.techStack {
+    margin: 50px 20px;
+}
+
+.techGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+@media (min-width: 640px) {
+    .techGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .techGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.techCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+}
+
+.techCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.techIcon {
+    font-size: 2.5rem;
+    margin-bottom: 0.75rem;
+}
+
+.techTitle {
+    font-size: 1.125rem;
+    font-weight: 700;
+    color: #0A9396;
+    margin-bottom: 0.5rem;
+}
+
+.techDesc {
+    font-size: 0.875rem;
+    color: #4B5563;
+}
+
+/* Icon Styles - Vibrant Colors */
+.iconPython {
+    color: #3776AB;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconPython:hover {
+    color: #FFD43B;
+    transform: scale(1.1);
+}
+
+.iconCogs {
+    color: #0A9396;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconCogs:hover {
+    color: #005F73;
+    transform: rotate(90deg);
+}
+
+.iconPytest {
+    color: #009485;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconPytest:hover {
+    color: #00C9B7;
+    transform: scale(1.1);
+}
+
+.iconAzure {
+    color: #0078D4;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconAzure:hover {
+    color: #50E6FF;
+    transform: scale(1.1);
+}
+
+.iconChart {
+    color: #EE9B00;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconChart:hover {
+    color: #FF9500;
+    transform: scale(1.1);
+}
+
+.iconCube {
+    color: #005F73;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconCube:hover {
+    color: #94D2BD;
+    transform: rotateY(180deg);
+}
+
+.iconRocket {
+    color: #EE9B00;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconRocket:hover {
+    color: #FF6B00;
+    transform: translateY(-5px);
+}
+
+.iconLock {
+    color: #0A9396;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconLock:hover {
+    color: #00E5CC;
+    transform: scale(1.1);
+}
+
+.iconAI {
+    color: #8E44AD;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconAI:hover {
+    color: #E74C3C;
+    transform: scale(1.1);
+}
+
+.iconCheck {
+    color: #27AE60;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconCheck:hover {
+    color: #2ECC71;
+    transform: scale(1.1);
+}
+
+.iconCamera {
+    color: #3498DB;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconCamera:hover {
+    color: #5DADE2;
+    transform: scale(1.1);
+}
+
+.iconDiagram {
+    color: #E67E22;
+    font-size: 2.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconDiagram:hover {
+    color: #F39C12;
+    transform: scale(1.1);
+}
+
+.iconBolt {
+    color: #F39C12;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconBolt:hover {
+    color: #F1C40F;
+    transform: scale(1.2);
+}
+
+.iconBullseye {
+    color: #E74C3C;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconBullseye:hover {
+    color: #C0392B;
+    transform: scale(1.2);
+}
+
+.iconDollar {
+    color: #27AE60;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconDollar:hover {
+    color: #2ECC71;
+    transform: scale(1.2);
+}
+
+.iconShip {
+    color: #3498DB;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconShip:hover {
+    color: #2980B9;
+    transform: translateX(5px);
+}
+
+.iconTools {
+    color: #95A5A6;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconTools:hover {
+    color: #7F8C8D;
+    transform: scale(1.2);
+}
+
+.iconFile {
+    color: #9B59B6;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconFile:hover {
+    color: #8E44AD;
+    transform: scale(1.2);
+}
+
+.iconWrench {
+    color: #E67E22;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconWrench:hover {
+    color: #D35400;
+    transform: rotate(20deg);
+}
+
+.iconChartLine {
+    color: #16A085;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.iconChartLine:hover {
+    color: #1ABC9C;
+    transform: scale(1.2);
+}
+
+.flow {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+}
+
+.solution {
+    margin: 30px 0;
+}
+
+.flowStep {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 1rem;
+    border: 2px solid #94D2BD;
+    background-color: #FFFFFF;
+    border-radius: 0.5rem;
+    min-height: 80px;
+    font-weight: 600;
+    color: #005F73;
+}
+
+.solutionHeader {
+    margin: 30px 0px;
+    text-wrap: wrap;
+}
+
+.flowArrow {
+    display: none;
+}
+
+.chartsSection {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 30px;
+    margin: 50px 20px;
+    box-sizing: border-box;
+}
+
+@media (min-width: 768px) {
+    .chartsSection {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .chartsSection {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.chartContainer {
+    position: relative;
+    width: 90%;
+    max-width: 450px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 300px;
+    max-height: 400px;
+    box-sizing: border-box;
+}
+
+.features {
+    margin: 50px 20px;
+}
+
+.featureGrid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .featureGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (min-width: 1024px) {
+    .featureGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+.featureCard {
+    background-color: white;
+    border-radius: 0.75rem;
+    padding: 1.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+.featureCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+}
+
+.featureIcon {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+}
+
+.featureTitle {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #0A9396;
+    margin-bottom: 0.75rem;
+}
+
+.featureText {
+    font-size: 0.9rem;
+    color: #4B5563;
+    line-height: 1.6;
+}
+
+.benefits {
+    margin: 0px 20px;
+}
+
+.challenges {
+    margin: 30px 20px;
+}
+
+.challengeContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+@media (min-width: 768px) {
+    .chartContainer {
+        height: 350px;
+    }
+
+    .flow {
+        display: grid;
+        grid-template-columns: repeat(9, 1fr);
+        justify-content: center;
+        align-items: center;
+        margin: 20px 50px;
+    }
+
+    .flowArrow {
+        display: block;
+        color: #0A9396;
+        font-size: 2.5rem;
+        line-height: 1;
+        margin: 0 0.5rem;
+        text-align: center;
+    }
+
+    .benefits {
+        margin: 0px 50px;
+    }
+
+    .challenges {
+        margin: 30px 50px;
+    }
+
+    .features {
+        margin: 50px 50px;
+    }
+
+    .techStack {
+        margin: 50px 50px;
+    }
+}
+
+.sectionTitle {
+    font-size: 1.875rem;
+    font-weight: 700;
+    color: #005F73;
+    text-align: center;
+    margin-bottom: 0.75rem;
+}
+
+.sectionSubtitle {
+    color: #4B5563;
+    text-align: center;
+    max-width: 42rem;
+    margin: 0 auto 2rem auto;
+}
+
+.grid2Col {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+@media (min-width: 768px) {
+    .grid2Col {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.gridCard {
+    background-color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    padding: 1.5rem;
+}
+
+.cardTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #0A9396;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.cardList {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.cardListItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1rem;
+    background-color: white;
+    border-radius: 0.75rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.05), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+}
+
+.cardListItemIcon {
+    font-size: 1.5rem;
+    color: #EE9B00;
+}
+
+.cardListItemText {
+    flex: 1;
+}
+
+.challengeCard {
+    padding: 1rem;
+    background-color: #F3F4F6;
+    border-radius: 0.5rem;
+    border: 1px solid #E5E7EB;
+}
+
+.challengeTitle {
+    color: #0A9396;
+    font-weight: 700;
+}
+
+.conclusion {
+    margin: 50px 20px;
+    padding: 2rem 0;
+}
+
+@media (min-width: 768px) {
+    .conclusion {
+        margin: 50px 50px;
+    }
+}
+
+.conclusionCard {
+    background: linear-gradient(135deg, #005F73 0%, #0A9396 100%);
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    color: white;
+}
+
+.conclusionTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #EE9B00;
+}
+
+.conclusionText {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #E0F2F1;
+}
+
+.conclusionText strong {
+    color: white;
+    font-weight: 700;
+}

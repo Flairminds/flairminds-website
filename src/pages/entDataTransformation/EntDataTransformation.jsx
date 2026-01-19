@@ -1,6 +1,8 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import styles from './EntDataTransformation.module.css';
+import { FaDownload, FaCogs, FaStar, FaChartBar, FaDatabase, FaCloud, FaCheckCircle } from 'react-icons/fa';
+import { MdCloudDownload, MdTransform } from 'react-icons/md';
 
 Chart.register(...registerables);
 
@@ -10,11 +12,11 @@ const EntDataTransformation = () => {
   const dataSourceChartInstance = useRef(null);
   const timelineChartInstance = useRef(null);
 
-  const brilliantBluesPalette = {
-    darkBlue: '#1c3a6b',
-    midBlue: '#4771b2',
-    lightBlue: '#8b9dc3',
-    teal: '#5aa4ae',
+  const themeColors = {
+    darkTeal: '#005F73',
+    teal: '#0A9396',
+    lightTeal: '#94D2BD',
+    orange: '#EE9B00',
     grey: '#dfe3ee'
   };
 
@@ -39,7 +41,7 @@ const EntDataTransformation = () => {
     plugins: {
       tooltip: {
         callbacks: {
-          title: function(tooltipItems) {
+          title: function (tooltipItems) {
             const item = tooltipItems[0];
             let label = item.chart.data.labels[item.dataIndex];
             if (Array.isArray(label)) {
@@ -57,7 +59,7 @@ const EntDataTransformation = () => {
     // Data Source Chart
     if (dataSourceChartRef.current) {
       const ctx = dataSourceChartRef.current.getContext('2d');
-      
+
       if (dataSourceChartInstance.current) {
         dataSourceChartInstance.current.destroy();
       }
@@ -70,10 +72,10 @@ const EntDataTransformation = () => {
             label: 'Data Volume Contribution',
             data: [45, 25, 20, 10],
             backgroundColor: [
-              brilliantBluesPalette.darkBlue,
-              brilliantBluesPalette.midBlue,
-              brilliantBluesPalette.teal,
-              brilliantBluesPalette.lightBlue
+              themeColors.darkTeal,
+              themeColors.teal,
+              themeColors.lightTeal,
+              themeColors.orange
             ],
             borderColor: '#ffffff',
             borderWidth: 3
@@ -95,7 +97,7 @@ const EntDataTransformation = () => {
     // Timeline Chart
     if (timelineChartRef.current) {
       const ctx = timelineChartRef.current.getContext('2d');
-      
+
       if (timelineChartInstance.current) {
         timelineChartInstance.current.destroy();
       }
@@ -111,10 +113,10 @@ const EntDataTransformation = () => {
             label: 'Weeks per Phase',
             data: [5, 4, 2, 1],
             backgroundColor: [
-              brilliantBluesPalette.darkBlue,
-              brilliantBluesPalette.midBlue,
-              brilliantBluesPalette.teal,
-              brilliantBluesPalette.lightBlue
+              themeColors.darkTeal,
+              themeColors.teal,
+              themeColors.lightTeal,
+              themeColors.orange
             ],
             borderRadius: 4
           }]
@@ -174,25 +176,25 @@ const EntDataTransformation = () => {
           <h2 className={styles.sectionTitle}>The Solution: A Modern Data Vault Architecture</h2>
           <div className={styles.flowContainer}>
             <div className={`${styles.flowStep} ${styles.flowStepBlue}`}>
-              <div className={styles.flowIcon}>📥</div>
+              <div className={styles.flowIcon}><MdCloudDownload className={styles.iconDownload} /></div>
               <h3 className={styles.flowStepTitle}>Multi-Source Ingestion</h3>
               <p className={styles.flowStepDescription}>ETL pipelines extract data from trading platforms, market feeds, and operational systems.</p>
             </div>
             <div className={styles.flowArrow}>→</div>
             <div className={`${styles.flowStep} ${styles.flowStepGreen}`}>
-              <div className={styles.flowIcon}>⚙️</div>
+              <div className={styles.flowIcon}><FaCogs className={styles.iconCogs} /></div>
               <h3 className={styles.flowStepTitle}>Data Transformation</h3>
               <p className={styles.flowStepDescription}>Raw data is validated, cleansed, and loaded into the core Data Vault.</p>
             </div>
             <div className={styles.flowArrow}>→</div>
             <div className={`${styles.flowStep} ${styles.flowStepPurple}`}>
-              <div className={styles.flowIcon}>⭐</div>
+              <div className={styles.flowIcon}><FaStar className={styles.iconStar} /></div>
               <h3 className={styles.flowStepTitle}>Fact-Dimensional Model</h3>
               <p className={styles.flowStepDescription}>Data is converted into a star schema for optimized reporting and analytics.</p>
             </div>
             <div className={styles.flowArrow}>→</div>
             <div className={`${styles.flowStep} ${styles.flowStepYellow}`}>
-              <div className={styles.flowIcon}>📊</div>
+              <div className={styles.flowIcon}><FaChartBar className={styles.iconChart} /></div>
               <h3 className={styles.flowStepTitle}>Analytics & Reporting</h3>
               <p className={styles.flowStepDescription}>A single source of truth empowers BI, compliance, and data-driven decisions.</p>
             </div>

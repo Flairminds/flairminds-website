@@ -30,6 +30,7 @@ const VendorRiskAssessment = lazy(() => import('./pages/VendorRiskManagement/Ven
 const Blogs = lazy(() => import('./pages/blogs/Blogs'));
 const AboutUsPage = lazy(() => import('./pages/aboutUs/AboutUsPage'));
 const CareersPage = lazy(() => import('./pages/careers/CareersPage'));
+const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'));
 
 // Components
 const Protected = lazy(() => import('./components/protected/Protected'));
@@ -81,6 +82,7 @@ function App() {
               <Route exact path='/case-study/e_sign_platform' element={<ESignPlatform />} />
               <Route exact path='/case-study/fable_fintech' element={<FableFintech />} />
               <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
+              <Route exact path='/case-study/test-automation' element={<TestAutomation />} />
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
             </Route>
