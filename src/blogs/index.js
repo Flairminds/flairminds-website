@@ -1,4 +1,5 @@
 import PdfAnalyzer from './pdf-analyzer/PdfAnalyzer';
+import AIContest from './ai-productivity-challenge/AIContest';
 
 export const blogs = [{
     id: 1,
@@ -9,4 +10,13 @@ export const blogs = [{
     author: '',
     tags: ['Financial Analysis', 'AI Chatbot', 'PDF Processing'],
     component: PdfAnalyzer,
+}, {
+    id: 2,
+    file: 'ai-productivity-challenge',
+    title: 'AI Productivity Challenge: Empowering Innovation',
+    excerpt: 'Celebrating our team\'s journey in harnessing AI for enhanced productivity. Discover innovative solutions from our winners - from AI Decision Memory Systems to intelligent workflow automation - and how our team is building an AI-integrated future.',
+    date: 'January 19, 2026',
+    author: '',
+    tags: ['AI', 'Productivity', 'Innovation', 'Team Learning'],
+    component: AIContest,
 }];

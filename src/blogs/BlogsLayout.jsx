@@ -11,11 +11,13 @@ export const BlogsLayout = () => {
     const blog = blogs.find((blog) => blog.file === pathname.pathname.split('/')[2]);
 
     return (
-        <div style={{margin: '2rem 5rem'}}>
-            <button onClick={() => navigate('/blogs')} className={styles.backButton}>
-                ← Back to Blogs
-            </button>
-            <blog.component />
+        <div style={{ backgroundColor: '#073B4C', minHeight: '100vh' }}>
+            <div style={{ padding: '15vh 7vw' }}>
+                <button onClick={() => navigate('/blogs')} className={styles.backButton}>
+                    ← Back to Blogs
+                </button>
+                <blog.component />
+            </div>
         </div>
     );
 };

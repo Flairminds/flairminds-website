@@ -1,0 +1,53 @@
+AI Productivity Challenge: The "Vibe-Agent" Workflow 
+
+Submitted by: Shubham Kshetre 
+
+Date: January 5, 2026 
+
+Overview 
+
+I have evolved my productivity by moving beyond simple chatbots into an agent-first ecosystem. By combining high-level orchestration with specialized deep-research tools, I have shifted from writing code to architecting tasks. My workflow follows the "Vibe Coding" philosophy: prioritizing modularity, using version control as a safety net, and leveraging specialized AI agents for different project stages. 
+
+ 
+
+My Tool Stack & Implementation 
+
+1. Orchestration & Execution: Antigravity + Claude 
+
+Antigravity (IDE): This serves as my "mission control." I use its Agent Manager to spawn autonomous agents that plan and execute multi-file changes across the editor, terminal, and browser. 
+
+Claude (Logic & Refinement): I rely on Claude (via Claude Code) for complex logic and refactoring. If a feature feels "heavy," I use Claude to modularize it into smaller files, which keeps the AI's reasoning sharp and prevents technical debt. 
+
+2. Research & Discovery: Perplexity DeepSearch 
+
+The Problem: Standard AI often hallucinates API details or uses outdated libraries. 
+
+My Solution: Before starting a new feature, I run a Perplexity DeepSearch to find the latest documentation and community best practices. I save this research as a Markdown file in my project folder. This provides my coding agents with a "source of truth," significantly reducing debugging time. 
+
+3. Real-World Intelligence: Reddit AI 
+
+Workflow: I use specialized AI tools to scrape "battle-tested" advice from technical subreddits. 
+
+Benefit: This helps identify "invisible" bugs or edge cases that official documentation often misses, ensuring code is optimized for real-world production. 
+
+ 
+
+Key Productivity Pillars 
+
+The "Hard Reset" Protocol: If agents haven't solved a bug within 5 iterations, I perform a Git Reset and re-feed the context. This keeps the codebase clean and prevents the AI from "hallucinating" on top of previous errors. 
+
+Test-Driven Success: I use Perplexity to generate unit test skeletons based on my research. My agents are instructed to work until the terminal shows 100% green—only then do I review the code. 
+
+Modular Planning: I build complex components in isolation within a "reference lab" folder before the Antigravity agents integrate them into the main repository. 
+
+ 
+
+Impact 
+
+Efficiency: Reduced time spent on "scaffolding" and boilerplate by 70%. 
+
+Accuracy: Using DeepSearch as a primary context source has virtually eliminated errors related to deprecated libraries. 
+
+Autonomy: By acting as a "Manager" of agents rather than a "Writer" of lines, I can handle significantly more complex features simultaneously. 
+
+ 

@@ -1,0 +1,51 @@
+AI Productivity Challenge Submission – Shivani Kulkarni
+AI to improve your productivity:
+I primarily work on writing and maintaining SQL queries for analytics and backend systems. 
+I use AI selectively as a support tool to improve quality and reduce rework.
+Query Development & Review:
+AI is used to validate SQL logic, suggest alternative approaches, and review complex joins 
+or aggregations for potential improvements.
+Debugging & Validation:
+AI helps in quickly identifying logical gaps such as NULL handling, duplicate records, or 
+incorrect date filters, especially when results differ from expectations.
+AI-based idea -
+AI Decision Memory System – Preserving the “Why” Behind Work
+Objective
+In fast-moving teams, productivity loss often does not come from lack of skill or tools, but 
+from lost context - why a particular decision was made, why logic exists, or why data 
+behaves a certain way. While systems store data and code effectively, decision reasoning 
+is rarely preserved. The AI Decision Memory System addresses this gap.
+Problem Statement
+Tools like Git, ticketing systems, and documentation platforms capture what changed and 
+when, but they fail to reliably capture:
+• Business intent behind changes
+• Assumptions and trade-offs
+• Audit or compliance reasons
+• Context discussed in meetings or chats
+As a result:
+• Teams repeatedly ask the same “why” questions
+• New members struggle to understand legacy logic
+• Rework occurs due to missing historical context
+• Knowledge becomes dependent on individuals
+The organization remembers code, but forgets decisions.
+Proposed Solution: AI Decision Memory System
+The AI Decision Memory System is an opt-in AI assistant that captures, structures, 
+and retrieves the intent behind decisions.
+It creates a searchable, intelligent memory of why decisions were made - linked directly to 
+SQL queries, reports, or logic without requiring heavy documentation.
+How It Works
+1. Lightweight Decision Capture
+When a developer updates a query, logic, or report, AI optionally prompts:
+“Would you like to add a short reason for this change? (1–2 lines)”
+This step is voluntary and takes seconds.
+2. AI Structuring & Storage
+• Summarizes the input into a clear explanation
+• Tags it (business, audit, performance, data quality)
+• Links it to the relevant artifact (query, table, report, ticket)
+Stored as structured metadata + semantic embeddings for search.
+3. Intelligent Retrieval
+Employees can later ask in natural language:
+• “Why does this report exclude inactive portfolios?”
+• “Why was this logic changed last year?”
+• “Is this rule business-driven or technical?”
+AI responds with clear reasoning, timing, and context

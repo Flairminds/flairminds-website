@@ -32,7 +32,7 @@ const Blogs = () => {
           </section>
           <div className={styles.mainContent}>
             <div className={styles.grid}>
-              {blogs.map((blog) => (
+              {blogs.sort((a, b) => new Date(b.date) - new Date(a.date)).map((blog) => (
                 <div
                   key={blog.id}
                   className={styles.card}
