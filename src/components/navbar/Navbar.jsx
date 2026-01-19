@@ -33,7 +33,7 @@ const Navbar = React.memo(({ scrolled }) => {
   }, [navigate]);
 
   return (
-    <nav className={`${navbarStyles.navbarWrapper} ${scrolled ? navbarStyles.scrolled : ""} ${isLightBg && !scrolled ? navbarStyles.lightBg : ""}`}>
+    <nav className={`${navbarStyles.navbarWrapper} ${scrolled ? navbarStyles.scrolled : ""} ${isLightBg && !scrolled ? navbarStyles.lightBg : ""} ${activeNavbar ? navbarStyles.navOpened : ""}`}>
       <div className={navbarStyles.navbarContainer}>
         {/* Logo Section */}
         <div className={navbarStyles.logoWrapper}>
