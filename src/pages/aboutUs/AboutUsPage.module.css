@@ -108,14 +108,14 @@
     max-width: 1400px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
 }
 
 .vmvCard {
     background: white;
-    padding: 4rem 2.5rem;
-    border-radius: 20px;
+    padding: 2.5rem 1.75rem;
+    border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
     transition: all 0.4s ease;
     text-align: center;
@@ -128,9 +128,9 @@
 }
 
 .imageIconWrapper {
-    width: 120px;
-    height: 120px;
-    margin: 0 auto 2rem;
+    width: 80px;
+    height: 80px;
+    margin: 0 auto 1.5rem;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -143,10 +143,10 @@
 }
 
 .cardTitle {
-    font-size: 2rem;
+    font-size: 1.75rem;
     font-weight: 700;
     color: #005ba1;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1rem;
     font-family: 'Poppins', sans-serif;
 }
 
@@ -165,11 +165,11 @@
 }
 
 .valuesList li {
-    font-size: 1.1rem;
-    padding: 0.6rem 0;
+    font-size: 1rem;
+    padding: 0.35rem 0;
     color: #464545;
     position: relative;
-    padding-left: 2.5rem;
+    padding-left: 2rem;
 }
 
 .valuesList li::before {
@@ -178,7 +178,67 @@
     left: 0;
     color: #005ba1;
     font-weight: 900;
-    font-size: 1.3rem;
+    font-size: 1.1rem;
+}
+
+/* Team Culture Section */
+.imageGallerySection {
+    padding: 6rem 2rem;
+    background: #ffffff;
+    display: flex;
+    justify-content: center;
+}
+
+.galleryContent {
+    max-width: 960px;
+    width: 100%;
+}
+
+.imageFrame {
+    position: relative;
+    border-radius: 32px;
+    overflow: hidden;
+    box-shadow: 0 30px 60px rgba(0, 91, 161, 0.15);
+    border: 8px solid white;
+    outline: 1px solid rgba(0, 91, 161, 0.1);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.imageFrame:hover {
+    transform: scale(1.02);
+}
+
+.teamPhoto {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: filter 0.4s ease;
+}
+
+.imageCaption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 3rem 2rem 2rem;
+    background: linear-gradient(to top, rgba(0, 33, 61, 0.9) 0%, transparent 100%);
+    color: white;
+}
+
+.captionTag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #b9ed5e;
+    letter-spacing: 2px;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.captionTitle {
+    font-size: 2rem;
+    font-weight: 800;
+    margin: 0;
+    font-family: 'Poppins', sans-serif;
 }
 
 /* Team Section */
@@ -244,6 +304,139 @@
     font-weight: 700;
     color: #333;
     font-family: 'Poppins', sans-serif;
+}
+
+/* Carousel Section */
+.carouselSection {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+    border-top: 1px solid rgba(0, 91, 161, 0.05);
+}
+
+.carouselHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.carouselTitle {
+    font-size: 3rem;
+    font-weight: 800;
+    color: #005ba1;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.carouselSubtitle {
+    font-size: 1.2rem;
+    color: #64748b;
+}
+
+.carouselWrapper {
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.swiperContainer {
+    padding-bottom: 4rem !important;
+}
+
+.slideContent {
+    display: flex;
+    align-items: center;
+    gap: 3rem;
+    background: white;
+    padding: 2.5rem;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.05);
+    margin: 1rem;
+}
+
+.evenSlide {
+    flex-direction: row-reverse;
+}
+
+.slideImageWrapper {
+    flex: 1;
+    aspect-ratio: 16/10;
+    border-radius: 16px;
+    overflow: hidden;
+    background: #f1f5f9;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.slideImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.slideTextContent {
+    flex: 1;
+}
+
+.slideTag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.8rem;
+    color: #b9ed5e;
+    background: #00213d;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.slideTitle {
+    font-size: 2.25rem;
+    font-weight: 800;
+    color: #00213d;
+    margin-bottom: 1.5rem;
+    line-height: 1.2;
+}
+
+.slideDescription {
+    font-size: 1.1rem;
+    line-height: 1.8;
+    color: #475569;
+}
+
+/* Swiper Customization */
+:global(.swiper-button-next),
+:global(.swiper-button-prev) {
+    color: #005ba1 !important;
+}
+
+:global(.swiper-pagination-bullet-active) {
+    background: #005ba1 !important;
+}
+
+@media (max-width: 968px) {
+    .slideContent {
+        flex-direction: column;
+        gap: 2rem;
+        padding: 1.5rem;
+    }
+
+    .slideTitle {
+        font-size: 1.75rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .carouselTitle {
+        font-size: 2.2rem;
+    }
+
+    .carouselSubtitle {
+        font-size: 1rem;
+    }
+
+    .slideTextContent {
+        text-align: center;
+    }
 }
 
 /* Responsive Design */

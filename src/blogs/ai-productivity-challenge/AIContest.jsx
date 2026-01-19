@@ -221,7 +221,7 @@ const AIContest = () => {
                                 <strong>To every participant:</strong> Thank you for your creativity, engagement, and commitment to continuous improvement. Together, we're not just adopting AI – we're pioneering a smarter, more efficient, and more innovative way to work.
                             </p>
                             <p className={styles.tagline}>
-                                The future of productivity is here, and it's being built by teams like ours, one intelligent solution at a time. 🚀
+                                The future of productivity is here, and it's being built by teams like ours, one intelligent solution at a time.
                             </p>
                         </div>
                     </div>
