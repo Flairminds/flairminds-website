@@ -93,7 +93,7 @@ const Contact = () => {
           <div className={contactStyles.locationContent}>
             <div className={contactStyles.mapContainer}>
               <iframe
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d970.1463722580552!2d73.79956908312168!3d18.563647092397833!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bfa4b389d3d5%3A0x5d075cfa42040980!2sFlairminds%20Software%20Pvt.%20Ltd.!5e0!3m2!1sen!2sin!4v1767854889282!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d945.5578679888282!2d73.7992545695384!3d18.563600298908657!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bc2bf93115a07e1%3A0xed75aba1541ee41a!2sThe%20Office%20Club%2C%20Alluring%20Sky!5e0!3m2!1sen!2sin!4v1768821181084!5m2!1sen!2sin"
                 width="100%"
                 height="100%"
                 style={{ border: 0 }}
