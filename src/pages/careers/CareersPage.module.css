@@ -591,4 +591,14 @@
     .sectionTitle {
         font-size: 2.5rem;
     }
+
+    .noRoleNotice {
+        flex-direction: column;
+        gap: 1.5rem;
+        margin-top: 4rem;
+    }
+
+    .noRoleNotice a {
+        width: 100%;
+    }
 }

@@ -222,7 +222,9 @@ const CareersPage = () => {
                         ))}
                     </div>
                     <div className={styles.noRoleNotice}>
-                        <span className={styles.terminalIcon}>{">"}</span> NO_MATCHING_MISSION?
+                        <span>
+                            <span className={styles.terminalIcon}>{">"}</span> NO_MATCHING_MISSION?
+                        </span>
                         <a href="mailto:hr@flairminds.com">
                             <button className={styles.applyButton}>
                                 TRANSMIT_RESUME_TO_COMMAND

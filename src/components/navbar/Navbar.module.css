@@ -4,7 +4,7 @@
     left: 0;
     width: 100%;
     z-index: 1000;
-    padding: 1.5rem 0;
+    padding: 0.5rem 0;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     background: transparent;
 }
@@ -17,10 +17,34 @@
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
 }
 
+.lightBg {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(0, 91, 161, 0.1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.lightBg .logoName {
+    color: #1a2a3a;
+}
+
+.lightBg .navItem {
+    color: #4a5568;
+}
+
+.lightBg .navItem:hover {
+    color: #005BA1;
+}
+
+.lightBg .mobileToggle {
+    color: #1a2a3a;
+}
+
+
 .navbarContainer {
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1rem;
     display: flex;
     align-items: center;
     justify-content: space-between;

@@ -10,6 +10,9 @@ const Navbar = React.memo(({ scrolled }) => {
   const [user, setUser] = useState(false);
   const navigate = useNavigate();
 
+  // Detect light background pages
+  const isLightBg = ['/blogs', '/store', '/case-study', '/contact'].includes(location.pathname);
+
   useEffect(() => {
     setUser(document.cookie.includes("auth=true"));
   }, []);
@@ -30,7 +33,7 @@ const Navbar = React.memo(({ scrolled }) => {
   }, [navigate]);
 
   return (
-    <nav className={`${navbarStyles.navbarWrapper} ${scrolled ? navbarStyles.scrolled : ""}`}>
+    <nav className={`${navbarStyles.navbarWrapper} ${scrolled ? navbarStyles.scrolled : ""} ${isLightBg && !scrolled ? navbarStyles.lightBg : ""}`}>
       <div className={navbarStyles.navbarContainer}>
         {/* Logo Section */}
         <div className={navbarStyles.logoWrapper}>
