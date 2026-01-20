@@ -11,6 +11,14 @@ import aiagent from "../../assets/aiagent.png"
 
 const caseStudiesData = [
     {
+        id: "CASE_AI_POC_01",
+        title: "AI-Powered PoC Development",
+        description: "Accelerating proof-of-concept delivery with AI across the entire SDLC - reducing turnaround time by 60% while maintaining enterprise-quality standards.",
+        imageUrl: aiagent,
+        link: "ai_poc_development",
+        status: "CAPABILITY"
+    },
+    {
         id: "CASE_QA_01",
         title: "Enterprise Test Automation",
         description: "Fully automated UI regression suite for PLC programming - eliminating manual testing and delivering 85% reduction in regression time with 100% release confidence.",

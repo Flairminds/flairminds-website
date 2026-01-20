@@ -31,6 +31,7 @@ const Blogs = lazy(() => import('./pages/blogs/Blogs'));
 const AboutUsPage = lazy(() => import('./pages/aboutUs/AboutUsPage'));
 const CareersPage = lazy(() => import('./pages/careers/CareersPage'));
 const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'));
+const AiPocDevelopment = lazy(() => import('./pages/aiPocDevelopment/AiPocDevelopment'));
 
 // Components
 const Protected = lazy(() => import('./components/protected/Protected'));
@@ -83,6 +84,7 @@ function App() {
               <Route exact path='/case-study/fable_fintech' element={<FableFintech />} />
               <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
               <Route exact path='/case-study/test-automation' element={<TestAutomation />} />
+              <Route exact path='/case-study/ai_poc_development' element={<AiPocDevelopment />} />
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
             </Route>
