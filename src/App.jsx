@@ -84,7 +84,7 @@ function App() {
               <Route exact path='/case-study/fable_fintech' element={<FableFintech />} />
               <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
               <Route exact path='/case-study/test-automation' element={<TestAutomation />} />
-              <Route exact path='/case-study/ai_poc_development' element={<AiPocDevelopment />} />
+              <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
             </Route>

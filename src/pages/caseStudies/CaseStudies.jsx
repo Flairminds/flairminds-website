@@ -15,7 +15,7 @@ const caseStudiesData = [
         title: "AI-Powered PoC Development",
         description: "Accelerating proof-of-concept delivery with AI across the entire SDLC - reducing turnaround time by 60% while maintaining enterprise-quality standards.",
         imageUrl: aiagent,
-        link: "ai_poc_development",
+        link: "ai-poc-development",
         status: "CAPABILITY"
     },
     {
