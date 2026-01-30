@@ -155,43 +155,44 @@ const CareersPage = () => {
                                             {role.status}
                                         </span>
                                     </div>
-                                    <div className={styles.roleMain}>
-                                        <div className={styles.roleInfo}>
-                                            <h3 className={styles.roleTitle}>{role.title}</h3>
-                                            <div className={styles.roleMeta}>
-                                                <span className={styles.roleItem}><FaDesktop /> {role.department}</span>
-                                                <span className={styles.roleItem}><FaGlobe /> {role.location}</span>
-                                                <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
-                                            </div>
-                                        </div>
-                                        <button
-                                            className={styles.applyButton}
-                                            onClick={() => handleApplyClick(role.formLink)}
-                                        >
-                                            ACCESS_MISSION
-                                            <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
-                                        </button>
-                                    </div>
-                                    {role.description && (
-                                        <div style={{ marginTop: '1rem' }}>
-                                            {role.description.split('|').filter(line => line.trim()).map((line, idx) => (
-                                                <div key={idx} style={{
-                                                    color: 'rgba(255, 255, 255, 0.6)',
-                                                    marginBottom: '0.5rem',
-                                                    fontFamily: "'JetBrains Mono', monospace",
-                                                    fontSize: '0.85rem',
-                                                    display: 'flex',
-                                                    alignItems: 'flex-start',
-                                                    gap: '0.5rem'
-                                                }}>
-                                                    <span style={{ marginTop: '0.15rem' }}>
-                                                        <FaTerminal size={12} />
-                                                    </span>
-                                                    <span>{line.trim()}</span>
+
+                                    <div className={styles.roleContent}>
+                                        {/* Left Side - Job Info & Button */}
+                                        <div className={styles.roleLeft}>
+                                            <div className={styles.roleInfo}>
+                                                <h3 className={styles.roleTitle}>{role.title}</h3>
+                                                <div className={styles.roleMeta}>
+                                                    <span className={styles.roleItem}><FaDesktop /> {role.department}</span>
+                                                    <span className={styles.roleItem}><FaGlobe /> {role.location}</span>
+                                                    <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
                                                 </div>
-                                            ))}
+                                            </div>
+                                            <button
+                                                className={styles.applyButton}
+                                                onClick={() => handleApplyClick(role.formLink)}
+                                            >
+                                                ACCESS_MISSION
+                                                <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
+                                            </button>
                                         </div>
-                                    )}
+
+                                        {/* Right Side - Description */}
+                                        <div className={styles.roleRight}>
+                                            {role.description && (
+                                                <div className={styles.descriptionList}>
+                                                    {role.description.split('|').filter(line => line.trim()).map((line, idx) => (
+                                                        <div key={idx} className={styles.descriptionItem}>
+                                                            <span className={styles.terminalIcon}>
+                                                                <FaTerminal size={12} />
+                                                            </span>
+                                                            <span>{line.trim()}</span>
+                                                        </div>
+                                                    ))}
+                                                </div>
+                                            )}
+                                        </div>
+                                    </div>
+
                                     <div className={styles.roleFooter}>
                                         <div className={styles.dataBar}></div>
                                     </div>

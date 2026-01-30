@@ -463,6 +463,47 @@
     background: rgba(185, 237, 94, 0.1);
 }
 
+/* Two-column layout for role cards */
+.roleContent {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+.roleLeft {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.roleRight {
+    padding-left: 2rem;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.descriptionList {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.descriptionItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: rgba(255, 255, 255, 0.6);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.85rem;
+    line-height: 1.6;
+}
+
+.descriptionItem .terminalIcon {
+    margin-top: 0.15rem;
+    color: #b9ed5e;
+    flex-shrink: 0;
+}
+
 .roleMain {
     display: flex;
     justify-content: space-between;
@@ -490,6 +531,7 @@
 }
 
 .applyButton {
+    width: 100%;
     position: relative;
     background: transparent;
     color: #b9ed5e;
@@ -571,6 +613,19 @@
     .actionRow {
         flex-direction: column;
         gap: 2rem;
+    }
+
+    /* Stack columns on mobile */
+    .roleContent {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+
+    .roleRight {
+        padding-left: 0;
+        padding-top: 1.5rem;
+        border-left: none;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .roleMain {
