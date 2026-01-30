@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import styles from './CareersPage.module.css';
 import heroBg from '../../assets/careers_hero_bg.png';
-import { FaGraduationCap, FaRocket, FaUsers, FaLightbulb, FaTerminal, FaCode, FaMicrochip, FaGlobe, FaAccessibleIcon, FaAnchor, FaTimes } from 'react-icons/fa';
-import { sendCareerEmail, initEmailJS } from '../../services/emailService';
+import { FaGraduationCap, FaRocket, FaUsers, FaLightbulb, FaTerminal, FaCode, FaMicrochip, FaGlobe, FaAccessibleIcon, FaAnchor, FaTimes, FaSpinner, FaShare, FaEdit, FaDesktop } from 'react-icons/fa';
+import { fetchJobOpenings } from '../../services/googleSheetsService';
 
 // Culture icons
 import youngDynamicIcon from '../../assets/culture_young_dynamic.png';
@@ -12,78 +12,35 @@ import improvementIcon from '../../assets/culture_improvement.png';
 import visionariesIcon from '../../assets/visionaries_icon.png';
 
 const CareersPage = () => {
-    // Application Modal State
-    const [showModal, setShowModal] = useState(false);
-    const [selectedRole, setSelectedRole] = useState(null);
-    const [applicationForm, setApplicationForm] = useState({
-        name: '',
-        email: '',
-        phone: '',
-        experience: '',
-        resumeLink: '',
-        coverLetter: ''
-    });
-    const [submitting, setSubmitting] = useState(false);
-    const [submitStatus, setSubmitStatus] = useState(null);
+    // Job openings state
+    const [openRoles, setOpenRoles] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [error, setError] = useState(null);
 
-    // Initialize EmailJS
+    // Fetch jobs from Google Sheets on mount
     useEffect(() => {
-        initEmailJS();
+        const loadJobs = async () => {
+            setLoading(true);
+            const result = await fetchJobOpenings();
+
+            if (result.success) {
+                setOpenRoles(result.data);
+                setError(null);
+            } else {
+                setError(result.message);
+            }
+
+            setLoading(false);
+        };
+
+        loadJobs();
     }, []);
 
-    const handleOpenModal = (role) => {
-        setSelectedRole(role);
-        setShowModal(true);
-        setSubmitStatus(null);
-    };
 
-    const handleCloseModal = () => {
-        setShowModal(false);
-        setSelectedRole(null);
-        setApplicationForm({
-            name: '',
-            email: '',
-            phone: '',
-            experience: '',
-            resumeLink: '',
-            coverLetter: ''
-        });
-        setSubmitStatus(null);
-    };
-
-    const handleInputChange = (e) => {
-        const { name, value } = e.target;
-        setApplicationForm(prev => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmitApplication = async (e) => {
-        e.preventDefault();
-
-        if (!applicationForm.name || !applicationForm.email || !applicationForm.phone) {
-            setSubmitStatus({ type: 'error', message: 'Please fill in all required fields.' });
-            return;
-        }
-
-        setSubmitting(true);
-        setSubmitStatus(null);
-
-        const result = await sendCareerEmail({
-            name: applicationForm.name,
-            email: applicationForm.email,
-            phone: applicationForm.phone,
-            position: selectedRole?.title || 'General Application',
-            experience: applicationForm.experience,
-            resumeLink: applicationForm.resumeLink,
-            coverLetter: applicationForm.coverLetter
-        });
-
-        setSubmitting(false);
-        setSubmitStatus({ type: result.success ? 'success' : 'error', message: result.message });
-
-        if (result.success) {
-            setTimeout(() => {
-                handleCloseModal();
-            }, 3000);
+    // Handle apply button click - opens Google Form
+    const handleApplyClick = (formLink) => {
+        if (formLink) {
+            window.open(formLink, '_blank', 'noopener,noreferrer');
         }
     };
 
@@ -128,41 +85,7 @@ const CareersPage = () => {
         }
     ];
 
-    const openRoles = [
-        {
-            id: "FM_SF_2026",
-            title: "Senior Full Stack Developer",
-            department: "Software Development",
-            location: "Pune",
-            status: "OPS_OPEN",
-            experience: "2+ years",
-            description: "Join our elite development team to build next-generation AI-powered applications. You'll work with cutting-edge technologies and contribute to products that impact users globally.",
-            importantPoints: [
-                "Design and develop scalable full-stack applications using React, Node.js, and modern cloud technologies",
-                "Collaborate with cross-functional teams to deliver high-quality solutions",
-                "Mentor junior developers and contribute to technical excellence",
-                "Write clean, maintainable code following industry best practices",
-                "Participate in architecture decisions and code reviews"
-            ]
-        },
-        {
-            id: "FM_AI_2026",
-            title: "AI/ML Engineer",
-            department: "Data Science",
-            location: "Pune",
-            status: "OPS_OPEN",
-            experience: "2+ years",
-            description: "Be part of our AI innovation team developing state-of-the-art machine learning solutions. Transform data into intelligent insights and build AI systems that drive real business value.",
-            importantPoints: [
-                "Develop and deploy machine learning models for production environments",
-                "Work with large-scale datasets and implement data pipelines",
-                "Optimize ML algorithms for performance and accuracy",
-                "Collaborate with engineering teams to integrate AI solutions",
-                "Stay updated with latest AI/ML research and implement best practices"
-            ]
-        },
-        // { id: "FM_AI_2026", title: "AI/ML Engineer", department: "Data Science", location: "Pune", status: "OPS_OPEN", experience: "0-2 years" },
-    ];
+
 
     return (
         <div className={styles.careersPage}>
@@ -199,44 +122,92 @@ const CareersPage = () => {
                         <span className={styles.subTag}>// ACTIVE_MISSIONS</span>
                         <h2 className={styles.sectionTitle}>Choose Your Campaign</h2>
                     </div>
-                    <div className={styles.rolesGrid}>
-                        {openRoles.map((role, index) => (
-                            <div key={index} className={styles.roleCard}>
-                                <div className={styles.roleHeader}>
-                                    <span className={styles.missionId}>MIS_ID: {role.id}</span>
-                                    <span className={`${styles.statusBadge} ${role.status === 'OPS_URGENT' ? styles.urgent : ''}`}>
-                                        {role.status}
-                                    </span>
-                                </div>
-                                <div className={styles.roleMain}>
-                                    <div className={styles.roleInfo}>
-                                        <h3 className={styles.roleTitle}>{role.title}</h3>
-                                        <div className={styles.roleMeta}>
-                                            <span className={styles.roleItem}><FaTerminal /> {role.department}</span>
-                                            <span className={styles.roleItem}><FaGlobe /> {role.location}</span>
-                                            <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
-                                        </div>
+
+                    {/* Loading State */}
+                    {loading && (
+                        <div className={styles.loadingContainer}>
+                            <FaSpinner className={styles.spinner} />
+                            <p>Loading job openings...</p>
+                        </div>
+                    )}
+
+                    {/* Error State */}
+                    {error && !loading && (
+                        <div className={styles.errorContainer}>
+                            <p className={styles.errorMessage}>
+                                <span className={styles.terminalIcon}>
+                                    <span style={{ marginTop: '0.15rem' }}>
+                                        <FaTerminal size={12} />
+                                    </span> No Job Openings Currently
+                                </span>
+                            </p>
+                        </div>
+                    )}
+
+                    {/* Roles Grid */}
+                    {!loading && (
+                        <div className={styles.rolesGrid}>
+                            {openRoles.map((role, index) => (
+                                <div key={index} className={styles.roleCard}>
+                                    <div className={styles.roleHeader}>
+                                        <span className={styles.missionId}>MIS_ID: {role.id}</span>
+                                        <span className={`${styles.statusBadge} ${role.status === 'OPS_URGENT' ? styles.urgent : ''}`}>
+                                            {role.status}
+                                        </span>
                                     </div>
-                                    <button className={styles.applyButton} onClick={() => handleOpenModal(role)}>
-                                        ACCESS_MISSION
-                                        <span className={styles.buttonGlow}></span>
-                                    </button>
+                                    <div className={styles.roleMain}>
+                                        <div className={styles.roleInfo}>
+                                            <h3 className={styles.roleTitle}>{role.title}</h3>
+                                            <div className={styles.roleMeta}>
+                                                <span className={styles.roleItem}><FaDesktop /> {role.department}</span>
+                                                <span className={styles.roleItem}><FaGlobe /> {role.location}</span>
+                                                <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
+                                            </div>
+                                        </div>
+                                        <button
+                                            className={styles.applyButton}
+                                            onClick={() => handleApplyClick(role.formLink)}
+                                        >
+                                            ACCESS_MISSION
+                                            <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
+                                        </button>
+                                    </div>
+                                    {role.description && (
+                                        <div style={{ marginTop: '1rem' }}>
+                                            {role.description.split('|').filter(line => line.trim()).map((line, idx) => (
+                                                <div key={idx} style={{
+                                                    color: 'rgba(255, 255, 255, 0.6)',
+                                                    marginBottom: '0.5rem',
+                                                    fontFamily: "'JetBrains Mono', monospace",
+                                                    fontSize: '0.85rem',
+                                                    display: 'flex',
+                                                    alignItems: 'flex-start',
+                                                    gap: '0.5rem'
+                                                }}>
+                                                    <span style={{ marginTop: '0.15rem' }}>
+                                                        <FaTerminal size={12} />
+                                                    </span>
+                                                    <span>{line.trim()}</span>
+                                                </div>
+                                            ))}
+                                        </div>
+                                    )}
+                                    <div className={styles.roleFooter}>
+                                        <div className={styles.dataBar}></div>
+                                    </div>
                                 </div>
-                                <div className={styles.roleFooter}>
-                                    <div className={styles.dataBar}></div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                    <div className={styles.noRoleNotice}>
+                            ))}
+                        </div>
+                    )}
+                    {/* <div className={styles.noRoleNotice}>
                         <span>
                             <span className={styles.terminalIcon}>{">"}</span> NO_MATCHING_MISSION?
                         </span>
-                        <button className={styles.applyButton} onClick={() => handleOpenModal({ id: 'FM_GEN_2026', title: 'General Application', department: 'Any', location: 'Pune' })}>
+                        <button className={styles.applyButton} onClick={() => handleApplyClick('https://forms.google.com/your-general-form-link')}>
                             TRANSMIT_RESUME_TO_COMMAND
                             <span className={styles.buttonGlow}></span>
                         </button>
-                    </div>
+                    </div> */}
                 </div>
             </section>
 
@@ -339,157 +310,6 @@ const CareersPage = () => {
                 </div>
             </section>
 
-            {/* Application Modal */}
-            {showModal && (
-                <div className={styles.modalOverlay} onClick={handleCloseModal}>
-                    <div className={styles.modalContainer} onClick={(e) => e.stopPropagation()}>
-                        <div className={styles.modalHeader}>
-                            <div>
-                                <span className={styles.modalTag}>// MISSION_APPLICATION</span>
-                                <h2 className={styles.modalTitle}>
-                                    {selectedRole?.title || 'General Application'}
-                                </h2>
-                                <span className={styles.modalMeta}>
-                                    {selectedRole?.department} • {selectedRole?.location}
-                                </span>
-                            </div>
-                            <button className={styles.closeButton} onClick={handleCloseModal}>
-                                <FaTimes />
-                            </button>
-                        </div>
-
-                        <div className={styles.modalContent}>
-                            {/* Left Side - JD Information */}
-                            {selectedRole?.description && (
-                                <div className={styles.jdSection}>
-                                    <div className={styles.jdHeader}>
-                                        <span className={styles.jdTag}>// JOB_DESCRIPTION</span>
-                                    </div>
-                                    <p className={styles.jdDescription}>
-                                        {selectedRole.description}
-                                    </p>
-
-                                    {selectedRole.importantPoints && selectedRole.importantPoints.length > 0 && (
-                                        <div className={styles.importantPoints}>
-                                            <h3 className={styles.pointsTitle}>
-                                                <FaLightbulb /> Key Responsibilities
-                                            </h3>
-                                            <ul className={styles.pointsList}>
-                                                {selectedRole.importantPoints.map((point, index) => (
-                                                    <li key={index} className={styles.pointItem}>
-                                                        <span className={styles.pointBullet}>&gt;</span>
-                                                        {point}
-                                                    </li>
-                                                ))}
-                                            </ul>
-                                        </div>
-                                    )}
-
-                                    <div className={styles.jdFooter}>
-                                        <span className={styles.jdFooterTag}>
-                                            EXPERIENCE_REQUIRED: {selectedRole.experience}
-                                        </span>
-                                    </div>
-                                </div>
-                            )}
-
-                            {/* Right Side - Application Form */}
-                            <form className={styles.applicationForm} onSubmit={handleSubmitApplication}>
-                                {submitStatus && (
-                                    <div className={`${styles.statusMessage} ${submitStatus.type === 'success' ? styles.success : styles.error}`}>
-                                        {submitStatus.message}
-                                    </div>
-                                )}
-
-                                <div className={styles.formRow}>
-                                    <div className={styles.formGroup}>
-                                        <label htmlFor="name">*Full Name</label>
-                                        <input
-                                            type="text"
-                                            id="name"
-                                            name="name"
-                                            value={applicationForm.name}
-                                            onChange={handleInputChange}
-                                            placeholder="Enter your full name"
-                                            required
-                                        />
-                                    </div>
-                                    <div className={styles.formGroup}>
-                                        <label htmlFor="email">*Email Address</label>
-                                        <input
-                                            type="email"
-                                            id="email"
-                                            name="email"
-                                            value={applicationForm.email}
-                                            onChange={handleInputChange}
-                                            placeholder="your.email@example.com"
-                                            required
-                                        />
-                                    </div>
-                                </div>
-
-                                <div className={styles.formRow}>
-                                    <div className={styles.formGroup}>
-                                        <label htmlFor="phone">*Phone Number</label>
-                                        <input
-                                            type="tel"
-                                            id="phone"
-                                            name="phone"
-                                            value={applicationForm.phone}
-                                            onChange={handleInputChange}
-                                            placeholder="+91 XXXXXXXXXX"
-                                            required
-                                        />
-                                    </div>
-                                    <div className={styles.formGroup}>
-                                        <label htmlFor="experience">Experience</label>
-                                        <input
-                                            type="text"
-                                            id="experience"
-                                            name="experience"
-                                            value={applicationForm.experience}
-                                            onChange={handleInputChange}
-                                            placeholder="e.g., 3 years in Full Stack Development"
-                                        />
-                                    </div>
-                                </div>
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="resumeLink">Resume/Portfolio Link</label>
-                                    <input
-                                        type="url"
-                                        id="resumeLink"
-                                        name="resumeLink"
-                                        value={applicationForm.resumeLink}
-                                        onChange={handleInputChange}
-                                        placeholder="https://drive.google.com/... or LinkedIn profile"
-                                    />
-                                </div>
-
-                                <div className={styles.formGroup}>
-                                    <label htmlFor="coverLetter">Cover Letter / Message</label>
-                                    <textarea
-                                        id="coverLetter"
-                                        name="coverLetter"
-                                        value={applicationForm.coverLetter}
-                                        onChange={handleInputChange}
-                                        placeholder="Tell us why you'd be a great fit for this role..."
-                                        rows={4}
-                                    />
-                                </div>
-
-                                <button
-                                    type="submit"
-                                    className={styles.submitButton}
-                                    disabled={submitting}
-                                >
-                                    {submitting ? 'TRANSMITTING...' : 'SUBMIT_APPLICATION'}
-                                    <span className={styles.buttonGlow}></span>
-                                </button>
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            )}
         </div>
     );
 };

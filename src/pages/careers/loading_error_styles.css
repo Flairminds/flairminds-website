@@ -1,0 +1,51 @@
+/* Loading and Error States */
+.loadingContainer {
+    text-align: center;
+    padding: 4rem 0;
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(255, 255, 255, 0.6);
+}
+
+.spinner {
+    font-size: 3rem;
+    color: #b9ed5e;
+    animation: spin 1s linear infinite;
+    margin-bottom: 1rem;
+}
+
+@keyframes spin {
+    from {
+        transform: rotate(0deg);
+    }
+
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.errorContainer {
+    text-align: center;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    background: rgba(239, 68, 68, 0.1);
+    border: 1px solid rgba(239, 68, 68, 0.3);
+    border-radius: 10px;
+}
+
+.errorMessage {
+    font-family: 'JetBrains Mono', monospace;
+    color: #ef4444;
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.errorSubMessage {
+    font-family: 'JetBrains Mono', monospace;
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 0.9rem;
+}
+
+.terminalIcon {
+    color: #b9ed5e;
+    margin-right: 0.5rem;
+}
