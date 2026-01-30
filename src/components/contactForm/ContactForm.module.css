@@ -119,3 +119,49 @@
         padding: 2rem 1.25rem;
     }
 }
+
+/* Message Textarea */
+.message_textarea {
+    background: #ffffff;
+    border: 2px solid #e2e8f0;
+    border-radius: 8px;
+    padding: 1.2rem;
+    color: #0f172a;
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+    resize: vertical;
+    min-height: 100px;
+}
+
+.message_textarea:focus {
+    outline: none;
+    border-color: #005ba1;
+    box-shadow: 0 0 0 4px rgba(0, 91, 161, 0.1);
+}
+
+/* Success Message */
+.success_message {
+    color: #059669;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    background: #ecfdf5;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #a7f3d0;
+}
+
+/* Warning Message */
+.warning_message {
+    color: #d97706;
+    font-size: 0.9rem;
+    font-family: 'JetBrains Mono', monospace;
+    text-align: center;
+    background: #fffbeb;
+    padding: 0.8rem;
+    border-radius: 8px;
+    border: 1px solid #fcd34d;
+}
