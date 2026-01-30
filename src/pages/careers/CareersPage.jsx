@@ -167,14 +167,20 @@ const CareersPage = () => {
                                                     <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
                                                 </div>
                                             </div>
-                                            {role.formLink &&
+                                            {role.formLink ?
                                                 <button
                                                     className={styles.applyButton}
                                                     onClick={() => handleApplyClick(role.formLink)}
                                                 >
                                                     ACCESS_MISSION
                                                     <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
-                                                </button>}
+                                                </button> :
+                                                <span>
+                                                    <span style={{ color: 'rgba(255, 255, 255, 0.6)' }}>
+                                                        Share your profile at
+                                                    </span>
+                                                    <> hr@flairminds.com</>
+                                                </span>}
                                         </div>
 
                                         {/* Right Side - Description */}
