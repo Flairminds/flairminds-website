@@ -167,13 +167,14 @@ const CareersPage = () => {
                                                     <span className={styles.roleItem}><FaAnchor /> {role.experience}</span>
                                                 </div>
                                             </div>
-                                            <button
-                                                className={styles.applyButton}
-                                                onClick={() => handleApplyClick(role.formLink)}
-                                            >
-                                                ACCESS_MISSION
-                                                <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
-                                            </button>
+                                            {role.formLink &&
+                                                <button
+                                                    className={styles.applyButton}
+                                                    onClick={() => handleApplyClick(role.formLink)}
+                                                >
+                                                    ACCESS_MISSION
+                                                    <span style={{ marginLeft: '0.5rem' }}><FaLightbulb /></span>
+                                                </button>}
                                         </div>
 
                                         {/* Right Side - Description */}
