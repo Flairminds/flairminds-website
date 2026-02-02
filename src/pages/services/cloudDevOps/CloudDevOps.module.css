@@ -1,8 +1,18 @@
+/* ===== AZURE-STYLE CLOUDDEVOPS =====
+   Color Palette:
+   - Primary Blue: #0078d4
+   - Dark Blue: #005a9e
+   - Light Blue: #50e6ff
+   - Light Gray: #f3f2f1
+   - Dark Gray: #323130
+   - Text: #201f1e
+*/
+
 .container {
     min-height: 100vh;
-    background-color: #ffffff;
-    color: #1a2a3a;
-    font-family: 'Space Grotesk', sans-serif;
+    background-color: #faf9f8;
+    color: #201f1e;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 .mainContent {
@@ -19,20 +29,34 @@
 .benefitsSection,
 .aiToolsSection,
 .journeySection {
-    padding: 6rem 2rem;
+    padding: 4rem 3rem;
     max-width: 1400px;
     margin: 0 auto;
 }
 
-/* ===== HERO SECTION =====*/
+/* ===== HERO SECTION - AZURE STYLE =====*/
 .hero {
-    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
+    background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
     color: white;
-    padding: 10rem 2rem 8rem;
+    padding: 8rem 3rem 5rem;
     text-align: center;
     position: relative;
     overflow: hidden;
     width: 100%;
+}
+
+/* Azure-style dotted grid pattern */
+.hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+    background-size: 30px 30px;
+    pointer-events: none;
 }
 
 .heroContent {
@@ -46,244 +70,253 @@
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    padding: 0.5rem 1.5rem;
-    background: rgba(185, 237, 94, 0.15);
-    border: 1px solid rgba(185, 237, 94, 0.3);
-    border-radius: 50px;
-    color: #b9ed5e;
-    font-size: 0.85rem;
+    padding: 0.5rem 1.25rem;
+    background: rgba(80, 230, 255, 0.15);
+    border: 1px solid rgba(80, 230, 255, 0.4);
+    border-radius: 4px;
+    color: #50e6ff;
+    font-size: 0.8rem;
     font-weight: 600;
-    letter-spacing: 1px;
-    margin-bottom: 2rem;
+    letter-spacing: 1.5px;
+    margin-bottom: 1.5rem;
+    text-transform: uppercase;
 }
 
 .heroBadgeIcon {
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .heroTitle {
-    font-size: 3.5rem;
-    font-weight: 800;
-    margin-bottom: 1.5rem;
+    font-size: 3rem;
+    font-weight: 600;
+    margin-bottom: 1.25rem;
     color: #ffffff;
-    line-height: 1.2;
+    line-height: 1.15;
+    letter-spacing: -0.5px;
 }
 
 .heroSubtitle {
-    font-size: 1.25rem;
-    line-height: 1.8;
-    color: rgba(255, 255, 255, 0.95);
-    margin-bottom: 3rem;
-    max-width: 800px;
+    font-size: 1.15rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2.5rem;
+    max-width: 700px;
     margin-left: auto;
     margin-right: auto;
+    font-weight: 400;
 }
 
 .heroStats {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 2rem;
-    padding: 2rem;
+    gap: 0;
     background: rgba(255, 255, 255, 0.1);
-    backdrop-filter: blur(10px);
+    backdrop-filter: blur(12px);
     border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 20px;
+    border-radius: 8px;
+    overflow: hidden;
 }
 
 .heroStat {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 1.5rem 2.5rem;
+    position: relative;
 }
 
 .heroStatNumber {
-    font-size: 2.5rem;
-    font-weight: 800;
-    color: #b9ed5e;
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: #50e6ff;
     line-height: 1;
-    margin-bottom: 0.5rem;
+    margin-bottom: 0.4rem;
 }
 
 .heroStatLabel {
-    font-size: 0.9rem;
-    color: rgba(255, 255, 255, 0.8);
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.85);
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    font-weight: 500;
 }
 
 .heroStatDivider {
     width: 1px;
-    height: 50px;
-    background: rgba(255, 255, 255, 0.3);
+    height: 60px;
+    background: rgba(255, 255, 255, 0.2);
 }
 
-/* ===== AI TOOLS SECTION ===== */
+/* ===== AI TOOLS SECTION - AZURE CARDS ===== */
 .aiToolsSection {
     background-color: #ffffff;
 }
 
 .aiToolsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1.5rem;
 }
 
 .aiToolCard {
-    padding: 2.5rem;
+    padding: 1.75rem;
     background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #edebe9;
+    border-left: 4px solid #0078d4;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
     display: flex;
     flex-direction: column;
 }
 
 .aiToolCard:hover {
-    border-color: #b9ed5e;
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+    transform: translateY(-2px);
 }
 
 .aiToolHeader {
     display: flex;
     align-items: center;
-    gap: 1.25rem;
-    margin-bottom: 1.5rem;
+    gap: 1rem;
+    margin-bottom: 1rem;
 }
 
 .aiToolIcon {
-    font-size: 2rem;
-    color: #005ba1;
-    background: rgba(0, 91, 161, 0.05);
-    width: 60px;
-    height: 60px;
+    font-size: 1.5rem;
+    color: #0078d4;
+    background: rgba(0, 120, 212, 0.1);
+    width: 48px;
+    height: 48px;
     display: flex;
     align-items: center;
     justify-content: center;
-    border-radius: 12px;
+    border-radius: 4px;
 }
 
 .aiToolHeader h3 {
-    font-size: 1.25rem;
-    font-weight: 700;
-    color: #1a2a3a;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #201f1e;
 }
 
 .aiToolCases {
-    color: #4a5568;
+    color: #605e5c;
     line-height: 1.6;
-    margin-bottom: 1.5rem;
-    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+    font-size: 0.9rem;
 }
 
 .aiToolTags {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.75rem;
+    gap: 0.5rem;
     margin-top: auto;
 }
 
 .aiToolTag {
-    padding: 0.4rem 0.8rem;
-    background: #f1f5f9;
-    color: #475569;
-    border-radius: 6px;
-    font-size: 0.8rem;
+    padding: 0.35rem 0.75rem;
+    background: #f3f2f1;
+    color: #323130;
+    border-radius: 4px;
+    font-size: 0.75rem;
     font-weight: 600;
     transition: all 0.2s ease;
 }
 
 .aiToolCard:hover .aiToolTag {
-    background: rgba(185, 237, 94, 0.2);
-    color: #1a2a3a;
+    background: rgba(0, 120, 212, 0.1);
+    color: #0078d4;
 }
 
-/* ===== JOURNEY SECTION (Expertise Design) ===== */
+/* ===== JOURNEY SECTION - AZURE EXPERTISE DESIGN ===== */
 .journeySection {
-    background-color: #f8fafc;
-    background-image:
-        linear-gradient(rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px),
-        linear-gradient(90deg, rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px);
-    background-size: 50px 50px;
+    background-color: #f3f2f1;
     position: relative;
     overflow: hidden;
 }
 
 .journeyContentWrapper {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
-    gap: 6rem;
+    grid-template-columns: 1fr 1.1fr;
+    gap: 4rem;
     align-items: center;
+    padding: 2rem;
 }
 
 .journeyInfoCol {
     display: flex;
     flex-direction: column;
-    gap: 2rem;
+    gap: 1.5rem;
 }
 
 .journeyBadge {
-    font-size: 0.9rem;
-    font-weight: 800;
-    color: #b9ed5e;
-    letter-spacing: 4px;
-    background: #005ba1;
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 2px;
+    background: #0078d4;
     width: fit-content;
-    padding: 0.5rem 1.5rem;
-    border-radius: 5px;
+    padding: 0.4rem 1rem;
+    border-radius: 4px;
 }
 
 .journeyMainHeading {
-    font-size: 3.5rem;
-    font-weight: 800;
-    line-height: 1.1;
-    color: #1a1a1a;
-    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.75rem;
+    font-weight: 600;
+    line-height: 1.15;
+    color: #201f1e;
+    font-family: 'Segoe UI', -apple-system, sans-serif;
 }
 
 .journeyHighlight {
-    color: #005ba1;
+    color: #0078d4;
 }
 
 .journeyHighlightsList {
     display: flex;
     flex-direction: column;
-    gap: 2.5rem;
-    margin: 2rem 0;
+    gap: 1.75rem;
+    margin: 1.5rem 0;
 }
 
 .journeyHighlightItem {
     display: flex;
-    gap: 1.5rem;
-    transition: transform 0.3s ease;
+    gap: 1rem;
+    transition: transform 0.2s ease;
+    padding: 1rem;
+    background: #ffffff;
+    border-radius: 4px;
+    border-left: 3px solid #0078d4;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
 }
 
 .journeyHighlightItem:hover {
-    transform: translateX(10px);
+    transform: translateX(6px);
+    box-shadow: 0 2px 8px rgba(0, 120, 212, 0.12);
 }
 
 .journeyDash {
-    width: 30px;
-    height: 4px;
-    background-color: #b9ed5e;
-    margin-top: 0.8rem;
+    width: 24px;
+    height: 3px;
+    background-color: #50e6ff;
+    margin-top: 0.65rem;
     flex-shrink: 0;
     border-radius: 2px;
 }
 
 .journeyItemTitle {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: #005ba1;
-    margin-bottom: 0.5rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #0078d4;
+    margin-bottom: 0.35rem;
 }
 
 .journeyItemDescription {
-    color: #555;
-    line-height: 1.6;
-    font-size: 1.05rem;
+    color: #605e5c;
+    line-height: 1.5;
+    font-size: 0.95rem;
 }
 
 .journeyVisualCol {
@@ -292,29 +325,30 @@
 
 .journeyTechImageCard {
     background: white;
-    padding: 2rem;
-    border-radius: 32px;
-    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.08);
     position: relative;
     z-index: 1;
+    border: 1px solid #edebe9;
 }
 
 .journeyArchImage {
     width: 100%;
-    border-radius: 20px;
+    border-radius: 4px;
     display: block;
 }
 
 .journeyGlassBadge {
     position: absolute;
-    bottom: -30px;
-    right: -30px;
-    background: rgba(255, 255, 255, 0.8);
+    bottom: -20px;
+    right: -20px;
+    background: rgba(255, 255, 255, 0.95);
     backdrop-filter: blur(10px);
-    padding: 2rem;
-    border-radius: 24px;
-    border: 1px solid rgba(255, 255, 255, 0.5);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    padding: 1.25rem 1.5rem;
+    border-radius: 8px;
+    border: 1px solid #edebe9;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
     animation: journeyFloat 4s ease-in-out infinite;
 }
 
@@ -326,119 +360,123 @@
     }
 
     50% {
-        transform: translateY(-10px);
+        transform: translateY(-8px);
     }
 }
 
 .journeyBadgeLabel {
-    font-size: 0.8rem;
-    font-weight: 800;
-    color: #b9ed5e;
-    letter-spacing: 2px;
-    margin-bottom: 0.5rem;
-    background: #005ba1;
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: 1px;
+    margin-bottom: 0.35rem;
+    background: #0078d4;
     width: fit-content;
-    padding: 0.2rem 0.8rem;
-    border-radius: 4px;
+    padding: 0.2rem 0.6rem;
+    border-radius: 3px;
 }
 
 .journeyBadgeText {
-    color: #1a1a1a;
-    font-weight: 700;
-    font-size: 1.1rem;
+    color: #201f1e;
+    font-weight: 600;
+    font-size: 0.95rem;
 }
 
-/* ===== SECTION HEADERS ===== */
+/* ===== SECTION HEADERS - AZURE STYLE ===== */
 .sectionHeader {
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 3rem;
 }
 
 .sectionTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
-    margin-bottom: 1rem;
-    color: #1a2a3a;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #201f1e;
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
 .titleIcon {
-    color: #005ba1;
-    font-size: 2rem;
+    color: #0078d4;
+    font-size: 1.75rem;
 }
 
 .sectionSubtitle {
-    font-size: 1.1rem;
-    color: #4a5568;
-    max-width: 600px;
+    font-size: 1rem;
+    color: #605e5c;
+    max-width: 550px;
     margin: 0 auto;
 }
 
-/* ===== CHALLENGE SECTION ===== */
+/* ===== CHALLENGE SECTION - AZURE CARDS ===== */
 .challengeSection {
-    background-color: #f8fafc;
+    background-color: #f3f2f1;
 }
 
 .challengeGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
 }
 
 .challengeCard {
-    padding: 2.5rem;
+    padding: 2rem;
     background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 16px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #edebe9;
+    border-left: 4px solid #d83b01;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .challengeCard:hover {
-    border-color: #005ba1;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    transform: translateY(-2px);
 }
 
 .challengeIcon {
-    font-size: 2.5rem;
-    color: #EE9B00;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    color: #d83b01;
+    margin-bottom: 1.25rem;
 }
 
 .challengeCard h3 {
-    font-size: 1.3rem;
-    color: #1a2a3a;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #201f1e;
+    margin-bottom: 0.75rem;
 }
 
 .challengeCard p {
-    color: #4a5568;
-    line-height: 1.7;
+    color: #605e5c;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* ===== APPROACH SECTION ===== */
+/* ===== APPROACH SECTION - AZURE CARDS ===== */
 .approachSection {
     background-color: #ffffff;
 }
 
 .approachContent {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
 }
 
 .approachCard {
-    padding: 2.5rem;
-    background: linear-gradient(135deg, rgba(0, 91, 161, 0.05) 0%, rgba(0, 91, 161, 0.02) 100%);
-    border: 1px solid rgba(0, 91, 161, 0.15);
-    border-radius: 16px;
+    padding: 2rem;
+    background: #ffffff;
+    border: 1px solid #edebe9;
+    border-left: 4px solid #0078d4;
+    border-radius: 4px;
     position: relative;
     overflow: hidden;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .approachCard::before {
@@ -447,43 +485,51 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #005ba1, #003a66);
+    height: 3px;
+    background: linear-gradient(90deg, #0078d4, #50e6ff);
+    opacity: 0;
+    transition: opacity 0.2s ease;
+}
+
+.approachCard:hover::before {
+    opacity: 1;
 }
 
 .approachCard:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.12);
+    transform: translateY(-2px);
 }
 
 .approachNumber {
-    font-size: 3rem;
-    font-weight: 800;
-    color: rgba(0, 91, 161, 0.15);
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: rgba(0, 120, 212, 0.15);
+    margin-bottom: 0.75rem;
     line-height: 1;
 }
 
 .approachCard h3 {
-    font-size: 1.4rem;
-    color: #005ba1;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #0078d4;
+    margin-bottom: 0.75rem;
 }
 
 .approachCard p {
-    color: #4a5568;
-    line-height: 1.7;
+    color: #605e5c;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* ===== TECH STACK SECTION ===== */
+/* ===== TECH STACK SECTION - AZURE GRID ===== */
 .techStackSection {
-    background-color: #f8fafc;
+    background-color: #f3f2f1;
 }
 
 .techStackGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 1.5rem;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 1rem;
 }
 
 .techStackCard {
@@ -491,53 +537,54 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    padding: 2rem;
+    padding: 1.5rem 1rem;
     background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 12px;
-    transition: all 0.3s ease;
+    border: 1px solid #edebe9;
+    border-radius: 4px;
+    transition: all 0.2s ease;
     cursor: pointer;
 }
 
 .techStackCard:hover {
-    background: rgba(0, 91, 161, 0.05);
-    border-color: #005ba1;
-    transform: scale(1.05);
+    border-color: #0078d4;
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.15);
+    transform: translateY(-2px);
 }
 
 .techIcon {
-    font-size: 3rem;
-    color: #005ba1;
-    margin-bottom: 1rem;
+    font-size: 2.5rem;
+    color: #0078d4;
+    margin-bottom: 0.75rem;
 }
 
 .techName {
-    font-size: 0.95rem;
+    font-size: 0.85rem;
     font-weight: 600;
-    color: #1a2a3a;
+    color: #201f1e;
     text-align: center;
 }
 
-/* ===== OFFERINGS SECTION ===== */
+/* ===== OFFERINGS SECTION - AZURE CARDS ===== */
 .offeringsSection {
     background-color: #ffffff;
 }
 
 .offeringsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
 }
 
 .offeringCard {
-    padding: 2.5rem;
+    padding: 2rem;
     background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 16px;
-    transition: all 0.3s ease;
+    border: 1px solid #edebe9;
+    border-left: 4px solid #0078d4;
+    border-radius: 4px;
+    transition: all 0.2s ease;
     position: relative;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .offeringCard::before {
@@ -545,57 +592,60 @@
     position: absolute;
     top: 0;
     right: 0;
-    width: 80px;
-    height: 80px;
-    background: linear-gradient(135deg, rgba(0, 91, 161, 0.1) 0%, transparent 100%);
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.08) 0%, transparent 100%);
     border-radius: 0 0 0 100%;
 }
 
 .offeringCard:hover {
-    border-color: #005ba1;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+    box-shadow: 0 4px 12px rgba(0, 120, 212, 0.12);
+    transform: translateY(-2px);
 }
 
 .offeringNumber {
-    font-size: 1rem;
+    font-size: 0.85rem;
     font-weight: 700;
-    color: #005ba1;
-    margin-bottom: 1rem;
-    letter-spacing: 2px;
+    color: #0078d4;
+    margin-bottom: 0.75rem;
+    letter-spacing: 1px;
 }
 
 .offeringCard h3 {
-    font-size: 1.3rem;
-    color: #1a2a3a;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #201f1e;
+    margin-bottom: 0.75rem;
 }
 
 .offeringCard p {
-    color: #4a5568;
-    line-height: 1.7;
+    color: #605e5c;
+    line-height: 1.6;
+    font-size: 0.95rem;
 }
 
-/* ===== PORTFOLIO SECTION ===== */
+/* ===== PORTFOLIO SECTION - AZURE CARDS ===== */
 .portfolioSection {
-    background-color: #f8fafc;
+    background-color: #f3f2f1;
 }
 
 .portfolioGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 1.5rem;
 }
 
 .portfolioCard {
-    padding: 3rem;
-    background: linear-gradient(135deg, rgba(0, 91, 161, 0.08) 0%, rgba(0, 91, 161, 0.03) 100%);
-    border: 1px solid rgba(0, 91, 161, 0.2);
-    border-radius: 20px;
-    transition: all 0.3s ease;
+    padding: 2.5rem;
+    background: #ffffff;
+    border: 1px solid #edebe9;
+    border-left: 4px solid #50e6ff;
+    border-radius: 4px;
+    transition: all 0.2s ease;
     cursor: pointer;
     position: relative;
     overflow: hidden;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .portfolioCard::before {
@@ -605,9 +655,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(135deg, rgba(0, 91, 161, 0.1) 0%, transparent 100%);
+    background: linear-gradient(135deg, rgba(0, 120, 212, 0.05) 0%, transparent 100%);
     opacity: 0;
-    transition: opacity 0.3s ease;
+    transition: opacity 0.2s ease;
 }
 
 .portfolioCard:hover::before {
@@ -615,188 +665,210 @@
 }
 
 .portfolioCard:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 20px 45px rgba(0, 91, 161, 0.2);
+    box-shadow: 0 8px 24px rgba(0, 120, 212, 0.15);
+    transform: translateY(-3px);
 }
 
 .portfolioCard h3 {
-    font-size: 1.5rem;
-    color: #005ba1;
-    margin-bottom: 1rem;
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #0078d4;
+    margin-bottom: 0.75rem;
     position: relative;
     z-index: 1;
 }
 
 .portfolioCard p {
-    color: #4a5568;
-    line-height: 1.7;
-    margin-bottom: 1.5rem;
+    color: #605e5c;
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
     position: relative;
     z-index: 1;
+    font-size: 0.95rem;
 }
 
 .portfolioLink {
     display: inline-flex;
     align-items: center;
     gap: 0.5rem;
-    color: #005ba1;
+    color: #0078d4;
     font-weight: 600;
-    transition: gap 0.3s ease;
+    font-size: 0.9rem;
+    transition: gap 0.2s ease;
     position: relative;
     z-index: 1;
 }
 
 .portfolioCard:hover .portfolioLink {
-    gap: 1rem;
+    gap: 0.75rem;
 }
 
-/* ===== BENEFITS SECTION ===== */
+/* ===== BENEFITS SECTION - AZURE CARDS ===== */
 .benefitsSection {
     background-color: #ffffff;
 }
 
 .benefitsGrid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 1.5rem;
 }
 
 .benefitCard {
-    padding: 3rem;
+    padding: 2rem;
     background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 20px;
-    transition: all 0.3s ease;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    border: 1px solid #edebe9;
+    border-left: 4px solid #107c10;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
 }
 
 .benefitCard:hover {
-    border-color: #005ba1;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+    box-shadow: 0 4px 12px rgba(16, 124, 16, 0.12);
+    transform: translateY(-2px);
 }
 
 .benefitIcon {
-    font-size: 3rem;
-    color: #005ba1;
-    margin-bottom: 1.5rem;
+    font-size: 2.25rem;
+    color: #107c10;
+    margin-bottom: 1.25rem;
 }
 
 .benefitCard h3 {
-    font-size: 1.4rem;
-    color: #1a2a3a;
-    margin-bottom: 1rem;
+    font-size: 1.15rem;
+    font-weight: 600;
+    color: #201f1e;
+    margin-bottom: 0.75rem;
 }
 
 .benefitCard p {
-    color: #4a5568;
-    line-height: 1.7;
-    margin-bottom: 2rem;
+    color: #605e5c;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
 }
 
 .benefitMetric {
     display: flex;
     flex-direction: column;
-    gap: 0.5rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(0, 91, 161, 0.1);
+    gap: 0.25rem;
+    padding-top: 1.25rem;
+    border-top: 1px solid #edebe9;
 }
 
 .metricValue {
-    font-size: 2rem;
-    font-weight: 800;
-    color: #005ba1;
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #107c10;
 }
 
 .metricLabel {
-    font-size: 0.9rem;
-    color: #4a5568;
+    font-size: 0.8rem;
+    color: #605e5c;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 0.5px;
+    font-weight: 600;
 }
 
-/* ===== CTA SECTION ===== */
+/* ===== CTA SECTION - AZURE STYLE ===== */
 .ctaSection {
-    padding: 6rem 2rem;
-    background-color: #f8fafc;
+    padding: 4rem 3rem;
+    background-color: #f3f2f1;
 }
 
 .ctaCard {
     text-align: center;
-    padding: 4rem;
-    background: linear-gradient(135deg, rgba(0, 91, 161, 0.1) 0%, rgba(0, 91, 161, 0.05) 100%);
-    border: 2px solid rgba(0, 91, 161, 0.2);
-    border-radius: 24px;
+    padding: 3.5rem;
+    background: linear-gradient(135deg, #0078d4 0%, #005a9e 100%);
+    border-radius: 8px;
     position: relative;
     overflow: hidden;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.ctaCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image:
+        radial-gradient(circle, rgba(255, 255, 255, 0.08) 1px, transparent 1px);
+    background-size: 24px 24px;
+    pointer-events: none;
 }
 
 .ctaIcon {
-    font-size: 4rem;
-    color: #005ba1;
-    margin-bottom: 2rem;
+    font-size: 3rem;
+    color: #50e6ff;
+    margin-bottom: 1.5rem;
+    position: relative;
+    z-index: 1;
 }
 
 .ctaTitle {
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: #1a2a3a;
-    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #ffffff;
+    margin-bottom: 1rem;
+    position: relative;
+    z-index: 1;
 }
 
 .ctaText {
-    font-size: 1.2rem;
-    color: #4a5568;
-    max-width: 700px;
-    margin: 0 auto 2.5rem;
-    line-height: 1.7;
+    font-size: 1.1rem;
+    color: rgba(255, 255, 255, 0.9);
+    max-width: 600px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
+    position: relative;
+    z-index: 1;
 }
 
 .ctaButton {
     display: inline-flex;
     align-items: center;
-    gap: 1rem;
-    padding: 1rem 2.5rem;
-    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
-    color: #ffffff;
-    font-size: 1.1rem;
+    gap: 0.75rem;
+    padding: 0.875rem 2rem;
+    background: #ffffff;
+    color: #0078d4;
+    font-size: 1rem;
     font-weight: 600;
     border: none;
-    border-radius: 50px;
+    border-radius: 4px;
     cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 8px 20px rgba(0, 91, 161, 0.25);
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    position: relative;
+    z-index: 1;
 }
 
 .ctaButton:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 91, 161, 0.35);
-    gap: 1.5rem;
+    background: #f3f2f1;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+    gap: 1rem;
 }
 
-/* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+/* ===== RESPONSIVE - AZURE BREAKPOINTS ===== */
+@media (max-width: 1024px) {
     .heroTitle {
         font-size: 2.5rem;
     }
 
     .heroSubtitle {
-        font-size: 1.1rem;
+        font-size: 1.05rem;
     }
 
     .heroStats {
-        flex-direction: column;
-        gap: 1.5rem;
+        flex-wrap: wrap;
     }
 
-    .heroStatDivider {
-        width: 50px;
-        height: 1px;
-    }
-
-    .sectionTitle {
-        font-size: 2rem;
-        flex-direction: column;
+    .heroStat {
+        padding: 1.25rem 2rem;
     }
 
     .challengeGrid,
@@ -809,22 +881,109 @@
     }
 
     .journeyMainHeading {
-        font-size: 2.8rem;
+        font-size: 2.25rem;
     }
 
     .journeyVisualCol {
-        max-width: 800px;
+        max-width: 700px;
         margin: 0 auto;
     }
 }
 
 @media (max-width: 768px) {
+    .hero {
+        padding: 8rem 1.5rem 5rem;
+    }
+
+    .heroTitle {
+        font-size: 2rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .heroStats {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .heroStat {
+        width: 100%;
+        padding: 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .heroStat:last-child {
+        border-bottom: none;
+    }
+
+    .heroStatDivider {
+        display: none;
+    }
+
+    .sectionTitle {
+        font-size: 1.5rem;
+        flex-direction: column;
+        gap: 0.5rem;
+    }
+
     .journeyMainHeading {
-        font-size: 2.2rem;
+        font-size: 1.85rem;
     }
 
     .journeyGlassBadge {
-        right: 0;
-        padding: 1.5rem;
+        right: 10px;
+        bottom: -15px;
+        padding: 1rem;
+    }
+
+    .portfolioGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .ctaCard {
+        padding: 2.5rem 1.5rem;
+    }
+
+    .ctaTitle {
+        font-size: 1.5rem;
+    }
+
+    .ctaText {
+        font-size: 1rem;
+    }
+
+    .challengeSection,
+    .approachSection,
+    .techStackSection,
+    .offeringsSection,
+    .portfolioSection,
+    .benefitsSection,
+    .aiToolsSection,
+    .journeySection {
+        padding: 3rem 1.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .heroTitle {
+        font-size: 1.75rem;
+    }
+
+    .techStackGrid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .techStackCard {
+        padding: 1rem 0.5rem;
+    }
+
+    .techIcon {
+        font-size: 2rem;
+    }
+
+    .techName {
+        font-size: 0.75rem;
     }
 }
