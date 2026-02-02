@@ -8,6 +8,7 @@ const Navbar = React.memo(({ scrolled }) => {
   const location = useLocation();
   const [activeNavbar, setActiveNavbar] = useState(false);
   const [user, setUser] = useState(false);
+  const [servicesDropdown, setServicesDropdown] = useState(false);
   const navigate = useNavigate();
 
   // Detect light background pages
@@ -20,6 +21,19 @@ const Navbar = React.memo(({ scrolled }) => {
   const navLinks = [
     { name: "Home", activePath: "/" },
     { name: "About", activePath: "/about" },
+    {
+      name: "Services",
+      activePath: "/services",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: "Web & Mobile Development", path: "/services/web-mobile-development" },
+        { name: "Cloud & DevOps", path: "/services/cloud-devops" },
+        { name: "AI & Data Science", path: "/services/ai-data-science" },
+        { name: "Quality Engineering", path: "/services/quality-engineering" },
+        { name: "Digital Transformation", path: "/services/digital-transformation" },
+        { name: "IT Management", path: "/services/it-management" },
+      ]
+    },
     { name: "Case Studies", activePath: "/case-study" },
     { name: "Our Solutions", activePath: "/store" },
     { name: "Blogs", activePath: "/blogs" },
@@ -50,11 +64,35 @@ const Navbar = React.memo(({ scrolled }) => {
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className={`${navbarStyles.navItem} ${location.pathname === link.activePath ? navbarStyles.activeItem : ""}`}
-              onClick={() => handleNavLinkClick(link.activePath)}
+              className={`${navbarStyles.navItem} ${link.hasDropdown ? navbarStyles.dropdownContainer : ""} ${location.pathname === link.activePath || (link.hasDropdown && location.pathname.startsWith('/services')) ? navbarStyles.activeItem : ""}`}
+              onClick={() => {
+                if (link.hasDropdown) {
+                  setServicesDropdown(!servicesDropdown);
+                } else {
+                  handleNavLinkClick(link.activePath);
+                }
+              }}
+              onMouseEnter={() => link.hasDropdown && setServicesDropdown(true)}
+              onMouseLeave={() => link.hasDropdown && setServicesDropdown(false)}
             >
               {link.name}
-              {/* <span className={navbarStyles.indicator}></span> */}
+              {link.hasDropdown && (
+                <ul className={`${navbarStyles.dropdownMenu} ${servicesDropdown ? navbarStyles.showDropdown : ""}`}>
+                  {link.dropdownItems.map((item, i) => (
+                    <li
+                      key={i}
+                      className={navbarStyles.dropdownItem}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        handleNavLinkClick(item.path);
+                        setServicesDropdown(false);
+                      }}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </li>
           ))}
           {user && (
@@ -91,13 +129,37 @@ const Navbar = React.memo(({ scrolled }) => {
       <div className={`${navbarStyles.mobileOverlay} ${activeNavbar ? navbarStyles.showOverlay : ""}`}>
         <ul className={navbarStyles.mobileLinks}>
           {navLinks.map((link, index) => (
-            <li
-              key={index}
-              style={{ transitionDelay: `${index * 0.1}s` }}
-              onClick={() => handleNavLinkClick(link.activePath)}
-            >
-              {link.name}
-            </li>
+            <React.Fragment key={index}>
+              <li
+                style={{ transitionDelay: `${index * 0.1}s` }}
+                onClick={() => {
+                  if (link.hasDropdown) {
+                    setServicesDropdown(!servicesDropdown);
+                  } else {
+                    handleNavLinkClick(link.activePath);
+                  }
+                }}
+                className={link.hasDropdown && servicesDropdown ? navbarStyles.mobileActive : ""}
+              >
+                {link.name}
+                {link.hasDropdown && <span className={`${navbarStyles.arrow} ${servicesDropdown ? navbarStyles.arrowRotate : ""}`}>▾</span>}
+              </li>
+              {link.hasDropdown && (
+                <ul className={`${navbarStyles.mobileSubLinks} ${servicesDropdown ? navbarStyles.showMobileSubLinks : ""}`}>
+                  {link.dropdownItems.map((item, i) => (
+                    <li
+                      key={i}
+                      onClick={() => {
+                        handleNavLinkClick(item.path);
+                        setServicesDropdown(false);
+                      }}
+                    >
+                      {item.name}
+                    </li>
+                  ))}
+                </ul>
+              )}
+            </React.Fragment>
           ))}
           {user && (
             <li onClick={() => handleNavLinkClick("/dashboard")}>Dashboard</li>

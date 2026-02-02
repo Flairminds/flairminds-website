@@ -128,7 +128,6 @@
     padding: 0.5rem 1.2rem;
     background: transparent;
     border-radius: 8px;
-    overflow: hidden;
     text-transform: uppercase;
 }
 
@@ -144,7 +143,7 @@
     left: -150%;
     width: 60%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent);
+    /* background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.15), transparent); */
     transition: 0.6s;
     pointer-events: none;
 }
@@ -221,6 +220,110 @@
 
 .mobileLinks li:hover {
     color: #3b82f6;
+}
+
+.dropdownContainer {
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.dropdownMenu {
+    position: absolute;
+    top: 60%;
+    left: 0;
+    min-width: 280px;
+    background: rgba(2, 6, 23, 0.95);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1rem 0.5rem;
+    margin-top: 1rem;
+    list-style: none;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+    pointer-events: none;
+}
+
+.showDropdown {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+.dropdownItem {
+    padding: 0.8rem 1.2rem;
+    color: rgba(255, 255, 255, 0.8) !important;
+    font-size: 0.85rem;
+    font-weight: 500;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-transform: none !important;
+    white-space: nowrap;
+}
+
+.dropdownItem:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: #b9ed5e !important;
+    padding-left: 1.5rem;
+}
+
+.lightBg .dropdownMenu {
+    background: rgba(255, 255, 255, 0.98);
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.lightBg .dropdownItem {
+    color: #4a5568 !important;
+}
+
+.lightBg .dropdownItem:hover {
+    background: rgba(0, 91, 161, 0.05);
+    color: #005ba1 !important;
+}
+
+/* Mobile Sub-menu Styles */
+.mobileSubLinks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+    opacity: 0;
+    background: rgba(255, 255, 255, 0.03);
+    border-radius: 12px;
+}
+
+.showMobileSubLinks {
+    max-height: 500px;
+    opacity: 1;
+    margin: 1rem 0;
+    padding: 0.5rem 0;
+}
+
+.mobileSubLinks li {
+    font-size: 1.1rem !important;
+    font-weight: 500 !important;
+    margin: 0.8rem 0 !important;
+    color: rgba(255, 255, 255, 0.7) !important;
+}
+
+.arrow {
+    font-size: 0.8rem;
+    margin-left: 0.5rem;
+    transition: transform 0.3s ease;
+    display: inline-block;
+}
+
+.arrowRotate {
+    transform: rotate(180deg);
 }
 
 @media (max-width: 900px) {

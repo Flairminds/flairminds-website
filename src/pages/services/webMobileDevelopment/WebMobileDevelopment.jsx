@@ -15,6 +15,14 @@ import {
 import { MdSpeed, MdAutoAwesome } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
+// Asset Imports
+import heroImage from '../../../assets/ai_solutions_hero.webp';
+import discoveryImg from '../../../assets/tech_collaboration.png';
+import pocImg from '../../../assets/ai_neural_network.png';
+import designImg from '../../../assets/software_architecture.webp';
+import scalingImg from '../../../assets/culture_growth.png';
+import qualityImg from '../../../assets/ai_hologram.webp';
+
 const WebMobileDevelopment = () => {
     const navigate = useNavigate();
 
@@ -113,27 +121,32 @@ const WebMobileDevelopment = () => {
         {
             phase: "01. Discovery & Strategy",
             description: "Deep dive into business goals, user needs, and technical feasibility.",
-            icon: <FaSearch />
+            icon: <FaSearch />,
+            image: discoveryImg
         },
         {
             phase: "02. Rapid POC / MVP",
             description: "Building functional prototypes in days using AI acceleration to validate core ideas.",
-            icon: <MdSpeed />
+            icon: <MdSpeed />,
+            image: pocImg
         },
         {
             phase: "03. Design & Architecture",
             description: "Scalable system design and intuitive UI/UX crafted for global standards.",
-            icon: <FaLayerGroup />
+            icon: <FaLayerGroup />,
+            image: designImg
         },
         {
             phase: "04. Phase-wise Scaling",
             description: "Iterative development adding complex features in manageable, high-quality sprints.",
-            icon: <FaChartLine />
+            icon: <FaChartLine />,
+            image: scalingImg
         },
         {
             phase: "05. Quality & Deployment",
             description: "Rigorous automated testing and seamless CI/CD for reliable global delivery.",
-            icon: <FaCheckCircle />
+            icon: <FaCheckCircle />,
+            image: qualityImg
         }
     ];
 
@@ -346,9 +359,14 @@ const WebMobileDevelopment = () => {
                     <div className={styles.journeyGrid}>
                         {deliveryJourney.map((step, index) => (
                             <div key={index} className={styles.journeyCard}>
-                                <div className={styles.journeyIcon}>{step.icon}</div>
-                                <h3>{step.phase}</h3>
-                                <p>{step.description}</p>
+                                <div className={styles.journeyImageWrapper}>
+                                    <img src={step.image} alt={step.phase} className={styles.journeyCardImage} />
+                                    <div className={styles.journeyIconBadge}>{step.icon}</div>
+                                </div>
+                                <div className={styles.journeyCardContent}>
+                                    <h3>{step.phase}</h3>
+                                    <p>{step.description}</p>
+                                </div>
                             </div>
                         ))}
                     </div>

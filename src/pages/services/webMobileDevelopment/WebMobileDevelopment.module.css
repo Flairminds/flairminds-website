@@ -531,10 +531,35 @@
     box-shadow: 0 8px 20px rgba(0, 91, 161, 0.25);
 }
 
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.2rem 2.5rem;
+    background: #b9ed5e;
+    color: #1a2a3a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 25px rgba(185, 237, 94, 0.25);
+}
+
 .ctaButton:hover {
     transform: translateY(-3px);
-    box-shadow: 0 12px 30px rgba(0, 91, 161, 0.35);
-    gap: 1.5rem;
+    box-shadow: 0 12px 35px rgba(185, 237, 94, 0.4);
+    background: #c5f275;
+}
+
+.ctaIcon {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.ctaButton:hover .ctaIcon {
+    transform: translateX(5px);
 }
 
 /* ===== AI TOOLS SECTION ===== */
@@ -629,41 +654,76 @@
 .journeyGrid {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
+    gap: 2.5rem;
 }
 
 .journeyCard {
-    padding: 2.5rem;
     background: #ffffff;
     border: 1px solid rgba(0, 91, 161, 0.1);
     border-radius: 20px;
-    transition: all 0.3s ease;
-    text-align: center;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.04);
 }
 
 .journeyCard:hover {
-    background: linear-gradient(135deg, #ffffff 0%, rgba(185, 237, 94, 0.05) 100%);
-    border-color: #005ba1;
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    border-color: #005BA1;
+    box-shadow: 0 15px 40px rgba(0, 91, 161, 0.1);
 }
 
-.journeyIcon {
-    font-size: 2.5rem;
-    color: #005ba1;
-    margin-bottom: 1.5rem;
+.journeyImageWrapper {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
 }
 
-.journeyCard h3 {
-    font-size: 1.25rem;
-    color: #1a2a3a;
+.journeyCardImage {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.journeyCard:hover .journeyCardImage {
+    transform: scale(1.1);
+}
+
+.journeyIconBadge {
+    position: absolute;
+    bottom: -25px;
+    right: 25px;
+    width: 55px;
+    height: 55px;
+    background: #005BA1;
+    color: white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.6rem;
+    border: 4px solid #ffffff;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.15);
+    z-index: 2;
+}
+
+.journeyCardContent {
+    padding: 3rem 2rem 2.5rem;
+    flex-grow: 1;
+}
+
+.journeyCardContent h3 {
     margin-bottom: 1rem;
-    font-weight: 700;
+    color: #1a2a3a;
+    font-size: 1.4rem;
 }
 
-.journeyCard p {
+.journeyCardContent p {
     color: #4a5568;
     line-height: 1.6;
-    font-size: 0.95rem;
 }
 
 /* ===== RESPONSIVE ===== */
