@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styles from './WebMobileDevelopment.module.css';
 import {
     FaCode, FaMobile, FaReact, FaRocket, FaCheckCircle,
     FaBolt, FaUsers, FaChartLine, FaArrowRight, FaClock,
     FaLightbulb, FaCogs, FaShieldAlt, FaGlobe, FaJava, FaDatabase,
-    FaMagic, FaLayerGroup, FaSearch, FaPalette, FaBug, FaTools, FaMicroscope, FaStripe
+    FaMagic, FaLayerGroup, FaSearch, FaPalette, FaBug, FaTools, FaMicroscope, FaStripe,
+    FaDesktop, FaMobileAlt
 } from 'react-icons/fa';
 import {
     SiTypescript, SiNodedotjs, SiNextdotjs,
@@ -25,6 +26,7 @@ import qualityImg from '../../../assets/ai_hologram.webp';
 
 const WebMobileDevelopment = () => {
     const navigate = useNavigate();
+    const [viewMode, setViewMode] = useState('desktop'); // 'desktop' or 'mobile'
 
     const challenges = [
         {
@@ -202,7 +204,36 @@ const WebMobileDevelopment = () => {
     ];
 
     return (
-        <div className={styles.container}>
+        <div className={`${styles.container} ${viewMode === 'mobile' ? styles.mobileViewMode : ''}`}>
+            {/* Floating Device Toggle */}
+            <div className={styles.deviceToggle}>
+                <button
+                    className={`${styles.deviceBtn} ${viewMode === 'desktop' ? styles.deviceBtnActive : ''}`}
+                    onClick={() => setViewMode('desktop')}
+                    title="Desktop View"
+                >
+                    <FaDesktop />
+                    <span>Web View</span>
+                </button>
+                <button
+                    className={`${styles.deviceBtn} ${viewMode === 'mobile' ? styles.deviceBtnActive : ''}`}
+                    onClick={() => setViewMode('mobile')}
+                    title="Mobile View"
+                >
+                    <FaMobileAlt />
+                    <span>Mobile View</span>
+                </button>
+            </div>
+
+            {/* Mobile Frame Overlay (visible only in mobile mode) */}
+            {viewMode === 'mobile' && (
+                <div className={styles.mobileFrameOverlay}>
+                    <div className={styles.mobileDeviceFrame}>
+                        <div className={styles.mobileNotch}></div>
+                    </div>
+                </div>
+            )}
+
             <main className={styles.mainContent}>
                 {/* Hero Section */}
                 <section className={styles.hero}>
