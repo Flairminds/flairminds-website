@@ -1,38 +1,47 @@
 import styles from './ServicesSection.module.css';
 import aiHologram from '../../assets/ai_hologram.webp';
 import { FaCode, FaCloud, FaBrain, FaCheckCircle, FaRocket, FaTasks } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
+    const navigate = useNavigate();
+
     const services = [
         {
             icon: <FaCode />,
             title: "Custom Web & Mobile Development",
-            description: "Building high-performance, scalable applications with cutting-edge tech stacks."
+            description: "Building high-performance, scalable applications with cutting-edge tech stacks.",
+            path: "/services/web-mobile-development"
         },
         {
             icon: <FaCloud />,
             title: "Cloud & DevOps Engineering",
-            description: "Streamlining operations with automated CI/CD and secure cloud architecture."
+            description: "Streamlining operations with automated CI/CD and secure cloud architecture.",
+            path: "/services/cloud-devops"
         },
         {
             icon: <FaBrain />,
             title: "AI & Data Science Solutions",
-            description: "Transforming raw data into actionable intelligence with custom ML models."
+            description: "Transforming raw data into actionable intelligence with custom ML models.",
+            path: "/services/ai-data-science"
         },
         {
             icon: <FaCheckCircle />,
             title: "Quality Engineering",
-            description: "Ensuring zero-defect releases with automated and AI-driven testing."
+            description: "Ensuring zero-defect releases with automated and AI-driven testing.",
+            path: "/services/quality-engineering"
         },
         {
             icon: <FaRocket />,
             title: "Digital Transformation",
-            description: "Modernizing legacy systems with future-proof enterprise strategies."
+            description: "Modernizing legacy systems with future-proof enterprise strategies.",
+            path: "/services/digital-transformation"
         },
         {
             icon: <FaTasks />,
             title: "IT Management",
-            description: "Full-lifecycle IT management to drive business agility and innovation."
+            description: "Full-lifecycle IT management to drive business agility and innovation.",
+            path: "/services/it-management"
         }
     ];
 
@@ -60,7 +69,11 @@ const ServicesSection = () => {
 
                 <div className={styles.servicesGrid}>
                     {services.map((service, index) => (
-                        <div key={index} className={styles.serviceCard}>
+                        <div
+                            key={index}
+                            className={styles.serviceCard}
+                            onClick={() => navigate(service.path)}
+                        >
                             <div className={styles.glassBackground}></div>
                             <div className={styles.cardContent}>
                                 <div className={styles.serviceIcon}>{service.icon}</div>

@@ -33,6 +33,14 @@ const CareersPage = lazy(() => import('./pages/careers/CareersPage'));
 const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'));
 const AiPocDevelopment = lazy(() => import('./pages/aiPocDevelopment/AiPocDevelopment'));
 
+// Service Pages
+const WebMobileDevelopment = lazy(() => import('./pages/services/webMobileDevelopment/WebMobileDevelopment'));
+const CloudDevOps = lazy(() => import('./pages/services/cloudDevOps/CloudDevOps'));
+const AIDataScience = lazy(() => import('./pages/services/aiDataScience/AIDataScience'));
+const QualityEngineering = lazy(() => import('./pages/services/qualityEngineering/QualityEngineering'));
+const DigitalTransformation = lazy(() => import('./pages/services/digitalTransformation/DigitalTransformation'));
+const ITManagement = lazy(() => import('./pages/services/itManagement/ITManagement'));
+
 // Components
 const Protected = lazy(() => import('./components/protected/Protected'));
 const VerifyLink = lazy(() => import('./components/verifyLink/VerifyLink'));
@@ -87,6 +95,12 @@ function App() {
               <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
+              <Route exact path='/services/web-mobile-development' element={<WebMobileDevelopment />} />
+              <Route exact path='/services/cloud-devops' element={<CloudDevOps />} />
+              <Route exact path='/services/ai-data-science' element={<AIDataScience />} />
+              <Route exact path='/services/quality-engineering' element={<QualityEngineering />} />
+              <Route exact path='/services/digital-transformation' element={<DigitalTransformation />} />
+              <Route exact path='/services/it-management' element={<ITManagement />} />
             </Route>
             <Route exact path='dashboard' element={<DashboardWrapper />}>
               <Route index element={<Protected allowedRoles={['all']}><Dashboard /></Protected>} />

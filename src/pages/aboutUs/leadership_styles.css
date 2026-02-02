@@ -1,0 +1,162 @@
+/* Leadership Team Section */
+.leadershipSection {
+    padding: 7rem 2rem;
+    background: white;
+}
+
+.leadershipHeader {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 4rem;
+}
+
+.leadershipTag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    color: #b9ed5e;
+    background: #00213d;
+    padding: 0.5rem 1.2rem;
+    border-radius: 4px;
+    letter-spacing: 2px;
+    display: inline-block;
+    margin-bottom: 1.5rem;
+}
+
+.leadershipTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    color: #005ba1;
+    margin-bottom: 1rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leadershipSubtitle {
+    font-size: 1.3rem;
+    color: #666;
+}
+
+.leadershipGrid {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+}
+
+.leaderCard {
+    background: linear-gradient(135deg, #f8fafc 0%, #ffffff 100%);
+    border-radius: 24px;
+    padding: 2.5rem;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+}
+
+.leaderCard:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 50px rgba(0, 91, 161, 0.15);
+    border-color: rgba(0, 91, 161, 0.2);
+}
+
+.leaderImageWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2rem;
+}
+
+.leaderImagePlaceholder {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 20px rgba(0, 91, 161, 0.3);
+    border: 4px solid white;
+}
+
+.leaderInitials {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leaderInfo {
+    text-align: center;
+}
+
+.leaderName {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #00213d;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.leaderRole {
+    display: block;
+    font-size: 1.1rem;
+    color: #005ba1;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 0.5px;
+}
+
+.leaderBio {
+    font-size: 1.05rem;
+    line-height: 1.8;
+    color: #475569;
+    text-align: left;
+}
+
+/* Leadership Section Responsive */
+@media (max-width: 1024px) {
+    .leadershipTitle {
+        font-size: 2.8rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .leadershipSection {
+        padding: 5rem 1.5rem;
+    }
+
+    .leadershipTitle {
+        font-size: 2.3rem;
+    }
+
+    .leadershipSubtitle {
+        font-size: 1.1rem;
+    }
+
+    .leadershipGrid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .leadershipTitle {
+        font-size: 1.8rem;
+    }
+
+    .leaderCard {
+        padding: 2rem 1.5rem;
+    }
+
+    .leaderImagePlaceholder {
+        width: 100px;
+        height: 100px;
+    }
+
+    .leaderInitials {
+        font-size: 2rem;
+    }
+
+    .leaderName {
+        font-size: 1.5rem;
+    }
+}

@@ -14,6 +14,7 @@ import welcomingClient from '../../assets/aboutUs/welcoming-client.jpg';
 import welcomingClient2 from '../../assets/aboutUs/welcoming-client-2.jpg';
 import learningTogether from '../../assets/aboutUs/learning-together.jpeg';
 import playingTogether from '../../assets/aboutUs/playing-together.jpg';
+import { FaLinkedin } from 'react-icons/fa';
 
 // Swiper Imports
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -39,6 +40,51 @@ const AboutUsPage = () => {
         { title: "Business Leaders", icon: leadersIcon },
         { title: "Tech Visionaries", icon: visionariesIcon },
         { title: "Global Partners", icon: partnersIcon }
+    ];
+
+    const leadershipTeam = [
+        {
+            initials: "HP",
+            name: "Hasmukh Parekh",
+            role: "",
+            bio: "Seasoned entrepreneur and company head with 15+ years of experience in supply chain and logistics technology. IIT Kanpur alumnus with a strong track record in building product teams, enterprise consulting, and strategic partnerships. Trusted growth advisor to startups, specializing in supply chain optimization, logistics platforms, and scalable enterprise solutions across retail, eCommerce, and 3PL domains.",
+            linkedin: "https://www.linkedin.com/in/hasmukh-parekh-ba70666/"
+        },
+        {
+            initials: "YA",
+            name: "Yogesh Amritkar",
+            role: "",
+            bio: "Technology Specialist and Delivery Lead with expertise in Charles River IMS, BlackRock Aladdin, SQL, and asset management systems. Proven in Agile-driven, end-to-end delivery of complex global projects, migrations, and implementations. Strong in stakeholder collaboration, risk management, data integration, and bridging business and technical teams under tight timelines.",
+            linkedin: ""
+        },
+        {
+            initials: "SN",
+            name: "Shishir Nigam",
+            role: "",
+            bio: "Seasoned Program Manager and global IT leader with 20+ years of experience driving innovation, quality delivery, and large-scale transformations. Expert in global delivery, Agile and SAFe methodologies, security and compliance, and multi-million dollar client engagements. Proven in building high-performing teams and leading complex programs across healthcare, banking, and enterprise domains.",
+            linkedin: "https://www.linkedin.com/in/shishirn/"
+        },
+        {
+            initials: "SS",
+            name: "Shrinivas Sarmane",
+            role: "",
+            bio: "Technology and data enthusiast with 15+ years of experience designing distributed, microservices-based products. Delivered 25+ high-impact solutions, improving performance and reducing costs. Author of three MSc Computer Science books, corporate trainer, and mentor to 6,000+ students. Passionate innovator with four patents pending.",
+            linkedin: ""
+        },
+        {
+            initials: "BS",
+            name: "Barun Sharma",
+            role: "",
+            bio: "Technology leader with 23+ years in IT and 14+ years in investment banking, specializing in ultra-low latency trading systems, market data, and exchange connectivity. APAC lead at Citi, delivering high-performance solutions across Asian exchanges. Strong background in C++, Java, microservices, and solution architecture, with growing focus on AI and machine learning.",
+            linkedin: ""
+        },
+        {
+            initials: "AG",
+            name: "Ahiresh Gaikwad",
+            role: "",
+            bio: "Dynamic Software Architect & Project Manager with 20+ years of experience delivering scalable .NET and ERP solutions. Expert in MSSQL, .NET Core, Agile delivery, and digital transformation. Proven leader of cross-functional teams, turning complex business challenges into reliable, high-impact enterprise systems.",
+            linkedin: ""
+        }
     ];
 
     const carouselData = [
@@ -163,7 +209,7 @@ const AboutUsPage = () => {
                         <div className={styles.imageFrame}>
                             <img src={teamImage} alt="Flairminds Team" className={styles.teamPhoto} />
                             <div className={styles.imageCaption}>
-                                <span className={styles.captionTag}>OUR_COLLABORATIVE_SPIRIT</span>
+                                {/* <span className={styles.captionTag}>OUR_COLLABORATIVE_SPIRIT</span> */}
                                 <h2 className={styles.captionTitle}>Innovation Through Teamwork</h2>
                             </div>
                         </div>
@@ -177,6 +223,45 @@ const AboutUsPage = () => {
                                 <img src={stat.icon} alt={stat.title} className={styles.teamImageIcon} />
                             </div>
                             <h3 className={styles.teamCardTitle}>{stat.title}</h3>
+                        </div>
+                    ))}
+                </div>
+            </section>
+
+            {/* Leadership Team Section */}
+            <section className={styles.leadershipSection}>
+                <div className={styles.leadershipHeader}>
+                    <h2 className={styles.leadershipTitle}>Leadership Team</h2>
+                    <p className={styles.leadershipSubtitle}>
+                        Meet the visionaries driving FlairMinds forward
+                    </p>
+                </div>
+
+                <div className={styles.leadershipGrid}>
+                    {leadershipTeam.map((leader, index) => (
+                        <div key={index} className={styles.leaderCard}>
+                            <div className={styles.leaderImageWrapper}>
+                                <div className={styles.leaderImagePlaceholder}>
+                                    <span className={styles.leaderInitials}>{leader.initials}</span>
+                                </div>
+                            </div>
+                            <div className={styles.leaderInfo}>
+                                <h3 className={styles.leaderName}>
+                                    {leader.name}
+                                    {leader.linkedin && (
+                                        <a
+                                            href={leader.linkedin}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className={styles.linkedinLink}
+                                        >
+                                            <FaLinkedin />
+                                        </a>
+                                    )}
+                                </h3>
+                                <span className={styles.leaderRole}>{leader.role}</span>
+                                <p className={styles.leaderBio}>{leader.bio}</p>
+                            </div>
                         </div>
                     ))}
                 </div>
