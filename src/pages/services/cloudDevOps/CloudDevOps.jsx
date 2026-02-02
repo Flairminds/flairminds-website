@@ -2,10 +2,21 @@ import React from 'react';
 import styles from './CloudDevOps.module.css';
 import {
     FaCloud, FaRocket, FaCheckCircle, FaBolt, FaChartLine,
-    FaArrowRight, FaClock, FaShieldAlt, FaCogs, FaServer
+    FaArrowRight, FaClock, FaShieldAlt, FaCogs, FaServer, FaAws,
+    FaMagic, FaSearch, FaLayerGroup, FaTools, FaMicroscope, FaBrain, FaDatabase
 } from 'react-icons/fa';
-import { SiDocker, SiKubernetes, SiTerraform, SiJenkins, SiAmazonaws, SiMicrosoftazure } from 'react-icons/si';
+import { SiDocker, SiKubernetes, SiTerraform, SiJenkins, SiGitlab, SiAnsible, SiPrometheus, SiGrafana } from 'react-icons/si';
+import { VscAzure } from 'react-icons/vsc';
+import { MdSpeed, MdAutoAwesome } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
+
+// Asset Imports
+import auditImg from '../../../assets/tech_collaboration.png';
+import iacImg from '../../../assets/software_architecture.webp';
+import cicdImg from '../../../assets/ai_neural_network.png';
+import monitoringImg from '../../../assets/ai_hologram.webp';
+import scalingImg from '../../../assets/ai_solutions_hero.webp';
+import expertiseVisual from '../../../assets/infraMonitoring.png';
 
 const CloudDevOps = () => {
     const navigate = useNavigate();
@@ -34,14 +45,78 @@ const CloudDevOps = () => {
     ];
 
     const techStack = [
-        { icon: <SiAmazonaws />, name: "AWS" },
-        { icon: <SiMicrosoftazure />, name: "Azure" },
+        { icon: <FaAws />, name: "AWS" },
+        { icon: <VscAzure />, name: "Azure" },
         { icon: <FaCloud />, name: "GCP" },
         { icon: <SiDocker />, name: "Docker" },
         { icon: <SiKubernetes />, name: "Kubernetes" },
         { icon: <SiTerraform />, name: "Terraform" },
         { icon: <SiJenkins />, name: "Jenkins" },
-        { icon: <FaBolt />, name: "GitHub Actions" }
+        { icon: <SiGitlab />, name: "GitLab" },
+        { icon: <SiAnsible />, name: "Ansible" },
+        { icon: <SiPrometheus />, name: "Prometheus" },
+        { icon: <SiGrafana />, name: "Grafana" },
+        { icon: <MdAutoAwesome />, name: "AI Ops Agents" }
+    ];
+
+    const aiTools = [
+        {
+            stage: "Infrastructure as Code",
+            cases: "Automated Terraform/Bicep generation, complex architecture mapping",
+            tools: ["Antigravity", "Claude", "Terraform AI"],
+            icon: <FaLayerGroup />
+        },
+        {
+            stage: "Autonomous Monitoring",
+            cases: "Predictive anomaly detection, self-healing orchestration",
+            tools: ["Datadog AI", "Dynatrace", "New Relic AI"],
+            icon: <FaMicroscope />
+        },
+        {
+            stage: "Intelligent Security",
+            cases: "Real-time threat modeling, automated compliance remediation",
+            tools: ["Snyk AI", "Wiz", "GitHub Advanced Security"],
+            icon: <FaShieldAlt />
+        },
+        {
+            stage: "Cost Governance",
+            cases: "Autonomous resource right-sizing, spot instance optimization",
+            tools: ["Vantage", "Finout", "CloudHealth AI"],
+            icon: <FaChartLine />
+        }
+    ];
+
+    const deliveryJourney = [
+        {
+            phase: "01. Cloud Audit & Strategy",
+            description: "Evaluating current debt, security posture, and defining the AI-DevOps roadmap.",
+            icon: <FaSearch />,
+            image: auditImg
+        },
+        {
+            phase: "02. AI-Powered IaC Design",
+            description: "Rapidly provisioning secure, scalable environments with AI-augmented IaC best practices.",
+            icon: <FaLayerGroup />,
+            image: iacImg
+        },
+        {
+            phase: "03. Intelligent CI/CD Setup",
+            description: "Building automated pipelines with integrated AI security and quality gates.",
+            icon: <FaBolt />,
+            image: cicdImg
+        },
+        {
+            phase: "04. Predictive Monitoring",
+            description: "Setting up observability that identifies issues before they impact end-users.",
+            icon: <FaBrain />,
+            image: monitoringImg
+        },
+        {
+            phase: "05. Autonomous Scaling",
+            description: "Optimizing for peak performance and global reach with smart resource orchestration.",
+            icon: <FaRocket />,
+            image: scalingImg
+        }
     ];
 
     const benefits = [
@@ -206,6 +281,77 @@ const CloudDevOps = () => {
                                 <span className={styles.techName}>{tech.name}</span>
                             </div>
                         ))}
+                    </div>
+                </section>
+
+                {/* AI-Accelerated SDLC Section */}
+                <section className={styles.aiToolsSection}>
+                    <div className={styles.sectionHeader}>
+                        <h2 className={styles.sectionTitle}>
+                            <MdAutoAwesome className={styles.titleIcon} />
+                            AI-Accelerated DevOps SDLC
+                        </h2>
+                        <p className={styles.sectionSubtitle}>
+                            We leverage industry-leading AI tools to speed up operations while ensuring top-tier reliability
+                        </p>
+                    </div>
+                    <div className={styles.aiToolsGrid}>
+                        {aiTools.map((item, index) => (
+                            <div key={index} className={styles.aiToolCard}>
+                                <div className={styles.aiToolHeader}>
+                                    <div className={styles.aiToolIcon}>{item.icon}</div>
+                                    <h3>{item.stage}</h3>
+                                </div>
+                                <p className={styles.aiToolCases}>{item.cases}</p>
+                                <div className={styles.aiToolTags}>
+                                    {item.tools.map((tool, tIdx) => (
+                                        <span key={tIdx} className={styles.aiToolTag}>{tool}</span>
+                                    ))}
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </section>
+
+                {/* Transformation Journey Section */}
+                <section className={styles.journeySection}>
+                    <div className={styles.container}>
+                        <div className={styles.journeyContentWrapper}>
+                            {/* Left: Journey Steps */}
+                            <div className={styles.journeyInfoCol}>
+                                <div className={styles.journeyBadge}>OUR JOURNEY</div>
+                                <h2 className={styles.journeyMainHeading}>
+                                    Rapid AI-DevOps <span className={styles.journeyHighlight}>Transformation</span>
+                                </h2>
+
+                                <div className={styles.journeyHighlightsList}>
+                                    {deliveryJourney.map((step, index) => (
+                                        <div key={index} className={styles.journeyHighlightItem}>
+                                            <div className={styles.journeyDash}></div>
+                                            <div className={styles.journeyItemContent}>
+                                                <h4 className={styles.journeyItemTitle}>{step.phase}</h4>
+                                                <p className={styles.journeyItemDescription}>{step.description}</p>
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
+                            </div>
+
+                            {/* Right: Technical Visual */}
+                            <div className={styles.journeyVisualCol}>
+                                <div className={styles.journeyTechImageCard}>
+                                    <img
+                                        src={expertiseVisual}
+                                        alt="Infrastructure Monitoring"
+                                        className={styles.journeyArchImage}
+                                    />
+                                    <div className={styles.journeyGlassBadge}>
+                                        <div className={styles.journeyBadgeLabel}>OPS 4.0</div>
+                                        <div className={styles.journeyBadgeText}>Autonomous Cloud Control</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </section>
 

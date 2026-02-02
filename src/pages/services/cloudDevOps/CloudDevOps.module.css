@@ -7,19 +7,32 @@
 
 .mainContent {
     width: 100%;
+    margin: 0 auto;
+}
+
+/* Common Section Padding */
+.challengeSection,
+.approachSection,
+.techStackSection,
+.offeringsSection,
+.portfolioSection,
+.benefitsSection,
+.aiToolsSection,
+.journeySection {
+    padding: 6rem 2rem;
     max-width: 1400px;
     margin: 0 auto;
-    padding: 0 2rem;
 }
 
 /* ===== HERO SECTION =====*/
 .hero {
     background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
     color: white;
-    padding: 8rem 2rem 6rem;
+    padding: 10rem 2rem 8rem;
     text-align: center;
     position: relative;
     overflow: hidden;
+    width: 100%;
 }
 
 .heroContent {
@@ -105,6 +118,236 @@
     background: rgba(255, 255, 255, 0.3);
 }
 
+/* ===== AI TOOLS SECTION ===== */
+.aiToolsSection {
+    background-color: #ffffff;
+}
+
+.aiToolsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 2rem;
+}
+
+.aiToolCard {
+    padding: 2.5rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    display: flex;
+    flex-direction: column;
+}
+
+.aiToolCard:hover {
+    border-color: #b9ed5e;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.15);
+}
+
+.aiToolHeader {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.5rem;
+}
+
+.aiToolIcon {
+    font-size: 2rem;
+    color: #005ba1;
+    background: rgba(0, 91, 161, 0.05);
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+}
+
+.aiToolHeader h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a2a3a;
+}
+
+.aiToolCases {
+    color: #4a5568;
+    line-height: 1.6;
+    margin-bottom: 1.5rem;
+    font-size: 0.95rem;
+}
+
+.aiToolTags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-top: auto;
+}
+
+.aiToolTag {
+    padding: 0.4rem 0.8rem;
+    background: #f1f5f9;
+    color: #475569;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    transition: all 0.2s ease;
+}
+
+.aiToolCard:hover .aiToolTag {
+    background: rgba(185, 237, 94, 0.2);
+    color: #1a2a3a;
+}
+
+/* ===== JOURNEY SECTION (Expertise Design) ===== */
+.journeySection {
+    background-color: #f8fafc;
+    background-image:
+        linear-gradient(rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px),
+        linear-gradient(90deg, rgba(0, 91, 161, 0.05) 1.5px, transparent 1.5px);
+    background-size: 50px 50px;
+    position: relative;
+    overflow: hidden;
+}
+
+.journeyContentWrapper {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 6rem;
+    align-items: center;
+}
+
+.journeyInfoCol {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.journeyBadge {
+    font-size: 0.9rem;
+    font-weight: 800;
+    color: #b9ed5e;
+    letter-spacing: 4px;
+    background: #005ba1;
+    width: fit-content;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+}
+
+.journeyMainHeading {
+    font-size: 3.5rem;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #1a1a1a;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.journeyHighlight {
+    color: #005ba1;
+}
+
+.journeyHighlightsList {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+    margin: 2rem 0;
+}
+
+.journeyHighlightItem {
+    display: flex;
+    gap: 1.5rem;
+    transition: transform 0.3s ease;
+}
+
+.journeyHighlightItem:hover {
+    transform: translateX(10px);
+}
+
+.journeyDash {
+    width: 30px;
+    height: 4px;
+    background-color: #b9ed5e;
+    margin-top: 0.8rem;
+    flex-shrink: 0;
+    border-radius: 2px;
+}
+
+.journeyItemTitle {
+    font-size: 1.4rem;
+    font-weight: 700;
+    color: #005ba1;
+    margin-bottom: 0.5rem;
+}
+
+.journeyItemDescription {
+    color: #555;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.journeyVisualCol {
+    position: relative;
+}
+
+.journeyTechImageCard {
+    background: white;
+    padding: 2rem;
+    border-radius: 32px;
+    box-shadow: 0 40px 80px rgba(0, 0, 0, 0.08);
+    position: relative;
+    z-index: 1;
+}
+
+.journeyArchImage {
+    width: 100%;
+    border-radius: 20px;
+    display: block;
+}
+
+.journeyGlassBadge {
+    position: absolute;
+    bottom: -30px;
+    right: -30px;
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 24px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    animation: journeyFloat 4s ease-in-out infinite;
+}
+
+@keyframes journeyFloat {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.journeyBadgeLabel {
+    font-size: 0.8rem;
+    font-weight: 800;
+    color: #b9ed5e;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+    background: #005ba1;
+    width: fit-content;
+    padding: 0.2rem 0.8rem;
+    border-radius: 4px;
+}
+
+.journeyBadgeText {
+    color: #1a1a1a;
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
 /* ===== SECTION HEADERS ===== */
 .sectionHeader {
     text-align: center;
@@ -136,7 +379,6 @@
 
 /* ===== CHALLENGE SECTION ===== */
 .challengeSection {
-    padding: 6rem 0;
     background-color: #f8fafc;
 }
 
@@ -180,7 +422,6 @@
 
 /* ===== APPROACH SECTION ===== */
 .approachSection {
-    padding: 6rem 0;
     background-color: #ffffff;
 }
 
@@ -236,7 +477,6 @@
 
 /* ===== TECH STACK SECTION ===== */
 .techStackSection {
-    padding: 6rem 0;
     background-color: #f8fafc;
 }
 
@@ -280,7 +520,6 @@
 
 /* ===== OFFERINGS SECTION ===== */
 .offeringsSection {
-    padding: 6rem 0;
     background-color: #ffffff;
 }
 
@@ -339,7 +578,6 @@
 
 /* ===== PORTFOLIO SECTION ===== */
 .portfolioSection {
-    padding: 6rem 0;
     background-color: #f8fafc;
 }
 
@@ -414,7 +652,6 @@
 
 /* ===== BENEFITS SECTION ===== */
 .benefitsSection {
-    padding: 6rem 0;
     background-color: #ffffff;
 }
 
@@ -480,7 +717,7 @@
 
 /* ===== CTA SECTION ===== */
 .ctaSection {
-    padding: 8rem 0 6rem;
+    padding: 6rem 2rem;
     background-color: #f8fafc;
 }
 
@@ -565,15 +802,29 @@
     .challengeGrid,
     .approachContent,
     .offeringsGrid,
-    .benefitsGrid {
+    .benefitsGrid,
+    .aiToolsGrid,
+    .journeyContentWrapper {
         grid-template-columns: 1fr;
     }
 
-    .portfolioGrid {
-        grid-template-columns: 1fr;
+    .journeyMainHeading {
+        font-size: 2.8rem;
     }
 
-    .techStackGrid {
-        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    .journeyVisualCol {
+        max-width: 800px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .journeyMainHeading {
+        font-size: 2.2rem;
+    }
+
+    .journeyGlassBadge {
+        right: 0;
+        padding: 1.5rem;
     }
 }
