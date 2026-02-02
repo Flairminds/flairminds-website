@@ -54,6 +54,10 @@ const ClientsSection = () => {
                                 src={collabImage}
                                 alt="Modern Team Collaboration"
                                 className={styles.clientsImage}
+                                width={600}
+                                height={400}
+                                loading="lazy"
+                                decoding="async"
                             />
                             {/* Accent elements */}
                             <div className={styles.decorationDot}></div>

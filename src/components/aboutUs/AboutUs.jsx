@@ -5,7 +5,15 @@ const AboutUs = () => {
     return (
         <section className={styles.aboutSection}>
             <div className={styles.backgroundImage}>
-                <img src={aboutBgImage} alt="Modern Architecture" className={styles.bgImage} />
+                <img
+                    src={aboutBgImage}
+                    alt="Modern Architecture"
+                    className={styles.bgImage}
+                    width={1400}
+                    height={800}
+                    loading="lazy"
+                    decoding="async"
+                />
                 <div className={styles.overlay}></div>
             </div>
 

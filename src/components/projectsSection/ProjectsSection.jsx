@@ -61,6 +61,10 @@ const ProjectsSection = () => {
                                 src={archImage}
                                 alt="Technical Architecture"
                                 className={styles.archImage}
+                                width={600}
+                                height={400}
+                                loading="lazy"
+                                decoding="async"
                             />
                             <div className={styles.glassBadge}>
                                 <div className={styles.badgeLabel}>VERSION 4.0</div>

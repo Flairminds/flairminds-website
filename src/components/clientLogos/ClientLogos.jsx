@@ -13,6 +13,10 @@ const ClientLogos = () => {
                         src={clientLogosImage}
                         alt="Our Clients - Trusted Partners"
                         className={styles.image}
+                        width={1200}
+                        height={200}
+                        loading="lazy"
+                        decoding="async"
                     />
                 </div>
             </div>

@@ -57,6 +57,9 @@
     height: 120%;
     background: radial-gradient(circle at center, rgba(0, 91, 161, 0.15) 0%, transparent 60%);
     pointer-events: none;
+    /* Prevent CLS - isolate this element's layout */
+    contain: layout style;
+    will-change: opacity;
 }
 
 .container {
@@ -240,13 +243,14 @@
     content: '';
     position: absolute;
     top: -50%;
-    left: -60%;
+    left: 0;
     width: 20%;
     height: 200%;
     background: rgba(255, 255, 255, 0.2);
-    transform: rotate(30deg);
+    transform: translateX(-300%) rotate(30deg);
     animation: shimmer 4s infinite;
     pointer-events: none;
+    will-change: transform;
 }
 
 @keyframes pulseGlow {
@@ -263,14 +267,15 @@
     }
 }
 
+/* GPU-composited animation - uses translateX instead of left */
 @keyframes shimmer {
     0% {
-        left: -60%;
+        transform: translateX(-300%) rotate(30deg);
     }
 
     15%,
     100% {
-        left: 140%;
+        transform: translateX(700%) rotate(30deg);
     }
 }
 
@@ -340,6 +345,9 @@
     box-shadow: 0 0 20px rgba(185, 237, 94, 0.2);
     animation: float 4s ease-in-out infinite;
     z-index: 5;
+    /* Prevent CLS - contain the element and hint GPU compositing */
+    contain: layout;
+    will-change: transform;
 }
 
 @keyframes float {
@@ -418,18 +426,23 @@
 .barFill.active {
     width: 78%;
     background: #b9ed5e;
+    /* Use scaleX for GPU-composited animation instead of width */
     animation: pulseWidth 3s ease-in-out infinite;
+    transform-origin: left center;
+    will-change: transform;
 }
 
+/* GPU-composited animation - uses transform instead of width */
 @keyframes pulseWidth {
 
     0%,
     100% {
-        width: 78%;
+        transform: scaleX(1);
     }
 
     50% {
-        width: 95%;
+        transform: scaleX(1.22);
+        /* 95/78 ≈ 1.22 to simulate width: 95% from 78% */
     }
 }
 

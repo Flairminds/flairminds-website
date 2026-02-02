@@ -57,6 +57,10 @@ const HeroSection = () => {
                                 loop
                                 muted
                                 playsInline
+                                preload="auto"
+                                width={600}
+                                height={400}
+                                fetchPriority="high"
                                 className={styles.archVisual}
                             />
 

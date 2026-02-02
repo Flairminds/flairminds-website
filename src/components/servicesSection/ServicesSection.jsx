@@ -49,7 +49,15 @@ const ServicesSection = () => {
         <section className={styles.servicesSection}>
             {/* Background Layer with Live Tech Visuals */}
             <div className={styles.backgroundVisual}>
-                <img src={aiHologram} alt="" className={styles.bgImage} />
+                <img
+                    src={aiHologram}
+                    alt=""
+                    className={styles.bgImage}
+                    width={1200}
+                    height={800}
+                    loading="lazy"
+                    decoding="async"
+                />
                 <div className={styles.scanLine}></div>
                 <div className={styles.bgOverlay}></div>
                 <div className={styles.glowEffect}></div>

@@ -1,6 +1,6 @@
 import './App.css'
 import { Routes, Route, BrowserRouter, useLocation } from 'react-router-dom'
-import { useEffect, useState, Suspense, lazy } from 'react'
+import { useEffect, Suspense, lazy } from 'react'
 import Preloader from './components/preloader/Preloader'
 
 // Layouts
@@ -59,16 +59,7 @@ const ScrollToTop = () => {
 };
 
 function App() {
-  const [loading, setLoading] = useState(true);
-
-  useEffect(() => {
-    // Simulate initial content loading
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  // Removed artificial 1-second loading delay that was blocking LCP
 
   return (
     <>
@@ -77,7 +68,7 @@ function App() {
         <Suspense fallback={<Preloader />}>
           <Routes>
             <Route exact path='/' element={<GeneralLayout />}>
-              <Route exact path='/' element={loading ? <Preloader /> : <Home />} />
+              <Route exact path='/' element={<Home />} />
               <Route exact path='/store' element={<StorePage />} />
               <Route exact path='/contact' element={<Contactus />} />
               <Route exact path='/about' element={<AboutUsPage />} />
