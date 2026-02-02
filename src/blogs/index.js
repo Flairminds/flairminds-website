@@ -1,5 +1,6 @@
 import PdfAnalyzer from './pdf-analyzer/PdfAnalyzer';
 import AIContest from './ai-productivity-challenge/AIContest';
+import WebScrapingBlog from './ai-powered-web-scraping-and-reporting/WebScrapingBlog';
 
 export const blogs = [{
     id: 1,
@@ -19,4 +20,13 @@ export const blogs = [{
     author: '',
     tags: ['AI', 'Productivity', 'Innovation', 'Team Learning'],
     component: AIContest,
+}, {
+    id: 3,
+    file: 'ai-powered-web-scraping-and-reporting',
+    title: 'Building an AI-Powered Web Scraping & Report Generation System',
+    excerpt: 'A comprehensive technical deep dive into combining async web crawling, document parsing, and LLM integration. Learn how to solve engineering challenges like async-sync context handling, model fallbacks, and smart content extraction in a Streamlit application.',
+    date: 'February 2, 2026',
+    author: '',
+    tags: ['Web Scraping', 'AI', 'LLM', 'Python', 'Streamlit'],
+    component: WebScrapingBlog,
 }];
