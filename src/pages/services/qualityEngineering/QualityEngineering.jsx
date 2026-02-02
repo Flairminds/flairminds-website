@@ -2,9 +2,9 @@ import React from 'react';
 import styles from './QualityEngineering.module.css';
 import {
     FaCheckCircle, FaRocket, FaBolt, FaChartLine, FaArrowRight,
-    FaVial, FaShieldAlt, FaCogs, FaBug, FaRobot
+    FaVial, FaShieldAlt, FaCogs, FaBug, FaRobot, FaTheaterMasks
 } from 'react-icons/fa';
-import { SiSelenium, SiCypress, SiJest, SiPlaywright } from 'react-icons/si';
+import { SiSelenium, SiCypress, SiJest } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
 
 const QualityEngineering = () => {
@@ -18,7 +18,7 @@ const QualityEngineering = () => {
         },
         {
             icon: <FaCogs />,
-            title: "Manual Testing Bottlen ecks",
+            title: "Manual Testing Bottlenecks",
             description: "Time-consuming manual testing slows down releases"
         },
         {
@@ -37,7 +37,7 @@ const QualityEngineering = () => {
         { icon: <SiSelenium />, name: "Selenium" },
         { icon: <SiCypress />, name: "Cypress" },
         { icon: <SiJest />, name: "Jest" },
-        { icon: <SiPlaywright />, name: "Playwright" },
+        { icon: <FaTheaterMasks />, name: "Playwright" },
         { icon: <FaVial />, name: "JUnit" },
         { icon: <FaVial />, name: "TestNG" },
         { icon: <FaRobot />, name: "Appium" },
