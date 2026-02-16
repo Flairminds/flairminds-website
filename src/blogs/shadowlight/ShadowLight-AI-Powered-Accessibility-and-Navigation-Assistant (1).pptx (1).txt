@@ -1,0 +1,379 @@
+ShadowLight: AIPowered Accessibility &
+Navigation Assistant
+An intelligent Chrome extension that transforms web
+accessibility through real-time AI guidance and visual
+assistance
+
+Mentor – Punit Suman
+
+Problem Statement
+Challenges in Web Accessibility & Navigation
+Navigation Complexity
+
+Information Overload
+
+Finding specific buttons or links in enterprise-level
+
+Parsing long articles or technical documentation for
+
+Visual Accessibility
+
+Content Efficiency
+
+Users with color blindness or visual fatigue find it
+
+Professionals need to quickly repurpose web content
+
+dashboards
+
+difficult to read and interact with standard web
+designs
+
+key insights
+
+for other platforms (e.g., social media)
+
+Solution Approach
+ShadowLight AI Assistant - Chrome Extension
+
+Contextual Intelligence
+
+Guided Interaction
+
+Real-time page scraping and analysis
+
+Step-by-step navigation instructions
+
+Visual Adaptation
+
+Natural Language Interaction
+
+Dynamic CSS filters to aid accessibility
+
+A chatbot that "knows" what is on the user's screen
+
+Team, Roles & Responsibilities
+Project Leadership & Team Structure
+Role
+
+Name & Responsibility
+
+Team Lead
+
+Swarup Kusalkar - Repurpose and Summarization
+
+Tech Lead
+
+Sanjana Palkar - AI Engine & Navigation
+
+Team Member
+
+Sairaj Dhamal - DOM Scripting & Accessibility
+
+Team Member
+
+Samay Gangwal - UI & QA Lead
+
+Team Member
+
+Manasi Choudhari - QA & Documentation
+
+Technical Details
+Architecture & Tech Stack
+Frameworks & Technologies
+
+Core Architecture
+
+Frameworks: React 19 (UI Layer), TypeScript (Type
+
+Side Panel: React UI with Tailwind CSS
+
+AI Engine: Google Gemini 3 (Flash for speed, Pro for
+
+Content Script: DOM interaction and element detection
+
+Safety), Vite (Build System)
+reasoning)
+
+Architecture: Chrome Extension Manifest V3
+
+Key Components: Popup (App.tsx), Content Script
+(content.ts), Service Worker (background.ts)
+
+Communication: Asynchronous Message Passing via
+chrome.runtime.sendMessage
+
+Memory: Local storage caching for token-efficient crosspage context
+
+AI services:Antigravity IDE,GoogleAI
+Studio,Claude,Gemini API key.
+
+Background Script: Service Worker for persistent logic
+Gemini AI Service: Real-time intelligence
+
+Web Page DOM: Target interaction layer
+Task Management : JIRA
+
+Architecture Overview
+System Components & Data Flow
+
+1. Navigation Module
+Natural Navigation & Smart Guidance
+The Navigation Module uses AI-powered guidance to help users find and interact
+with specific elements on any webpage through natural language commands.
+
+Key Features:
+Natural Language Input: Simply describe what you want to do (e.g., "I want to
+logout")
+
+Smart Element Detection: AI identifies the correct button or link automatically
+
+Step-by-Step Guidance: Provides clear instructions for complex navigation
+tasks
+
+Sense-Plan-Act Cycle: Scrapes page, analyzes with AI, and executes actions
+seamlessly
+
+2. Accessibility Module
+Visual Presets & Color Blindness Filters
+The Accessibility Module provides comprehensive visual adaptation tools to make
+web content accessible to all users, including those with color vision deficiencies
+and visual fatigue.
+
+Key Features:
+Visual Presets: One-click High Contrast, Dark Mode, and Grayscale modes
+Color Blindness Simulation: Supporting Protanopia, Deuteranopia, and
+Tritanopia
+
+Dynamic CSS Filters: Real-time application of accessibility adjustments
+User-Controlled: Toggle modes instantly in the UI with state synced to active
+tab
+
+3. Intelligence Module
+Smart Summarization & Content Repurposing
+The Intelligence Module leverages Google Gemini 3 to understand page
+content and provide instant summaries or help repurpose content for
+different platforms.
+
+Key Features:
+Smart Summarization: Get page summaries in ELI5 (Simple), Short, or Full
+formats
+
+Content Repurposing: Convert research into Tweets, Blog posts, or
+Articles instantly
+
+Real-Time Analysis: Powered by Google Gemini 3 (Flash for speed, Pro for
+reasoning)
+
+Context-Aware: Understands exactly what's on the current page
+
+4. Assistant Module
+Direct Page Chat & Conversational AI
+The Assistant Module provides a conversational interface where users can ask questions
+about any webpage and receive intelligent, context-aware responses powered by Gemini
+AI.
+
+Key Features:
+Direct Page Chat: Talk to any website as if it were a document
+Contextual Understanding: AI has full knowledge of the current page content
+Natural Conversation: Ask follow-up questions and get detailed explanations
+Multi-Purpose: Explain complex terms, find specific data, or provide navigation help
+Stateful Interaction: Maintains conversation context across multiple queries
+
+Scope of Work
+What the Project Delivered
+01
+
+02
+
+03
+
+Core Extension Engine
+
+AI Integration
+
+UI/UX Design
+
+Manifest V3 setup, background/content script
+syncing
+
+Secure API key management and prompt
+engineering for navigation and summarization
+
+Creating a multi-tab sidebar with real-time UI
+updates
+
+04
+
+05
+
+06
+
+Accessibility Layer
+
+Features Implementation
+
+Documentation
+
+Implementation of vision-simulating SVG
+filters and high-contrast modes
+
+Visual presets, color blindness simulation, page
+chat, smart summarization, natural navigation,
+SRS, Technical Documentation, Architecture
+content creation
+Flow, Timelines
+
+07
+
+Testing & QA
+Cross-website testing, DOM selector validation, performance optimization
+
+Key Features
+ShadowLight Capabilities
+Visual Presets
+One-click High Contrast, Dark Mode, and Grayscale
+
+Color Blindness Simulation
+Supporting three major types of color vision deficiency (Protanopia, Deuteranopia, Tritanopia)
+
+Direct Page Chat
+Talk to any website as if it were a document
+
+Smart Summarization
+Get the gist of any page in seconds (ELI5, Short, or Full summaries)
+
+Natural Navigation
+Type "I want to logout" and let the AI find and highlight the button
+
+Content Creation
+Effortlessly repurpose research into social media drafts (Tweets, Blog posts, Articles)
+
+Accessibility First
+Automatic contrast fixes, keyboard navigation compliance, screen reader support
+
+Advantages & Results
+Key Benefits of ShadowLight
+Enhanced Productivity
+
+Universal Accessibility
+
+Reduces the cognitive load of searching for buried
+
+Makes the web readable for users with vision
+
+Seamless Integration
+
+Real-Time Context
+
+Runs in a non-intrusive side panel, keeping the main
+
+Unlike standalone AI, it sees exactly what the user
+
+Privacy-First Approach
+
+Modern & Scalable Architecture
+
+No personal data stored; all processing is minimal
+
+Built using React + TypeScript + Plasmo, easy to
+
+UI elements
+
+browsing space clear
+
+and user-initiated
+
+impairments
+
+sees
+
+extend and maintain
+
+AI Impact
+Accelerating Development with Intelligent Automation
+Development Composition
+
+AI Tools & Technologies Used:
+Google Gemini 3 (Core AI Engine)
+
+Claude (Code Generation & Analysis)
+
+LLaMA (Local Processing)
+
+Time Efficiency:
+Traditional Methods: 3 weeks
+
+AI-Powered Approach: 1 week
+
+Time Saved: 66% faster development
+
+Key Benefits:
+Rapid prototyping and iteration
+AI
+
+Human Coding
+
+Intelligent code generation
+
+Automated testing and validation
+Enhanced documentation
+
+Reduced development cycles
+
+Future Enhancements
+Roadmap for ShadowLight Evolution
+
+Voice Navigation
+
+Multi-Tab Context
+
+Integrating Speech-to-Text for completely hands-free
+
+Allowing the AI to reference information from multiple
+
+Personalized Accessibility
+
+Offline Modes
+
+Auto-detecting page contrast issues and suggesting
+
+Using local LLMs (like Chrome Built-in AI) for basic
+
+web browsing
+
+adjustments
+
+open tabs
+
+summarization to enhance privacy
+
+Conclusion
+ShadowLight: Transforming Web Accessibility
+ShadowLight represents a significant advancement in making the web more accessible and user-friendly for everyone. By
+combining cutting-edge AI technology with thoughtful accessibility design, we've created a tool that empowers users to
+navigate the digital world with confidence and ease.
+Key Takeaways:
+Intelligent AI-powered assistance
+
+Comprehensive accessibility
+
+understanding
+
+needs
+
+for web navigation and content
+
+features for users with diverse
+
+Scalable, modern technology stack built for future
+growth
+
+Privacy-first architecture ensuring
+user data security
+
+Commitment to continuous improvement and usercentric innovation
+
+The future of web accessibility is here. ShadowLight is ready to make a difference.
+
+

@@ -1,0 +1,235 @@
+Software Requirements Specification (SRS)
+
+Project Title:
+An AI-Powered Chrome Extension for Accessibility and Guided Web Interaction
+
+Organization: FlairMinds Software Pvt. Ltd.
+Version: 2.0
+
+1. Introduction
+1.1 Purpose
+The purpose of this document is to define the software requirements for ShadowLight, a
+Chrome browser extension being developed by interns at FlairMinds. This document
+serves as a reference for developers, mentors, and stakeholders to understand the
+system’s functionality, scope, and constraints.
+1.2 Product Overview
+ShadowLight is an AI-powered chatbot integrated into the Chrome browser that helps
+users understand websites, navigate web pages, and complete tasks easily. The extension
+focuses on improving accessibility, usability, and user guidance without modifying the
+original website code.
+1.3 Intended Audience
+This document is intended for:
+•
+
+Development team members
+
+•
+
+Project mentors and reviewers
+
+•
+
+Web users
+
+2. Overall Description
+2.1 Product Perspective
+ShadowLight operates as a browser extension and runs independently of the websites it
+interacts with. It overlays functionality on top of existing web pages, providing guidance,
+summaries, and accessibility improvements in real time.
+2.2 Product Functions
+The major functions of the system include:
+•
+
+Website content summarization
+
+•
+
+Step-by-step task guidance
+
+•
+
+Color Contrast
+
+2.3 User Classes and Characteristics
+•
+
+General Users: Users who want quick understanding and easier navigation of
+websites.
+
+•
+
+Users with Accessibility Needs: Users with visual challenges.
+
+•
+
+First-time Users: Users unfamiliar with complex websites or workflows
+
+No advanced technical knowledge is required to use the extension.
+
+3. Objectives
+The objectives of ShadowLight are:
+•
+
+To summarize website content for faster understanding
+
+•
+
+To enhance accessibility for users with disabilities
+
+•
+
+To guide users step-by-step through common web tasks
+
+•
+
+To improve overall usability and user experience
+
+4. Scope
+4.1 In-Scope
+•
+•
+•
+•
+
+Chrome extension development: Design and implementation of the solution as a
+Google Chrome browser extension.
+AI chatbot interface: An AI-powered chatbot available on any website to assist
+users with queries and actions.
+Website summarization feature: Provides concise summaries of the current
+webpage for quick understanding.
+Accessibility enhancements:
+o
+
+•
+
+Color Contrast: Improves text and background contrast to enhance readability
+for users with visual impairments.
+
+Task-based visual guidance system: Guides users step-by-step by dimming the
+screen and highlighting relevant UI elements to complete tasks easily.
+
+4.2 Out-of-Scope
+•
+
+Complex backend server development
+
+•
+
+Permanent modification of website source code
+
+•
+
+Full automation of tasks without user interaction
+
+•
+
+Deep integration with third-party internal systems
+
+5. Functional Requirements
+5.1 Chatbot Interface
+•
+
+The system shall provide a chatbot interface accessible on any website.
+
+•
+
+The chatbot shall accept natural language user commands.
+
+5.2 Website Summarization
+•
+
+The system shall summarize the content of the active webpage.
+
+•
+
+The summary shall be concise and easy to understand.
+
+5.3 Accessibility Features
+•
+
+The system shall allow users to adjust contrast.
+
+5.4 Task Guidance System
+•
+
+The system shall support guided task execution (e.g., login).
+
+•
+
+The system shall dim the background and highlight relevant UI elements.
+
+•
+
+The system shall guide users step-by-step using “Next” and “Previous” controls.
+
+6. Non-Functional Requirements
+6.1 Performance
+•
+
+The extension shall be lightweight and fast.
+
+•
+
+User actions shall have minimal response time.
+
+6.2 Compatibility
+•
+
+The extension shall work on most modern websites.
+
+•
+
+The extension shall support the latest versions of Google Chrome.
+
+6.3 Security and Privacy
+•
+
+The system shall not store unnecessary user data.
+
+•
+
+User interactions shall remain private and secure.
+
+7. Assumptions and Constraints
+7.1 Assumptions
+•
+
+Users have access to a modern Chrome browser.
+
+•
+
+Websites follow standard HTML structures.
+
+•
+
+Users grant required browser permissions.
+
+7.2 Constraints
+•
+
+Browser security policies may restrict access to some elements.
+
+•
+
+Website structure differences may affect guidance accuracy.
+
+•
+
+Dynamic or protected content may limit interaction.
+
+8. Future Enhancements
+•
+•
+•
+•
+
+Multi-language support: Allows users to interact with the extension in different
+languages for better understanding and wider usability.
+Voice-based interaction: Enables users to give commands and receive responses
+using voice, reducing the need for manual interaction.
+Personalized accessibility profiles: Lets users save and apply their preferred
+accessibility settings across websites automatically.
+Support for additional browsers: Extends compatibility beyond Chrome to
+other browsers such as Firefox and Edge.
+
+

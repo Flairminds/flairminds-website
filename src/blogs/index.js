@@ -1,6 +1,7 @@
 import PdfAnalyzer from './pdf-analyzer/PdfAnalyzer';
 import AIContest from './ai-productivity-challenge/AIContest';
 import WebScrapingBlog from './ai-powered-web-scraping-and-reporting/WebScrapingBlog';
+import ShadowLightBlog from './shadowlight/ShadowLightBlog';
 
 export const blogs = [{
     id: 1,
@@ -29,4 +30,13 @@ export const blogs = [{
     author: '',
     tags: ['Web Scraping', 'AI', 'LLM', 'Python', 'Streamlit'],
     component: WebScrapingBlog,
+}, {
+    id: 4,
+    file: 'shadowlight',
+    title: 'ShadowLight: AI-Powered Accessibility in Record Time',
+    excerpt: 'How our intern team leveraged AI to build a production-ready Chrome extension in just 2 weeks. Discover the technical architecture, AI-accelerated development workflow achieving 50% faster build time, and the four powerful features built by our talented intern team.',
+    date: 'February 16, 2026',
+    author: 'FlairMinds Intern Team',
+    tags: ['AI', 'Chrome Extension', 'Accessibility', 'React', 'TypeScript', 'Intern Project'],
+    component: ShadowLightBlog,
 }];
