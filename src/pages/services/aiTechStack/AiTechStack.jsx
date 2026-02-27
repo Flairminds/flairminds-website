@@ -506,20 +506,75 @@ const AiTechStack = () => {
                             No stage left behind — AI accelerates the entire delivery pipeline
                         </p>
                     </div>
-                    <div className={styles.sdlcGrid}>
+                    <div className={styles.sdlcTimeline}>
                         {[
-                            { stage: '01', label: 'Planning & Discovery', tools: 'ChatGPT · Gemini Deep Research · Notion AI', icon: <FaClock /> },
-                            { stage: '02', label: 'Design & Prototyping', tools: 'Antigravity · Gemini · Claude · Lovable', icon: <FaCogs /> },
-                            { stage: '03', label: 'Development (Coding)', tools: 'Antigravity · Cursor · GitHub Copilot · Claude', icon: <FaCode /> },
-                            { stage: '04', label: 'Code Review', tools: 'CodeRabbit · Antigravity · Cursor', icon: <FaCheckCircle /> },
-                            { stage: '05', label: 'Testing & QA', tools: 'Kusho · Antigravity · ChatGPT · Claude', icon: <FaBug /> },
-                            { stage: '06', label: 'DevOps & Deployment', tools: 'AWS DevOps Agent · GitHub Actions AI · Antigravity', icon: <FaTools /> },
-                        ].map((item, i) => (
-                            <div key={i} className={styles.sdlcCard}>
-                                <div className={styles.sdlcIcon}>{item.icon}</div>
-                                <div className={styles.sdlcStageNum}>{item.stage}</div>
-                                <h3 className={styles.sdlcLabel}>{item.label}</h3>
-                                <p className={styles.sdlcTools}>{item.tools}</p>
+                            {
+                                stage: '01', color: '#7c3aed',
+                                label: 'Planning & Requirements',
+                                useCase: 'User story generation, PRD writing, meeting summaries, and market research.',
+                                tools: ['Notion AI', 'Fireflies.ai', 'NotebookLM', 'ChatGPT', 'Gemini', 'Gamma', 'Napkin AI'],
+                                icon: <FaClock />
+                            },
+                            {
+                                stage: '02', color: '#e14dff',
+                                label: 'Design & Prototyping',
+                                useCase: 'Converting briefs to wireframes, generating UI components, and architecture diagrams.',
+                                tools: ['Lovable', 'Napkin AI', 'Eraser.io', 'Gemini', 'Claude', 'Antigravity'],
+                                icon: <FaCode />
+                            },
+                            {
+                                stage: '03-a', color: '#b9ed5e',
+                                label: 'Development',
+                                useCase: 'Real-time code completion, multi-file refactoring, and agentic app building.',
+                                tools: ['Antigravity', 'Cursor', 'Windsurf', 'GitHub Copilot', 'Claude Code', 'ChatGPT'],
+                                icon: <FaCogs />
+                            },
+                            {
+                                stage: '03-b', color: '#10a37f',
+                                label: 'Agentic Workflows',
+                                useCase: 'Multi-step orchestration, autonomous task execution, and RAG-powered AI agents.',
+                                tools: ['LangChain', 'CrewAI', 'Llama', 'Antigravity'],
+                                icon: <FaRocket />
+                            },
+                            {
+                                stage: '04', color: '#f97316',
+                                label: 'Code Review & Quality',
+                                useCase: 'Automated PR summaries, security vulnerability scanning, and logic checks.',
+                                tools: ['CodeRabbit', 'Antigravity', 'Cursor', 'Windsurf', 'GitHub Copilot'],
+                                icon: <FaCheckCircle />
+                            },
+                            {
+                                stage: '05', color: '#9333ea',
+                                label: 'Testing & QA',
+                                useCase: 'Autonomous test case generation, self-healing scripts, and visual regression.',
+                                tools: ['Kusho', 'Antigravity', 'ChatGPT', 'Claude'],
+                                icon: <FaBug />
+                            },
+                            {
+                                stage: '06', color: '#ff9900',
+                                label: 'DevOps & Deployment',
+                                useCase: 'IaC generation, log analysis, CI/CD automation, and predictive anomaly detection.',
+                                tools: ['AWS DevOps Agent', 'Antigravity', 'Claude', 'GitHub Actions AI'],
+                                icon: <FaTools />
+                            }
+                        ].map((item, i, arr) => (
+                            <div key={i} className={styles.sdlcRow} style={{ '--sdlc-color': item.color }}>
+                                <div className={styles.sdlcLeft}>
+                                    <div className={styles.sdlcIconBox} style={{ background: item.color }}>
+                                        {item.icon}
+                                    </div>
+                                    {i < arr.length - 1 && <div className={styles.sdlcConnector} />}
+                                </div>
+                                <div className={styles.sdlcContent}>
+                                    <div className={styles.sdlcStageNum} style={{ color: item.color }}>STAGE {item.stage}</div>
+                                    <h3 className={styles.sdlcLabel}>{item.label}</h3>
+                                    <p className={styles.sdlcUseCase}>{item.useCase}</p>
+                                    <div className={styles.sdlcToolPills}>
+                                        {item.tools.map((t, ti) => (
+                                            <span key={ti} className={styles.sdlcPill} style={{ borderColor: item.color, color: item.color }}>{t}</span>
+                                        ))}
+                                    </div>
+                                </div>
                             </div>
                         ))}
                     </div>

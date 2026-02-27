@@ -405,74 +405,97 @@
     letter-spacing: 1px;
 }
 
-/* ===== SDLC STAGE SECTION ===== */
+/* ===== SDLC TIMELINE ===== */
 .sdlcSection {
     padding: 6rem 2rem;
     background: #f8fafc;
 }
 
-.sdlcGrid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: 1.5rem;
+.sdlcTimeline {
+    max-width: 860px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 
-.sdlcCard {
-    background: #ffffff;
-    border: 1px solid rgba(0, 91, 161, 0.1);
-    border-radius: 16px;
-    padding: 2.5rem 2rem;
-    transition: all 0.3s ease;
+.sdlcRow {
+    display: flex;
+    gap: 2rem;
     position: relative;
-    overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
 }
 
-.sdlcCard::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 4px;
-    background: linear-gradient(90deg, #005ba1, #b9ed5e);
+.sdlcLeft {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
 }
 
-.sdlcCard:hover {
-    border-color: #005ba1;
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.12);
+.sdlcIconBox {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 1.3rem;
+    flex-shrink: 0;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.12);
+    z-index: 1;
 }
 
-.sdlcIcon {
-    font-size: 2rem;
-    color: #005ba1;
-    margin-bottom: 1rem;
+.sdlcConnector {
+    width: 2px;
+    flex: 1;
+    min-height: 28px;
+    background: linear-gradient(to bottom, var(--sdlc-color, #005ba1), transparent);
+    opacity: 0.35;
+    margin: 4px 0;
+}
+
+.sdlcContent {
+    padding-bottom: 2.5rem;
+    flex: 1;
 }
 
 .sdlcStageNum {
-    font-size: 0.8rem;
+    font-size: 0.72rem;
     font-weight: 700;
-    color: #b9ed5e;
-    background: #005ba1;
-    display: inline-block;
-    padding: 0.2rem 0.6rem;
-    border-radius: 6px;
-    letter-spacing: 1px;
-    margin-bottom: 0.75rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 0.3rem;
 }
 
 .sdlcLabel {
-    font-size: 1.15rem;
+    font-size: 1.2rem;
     font-weight: 700;
     color: #1a2a3a;
-    margin-bottom: 0.75rem;
+    margin-bottom: 0.4rem;
 }
 
-.sdlcTools {
-    font-size: 0.85rem;
+.sdlcUseCase {
+    font-size: 0.9rem;
     color: #4a5568;
     line-height: 1.6;
+    margin-bottom: 0.9rem;
+}
+
+.sdlcToolPills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+}
+
+.sdlcPill {
+    display: inline-block;
+    padding: 0.22rem 0.75rem;
+    border: 1.5px solid;
+    border-radius: 50px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(4px);
 }
 
 /* ===== CTA ===== */
