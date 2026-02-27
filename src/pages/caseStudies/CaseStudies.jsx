@@ -11,6 +11,14 @@ import aiagent from "../../assets/aiagent.png"
 
 const caseStudiesData = [
     {
+        id: "CASE_MDM_09",
+        title: "AI MDM Platform",
+        description: "An AI-powered Master Data Management platform that automates data ingestion, profiling, deduplication, enrichment and pipeline building - replacing weeks of manual cleaning with intelligent AI pipelines.",
+        imageUrl: aiagent,
+        link: "ai-mdm-platform",
+        status: "DEPLOYED"
+    },
+    {
         id: "CASE_AI_POC_01",
         title: "AI-Powered PoC Development",
         description: "Accelerating proof-of-concept delivery with AI across the entire SDLC - reducing turnaround time by 60% while maintaining enterprise-quality standards.",

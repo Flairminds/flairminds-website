@@ -1,0 +1,118 @@
+AI MDM Platform
+
+
+
+Problem Statement -
+
+Organizations deal with large volumes of master data spread across multiple sources like CSV files, 
+Excel sheets . This data often contains duplicates, inconsistent formats, missing values, 
+and quality issues that go undetected. Without a centralized system to ingest, profile, and cleanse data, 
+teams spend excessive time on manual data cleaning and validation. There is no automated way to detect 
+near-duplicate records, standardize formats, or enrich incomplete data fields. Data transformation pipelines 
+are typically built through manual coding, making them hard to maintain and reuse. As a result, 
+organizations lack reliable, high-quality master data for downstream analytics and decision-making.
+
+
+
+Solution -
+
+To address this problem, an AI-powered Master Data Management (MDM) platform is built. 
+The system provides end-to-end data management from ingestion to insights. Users can upload large datasets 
+(CSV/Excel) through chunked streaming, and the platform automatically profiles data quality at the column level. 
+AI-powered engines detect duplicates using fuzzy matching, TF-IDF cosine similarity, and pattern analysis. 
+The platform includes a data cleansing engine with rule-based and AI-assisted deduplication,
+missing value imputation, normalization, and a human-in-the-loop review workflow.
+An AI-powered enrichment engine extracts missing field values from 
+descriptions using OpenAI GPT with RAG-based example retrieval and local pattern matching fallback. 
+A visual drag-and-drop dataflow builder allows users to create reusable data transformation pipelines 
+with filter, join, aggregate, transform, split, and rename operations compiled to SQL. 
+The platform ensures data governance through role-based access control and provides consolidated 
+master data insights with quality scoring across multiple dimensions.
+
+
+
+Objective -
+
+1. Centralize data management by providing a single platform to ingest, store, profile, cleanse, 
+   and analyze master datasets from multiple sources.
+2. Automate data quality by using AI to detect and resolve duplicates, inconsistencies, and missing values, 
+   eliminating manual data cleaning effort.
+3. Provide intelligent data profiling with automatic column-level statistical analysis including 
+   completeness, uniqueness, type detection, and quality scoring.
+4. Enable AI-driven data cleansing with configurable rules, golden record creation, normalization, 
+   and human-in-the-loop review workflows.
+5. Enrich incomplete data using AI-powered extraction from source descriptions with LLM and RAG techniques.
+6. Build reusable data pipelines using a visual dataflow builder that allows users to create, save, 
+   and execute transformation flows on demand.
+7. Provide explainable AI where every recommendation is transparent with affected-row previews, 
+   cluster comparisons, and manual override capabilities.
+8. Ensure data governance through role-based access control (Admin, Editor, Viewer) with secure 
+   JWT authentication and enterprise Oracle database backend.
+
+
+
+Features -
+
+1. Dataset Ingestion and Management
+   - Multi-format file upload supporting CSV and Excel files.
+   - Client-side parsing with PapaParse and xlsx for instant preview before upload.
+   - Chunked streaming upload in batches of 500 rows with real-time progress tracking.
+   - Interactive column mapping to map source columns to target schema during upload.
+   - Server-Sent Events (SSE) for real-time upload and processing status updates.
+   - Full dataset CRUD operations (create, read, update, delete).
+   - Export capability for dataset previews, null-value rows, and duplicate rows as CSV.
+
+2. Data Profiling and Exploration
+   - Automatic column-level statistical profiling including total values, null count, unique count, 
+     and exact duplicate count.
+   - Automatic data type detection for columns (numeric, date, text, code, etc.).
+   - Visual quality bars for completeness versus uniqueness per column.
+   - Per-column warning indicators for detected quality issues.
+   - Dynamic tabular preview using Oracle JSON_VALUE for rendering JSON-stored data.
+   - Paginated data browsing for efficient navigation of large datasets.
+
+3. AI Recommendations and Data Quality
+   - Fuzzy duplicate detection using RapidFuzz to find near-duplicate values.
+   - Cosine similarity clustering using TF-IDF vectorization for semantic duplicate grouping.
+   - Format inconsistency detection for casing variations, whitespace issues, and special characters.
+   - Measurement unit standardization (e.g., lbs to kg, cm to m).
+   - Canonical value suggestion where AI recommends the best golden value for each duplicate cluster.
+   - Cluster review panel with side-by-side comparison and manual override option.
+   - Bulk apply and export functionality for offline review and batch fixing.
+   - Row-level issue detection with pattern, domain, length, and type consistency checks.
+   - Cross-column validation for business rule checks across related columns.
+
+4. Data Cleansing Engine
+   - Rule-based cleansing with configurable and reusable cleansing rules.
+   - AI-based duplicate removal with golden record creation using survivorship strategies 
+     (manual, most frequent, AI-driven).
+   - Missing value imputation using mode, manual value, or AI-driven methods.
+   - Data normalization including whitespace trimming, space collapsing, and case standardization.
+   - Special character fixing using an allowlist-based approach.
+   - Human-in-the-loop review queue where users can approve, reject, skip, or auto-resolve results.
+   - Session management with cleansing history tracking and snapshot downloads per dataset.
+   - Cleansing insights page with before and after comparisons.
+
+5. Data Enrichment
+   - AI-powered enrichment using OpenAI GPT to extract target column values from source descriptions.
+   - RAG-based (Retrieval-Augmented Generation) extraction using example rows for context.
+   - Local pattern matching fallback when OpenAI API is unavailable.
+   - Configurable enrichment mappings from source to target columns.
+   - Valid value enforcement to constrain enrichment output.
+   - Real-time SSE progress updates during batch enrichment execution.
+   - Enrichment history tracking with session results and modified row counts.
+
+6. Visual Dataflow Builder
+   - Drag-and-drop visual pipeline builder using ReactFlow.
+   - Multiple node types including Dataset Input, Filter, Join, Aggregate, Select Columns, 
+     Rename, Transform, Split, Group, AI Normalize, and Output.
+   - SQL-based execution engine that compiles all transformations to Oracle SQL using temp tables.
+   - Automatic topological sorting for dependency resolution and ordered execution.
+   - Preview mode to test flows from JSON without saving to database.
+   - Execution history tracking with status, row counts, and timing.
+   - Result dataset creation to save transformation output as new datasets.
+
+7. Master Data Insights
+   - Consolidated cross-dataset quality overview and insights.
+   - Drill-down insight detail pages by type with granular analysis.
+   - Composite data quality scoring across multiple dimensions.

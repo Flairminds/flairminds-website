@@ -32,6 +32,7 @@ const AboutUsPage = lazy(() => import('./pages/aboutUs/AboutUsPage'));
 const CareersPage = lazy(() => import('./pages/careers/CareersPage'));
 const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'));
 const AiPocDevelopment = lazy(() => import('./pages/aiPocDevelopment/AiPocDevelopment'));
+const AiMdmCaseStudy = lazy(() => import('./pages/aiMdmCaseStudy/AiMdmCaseStudy'));
 
 // Service Pages
 const WebMobileDevelopment = lazy(() => import('./pages/services/webMobileDevelopment/WebMobileDevelopment'));
@@ -85,6 +86,7 @@ function App() {
               <Route exact path='/case-study/vendor_risk_assessment' element={<VendorRiskAssessment />} />
               <Route exact path='/case-study/test-automation' element={<TestAutomation />} />
               <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
+              <Route exact path='/case-study/ai-mdm-platform' element={<AiMdmCaseStudy />} />
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
               <Route exact path='/services/web-mobile-development' element={<WebMobileDevelopment />} />
