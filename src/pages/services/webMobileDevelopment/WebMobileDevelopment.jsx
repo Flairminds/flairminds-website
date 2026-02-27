@@ -11,9 +11,11 @@ import {
     SiTypescript, SiNodedotjs, SiNextdotjs,
     SiPython, SiFlask, SiStrapi, SiDotnet, SiFastapi,
     SiDjango, SiPostgresql, SiMysql, SiMongodb,
-    SiGraphql, SiNeo4J, SiRazorpay, SiRedis
+    SiGraphql, SiNeo4J, SiRazorpay, SiRedis,
+    SiAnthropic, SiGithubcopilot, SiMeta
 } from 'react-icons/si';
 import { MdSpeed, MdAutoAwesome } from 'react-icons/md';
+import { VscCode } from 'react-icons/vsc';
 import { useNavigate } from 'react-router-dom';
 
 // Asset Imports
@@ -78,6 +80,12 @@ const WebMobileDevelopment = () => {
         { icon: <FaDatabase />, name: "MSSQL" },
         { icon: <FaStripe />, name: "Stripe" },
         { icon: <SiRazorpay />, name: "Razorpay" },
+        { icon: <MdAutoAwesome />, name: "Antigravity" },
+        { icon: <SiGithubcopilot />, name: "Copilot" },
+        { icon: <VscCode />, name: "Cursor" },
+        { icon: <SiAnthropic />, name: "Claude" },
+        { icon: <FaMicroscope />, name: "CodeRabbit" },
+        { icon: <SiMeta />, name: "Llama" },
     ];
 
     const aiTools = [
