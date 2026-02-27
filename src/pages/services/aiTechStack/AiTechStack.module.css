@@ -36,8 +36,15 @@
 }
 
 @keyframes pulse {
-    from { transform: translateX(-50%) scale(1); opacity: 0.7; }
-    to   { transform: translateX(-50%) scale(1.2); opacity: 1; }
+    from {
+        transform: translateX(-50%) scale(1);
+        opacity: 0.7;
+    }
+
+    to {
+        transform: translateX(-50%) scale(1.2);
+        opacity: 1;
+    }
 }
 
 .heroContent {
@@ -199,12 +206,12 @@
 }
 
 .toolCard:hover {
-    transform: translateY(-8px);
+    transform: translateY(-2px);
     border-color: transparent;
-    box-shadow:
+    /* box-shadow:
         0 20px 45px rgba(0, 0, 0, 0.08),
         0 0 0 1px var(--tool-color, #005ba1),
-        0 0 30px rgba(0, 91, 161, 0.08);
+        0 0 30px rgba(0, 91, 161, 0.08); */
 }
 
 .toolCardTop {
@@ -249,6 +256,13 @@
     letter-spacing: 0.5px;
 }
 
+.toolBadges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.35rem;
+    margin-top: 0.35rem;
+}
+
 /* ── bullet points ── */
 .toolPoints {
     list-style: none;
@@ -273,6 +287,27 @@
     font-size: 0.9rem;
     margin-top: 0.2rem;
     flex-shrink: 0;
+}
+
+.expandBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    margin-top: 0.85rem;
+    padding: 0;
+    background: none;
+    border: none;
+    color: var(--tool-color, #005ba1);
+    font-size: 0.8rem;
+    font-weight: 600;
+    font-family: 'Space Grotesk', sans-serif;
+    cursor: pointer;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+
+.expandBtn:hover {
+    opacity: 1;
 }
 
 /* ===== SECTION HEADERS ===== */

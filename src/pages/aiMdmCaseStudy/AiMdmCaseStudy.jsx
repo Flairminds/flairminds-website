@@ -108,7 +108,7 @@ const techStack = [
     { icon: <SiFastapi />, label: 'FastAPI' },
     { icon: <SiPython />, label: 'Python / RapidFuzz / sklearn' },
     { icon: <SiOracle />, label: 'Oracle DB' },
-    { icon: <SiOllama />, label: 'AI/LLM/RAG' },
+    { icon: <MdAutoAwesome />, label: 'AI/LLM/RAG' },
     { icon: <FaDatabase />, label: 'SSE Streaming' },
 ];
 
