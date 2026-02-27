@@ -32,6 +32,7 @@ const Navbar = React.memo(({ scrolled }) => {
         { name: "Quality Engineering", path: "/services/quality-engineering" },
         { name: "Digital Transformation", path: "/services/digital-transformation" },
         { name: "IT Management", path: "/services/it-management" },
+        { name: "AI-Powered Tech Stack", path: "/services/ai-tech-stack" },
       ]
     },
     { name: "Case Studies", activePath: "/case-study" },

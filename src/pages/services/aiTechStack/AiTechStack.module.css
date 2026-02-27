@@ -1,0 +1,556 @@
+/* ===== BASE ===== */
+.container {
+    min-height: 100vh;
+    background-color: #ffffff;
+    color: #1a2a3a;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.mainContent {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+/* ===== HERO ===== */
+.hero {
+    background: linear-gradient(135deg, #0a0f1e 0%, #0d1b3e 45%, #003a66 100%);
+    color: white;
+    padding: 8rem 2rem 6rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+/* animated ambient glow blob */
+.heroGlow {
+    position: absolute;
+    top: -80px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(185, 237, 94, 0.12) 0%, rgba(0, 91, 161, 0.08) 50%, transparent 70%);
+    animation: pulse 6s ease-in-out infinite alternate;
+    pointer-events: none;
+}
+
+@keyframes pulse {
+    from { transform: translateX(-50%) scale(1); opacity: 0.7; }
+    to   { transform: translateX(-50%) scale(1.2); opacity: 1; }
+}
+
+.heroContent {
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1.5rem;
+    background: rgba(185, 237, 94, 0.12);
+    border: 1px solid rgba(185, 237, 94, 0.35);
+    border-radius: 50px;
+    color: #b9ed5e;
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+}
+
+.heroBadgeIcon {
+    font-size: 1.2rem;
+}
+
+.heroTitle {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin-bottom: 1.5rem;
+    color: #ffffff;
+    line-height: 1.2;
+}
+
+.heroSubtitle {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 3rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heroStats {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+    background: rgba(255, 255, 255, 0.06);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 20px;
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heroStatNumber {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: #b9ed5e;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+}
+
+.heroStatLabel {
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.heroStatDivider {
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* ===== FILTER TABS ===== */
+.filterSection {
+    padding: 3rem 2rem 0;
+    background: #f8fafc;
+}
+
+.filterTabs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    justify-content: center;
+}
+
+.filterTab {
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    border: 2px solid rgba(0, 91, 161, 0.2);
+    background: #ffffff;
+    color: #4a5568;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.filterTab:hover {
+    border-color: #005ba1;
+    color: #005ba1;
+    background: rgba(0, 91, 161, 0.04);
+}
+
+.filterTabActive {
+    background: linear-gradient(135deg, #005ba1 0%, #003a66 100%);
+    border-color: transparent;
+    color: #ffffff;
+    box-shadow: 0 4px 15px rgba(0, 91, 161, 0.3);
+}
+
+/* ===== TOOL CARDS ===== */
+.toolsSection {
+    padding: 3rem 2rem 6rem;
+    background: #f8fafc;
+}
+
+.toolsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.toolCard {
+    background: #ffffff;
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    border-radius: 20px;
+    padding: 2.5rem;
+    transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+    position: relative;
+    overflow: hidden;
+}
+
+/* accent glow at top-left using the tool's own color */
+.toolCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--tool-color, #005ba1);
+    border-radius: 20px 20px 0 0;
+    opacity: 0.9;
+}
+
+.toolCard:hover {
+    transform: translateY(-8px);
+    border-color: transparent;
+    box-shadow:
+        0 20px 45px rgba(0, 0, 0, 0.08),
+        0 0 0 1px var(--tool-color, #005ba1),
+        0 0 30px rgba(0, 91, 161, 0.08);
+}
+
+.toolCardTop {
+    display: flex;
+    align-items: center;
+    gap: 1.25rem;
+    margin-bottom: 1.75rem;
+}
+
+.toolIconWrap {
+    font-size: 2.4rem;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 14px;
+    flex-shrink: 0;
+    transition: background 0.3s ease;
+}
+
+.toolCard:hover .toolIconWrap {
+    background: color-mix(in srgb, var(--tool-color, #005ba1) 12%, white);
+}
+
+.toolName {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    margin-bottom: 0.35rem;
+}
+
+.toolBadge {
+    display: inline-block;
+    padding: 0.25rem 0.75rem;
+    background: rgba(0, 91, 161, 0.08);
+    color: #005ba1;
+    border-radius: 50px;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/* ── bullet points ── */
+.toolPoints {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.toolPoint {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    color: #4a5568;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+.pointIcon {
+    color: var(--tool-color, #005ba1);
+    font-size: 0.9rem;
+    margin-top: 0.2rem;
+    flex-shrink: 0;
+}
+
+/* ===== SECTION HEADERS ===== */
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 4rem;
+}
+
+.sectionTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    color: #1a2a3a;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.titleIcon {
+    color: #005ba1;
+    font-size: 2rem;
+}
+
+.sectionSubtitle {
+    font-size: 1.1rem;
+    color: #4a5568;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+/* ===== BENEFITS ===== */
+.benefitsSection {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.benefitsGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.benefitCard {
+    padding: 3rem;
+    background: #ffffff;
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.benefitCard:hover {
+    border-color: #005ba1;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.12);
+}
+
+.benefitIcon {
+    font-size: 3rem;
+    color: #005ba1;
+    margin-bottom: 1.5rem;
+}
+
+.benefitCard h3 {
+    font-size: 1.4rem;
+    color: #1a2a3a;
+    margin-bottom: 1rem;
+}
+
+.benefitCard p {
+    color: #4a5568;
+    line-height: 1.7;
+    margin-bottom: 2rem;
+}
+
+.benefitMetric {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0, 91, 161, 0.1);
+}
+
+.metricValue {
+    font-size: 2rem;
+    font-weight: 800;
+    color: #005ba1;
+}
+
+.metricLabel {
+    font-size: 0.85rem;
+    color: #4a5568;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+/* ===== SDLC STAGE SECTION ===== */
+.sdlcSection {
+    padding: 6rem 2rem;
+    background: #f8fafc;
+}
+
+.sdlcGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+}
+
+.sdlcCard {
+    background: #ffffff;
+    border: 1px solid rgba(0, 91, 161, 0.1);
+    border-radius: 16px;
+    padding: 2.5rem 2rem;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.03);
+}
+
+.sdlcCard::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #005ba1, #b9ed5e);
+}
+
+.sdlcCard:hover {
+    border-color: #005ba1;
+    transform: translateY(-5px);
+    box-shadow: 0 15px 35px rgba(0, 91, 161, 0.12);
+}
+
+.sdlcIcon {
+    font-size: 2rem;
+    color: #005ba1;
+    margin-bottom: 1rem;
+}
+
+.sdlcStageNum {
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #b9ed5e;
+    background: #005ba1;
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    border-radius: 6px;
+    letter-spacing: 1px;
+    margin-bottom: 0.75rem;
+}
+
+.sdlcLabel {
+    font-size: 1.15rem;
+    font-weight: 700;
+    color: #1a2a3a;
+    margin-bottom: 0.75rem;
+}
+
+.sdlcTools {
+    font-size: 0.85rem;
+    color: #4a5568;
+    line-height: 1.6;
+}
+
+/* ===== CTA ===== */
+.ctaSection {
+    padding: 6rem 2rem;
+    background: #ffffff;
+}
+
+.ctaCard {
+    text-align: center;
+    padding: 5rem 2rem;
+    background: linear-gradient(135deg, #0a0f1e 0%, #0d1b3e 50%, #003a66 100%);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.ctaCard::before {
+    content: '';
+    position: absolute;
+    top: -100px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 400px;
+    background: radial-gradient(circle, rgba(185, 237, 94, 0.1) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.ctaIconTop {
+    font-size: 3.5rem;
+    color: #b9ed5e;
+    margin-bottom: 1.5rem;
+    display: block;
+}
+
+.ctaTitle {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #ffffff;
+    margin-bottom: 1.5rem;
+}
+
+.ctaText {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 650px;
+    margin: 0 auto 2.5rem;
+    line-height: 1.7;
+}
+
+.ctaButton {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 1.1rem 2.5rem;
+    background: #b9ed5e;
+    color: #1a2a3a;
+    border: none;
+    border-radius: 12px;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    font-family: 'Space Grotesk', sans-serif;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: 0 8px 25px rgba(185, 237, 94, 0.3);
+}
+
+.ctaButton:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 14px 35px rgba(185, 237, 94, 0.45);
+    background: #c9f472;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.2rem;
+    }
+
+    .heroSubtitle {
+        font-size: 1rem;
+    }
+
+    .heroStats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .heroStatDivider {
+        width: 50px;
+        height: 1px;
+    }
+
+    .sectionTitle {
+        font-size: 1.8rem;
+        flex-direction: column;
+    }
+
+    .toolsGrid,
+    .benefitsGrid,
+    .sdlcGrid {
+        grid-template-columns: 1fr;
+    }
+
+    .filterTabs {
+        justify-content: flex-start;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+        padding-bottom: 0.5rem;
+    }
+
+    .filterTab {
+        white-space: nowrap;
+    }
+}

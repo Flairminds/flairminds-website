@@ -1,6 +1,7 @@
 import styles from './ServicesSection.module.css';
 import aiHologram from '../../assets/ai_hologram.webp';
 import { FaCode, FaCloud, FaBrain, FaCheckCircle, FaRocket, FaTasks } from 'react-icons/fa';
+import { MdAutoAwesome } from 'react-icons/md';
 import { useNavigate } from 'react-router-dom';
 
 const ServicesSection = () => {
@@ -42,6 +43,12 @@ const ServicesSection = () => {
             title: "IT Management",
             description: "Full-lifecycle IT management to drive business agility and innovation.",
             path: "/services/it-management"
+        },
+        {
+            icon: <MdAutoAwesome />,
+            title: "AI-Powered Tech Stack",
+            description: "Discover the cutting-edge AI tools we use across every SDLC stage to build faster and smarter.",
+            path: "/services/ai-tech-stack"
         }
     ];
 

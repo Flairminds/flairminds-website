@@ -40,6 +40,7 @@ const AIDataScience = lazy(() => import('./pages/services/aiDataScience/AIDataSc
 const QualityEngineering = lazy(() => import('./pages/services/qualityEngineering/QualityEngineering'));
 const DigitalTransformation = lazy(() => import('./pages/services/digitalTransformation/DigitalTransformation'));
 const ITManagement = lazy(() => import('./pages/services/itManagement/ITManagement'));
+const AiTechStack = lazy(() => import('./pages/services/aiTechStack/AiTechStack'));
 
 // Components
 const Protected = lazy(() => import('./components/protected/Protected'));
@@ -92,6 +93,7 @@ function App() {
               <Route exact path='/services/quality-engineering' element={<QualityEngineering />} />
               <Route exact path='/services/digital-transformation' element={<DigitalTransformation />} />
               <Route exact path='/services/it-management' element={<ITManagement />} />
+              <Route exact path='/services/ai-tech-stack' element={<AiTechStack />} />
             </Route>
             <Route exact path='dashboard' element={<DashboardWrapper />}>
               <Route index element={<Protected allowedRoles={['all']}><Dashboard /></Protected>} />
