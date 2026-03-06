@@ -2,6 +2,7 @@ import PdfAnalyzer from './pdf-analyzer/PdfAnalyzer';
 import AIContest from './ai-productivity-challenge/AIContest';
 import WebScrapingBlog from './ai-powered-web-scraping-and-reporting/WebScrapingBlog';
 import ShadowLightBlog from './shadowlight/ShadowLightBlog';
+import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
 
 export const blogs = [{
     id: 1,
@@ -39,4 +40,13 @@ export const blogs = [{
     author: 'FlairMinds Intern Team',
     tags: ['AI', 'Chrome Extension', 'Accessibility', 'React', 'TypeScript', 'Intern Project'],
     component: ShadowLightBlog,
+}, {
+    id: 5,
+    file: 'azure-sandbox',
+    title: 'Inside Azure App Service Sandboxing: How Microsoft Secures Multi-Tenant Cloud Applications',
+    excerpt: 'A deep-dive into the sandboxing mechanism that makes Azure App Service secure and reliable for multi-tenant workloads. Discover how Microsoft enforces isolation, governs shared resources, and eliminates the noisy-neighbor problem at cloud scale.',
+    date: 'March 2, 2026',
+    author: 'FlairMinds',
+    tags: ['Azure', 'App Service', 'Cloud Security', 'Multi-Tenant', 'PaaS', 'DevOps'],
+    component: AzureSandboxBlog,
 }];
