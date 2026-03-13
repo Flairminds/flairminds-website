@@ -3,6 +3,7 @@ import AIContest from './ai-productivity-challenge/AIContest';
 import WebScrapingBlog from './ai-powered-web-scraping-and-reporting/WebScrapingBlog';
 import ShadowLightBlog from './shadowlight/ShadowLightBlog';
 import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
+import StrapiBlog from './strapi-blog/StrapiBlog';
 
 export const blogs = [{
     id: 1,
@@ -49,4 +50,13 @@ export const blogs = [{
     author: 'FlairMinds',
     tags: ['Azure', 'App Service', 'Cloud Security', 'Multi-Tenant', 'PaaS', 'DevOps'],
     component: AzureSandboxBlog,
+}, {
+    id: 6,
+    file: 'strapi-blog',
+    title: 'Decoupling Content from Code: Strapi-Powered CMS Architecture',
+    excerpt: 'How we implemented Strapi as a headless CMS to decouple content management from frontend code — enabling faster content publishing, zero-deployment updates, and scalable content workflows for the entire team.',
+    date: 'March 13, 2026',
+    author: 'FlairMinds',
+    tags: ['Strapi', 'CMS', 'Headless CMS', 'API', 'Content Architecture', 'GraphQL'],
+    component: StrapiBlog,
 }];
