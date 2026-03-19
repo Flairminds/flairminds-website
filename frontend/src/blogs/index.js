@@ -4,6 +4,7 @@ import WebScrapingBlog from './ai-powered-web-scraping-and-reporting/WebScraping
 import ShadowLightBlog from './shadowlight/ShadowLightBlog';
 import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
 import StrapiBlog from './strapi-blog/StrapiBlog';
+import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
 
 export const blogs = [{
     id: 1,
@@ -59,4 +60,13 @@ export const blogs = [{
     author: 'FlairMinds',
     tags: ['Strapi', 'CMS', 'Headless CMS', 'API', 'Content Architecture', 'GraphQL'],
     component: StrapiBlog,
+}, {
+    id: 7,
+    file: 'agentic-ai',
+    title: 'From Chatbots to Digital Employees: The Rise of Agentic AI & Multi-Agent Systems',
+    excerpt: 'Explore the architectural shift from passive Generative AI to autonomous Agentic Systems. A deep technical guide covering the ReAct reasoning loop, Multi-Agent System architecture, decision frameworks, reliability engineering, and key implementation considerations.',
+    date: 'March 18, 2026',
+    author: 'FlairMinds Team',
+    tags: ['Agentic AI', 'Multi-Agent Systems', 'LLM', 'ReAct', 'AI Architecture', 'RAG', 'LangGraph'],
+    component: AgenticAIBlog,
 }];
