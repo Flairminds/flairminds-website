@@ -3,6 +3,8 @@ import { Routes, Route, BrowserRouter, useLocation } from "react-router-dom";
 import { useEffect, Suspense, lazy } from "react";
 import Preloader from "./components/preloader/Preloader";
 
+import TrackPageView from "./analytics/TrackPageView";
+
 // Layouts
 const GeneralLayout = lazy(
   () => import("./components/generalLayout/GeneralLayout"),
@@ -104,106 +106,81 @@ function App() {
   return (
     <>
       <BrowserRouter>
+        <TrackPageView />
         <ScrollToTop />
         <Suspense fallback={<Preloader />}>
           <Routes>
-            <Route exact path="/" element={<GeneralLayout />}>
-              <Route exact path="/" element={<Home />} />
-              <Route exact path="/store" element={<StorePage />} />
-              <Route exact path="/contact" element={<Contactus />} />
-              <Route exact path="/about" element={<AboutUsPage />} />
-              <Route exact path="/careers" element={<CareersPage />} />
-              <Route exact path="/case-study" element={<CaseStudies />} />
-              <Route exact path="/id" element={<ProductPage />} />
+            <Route path="/" element={<GeneralLayout />}>
+              <Route path="/" index element={<Home />} />
+              <Route path="/store" element={<StorePage />} />
+              <Route path="/contact" element={<Contactus />} />
+              <Route path="/about" element={<AboutUsPage />} />
+              <Route path="/careers" element={<CareersPage />} />
+              <Route path="/case-study" element={<CaseStudies />} />
+              <Route path="/id" element={<ProductPage />} />
+              <Route path="/case-study/ai_automation" element={<Deloitte />} />
               <Route
-                exact
-                path="/case-study/ai_automation"
-                element={<Deloitte />}
-              />
-              <Route
-                exact
                 path="/case-study/ent_data_transformation"
                 element={<EntDataTransformation />}
               />
               <Route
-                exact
                 path="/case-study/cloud_optimization"
                 element={<CloudOptimization />}
               />
               <Route
-                exact
                 path="/case-study/quant_finance"
                 element={<QuantFinance />}
               />
               <Route
-                exact
                 path="/case-study/e_sign_platform"
                 element={<ESignPlatform />}
               />
               <Route
-                exact
                 path="/case-study/fable_fintech"
                 element={<FableFintech />}
               />
               <Route
-                exact
                 path="/case-study/vendor_risk_assessment"
                 element={<VendorRiskAssessment />}
               />
               <Route
-                exact
                 path="/case-study/test-automation"
                 element={<TestAutomation />}
               />
               <Route
-                exact
                 path="/case-study/ai-poc-development"
                 element={<AiPocDevelopment />}
               />
               <Route
-                exact
                 path="/case-study/ai-mdm-platform"
                 element={<AiMdmCaseStudy />}
               />
-              <Route exact path="/blogs" element={<Blogs />} />
-              <Route exact path="/blogs/*" element={<BlogsLayout />} />
+              <Route path="/blogs" element={<Blogs />} />
+              <Route path="/blogs/*" element={<BlogsLayout />} />
               <Route
-                exact
                 path="/services/web-mobile-development"
                 element={<WebMobileDevelopment />}
               />
+              <Route path="/services/cloud-devops" element={<CloudDevOps />} />
               <Route
-                exact
-                path="/services/cloud-devops"
-                element={<CloudDevOps />}
-              />
-              <Route
-                exact
                 path="/services/ai-data-science"
                 element={<AIDataScience />}
               />
               <Route
-                exact
                 path="/services/quality-engineering"
                 element={<QualityEngineering />}
               />
               <Route
-                exact
                 path="/services/digital-transformation"
                 element={<DigitalTransformation />}
               />
               <Route
-                exact
                 path="/services/it-management"
                 element={<ITManagement />}
               />
-              <Route
-                exact
-                path="/services/ai-tech-stack"
-                element={<AiTechStack />}
-              />
+              <Route path="/services/ai-tech-stack" element={<AiTechStack />} />
             </Route>
-            <Route exact path="dashboard" element={<DashboardWrapper />}>
+            <Route path="dashboard" element={<DashboardWrapper />}>
               <Route
                 index
                 element={
@@ -213,7 +190,6 @@ function App() {
                 }
               />
               <Route
-                exact
                 path="visitors"
                 element={
                   <Protected allowedRoles={["all"]}>
@@ -231,7 +207,6 @@ function App() {
                 }
               />
               <Route
-                exact
                 path="users"
                 element={
                   <Protected allowedRoles={["all"]}>
@@ -240,7 +215,6 @@ function App() {
                 }
               />
               <Route
-                exact
                 path="profile"
                 element={
                   <Protected allowedRoles={["all"]}>
@@ -249,9 +223,8 @@ function App() {
                 }
               />
             </Route>
-            <Route exact path="/login" element={<Login />} />
+            <Route path="/login" element={<Login />} />
             <Route
-              exact
               path="/change-password/:verification_token"
               element={
                 <VerifyLink>
