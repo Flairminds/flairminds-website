@@ -107,6 +107,7 @@ function App() {
     <>
       <BrowserRouter>
         <TrackPageView />
+       
         <ScrollToTop />
         <Suspense fallback={<Preloader />}>
           <Routes>
