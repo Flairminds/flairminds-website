@@ -8,8 +8,17 @@ import documentSearch from "../../assets/documentSearch.png"
 import infraMonitoring from "../../assets/infraMonitoring.png"
 import leverageModelling from "../../assets/leverageModelling1.png"
 import aiagent from "../../assets/aiagent.png"
+import swiftiqGuard from "../../assets/swiftiqGuard.png"
 
 const caseStudiesData = [
+    {
+        id: "CASE_AML_10",
+        title: "SwiftIQ Guard — AML Compliance Platform",
+        description: "A privacy-first, on-premise SWIFT message screening platform with a 4-tier AI decision chain (Rule Engine → ML Intelligence → Sanctions Screening → AI Synthesis) — delivering enterprise-grade AML compliance at 200× lower cost.",
+        imageUrl: swiftiqGuard,
+        link: "swiftiq-guard",
+        status: "DEPLOYED"
+    },
     {
         id: "CASE_MDM_09",
         title: "AI MDM Platform",

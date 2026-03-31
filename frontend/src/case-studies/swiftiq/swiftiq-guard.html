@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>SwiftIQ Guard: Enterprise SWIFT AML Screening with 4-Tier AI | FlairMinds</title>
+  <meta name="description" content="How FlairMinds engineered SwiftIQ Guard — a full-stack AML compliance platform screening SWIFT MT and MX messages across four decision tiers with local Llama 3.1 AI." />
+  <link rel="canonical" href="https://flairminds.com/blogs/swiftiq-guard" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;1,9..40,300;1,9..40,400&display=swap" rel="stylesheet" />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --navy:       #0B1D35;
+      --navy-mid:   #132847;
+      --blue:       #1A5FA8;
+      --blue-light: #2E7BD6;
+      --sky:        #EBF3FC;
+      --teal:       #0E8476;
+      --teal-light: #E6F5F3;
+      --amber:      #C47E0E;
+      --amber-light:#FDF3DC;
+      --red:        #C0392B;
+      --red-light:  #FDECEA;
+      --ink:        #111827;
+      --ink-mid:    #374151;
+      --ink-soft:   #6B7280;
+      --border:     #E5E7EB;
+      --surface:    #F9FAFB;
+      --white:      #FFFFFF;
+      --serif:      'DM Serif Display', Georgia, serif;
+      --sans:       'DM Sans', system-ui, sans-serif;
+      --radius:     10px;
+      --radius-lg:  16px;
+    }
+
+    html { font-size: 16px; scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--white);
+      color: var(--ink);
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── NAV ─────────────────────────────────────────────────── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(255,255,255,0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 2rem;
+    }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      height: 64px;
+    }
+    .nav-logo {
+      font-family: var(--serif); font-size: 1.35rem; color: var(--navy);
+      text-decoration: none; letter-spacing: -0.02em;
+    }
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a {
+      font-size: 0.875rem; font-weight: 500; color: var(--ink-mid);
+      text-decoration: none; transition: color 0.2s;
+    }
+    .nav-links a:hover { color: var(--blue); }
+    .nav-cta {
+      background: var(--navy); color: var(--white) !important;
+      padding: 0.5rem 1.25rem; border-radius: var(--radius);
+      font-size: 0.8rem !important; font-weight: 600 !important;
+      letter-spacing: 0.02em;
+    }
+    .nav-cta:hover { background: var(--blue) !important; color: var(--white) !important; }
+
+    /* ── BREADCRUMB ──────────────────────────────────────────── */
+    .breadcrumb {
+      max-width: 780px; margin: 2rem auto 0; padding: 0 1.5rem;
+      display: flex; align-items: center; gap: 0.5rem;
+      font-size: 0.8rem; color: var(--ink-soft);
+    }
+    .breadcrumb a { color: var(--blue); text-decoration: none; }
+    .breadcrumb a:hover { text-decoration: underline; }
+    .breadcrumb-sep { color: var(--border); }
+
+    /* ── HERO ────────────────────────────────────────────────── */
+    .hero {
+      max-width: 780px; margin: 2.5rem auto 0; padding: 0 1.5rem;
+    }
+    .hero-tags {
+      display: flex; flex-wrap: wrap; gap: 0.5rem; margin-bottom: 1.25rem;
+    }
+    .tag {
+      font-size: 0.72rem; font-weight: 600; letter-spacing: 0.04em;
+      text-transform: uppercase; padding: 0.3rem 0.75rem;
+      border-radius: 99px; border: 1.5px solid;
+    }
+    .tag-blue   { color: var(--blue);  border-color: #BFDBFF; background: #EBF3FC; }
+    .tag-teal   { color: var(--teal);  border-color: #99DDD6; background: var(--teal-light); }
+    .tag-amber  { color: var(--amber); border-color: #F5D68A; background: var(--amber-light); }
+    .tag-ink    { color: var(--ink-mid); border-color: var(--border); background: var(--surface); }
+
+    .hero h1 {
+      font-family: var(--serif); font-size: 2.5rem; line-height: 1.2;
+      color: var(--navy); letter-spacing: -0.03em; margin-bottom: 1.25rem;
+    }
+    .hero-sub {
+      font-size: 1.05rem; color: var(--ink-mid); line-height: 1.8;
+      border-left: 3px solid var(--blue-light); padding-left: 1.25rem;
+      margin-bottom: 2rem;
+    }
+    .hero-meta {
+      display: flex; align-items: center; gap: 1.5rem;
+      font-size: 0.83rem; color: var(--ink-soft);
+      padding-bottom: 2rem; border-bottom: 1px solid var(--border);
+    }
+    .hero-meta-author { display: flex; align-items: center; gap: 0.6rem; }
+    .author-avatar {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: var(--navy); display: flex; align-items: center;
+      justify-content: center; font-size: 0.7rem; font-weight: 700;
+      color: var(--white); letter-spacing: 0.05em;
+    }
+    .meta-dot { color: var(--border); }
+
+    /* ── COVER IMAGE ─────────────────────────────────────────── */
+    .cover-wrap {
+      max-width: 780px; margin: 2.5rem auto; padding: 0 1.5rem;
+    }
+    .cover-img {
+      width: 100%; border-radius: var(--radius-lg);
+      background: linear-gradient(135deg, var(--navy) 0%, #1A5FA8 50%, #0E8476 100%);
+      height: 340px; display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .cover-img svg { width: 100%; height: 100%; }
+    .cover-caption {
+      margin-top: 0.75rem; font-size: 0.78rem; color: var(--ink-soft);
+      text-align: center; font-style: italic;
+    }
+
+    /* ── ARTICLE BODY ────────────────────────────────────────── */
+    .article-wrap {
+      max-width: 780px; margin: 0 auto; padding: 0 1.5rem 4rem;
+    }
+
+    .article-wrap h2 {
+      font-family: var(--serif); font-size: 1.65rem; color: var(--navy);
+      margin: 3rem 0 1rem; letter-spacing: -0.02em; line-height: 1.25;
+    }
+    .article-wrap h3 {
+      font-size: 1rem; font-weight: 600; color: var(--ink);
+      margin: 2rem 0 0.6rem; letter-spacing: -0.01em;
+    }
+    .article-wrap p {
+      font-size: 1rem; color: var(--ink-mid); margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    /* ── TIER CARDS ──────────────────────────────────────────── */
+    .tiers { display: flex; flex-direction: column; gap: 1.25rem; margin: 2rem 0; }
+    .tier-card {
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    .tier-header {
+      padding: 1rem 1.5rem; display: flex; align-items: center; gap: 1rem;
+    }
+    .tier-num {
+      width: 36px; height: 36px; border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-weight: 700; font-size: 0.85rem; flex-shrink: 0;
+    }
+    .tier-header-text { flex: 1; }
+    .tier-title { font-weight: 600; font-size: 1rem; color: var(--navy); }
+    .tier-badge {
+      font-size: 0.7rem; font-weight: 600; padding: 0.25rem 0.65rem;
+      border-radius: 99px; letter-spacing: 0.03em; white-space: nowrap;
+    }
+
+    .tier-1 .tier-header { background: #EBF3FC; border-bottom: 1px solid #BFDBFF; }
+    .tier-1 .tier-num    { background: var(--blue); color: var(--white); }
+    .tier-1 .tier-badge  { background: var(--blue); color: var(--white); }
+
+    .tier-2 .tier-header { background: var(--teal-light); border-bottom: 1px solid #99DDD6; }
+    .tier-2 .tier-num    { background: var(--teal); color: var(--white); }
+    .tier-2 .tier-badge  { background: var(--teal); color: var(--white); }
+
+    .tier-3 .tier-header { background: var(--amber-light); border-bottom: 1px solid #F5D68A; }
+    .tier-3 .tier-num    { background: var(--amber); color: var(--white); }
+    .tier-3 .tier-badge  { background: var(--amber); color: var(--white); }
+
+    .tier-4 .tier-header { background: #F3F0FB; border-bottom: 1px solid #C9BEF0; }
+    .tier-4 .tier-num    { background: #6B4FCE; color: var(--white); }
+    .tier-4 .tier-badge  { background: #6B4FCE; color: var(--white); }
+
+    .tier-body { padding: 1.25rem 1.5rem; }
+    .tier-body h4 { font-size: 0.85rem; font-weight: 600; color: var(--ink-soft); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem; }
+    .tier-body p { font-size: 0.93rem; color: var(--ink-mid); margin: 0; line-height: 1.75; }
+
+    /* ── STACK TABLE ─────────────────────────────────────────── */
+    .stack-table {
+      width: 100%; border-collapse: collapse; margin: 1.5rem 0;
+      font-size: 0.875rem;
+    }
+    .stack-table thead th {
+      text-align: left; font-size: 0.72rem; font-weight: 600;
+      letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--ink-soft); padding: 0.6rem 1rem;
+      border-bottom: 2px solid var(--border); background: var(--surface);
+    }
+    .stack-table tbody tr { border-bottom: 1px solid var(--border); }
+    .stack-table tbody tr:hover { background: var(--surface); }
+    .stack-table td { padding: 0.85rem 1rem; color: var(--ink-mid); vertical-align: top; }
+    .stack-table td:first-child { font-weight: 600; color: var(--ink); white-space: nowrap; }
+    .stack-pill {
+      display: inline-block; font-size: 0.7rem; font-weight: 600;
+      padding: 0.2rem 0.6rem; border-radius: 99px; margin: 0.1rem 0.15rem 0.1rem 0;
+      letter-spacing: 0.03em;
+    }
+    .pill-blue   { background: #EBF3FC; color: var(--blue); }
+    .pill-teal   { background: var(--teal-light); color: var(--teal); }
+    .pill-amber  { background: var(--amber-light); color: var(--amber); }
+    .pill-purple { background: #F3F0FB; color: #6B4FCE; }
+    .pill-gray   { background: var(--surface); color: var(--ink-soft); border: 1px solid var(--border); }
+
+    /* ── INSIGHT CALLOUTS ────────────────────────────────────── */
+    .insights { display: flex; flex-direction: column; gap: 1rem; margin: 1.5rem 0; }
+    .insight {
+      background: var(--surface); border: 1px solid var(--border);
+      border-left: 4px solid var(--blue); border-radius: 0 var(--radius) var(--radius) 0;
+      padding: 1.1rem 1.25rem;
+    }
+    .insight h4 { font-size: 0.93rem; font-weight: 600; color: var(--navy); margin-bottom: 0.4rem; }
+    .insight p  { font-size: 0.88rem; color: var(--ink-mid); margin: 0; line-height: 1.7; }
+
+    /* ── TESTING GRID ────────────────────────────────────────── */
+    .test-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0;
+    }
+    .test-card {
+      border: 1px solid var(--border); border-radius: var(--radius);
+      padding: 1.1rem 1.25rem;
+    }
+    .test-card-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; margin-bottom: 0.5rem;
+    }
+    .test-card h4 { font-size: 0.93rem; font-weight: 600; color: var(--navy); margin-bottom: 0.35rem; }
+    .test-card p  { font-size: 0.82rem; color: var(--ink-soft); margin: 0; line-height: 1.6; }
+    .tc-unit   .test-card-label { color: var(--blue); }
+    .tc-int    .test-card-label { color: var(--teal); }
+    .tc-e2e    .test-card-label { color: #6B4FCE; }
+    .tc-perf   .test-card-label { color: var(--amber); }
+
+    /* ── CTA BOX ─────────────────────────────────────────────── */
+    .cta-box {
+      margin: 3.5rem 0 0;
+      background: var(--navy);
+      border-radius: var(--radius-lg);
+      padding: 2.5rem 2rem; text-align: center;
+    }
+    .cta-box h3 { font-family: var(--serif); font-size: 1.6rem; color: var(--white); margin-bottom: 0.75rem; }
+    .cta-box p  { color: rgba(255,255,255,0.7); margin-bottom: 1.5rem; font-size: 0.95rem; }
+    .cta-btn {
+      display: inline-block; background: var(--white); color: var(--navy);
+      padding: 0.75rem 2rem; border-radius: var(--radius);
+      font-weight: 700; font-size: 0.9rem; text-decoration: none;
+      transition: transform 0.15s, box-shadow 0.15s;
+    }
+    .cta-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.25); }
+
+    /* ── RELATED ─────────────────────────────────────────────── */
+    .related {
+      max-width: 780px; margin: 0 auto 4rem; padding: 0 1.5rem;
+      border-top: 1px solid var(--border); padding-top: 2.5rem;
+    }
+    .related h3 { font-family: var(--serif); font-size: 1.3rem; color: var(--navy); margin-bottom: 1.25rem; }
+    .related-card {
+      display: flex; gap: 1.25rem; text-decoration: none;
+      border: 1px solid var(--border); border-radius: var(--radius-lg);
+      padding: 1.25rem; transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .related-card:hover { border-color: #BFDBFF; box-shadow: 0 4px 16px rgba(30,90,168,0.08); }
+    .related-thumb {
+      width: 80px; height: 64px; border-radius: var(--radius);
+      background: linear-gradient(135deg, #132847, #1A5FA8);
+      flex-shrink: 0;
+    }
+    .related-card-date { font-size: 0.75rem; color: var(--ink-soft); margin-bottom: 0.3rem; }
+    .related-card-title { font-size: 0.93rem; font-weight: 600; color: var(--navy); line-height: 1.4; }
+    .related-card-arrow {
+      margin-left: auto; font-size: 1.1rem; color: var(--blue);
+      align-self: center; flex-shrink: 0;
+    }
+
+    /* ── FOOTER ──────────────────────────────────────────────── */
+    footer {
+      background: var(--navy); color: rgba(255,255,255,0.6);
+      padding: 2.5rem 2rem; text-align: center; font-size: 0.82rem;
+    }
+    footer a { color: rgba(255,255,255,0.6); text-decoration: none; }
+    footer a:hover { color: var(--white); }
+    footer .footer-logo { font-family: var(--serif); font-size: 1.2rem; color: var(--white); margin-bottom: 0.75rem; }
+
+    /* ── PROGRESS BAR ────────────────────────────────────────── */
+    #progress {
+      position: fixed; top: 0; left: 0; height: 3px;
+      background: var(--blue-light); width: 0%; z-index: 200;
+      transition: width 0.1s linear;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 { font-size: 1.75rem; }
+      .test-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<!-- NAV -->
+
+
+<!-- BREADCRUMB -->
+
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-tags">
+    <span class="tag tag-blue">AML Compliance</span>
+    <span class="tag tag-teal">AI Architecture</span>
+    <span class="tag tag-amber">FinTech</span>
+    <span class="tag tag-blue">Machine Learning</span>
+    <span class="tag tag-ink">SWIFT</span>
+    <span class="tag tag-ink">LLM</span>
+  </div>
+
+  <h1>SwiftIQ Guard: Enterprise SWIFT Message Screening with a 4-Tier AI Decision Chain</h1>
+
+  <p class="hero-sub">
+    How we engineered a privacy-first AML compliance platform that screens SWIFT MT and ISO 20022 MX messages
+    through deterministic rules, XGBoost ML risk classification, fuzzy OFAC/EU/UN sanction matching,
+    and on-premise Llama 3.1 — without sending a single transaction to an external API.
+  </p>
+
+  <div class="hero-meta">
+    <div class="hero-meta-author">
+      <div class="author-avatar">FM</div>
+      <span><strong>FlairMinds Engineering</strong></span>
+    </div>
+    <span class="meta-dot">·</span>
+    <span>March 23, 2026</span>
+    <span class="meta-dot">·</span>
+    <span>9 min read</span>
+  </div>
+</header>
+
+<!-- COVER -->
+<div class="cover-wrap">
+  <div class="cover-img">
+    <svg viewBox="0 0 900 340" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+      <!-- Background grid -->
+      <defs>
+        <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+          <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1"/>
+        </pattern>
+      </defs>
+      <rect width="900" height="340" fill="url(#grid)"/>
+
+      <!-- Tier pipeline boxes -->
+      <rect x="60"  y="120" width="160" height="100" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(59,139,212,0.6)" stroke-width="1.5"/>
+      <rect x="270" y="120" width="160" height="100" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(14,132,118,0.6)" stroke-width="1.5"/>
+      <rect x="480" y="120" width="160" height="100" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(196,126,14,0.6)" stroke-width="1.5"/>
+      <rect x="690" y="120" width="150" height="100" rx="12" fill="rgba(255,255,255,0.08)" stroke="rgba(107,79,206,0.6)" stroke-width="1.5"/>
+
+      <!-- Tier labels -->
+      <text x="140" y="160" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif" font-weight="600" letter-spacing="1">TIER 1</text>
+      <text x="140" y="180" text-anchor="middle" fill="white" font-size="13" font-family="DM Sans,sans-serif" font-weight="600">Rule Engine</text>
+      <text x="140" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif">Deterministic</text>
+
+      <text x="350" y="160" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif" font-weight="600" letter-spacing="1">TIER 2</text>
+      <text x="350" y="180" text-anchor="middle" fill="white" font-size="13" font-family="DM Sans,sans-serif" font-weight="600">ML Intelligence</text>
+      <text x="350" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif">XGBoost · IForest</text>
+
+      <text x="560" y="160" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif" font-weight="600" letter-spacing="1">TIER 3</text>
+      <text x="560" y="180" text-anchor="middle" fill="white" font-size="13" font-family="DM Sans,sans-serif" font-weight="600">Sanctions</text>
+      <text x="560" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif">OFAC · EU · UN</text>
+
+      <text x="765" y="160" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif" font-weight="600" letter-spacing="1">TIER 4</text>
+      <text x="765" y="180" text-anchor="middle" fill="white" font-size="13" font-family="DM Sans,sans-serif" font-weight="600">AI Synthesis</text>
+      <text x="765" y="200" text-anchor="middle" fill="rgba(255,255,255,0.5)" font-size="10" font-family="DM Sans,sans-serif">Llama 3.1</text>
+
+      <!-- Arrows between tiers -->
+      <line x1="225" y1="170" x2="265" y2="170" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" marker-end="url(#arrowW)"/>
+      <line x1="435" y1="170" x2="475" y2="170" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" marker-end="url(#arrowW)"/>
+      <line x1="645" y1="170" x2="685" y2="170" stroke="rgba(255,255,255,0.25)" stroke-width="1.5" marker-end="url(#arrowW)"/>
+
+      <defs>
+        <marker id="arrowW" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M2 1L8 5L2 9" fill="none" stroke="rgba(255,255,255,0.4)" stroke-width="1.5"/>
+        </marker>
+      </defs>
+
+      <!-- Title overlay -->
+      <text x="450" y="60" text-anchor="middle" fill="white" font-size="18" font-family="DM Serif Display,serif" font-weight="400" opacity="0.9">SwiftIQ Guard — Decision Chain Architecture</text>
+      <text x="450" y="295" text-anchor="middle" fill="rgba(255,255,255,0.4)" font-size="11" font-family="DM Sans,sans-serif">Safe-Path consensus · Privacy-first · On-premise Llama 3.1</text>
+    </svg>
+  </div>
+  <p class="cover-caption">The four-tier SwiftIQ Guard decision chain. Every SWIFT message passes all tiers before a consensus verdict is produced.</p>
+</div>
+
+<!-- ARTICLE BODY -->
+<main class="article-wrap">
+
+  <h2>The Compliance Problem We Solved</h2>
+  <p>
+    Global financial institutions process millions of SWIFT messages daily — payment instructions,
+    letters of credit, trade finance confirmations — each a potential vector for money laundering,
+    sanctions evasion, or trade-based financial crime. Traditional rule-based screening systems are
+    brittle: they catch obvious flags but miss behavioural anomalies, produce excessive false positives,
+    and generate compliance records that read like machine output rather than professional audit trails.
+  </p>
+  <p>
+    SwiftIQ Guard was engineered to solve all three simultaneously, combining four complementary
+    analysis tiers into a single decision chain that produces a consensus risk verdict any compliance
+    officer can act on — and any regulator can audit.
+  </p>
+
+  <h2>Technical Stack</h2>
+
+  <table class="stack-table">
+    <thead>
+      <tr>
+        <th>Layer</th>
+        <th>Technology</th>
+        <th>Purpose</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Frontend</td>
+        <td>
+          <span class="stack-pill pill-blue">React</span>
+          <span class="stack-pill pill-blue">Vite</span>
+          <span class="stack-pill pill-blue">Tailwind CSS</span>
+        </td>
+        <td>Responsive compliance dashboard, screening form, audit log UI</td>
+      </tr>
+      <tr>
+        <td>Logic Engine</td>
+        <td>
+          <span class="stack-pill pill-gray">Vanilla JavaScript</span>
+        </td>
+        <td>Custom MT (FIN) and MX (ISO 20022) SWIFT message parsers</td>
+      </tr>
+      <tr>
+        <td>ML Microservice</td>
+        <td>
+          <span class="stack-pill pill-teal">Python</span>
+          <span class="stack-pill pill-teal">Flask</span>
+          <span class="stack-pill pill-teal">XGBoost</span>
+          <span class="stack-pill pill-teal">Isolation Forest</span>
+        </td>
+        <td>Risk classification and behavioural anomaly detection</td>
+      </tr>
+      <tr>
+        <td>AI Narrative</td>
+        <td>
+          <span class="stack-pill pill-purple">Llama 3.1</span>
+          <span class="stack-pill pill-purple">Ollama</span>
+        </td>
+        <td>On-premise audit narrative generation — zero external data transfer</td>
+      </tr>
+      <tr>
+        <td>Auth / RBAC</td>
+        <td>
+          <span class="stack-pill pill-gray">JWT</span>
+          <span class="stack-pill pill-gray">RBAC</span>
+        </td>
+        <td>Admin, Officer, Viewer roles enforced on every API route</td>
+      </tr>
+      <tr>
+        <td>Persistence</td>
+        <td>
+          <span class="stack-pill pill-blue">Supabase</span>
+          <span class="stack-pill pill-blue">PostgreSQL</span>
+        </td>
+        <td>Immutable audit log, case records, row-level security</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h2>The 4-Tier Decision Chain</h2>
+  <p>
+    Every SWIFT message passes through four sequential tiers, ordered by speed and certainty.
+    The Safe-Path policy ensures a high-confidence flag from any earlier tier cannot be
+    overridden by a lower-confidence signal from a later one.
+  </p>
+
+  <div class="tiers">
+
+    <div class="tier-card tier-1">
+      <div class="tier-header">
+        <div class="tier-num">1</div>
+        <div class="tier-header-text">
+          <div class="tier-title">Deterministic Rule Engine</div>
+        </div>
+        <span class="tier-badge">Instant · Zero Latency</span>
+      </div>
+      <div class="tier-body">
+        <h4>Parsing · Schema Validation · AML Rules</h4>
+        <p>
+          Raw SWIFT text is converted to structured JSON. Mandatory fields (:20:, :32A:, :50:, :59:)
+          are validated. Three AML rule categories execute in sequence: High-Risk Corridor Detection
+          matches countries against a geopolitical risk registry; Structuring Alerts flag amounts
+          within $500 of the $10,000 CTR threshold; TBML Scrutiny analyses MT700 trade finance messages
+          for dual-use HS codes. A CRITICAL flag here activates Safe-Path and determines the final verdict.
+        </p>
+      </div>
+    </div>
+
+    <div class="tier-card tier-2">
+      <div class="tier-header">
+        <div class="tier-num">2</div>
+        <div class="tier-header-text">
+          <div class="tier-title">ML Intelligence</div>
+        </div>
+        <span class="tier-badge">Probabilistic · ~120ms</span>
+      </div>
+      <div class="tier-body">
+        <h4>XGBoost Risk Classification · Isolation Forest Anomaly Detection</h4>
+        <p>
+          Six feature vectors — amount, corridor risk, round-number flag, just-below-threshold flag,
+          counterparty account age, and 7-day transaction frequency — are sent to the Flask microservice.
+          XGBoost produces a four-class risk probability. Isolation Forest flags transactions whose
+          profile deviates from the historical baseline, catching novel structuring patterns invisible to rules.
+        </p>
+      </div>
+    </div>
+
+    <div class="tier-card tier-3">
+      <div class="tier-header">
+        <div class="tier-num">3</div>
+        <div class="tier-header-text">
+          <div class="tier-title">Sanction Screening</div>
+        </div>
+        <span class="tier-badge">Fuzzy Matching · OFAC · EU · UN</span>
+      </div>
+      <div class="tier-body">
+        <h4>Multi-List Watchlist Matching with Levenshtein Distance</h4>
+        <p>
+          Entity names from :50: and :59: fields are screened against OFAC SDN, EU Consolidated,
+          and UN Security Council lists. Exact matching handles canonical names. Levenshtein distance
+          fuzzy matching with an 80% similarity threshold catches transliteration variants and deliberate
+          typos — for example, "TEHERAN IMPORT EXPORT CO" matches the OFAC list at 92% similarity.
+          A confirmed hit escalates the verdict to CRITICAL regardless of Tiers 1 and 2.
+        </p>
+      </div>
+    </div>
+
+    <div class="tier-card tier-4">
+      <div class="tier-header">
+        <div class="tier-num">4</div>
+        <div class="tier-header-text">
+          <div class="tier-title">Consensus and AI Synthesis</div>
+        </div>
+        <span class="tier-badge">Safe-Path Policy · Llama 3.1</span>
+      </div>
+      <div class="tier-body">
+        <h4>Risk Consensus · On-Premise Audit Narrative Generation</h4>
+        <p>
+          The Safe-Path policy combines all upstream signals: the final risk level is the highest
+          severity produced by any tier, with critical flags explicitly overriding lower-severity
+          ML scores. Llama 3.1 then synthesises all flags, probabilities, and override metadata
+          into a 2–4 sentence professional audit narrative, stored in Supabase and rendered in the
+          officer review interface — generated entirely on-premise.
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+  <h2>Operational Workflow</h2>
+  <p>
+    A compliance officer submits a SWIFT message — single or batch — through the screening interface.
+    The four-tier pipeline executes and the consensus result with AI narrative is displayed, typically
+    within two to three seconds for single messages. Messages flagged at HIGH or CRITICAL automatically
+    enter the compliance queue. An authorised Officer reviews and takes one of three actions — Clear,
+    Block, or Escalate — with mandatory case notes. Every action is written to the immutable audit log
+    with the officer's user ID, their role, a timestamp, and the full screening snapshot. Viewers can
+    read the audit log but cannot act on cases, ensuring segregation of duties.
+  </p>
+
+  <h2>Testing Strategy</h2>
+  <p>SwiftIQ Guard is covered by a four-layer automated test suite validating every tier independently and in combination.</p>
+
+  <div class="test-grid">
+    <div class="test-card tc-unit">
+      <div class="test-card-label">Unit Tests — Jest</div>
+      <h4>50+ tests across 6 suites</h4>
+      <p>MT and MX parsers, rule engine (structuring, TBML, corridors), fuzzy matching, Safe-Path consensus, RBAC permissions.</p>
+    </div>
+    <div class="test-card tc-int">
+      <div class="test-card-label">Integration Tests — Jest</div>
+      <h4>Live service wiring</h4>
+      <p>Flask ML endpoints, full 4-tier pipeline, Supabase case persistence, audit log immutability, API RBAC enforcement.</p>
+    </div>
+    <div class="test-card tc-e2e">
+      <div class="test-card-label">E2E Tests — Playwright</div>
+      <h4>3 browsers · 5 suites</h4>
+      <p>Auth flows, screening interface, queue case actions, audit log access by role, batch upload workflow.</p>
+    </div>
+    <div class="test-card tc-perf">
+      <div class="test-card-label">Performance Tests — k6</div>
+      <h4>Production SLA validation</h4>
+      <p>P95 pipeline latency &lt;3,000ms · ML microservice P95 &lt;500ms · Error rate &lt;1% under 100 concurrent users.</p>
+    </div>
+  </div>
+
+  <h2>Key Engineering Decisions</h2>
+
+  <div class="insights">
+    <div class="insight">
+      <h4>On-premise LLM is not a compromise — it is a feature.</h4>
+      <p>
+        Running Llama 3.1 locally via Ollama initially felt like a constraint of data privacy requirements.
+        In practice it became a competitive advantage: no external API rate limits, more predictable latency,
+        and audit narrative quality indistinguishable from a frontier API for this constrained, structured task.
+      </p>
+    </div>
+    <div class="insight">
+      <h4>The Safe-Path policy eliminates a category of false negatives.</h4>
+      <p>
+        Early versions used a weighted average of tier scores. In testing, a CRITICAL rule flag for TBML
+        dual-use goods was diluted by a LOW ML score, passing the transaction to the officer queue instead
+        of blocking it. The maximum-severity Safe-Path policy eliminated this failure mode entirely.
+      </p>
+    </div>
+    <div class="insight">
+      <h4>Fuzzy matching threshold calibration is a business decision, not a technical one.</h4>
+      <p>
+        Setting the Levenshtein threshold too low floods the compliance queue with false positives.
+        Too high and genuine phonetic variants of sanctioned entity names pass undetected. The final
+        80% threshold was chosen in consultation with compliance requirements, not optimised for F1 score alone.
+      </p>
+    </div>
+  </div>
+
+  <h2>Conclusion</h2>
+  <p>
+    SwiftIQ Guard demonstrates that enterprise-grade AML compliance technology does not require
+    expensive vendor platforms or external data sharing. A carefully architected open-source stack —
+    React, Flask, XGBoost, Isolation Forest, Supabase, and Llama 3.1 on Ollama — delivers screening
+    quality, audit trail depth, and regulatory defensibility at the level of production financial
+    institution deployment.
+  </p>
+  <p>
+    The four-tier decision chain with Safe-Path consensus is the core insight: by combining deterministic
+    rules, probabilistic ML, fuzzy entity matching, and AI narrative synthesis with a maximum-severity
+    override policy, the platform achieves both high recall on true positives and a professionally
+    auditable record of every decision. FlairMinds continues to develop SwiftIQ Guard, with planned
+    additions including real-time watchlist synchronisation, FATF country risk scoring, and expanded
+    ISO 20022 MX message coverage.
+  </p>
+
+  
+
+</main>
+
+<!-- RELATED -->
+
+
+<!-- FOOTER -->
+
+
+<script>
+  window.addEventListener('scroll', () => {
+    const doc = document.documentElement;
+    const scrolled = doc.scrollTop / (doc.scrollHeight - doc.clientHeight);
+    document.getElementById('progress').style.width = (scrolled * 100) + '%';
+  });
+</script>
+
+</body>
+</html>

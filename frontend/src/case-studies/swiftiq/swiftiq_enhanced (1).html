@@ -1,0 +1,926 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwiftIQ Guard — Project Explainer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Syne:wght@400;500;600;700;800&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg:        #080C14;
+  --surface:   #0E1521;
+  --surface-2: #152033;
+  --surface-3: #1B2A42;
+  --border:    #1E2E47;
+  --border-2:  #243650;
+  --text:      #CBD5E8;
+  --text-dim:  #7A8FA8;
+  --text-faint:#3E5270;
+  --blue:      #4A9EFF;
+  --blue-dim:  #1A3A6E;
+  --green:     #22C98B;
+  --green-dim: #0B3D29;
+  --amber:     #F5A623;
+  --amber-dim: #3D2A08;
+  --red:       #F25F5C;
+  --red-dim:   #3D1414;
+  --purple:    #A78BFA;
+  --purple-dim:#2D1F5E;
+  --teal:      #22D3EE;
+  --teal-dim:  #062B35;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(ellipse 80% 50% at 50% -20%, rgba(74,158,255,0.07) 0%, transparent 60%);
+}
+
+/* ─── HEADER ─── */
+.header {
+  padding: 2rem 2rem 0;
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+.logo-mark {
+  width: 42px; height: 42px;
+  background: linear-gradient(135deg, var(--blue), var(--teal));
+  border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+  box-shadow: 0 0 24px rgba(74,158,255,0.3);
+}
+.logo-mark svg { width: 22px; height: 22px; }
+.header-text h1 {
+  font-family: 'Syne', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: -.01em;
+}
+.header-text .sub {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  color: var(--blue);
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  margin-top: 2px;
+}
+.header-badge {
+  margin-left: auto;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-dim);
+  border: 1px solid rgba(34,201,139,.25);
+  padding: .25rem .7rem;
+  border-radius: 6px;
+  letter-spacing: .06em;
+  white-space: nowrap;
+  align-self: center;
+}
+
+/* ─── NAV TABS ─── */
+.nav-wrap {
+  padding: 0 2rem;
+  margin-bottom: 1.75rem;
+}
+.nav-tabs {
+  display: flex;
+  gap: 2px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.nav-tabs::-webkit-scrollbar { display: none; }
+.tab {
+  flex: 1; min-width: 80px;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 2px;
+  padding: .6rem .5rem;
+  border-radius: 8px;
+  cursor: pointer;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  transition: all .2s ease;
+  position: relative;
+  white-space: nowrap;
+}
+.tab:hover { color: var(--text); background: var(--surface-2); }
+.tab.active {
+  color: #fff;
+  background: var(--surface-3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,.07);
+}
+.tab-num {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  opacity: .6;
+}
+.tab.active .tab-num { opacity: 1; }
+.tab-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+}
+.tab-dot {
+  width: 5px; height: 5px;
+  border-radius: 50%;
+  margin-top: 2px;
+  opacity: 0;
+  transition: opacity .2s;
+}
+.tab.active .tab-dot { opacity: 1; }
+
+.tab-ph1 .tab-dot { background: var(--blue); }
+.tab-ph2 .tab-dot { background: var(--green); }
+.tab-ph3 .tab-dot { background: var(--amber); }
+.tab-ph4 .tab-dot { background: var(--red); }
+.tab-ph5 .tab-dot { background: var(--purple); }
+.tab-ph6 .tab-dot { background: var(--teal); }
+
+.tab.active.tab-ph1 { color: var(--blue); }
+.tab.active.tab-ph2 { color: var(--green); }
+.tab.active.tab-ph3 { color: var(--amber); }
+.tab.active.tab-ph4 { color: var(--red); }
+.tab.active.tab-ph5 { color: var(--purple); }
+.tab.active.tab-ph6 { color: var(--teal); }
+
+/* ─── PANELS ─── */
+.panels { padding: 0 2rem 3rem; }
+.panel { display: none; animation: fadeUp .25s ease; }
+.panel.active { display: block; }
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ─── SECTION HEADINGS ─── */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: .6rem;
+  margin: 1.75rem 0 .9rem;
+}
+.section-head:first-child { margin-top: 0; }
+.sh-bar {
+  width: 3px; height: 16px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+.sh-blue { background: var(--blue); }
+.sh-green { background: var(--green); }
+.sh-amber { background: var(--amber); }
+.sh-red { background: var(--red); }
+.sh-purple { background: var(--purple); }
+.sh-teal { background: var(--teal); }
+h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: .01em;
+}
+p {
+  font-size: 13px;
+  color: var(--text-dim);
+  line-height: 1.75;
+  margin-bottom: .65rem;
+}
+p strong { color: var(--text); font-weight: 500; }
+
+/* ─── CARDS ─── */
+.card-grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: .75rem; margin-bottom: .9rem; }
+.card-grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: .75rem; margin-bottom: .9rem; }
+
+@media (max-width: 640px) {
+  .card-grid-2, .card-grid-3 { grid-template-columns: 1fr; }
+  .header { padding: 1.25rem 1.25rem 0; }
+  .nav-wrap, .panels { padding-left: 1.25rem; padding-right: 1.25rem; }
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: .9rem 1rem;
+  transition: border-color .2s, transform .2s;
+}
+.card:hover { border-color: var(--border-2); transform: translateY(-1px); }
+.card-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .45rem;
+}
+.card-body {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.65;
+}
+
+/* ─── DATA FLOW CARD ─── */
+.flow-card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  padding: 1.1rem 1.2rem;
+  margin-bottom: .9rem;
+}
+.flow-step {
+  display: flex;
+  align-items: flex-start;
+  gap: .85rem;
+  padding: .5rem 0;
+  position: relative;
+}
+.flow-step:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 15px; top: 32px;
+  width: 1px; height: calc(100% - 8px);
+  background: var(--border);
+}
+.flow-num {
+  width: 30px; height: 30px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  border: 1px solid var(--border-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--blue);
+  flex-shrink: 0;
+  position: relative;
+  z-index: 1;
+}
+.flow-content { padding-top: 4px; }
+.flow-label {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 2px;
+}
+.flow-desc {
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ─── USER CARDS ─── */
+.user-card {
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin-bottom: .65rem;
+  border: 1px solid;
+  position: relative;
+  overflow: hidden;
+}
+.user-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0;
+  width: 3px; height: 100%;
+}
+.uc-admin { background: rgba(74,158,255,.06); border-color: rgba(74,158,255,.2); }
+.uc-admin::before { background: var(--blue); }
+.uc-officer { background: rgba(245,166,35,.06); border-color: rgba(245,166,35,.2); }
+.uc-officer::before { background: var(--amber); }
+.uc-viewer { background: rgba(34,201,139,.06); border-color: rgba(34,201,139,.2); }
+.uc-viewer::before { background: var(--green); }
+
+.uc-name {
+  font-family: 'Syne', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: .4rem;
+}
+.uc-admin .uc-name { color: var(--blue); }
+.uc-officer .uc-name { color: var(--amber); }
+.uc-viewer .uc-name { color: var(--green); }
+
+.uc-body { font-size: 12px; color: var(--text-dim); line-height: 1.65; }
+
+.perm-tags { margin-top: .55rem; display: flex; flex-wrap: wrap; gap: .3rem; }
+.perm-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 600;
+  padding: .15rem .45rem;
+  border-radius: 4px;
+  letter-spacing: .04em;
+}
+.pt-yes { background: var(--green-dim); color: var(--green); border: 1px solid rgba(34,201,139,.2); }
+.pt-no  { background: var(--red-dim);   color: var(--red);   border: 1px solid rgba(242,95,92,.2); }
+
+/* ─── RISK ROWS ─── */
+.risk-row {
+  display: flex;
+  align-items: stretch;
+  gap: .75rem;
+  margin-bottom: .65rem;
+}
+.risk-badge {
+  display: flex; align-items: center; justify-content: center;
+  width: 80px; flex-shrink: 0;
+  border-radius: 8px;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-align: center;
+  padding: .5rem .4rem;
+}
+.rb-crit { background: var(--red-dim);    color: var(--red);    border: 1px solid rgba(242,95,92,.3); }
+.rb-high { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(245,166,35,.3); }
+.rb-med  { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,.3); }
+.rb-low  { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(34,201,139,.3); }
+
+.risk-body {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .65rem .9rem;
+}
+.risk-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .3rem;
+}
+.risk-desc {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ─── FLAG ROWS ─── */
+.flag-row {
+  display: flex;
+  gap: .6rem;
+  align-items: flex-start;
+  margin-bottom: .6rem;
+  padding: .6rem .8rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: border-color .2s;
+}
+.flag-row:hover { border-color: var(--border-2); }
+.flag-tag {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: .22rem .55rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-top: 1px;
+  letter-spacing: .04em;
+}
+.ft-crit { background: var(--red-dim);    color: var(--red);    border: 1px solid rgba(242,95,92,.25); }
+.ft-high { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(245,166,35,.25); }
+.ft-med  { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,.25); }
+.flag-desc { font-size: 12px; color: var(--text-dim); line-height: 1.6; }
+
+/* ─── TIER ROWS ─── */
+.tier-row {
+  display: flex;
+  gap: .75rem;
+  margin-bottom: .65rem;
+  align-items: flex-start;
+}
+.tier-icon {
+  width: 32px; height: 32px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  flex-shrink: 0;
+  margin-top: 2px;
+  border: 1px solid;
+}
+.ti-blue   { background: var(--blue-dim);   color: var(--blue);   border-color: rgba(74,158,255,.3); }
+.ti-green  { background: var(--green-dim);  color: var(--green);  border-color: rgba(34,201,139,.3); }
+.ti-amber  { background: var(--amber-dim);  color: var(--amber);  border-color: rgba(245,166,35,.3); }
+.ti-purple { background: var(--purple-dim); color: var(--purple); border-color: rgba(167,139,250,.3); }
+
+.tier-content {
+  flex: 1;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: .65rem .9rem;
+}
+.tier-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: .2rem;
+}
+.tier-detail {
+  font-size: 11.5px;
+  color: var(--text-dim);
+  line-height: 1.6;
+}
+
+/* ─── STATUS ROWS ─── */
+.status-table {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  overflow: hidden;
+  margin-bottom: .9rem;
+}
+.status-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .6rem 1rem;
+  border-bottom: 1px solid var(--border);
+  gap: 1rem;
+}
+.status-row:last-child { border-bottom: none; }
+.status-label {
+  font-size: 12px;
+  color: var(--text-dim);
+}
+.st-badge {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: .18rem .55rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  letter-spacing: .05em;
+}
+.st-done   { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(34,201,139,.25); }
+.st-next   { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(245,166,35,.25); }
+.st-future { background: var(--surface-3);  color: var(--text-dim); border: 1px solid var(--border-2); }
+
+/* ─── DEPLOY STEPS ─── */
+.deploy-list { margin-bottom: .9rem; }
+.deploy-row {
+  display: flex;
+  gap: .85rem;
+  align-items: flex-start;
+  padding: .6rem 0;
+  position: relative;
+}
+.deploy-row:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  left: 14px; top: 34px;
+  width: 1px; height: calc(100% - 10px);
+  background: var(--border);
+}
+.deploy-num {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  background: var(--surface-2);
+  border: 1px solid var(--border-2);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 10px;
+  font-weight: 600;
+  color: var(--teal);
+  flex-shrink: 0;
+  position: relative; z-index: 1;
+}
+.deploy-body {
+  flex: 1;
+  font-size: 12px;
+  color: var(--text-dim);
+  line-height: 1.65;
+  padding-top: 4px;
+}
+.deploy-body strong {
+  font-family: 'Syne', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #fff;
+}
+
+/* ─── ROADMAP ─── */
+.roadmap-row {
+  display: flex;
+  gap: .75rem;
+  align-items: flex-start;
+  margin-bottom: .6rem;
+  padding: .75rem .9rem;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.rm-q {
+  font-family: 'IBM Plex Mono', monospace;
+  font-size: 9px;
+  font-weight: 700;
+  padding: .22rem .55rem;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+  letter-spacing: .05em;
+}
+.rm-q1 { background: var(--blue-dim);   color: var(--blue);   border: 1px solid rgba(74,158,255,.25); }
+.rm-q2 { background: var(--green-dim);  color: var(--green);  border: 1px solid rgba(34,201,139,.25); }
+.rm-q3 { background: var(--amber-dim);  color: var(--amber);  border: 1px solid rgba(245,166,35,.25); }
+.rm-q4 { background: var(--purple-dim); color: var(--purple); border: 1px solid rgba(167,139,250,.25); }
+.rm-body { font-size: 12px; color: var(--text-dim); line-height: 1.65; }
+.rm-body strong { color: #fff; font-weight: 600; }
+
+/* ─── SAFE PATH CARD ─── */
+.highlight-card {
+  background: linear-gradient(135deg, rgba(74,158,255,.07), rgba(34,209,238,.04));
+  border: 1px solid rgba(74,158,255,.2);
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  margin-bottom: .9rem;
+}
+.highlight-card .card-title { color: var(--blue); }
+.highlight-card .card-body { color: var(--text-dim); font-size: 12px; line-height: 1.7; }
+
+/* ─── DIVIDER ─── */
+.divider {
+  height: 1px;
+  background: var(--border);
+  margin: 1.5rem 0;
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<div class="header">
+  <div class="logo-mark">
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M12 2L4 6V12C4 16.4 7.4 20.5 12 22C16.6 20.5 20 16.4 20 12V6L12 2Z" stroke="white" stroke-width="1.5" stroke-linejoin="round"/>
+      <path d="M9 12L11 14L15 10" stroke="white" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </svg>
+  </div>
+  <div class="header-text">
+    <h1>SwiftIQ Guard</h1>
+    <div class="sub">AML · Sanctions Screening · SWIFT Compliance</div>
+  </div>
+  <div class="header-badge">● SYSTEM OPERATIONAL</div>
+</div>
+
+<!-- NAV TABS -->
+<div class="nav-wrap">
+  <div class="nav-tabs">
+    <button class="tab tab-ph1 active" onclick="show(0)">
+      <span class="tab-num">Phase 1</span>
+      <span class="tab-label">Planning</span>
+      <span class="tab-dot"></span>
+    </button>
+    <button class="tab tab-ph2" onclick="show(1)">
+      <span class="tab-num">Phase 2</span>
+      <span class="tab-label">Architecture</span>
+      <span class="tab-dot"></span>
+    </button>
+    <button class="tab tab-ph3" onclick="show(2)">
+      <span class="tab-num">Phase 3</span>
+      <span class="tab-label">Users &amp; Roles</span>
+      <span class="tab-dot"></span>
+    </button>
+    <button class="tab tab-ph4" onclick="show(3)">
+      <span class="tab-num">Phase 4</span>
+      <span class="tab-label">Risk Engine</span>
+      <span class="tab-dot"></span>
+    </button>
+    <button class="tab tab-ph5" onclick="show(4)">
+      <span class="tab-num">Phase 5</span>
+      <span class="tab-label">Testing</span>
+      <span class="tab-dot"></span>
+    </button>
+    <button class="tab tab-ph6" onclick="show(5)">
+      <span class="tab-num">Phase 6</span>
+      <span class="tab-label">Deployment</span>
+      <span class="tab-dot"></span>
+    </button>
+  </div>
+</div>
+
+<!-- PANELS -->
+<div class="panels">
+
+  <!-- PANEL 0: PLANNING -->
+  <div class="panel active" id="p0">
+    <div class="section-head"><div class="sh-bar sh-blue"></div><h3>What problem are we solving?</h3></div>
+    <p>Banks and financial institutions send millions of payment instructions daily using SWIFT — a global messaging network. Regulators require every institution to screen these messages for money laundering, sanctions violations, and financial crime before processing them. Failure to screen correctly leads to billion-dollar fines, licence revocations, and criminal liability for compliance officers.</p>
+    <p>Existing vendor solutions (Actimize, Fircosoft, Oracle FCCM) cost $500k–$2M per year in licensing. They are black boxes — no transparency into why a transaction was flagged. And they require sending transaction data to external servers, creating data residency violations under GDPR and MAS TRM.</p>
+    <p>SwiftIQ Guard solves this by being <strong>open-stack, on-premise, and fully explainable</strong>.</p>
+
+    <div class="section-head"><div class="sh-bar sh-blue"></div><h3>Planning decisions made</h3></div>
+    <div class="card-grid-2">
+      <div class="card">
+        <div class="card-title">Must-have requirements</div>
+        <div class="card-body">Screen MT103 (payments), MT700 (trade finance), MX pain.001 (ISO 20022). Flag structuring, sanctions, high-risk corridors, TBML. Generate readable audit narratives. Role-based access for compliance teams. Full immutable audit trail.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Non-negotiable constraints</div>
+        <div class="card-body">Zero transaction data leaves the institution's network. AI narrative generation must be on-premise. Supabase for audit storage. Sub-3-second end-to-end screening. Cost must be near-zero in infrastructure per message.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Why 4 tiers?</div>
+        <div class="card-body">No single method catches all financial crime. Rules catch known patterns fast. ML catches novel patterns probabilistically. Fuzzy matching catches sanctions evasion via name variants. AI synthesises it all into an auditable explanation.</div>
+      </div>
+      <div class="card">
+        <div class="card-title">Why local Llama 3.1?</div>
+        <div class="card-body">Sending transaction details to OpenAI or Anthropic APIs would violate banking data residency policies. Llama 3.1 on Ollama runs on the institution's own GPU server — data never leaves the network boundary.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 1: ARCHITECTURE -->
+  <div class="panel" id="p1">
+    <div class="section-head"><div class="sh-bar sh-green"></div><h3>Stack decisions and why</h3></div>
+    <div class="card-grid-3">
+      <div class="card"><div class="card-title">React + Vite + Tailwind</div><div class="card-body">Fast hot reload for development. Small production bundle. Tailwind gives consistent design tokens without a component library. Vite's native ESM means no Webpack config complexity.</div></div>
+      <div class="card"><div class="card-title">Vanilla JS parsers</div><div class="card-body">SWIFT MT format is proprietary — no reliable open-source parser exists in JavaScript. We wrote our own using regex block extraction and field tokenisation. This keeps parsing in-browser with zero network cost.</div></div>
+      <div class="card"><div class="card-title">Python Flask sidecar</div><div class="card-body">ML libraries (XGBoost, scikit-learn) are Python-native. Flask is the lightest way to expose them over HTTP. Running as a sidecar means it can be scaled independently from the frontend without refactoring the main app.</div></div>
+      <div class="card"><div class="card-title">XGBoost + Isolation Forest</div><div class="card-body">XGBoost is the industry standard for tabular classification — trained on 50k SWIFT message feature vectors. Isolation Forest is unsupervised, requiring no labelled anomaly data, which is rare in compliance datasets.</div></div>
+      <div class="card"><div class="card-title">Supabase / PostgreSQL</div><div class="card-body">Managed PostgreSQL with row-level security. Insert-only audit table enforced at the database policy level — even an admin SQL query cannot delete an audit entry. Built-in REST API for integration.</div></div>
+      <div class="card"><div class="card-title">Llama 3.1 via Ollama</div><div class="card-body">8B parameter model runs on a single GPU server. Produces professional 2-4 sentence audit narratives from a structured prompt. Deterministic at temperature 0.2 — same input reliably produces the same style output.</div></div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-green"></div><h3>How data flows through the system</h3></div>
+    <div class="flow-card">
+      <div class="flow-step">
+        <div class="flow-num">1</div>
+        <div class="flow-content">
+          <div class="flow-label">Input</div>
+          <div class="flow-desc">Officer pastes raw SWIFT text or uploads a batch file into the interface.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">2</div>
+        <div class="flow-content">
+          <div class="flow-label">Parse</div>
+          <div class="flow-desc">JS parser converts raw text → structured JSON (fields, amount, parties, HS codes).</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">3</div>
+        <div class="flow-content">
+          <div class="flow-label">Tier 1 — Rule Engine</div>
+          <div class="flow-desc">Checks amount thresholds, country corridors, HS code lists → returns flags + risk level.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">4</div>
+        <div class="flow-content">
+          <div class="flow-label">Tier 2 — ML Models</div>
+          <div class="flow-desc">Feature vector sent to Flask → XGBoost returns probability + class, Isolation Forest returns anomaly score.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">5</div>
+        <div class="flow-content">
+          <div class="flow-label">Tier 3 — Sanctions Screening</div>
+          <div class="flow-desc">Party names screened against OFAC/EU/UN via Levenshtein fuzzy match → returns match or clear.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">6</div>
+        <div class="flow-content">
+          <div class="flow-label">Tier 4 — Safe-Path Consensus + AI Narrative</div>
+          <div class="flow-desc">Safe-Path takes max severity across all tiers → Llama 3.1 generates narrative → result stored in Supabase.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">7</div>
+        <div class="flow-content">
+          <div class="flow-label">Queue</div>
+          <div class="flow-desc">If HIGH or CRITICAL → case enters compliance queue for officer review.</div>
+        </div>
+      </div>
+      <div class="flow-step">
+        <div class="flow-num">8</div>
+        <div class="flow-content">
+          <div class="flow-label">Action</div>
+          <div class="flow-desc">Officer clears/blocks/escalates → action written to immutable audit log.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PANEL 2: USERS -->
+  <div class="panel" id="p2">
+    <div class="section-head"><div class="sh-bar sh-amber"></div><h3>Who uses SwiftIQ Guard?</h3></div>
+
+    <div class="user-card uc-admin">
+      <div class="uc-name">Compliance Administrator</div>
+      <div class="uc-body">
+        Full system access. Responsible for configuring the risk engine thresholds, managing user accounts, and overseeing the compliance workflow. Can screen messages, review the compliance queue, manage cases, and export the full audit log for regulatory reporting. The administrator role is intended for the Head of Compliance or a senior compliance analyst who owns the system configuration.<br><br>
+        <div class="perm-tags">
+          <span class="perm-tag pt-yes">Screen messages</span>
+          <span class="perm-tag pt-yes">Manage queue</span>
+          <span class="perm-tag pt-yes">Clear cases</span>
+          <span class="perm-tag pt-yes">Block transactions</span>
+          <span class="perm-tag pt-yes">Manage users</span>
+          <span class="perm-tag pt-yes">Export audit log</span>
+          <span class="perm-tag pt-yes">Configure thresholds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-card uc-officer">
+      <div class="uc-name">Compliance Officer</div>
+      <div class="uc-body">
+        Operational role. Can screen individual SWIFT messages and action cases in the compliance queue — clear them (transaction is safe to process), block them (transaction must not proceed), or escalate them to a senior compliance officer or regulator. Cannot change system configuration or manage other users. This is the day-to-day working role for junior compliance analysts and AML investigators.<br><br>
+        <div class="perm-tags">
+          <span class="perm-tag pt-yes">Screen messages</span>
+          <span class="perm-tag pt-yes">Manage queue</span>
+          <span class="perm-tag pt-yes">Clear cases</span>
+          <span class="perm-tag pt-yes">Block transactions</span>
+          <span class="perm-tag pt-no">Cannot manage users</span>
+          <span class="perm-tag pt-no">Cannot configure thresholds</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="user-card uc-viewer">
+      <div class="uc-name">Viewer / Internal Auditor</div>
+      <div class="uc-body">
+        Read-only role. Typically an internal auditor, regulator liaison, or senior management reviewing compliance activity. Can see the full audit trail, read all case records, and review officer decisions — but cannot screen messages or take actions. This role exists specifically to satisfy regulatory requirements for independent oversight.<br><br>
+        <div class="perm-tags">
+          <span class="perm-tag pt-yes">View queue</span>
+          <span class="perm-tag pt-yes">View audit log</span>
+          <span class="perm-tag pt-yes">View case details</span>
+          <span class="perm-tag pt-no">Cannot screen</span>
+          <span class="perm-tag pt-no">Cannot clear cases</span>
+          <span class="perm-tag pt-no">Cannot block</span>
+          <span class="perm-tag pt-no">Cannot manage users</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-amber"></div><h3>External parties (subjects of screening, not system users)</h3></div>
+    <div class="card-grid-2">
+      <div class="card"><div class="card-title">Ordering customers</div><div class="card-body">The entity sending the payment — extracted from field :50: in MT messages. Their name is screened against sanctions lists. Their country is checked against the corridor risk registry. Their transaction history is fed to the Isolation Forest anomaly model.</div></div>
+      <div class="card"><div class="card-title">Beneficiaries</div><div class="card-body">The entity receiving the payment — extracted from field :59:. Subject to the same sanctions screening as the ordering customer. The combination of originating and destination country determines the corridor risk score fed to XGBoost.</div></div>
+    </div>
+  </div>
+
+  <!-- PANEL 3: RISK ENGINE -->
+  <div class="panel" id="p3">
+    <div class="section-head"><div class="sh-bar sh-red"></div><h3>Risk levels — what they mean and what triggers them</h3></div>
+
+    <div class="risk-row">
+      <div class="risk-badge rb-crit">CRITICAL</div>
+      <div class="risk-body">
+        <div class="risk-title">Transaction is immediately escalated. Processing must stop.</div>
+        <div class="risk-desc">Triggered by: confirmed sanctions hit (OFAC/EU/UN match ≥80% similarity) · payment involving a sanctioned country with no OFAC licence · dual-use goods (TBML) in an MT700 to a high-risk jurisdiction · ordering or beneficiary country on FATF blacklist · explicit override when rule engine finds CRITICAL and overrides LOW ML score via Safe-Path</div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-badge rb-high">HIGH</div>
+      <div class="risk-body">
+        <div class="risk-title">Case enters compliance queue. Officer review required before processing.</div>
+        <div class="risk-desc">Triggered by: structuring (amount $9,000–$9,999 just below $10,000 CTR threshold) · payment to a FATF grey-list country · XGBoost probability above 70% · Isolation Forest anomaly flag · counterparty account age under 30 days with high transaction frequency · transaction frequency 7x+ per week for same corridor</div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-badge rb-med">MEDIUM</div>
+      <div class="risk-body">
+        <div class="risk-title">Flagged for review but can be processed with officer note.</div>
+        <div class="risk-desc">Triggered by: payment to a moderate-risk corridor (e.g. East Africa, Southeast Asia) with no other flags · XGBoost probability 40–70% · round-number amounts ($10,000 exactly) in combination with a medium-risk corridor · new counterparty (account age 30–90 days) with moderate frequency</div>
+      </div>
+    </div>
+
+    <div class="risk-row">
+      <div class="risk-badge rb-low">LOW</div>
+      <div class="risk-body">
+        <div class="risk-title">No action required. Transaction is clear to process.</div>
+        <div class="risk-desc">No flags from any tier. Amount outside structuring window. Parties not on any watchlist with similarity above 80%. Corridor is low-risk (Western Europe, US, Japan, Australia, Singapore). XGBoost probability below 40%. No Isolation Forest anomaly. No HS codes present or HS codes are non-dual-use goods.</div>
+      </div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-red"></div><h3>Specific flags and what triggers each one</h3></div>
+
+    <div class="flag-row"><span class="flag-tag ft-crit">TBML_DUAL_USE_GOODS</span><span class="flag-desc">MT700 letter of credit contains an HS code from the dual-use goods registry. Example codes: 8543.70 (electronic integrated circuits), 2903.7 (halogenated hydrocarbons — precursor chemicals), 8803 (parts for aircraft). These are goods with civilian and military applications, commonly used in invoice manipulation to move money across borders under the cover of legitimate trade.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-crit">HIGH_RISK_CORRIDOR</span><span class="flag-desc">The ordering country or beneficiary country is on the FATF blacklist or is a US-sanctioned jurisdiction. Current examples: Iran, North Korea, Syria, Cuba, Russia (certain sectors), Belarus. A payment from Frankfurt to Tehran triggers this flag regardless of amount, regardless of what the ML model says, and regardless of who the named parties are.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-crit">SANCTIONS_HIT</span><span class="flag-desc">A party name from :50: or :59: matches an entity on the OFAC SDN list, EU Consolidated Sanctions list, or UN Security Council list with Levenshtein similarity of 80% or above. The 80% threshold catches deliberate typos and transliteration variants — "TEHRAN IMPORT EXPORT CO" matches "TEHERAN IMPORT EXPORT CO" at 92%.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-high">STRUCTURING_ALERT</span><span class="flag-desc">Transaction amount falls within $500 below a regulatory reporting threshold. In the US this threshold is $10,000 (Currency Transaction Report). So amounts of $9,500–$9,999 trigger this flag. The pattern — deliberately keeping transactions just below the threshold to avoid CTR filing — is one of the most common money laundering techniques. The $500 window is configurable per jurisdiction.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-high">BEHAVIORAL_ANOMALY</span><span class="flag-desc">Isolation Forest detected that this transaction's feature profile is a statistical outlier compared to the historical baseline for similar transactions. Common triggers: a counterparty active for only 15 days but already processing 8+ transactions per week, or an unusually large amount for a corridor where the historical average is much lower. This catches novel patterns that no predefined rule would catch.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-med">ROUND_NUMBER_SUSPICIOUS</span><span class="flag-desc">Amount is an exact round number ($50,000.00, $100,000.00) combined with a medium or high risk corridor. Round numbers alone are not suspicious — round numbers plus a risky corridor suggest the amount was chosen for convenience rather than corresponding to a real commercial invoice, which is a TBML indicator.</span></div>
+    <div class="flag-row"><span class="flag-tag ft-med">NEW_COUNTERPARTY_HIGH_FREQ</span><span class="flag-desc">The beneficiary account is less than 90 days old but is already appearing in multiple transactions per week. Freshly created accounts used immediately at high frequency is a common money mule and shell company pattern.</span></div>
+
+    <div class="section-head"><div class="sh-bar sh-red"></div><h3>The Safe-Path override rule</h3></div>
+    <div class="highlight-card">
+      <div class="card-title">Why the highest severity always wins</div>
+      <div class="card-body">When Tier 1 finds a CRITICAL flag (e.g. TBML dual-use goods) but Tier 2 ML model scores the transaction as LOW risk (because the ML model has never seen this exact pattern), the consensus engine does NOT average them. It takes the maximum severity — CRITICAL wins. This is intentional. The cost of a false negative (missing real financial crime) is billions in fines and criminal prosecution. The cost of a false positive (flagging a clean transaction) is an officer spends 5 minutes reviewing it. The asymmetry of consequences justifies always taking the conservative path.</div>
+    </div>
+  </div>
+
+  <!-- PANEL 4: TESTING -->
+  <div class="panel" id="p4">
+    <div class="section-head"><div class="sh-bar sh-purple"></div><h3>Testing pyramid — what each layer does</h3></div>
+
+    <div class="tier-row">
+      <div class="tier-icon ti-blue">F</div>
+      <div class="tier-content"><div class="tier-title">Fixtures — shared data, not tests</div><div class="tier-detail">Real SWIFT message strings (MT103 clean, MT103 structuring, MT103 high-risk corridor, MT700 TBML, MX pain.001), fake watchlists (OFAC/EU/UN), and ML feature vectors. Every test file imports from here so test data is consistent and maintained in one place.</div></div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-icon ti-blue">U</div>
+      <div class="tier-content"><div class="tier-title">Unit tests (55 tests) — individual functions in isolation</div><div class="tier-detail">No servers, no database, no browser. Tests the MT/MX parsers, rule engine (structuring, TBML, corridors, clean), fuzzy matcher (exact, typo variants, true negatives, multi-list), Safe-Path consensus (override scenarios), and RBAC (permissions per role, JWT validation). 55/55 passing.</div></div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-icon ti-green">I</div>
+      <div class="tier-content"><div class="tier-title">Integration tests (29 tests) — services wired together</div><div class="tier-detail">Requires Flask ML running and Supabase mock active. Tests Flask /classify, /anomaly, /health endpoints with real HTTP. Tests the full 4-tier pipeline from raw message to AI narrative. Tests case persistence, audit trail immutability (DELETE returns 403), RBAC enforcement on API routes. 29/29 passing.</div></div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-icon ti-amber">E</div>
+      <div class="tier-content"><div class="tier-title">E2E tests (21 pass, 5 skip) — real browser, real user flows</div><div class="tier-detail">Playwright opens Chromium, logs in, pastes SWIFT messages, clicks screen, verifies risk badge appears, verifies case enters queue, officer clears it, audit log records the action. 5 skips are for unbuilt features (batch UI, audit search). 0 failures.</div></div>
+    </div>
+    <div class="tier-row">
+      <div class="tier-icon ti-purple">P</div>
+      <div class="tier-content"><div class="tier-title">Performance tests (not run yet) — production SLA validation</div><div class="tier-detail">k6 runs 6 scenarios: baseline (5 users, 1 min), ramp-up (to 50 users), spike (sudden 100 users), batch load, ML microservice isolation, 10-minute soak. Pass criteria: P95 pipeline under 3,000ms, Flask ML under 500ms, error rate under 1%.</div></div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-purple"></div><h3>Current coverage gaps to close before production</h3></div>
+    <div class="status-table">
+      <div class="status-row"><span class="status-label">riskEngine.js — 56% statements, 62% branches</span><span class="st-badge st-next">Write more unit tests</span></div>
+      <div class="status-row"><span class="status-label">auth.js — 50% statements</span><span class="st-badge st-next">Write more unit tests</span></div>
+      <div class="status-row"><span class="status-label">Supabase — tested via in-process mock only</span><span class="st-badge st-next">Run against real DB</span></div>
+      <div class="status-row"><span class="status-label">Performance tests — not run</span><span class="st-badge st-next">Run k6 suite</span></div>
+      <div class="status-row"><span class="status-label">Firefox E2E — skipped</span><span class="st-badge st-next">Enable in CI</span></div>
+      <div class="status-row"><span class="status-label">Batch upload UI — not built</span><span class="st-badge st-future">Next sprint</span></div>
+    </div>
+  </div>
+
+  <!-- PANEL 5: DEPLOYMENT -->
+  <div class="panel" id="p5">
+    <div class="section-head"><div class="sh-bar sh-teal"></div><h3>Current status — where the project is now</h3></div>
+    <div class="status-table">
+      <div class="status-row"><span class="status-label">Core 4-tier screening pipeline</span><span class="st-badge st-done">Complete</span></div>
+      <div class="status-row"><span class="status-label">Unit + Integration + E2E tests</span><span class="st-badge st-done">Complete</span></div>
+      <div class="status-row"><span class="status-label">RBAC — Admin, Officer, Viewer</span><span class="st-badge st-done">Complete</span></div>
+      <div class="status-row"><span class="status-label">Audit trail + immutability</span><span class="st-badge st-done">Complete</span></div>
+      <div class="status-row"><span class="status-label">Performance test run</span><span class="st-badge st-next">Run this week</span></div>
+      <div class="status-row"><span class="status-label">Coverage to 70% (riskEngine, auth)</span><span class="st-badge st-next">This sprint</span></div>
+      <div class="status-row"><span class="status-label">Live Supabase integration test</span><span class="st-badge st-next">This sprint</span></div>
+      <div class="status-row"><span class="status-label">Staging deployment</span><span class="st-badge st-next">After coverage target</span></div>
+      <div class="status-row"><span class="status-label">Production deployment</span><span class="st-badge st-future">After staging sign-off</span></div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-teal"></div><h3>Deployment plan — step by step</h3></div>
+    <div class="deploy-list">
+      <div class="deploy-row"><div class="deploy-num">1</div><div class="deploy-body"><strong>Infrastructure setup:</strong> Provision a Linux server (Ubuntu 22.04). Install Node 20, Python 3.11, Ollama. Pull the llama3.1 model locally. Configure firewall — only ports 443 (HTTPS), 5001 (Flask, internal only), 11434 (Ollama, internal only).</div></div>
+      <div class="deploy-row"><div class="deploy-num">2</div><div class="deploy-body"><strong>Environment variables:</strong> Set OLLAMA_BASE_URL, SUPABASE_URL, SUPABASE_ANON_KEY, JWT_SECRET in a server-side .env file. Never commit these to git. Add to GitHub Secrets for CI/CD pipeline.</div></div>
+      <div class="deploy-row"><div class="deploy-num">3</div><div class="deploy-body"><strong>Database setup:</strong> Connect live Supabase project. Run schema migrations — create cases table, audit_log table with INSERT-only RLS policy, users table. Seed the watchlist tables with OFAC/EU/UN data.</div></div>
+      <div class="deploy-row"><div class="deploy-num">4</div><div class="deploy-body"><strong>Flask ML sidecar:</strong> Deploy as a systemd service on the same server. Start with: systemctl enable swiftiq-ml. Verify /health returns models_loaded: true. The XGBoost and Isolation Forest models load from the 50k training CSV at startup.</div></div>
+      <div class="deploy-row"><div class="deploy-num">5</div><div class="deploy-body"><strong>Vite production build:</strong> Run npm run build. Output goes to /dist. Serve with Nginx as a static SPA. Configure Nginx to proxy /api/* requests to the backend and /ml/* to Flask on port 5001.</div></div>
+      <div class="deploy-row"><div class="deploy-num">6</div><div class="deploy-body"><strong>CI/CD pipeline:</strong> GitHub Actions runs Unit → Integration → E2E → Build on every push to main. Performance tests run on a weekly schedule. A failed test blocks the deployment automatically.</div></div>
+      <div class="deploy-row"><div class="deploy-num">7</div><div class="deploy-body"><strong>Staging sign-off:</strong> Compliance team runs 20–30 real historical SWIFT messages through staging. Compares results to known outcomes. Signs off that the risk engine correctly categorises their test set before production switch.</div></div>
+      <div class="deploy-row"><div class="deploy-num">8</div><div class="deploy-body"><strong>Production go-live:</strong> DNS cutover. Monitor error rate and latency for 48 hours. Flask ML and Ollama health checks run every 60 seconds — alert via Slack if either goes down.</div></div>
+    </div>
+
+    <div class="section-head"><div class="sh-bar sh-teal"></div><h3>Further implementation roadmap</h3></div>
+    <div class="roadmap-row"><span class="rm-q rm-q1">Q2 2026</span><div class="rm-body"><strong>Live watchlist sync:</strong> Auto-update OFAC/EU/UN lists daily via their published APIs instead of static seeds. <strong>Firefox E2E:</strong> Enable in CI pipeline. <strong>Coverage to 70%:</strong> Close gaps in riskEngine.js and auth.js.</div></div>
+    <div class="roadmap-row"><span class="rm-q rm-q2">Q3 2026</span><div class="rm-body"><strong>Batch upload UI:</strong> Build the front-end for batch file submission (API already exists). <strong>FATF country risk scoring:</strong> Replace the binary high-risk corridor list with the FATF dynamic risk scoring matrix — 200 countries with numeric risk scores updated quarterly. <strong>Real Supabase integration tests:</strong> Replace in-process mock with a dedicated test Supabase project in CI.</div></div>
+    <div class="roadmap-row"><span class="rm-q rm-q3">Q4 2026</span><div class="rm-body"><strong>ISO 20022 expansion:</strong> Add camt.053 (bank statements), pacs.008 (credit transfers), and pacs.004 (payment returns) to the MX parser. These complete the full ISO 20022 migration coverage. <strong>ML retraining pipeline:</strong> Automated monthly retraining of the XGBoost model on real flagged/cleared cases accumulated in Supabase.</div></div>
+    <div class="roadmap-row"><span class="rm-q rm-q4">Q1 2027</span><div class="rm-body"><strong>Real-time streaming:</strong> Replace manual message submission with a SWIFT Alliance Gateway integration — messages arrive automatically as they are received by the institution's SWIFT infrastructure. <strong>Correspondent bank risk profiles:</strong> Build counterparty risk profiles from accumulated transaction history, so the ML model benefits from institution-specific behavioural baseline data.</div></div>
+  </div>
+
+</div><!-- /panels -->
+
+<script>
+function show(n) {
+  document.querySelectorAll('.panel').forEach((p, i) => p.classList.toggle('active', i === n));
+  document.querySelectorAll('.tab').forEach((t, i) => t.classList.toggle('active', i === n));
+}
+</script>
+</body>
+</html>
