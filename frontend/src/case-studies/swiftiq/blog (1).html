@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SwiftIQ — Engineering AML Compliance | Sanjana Palkar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=Epilogue:ital,wght@0,300;0,400;0,500;1,300;1,400&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --bg:#F7F9FC;
+  --surface:#FFFFFF;
+  --surface2:#F0F4F9;
+  --surface3:#E5ECF4;
+  --border:rgba(0,0,0,.07);
+  --border2:rgba(0,0,0,.12);
+  --text:#5A6E85;
+  --text-bright:#1A2740;
+  --white:#0F1E33;
+  --cyan:#0098A6;
+  --cyan-dim:rgba(0,152,166,.08);
+  --cyan-glow:rgba(0,152,166,.15);
+  --amber:#C67A00;
+  --amber-dim:rgba(198,122,0,.08);
+  --green:#0A8C5A;
+  --green-dim:rgba(10,140,90,.08);
+  --red:#C0293E;
+  --red-dim:rgba(192,41,62,.07);
+  --blue:#1D5ECC;
+  --blue-dim:rgba(29,94,204,.08);
+  --purple:#6B3AC9;
+  --purple-dim:rgba(107,58,201,.08);
+  --mono:'JetBrains Mono',monospace;
+  --syne:'Syne',sans-serif;
+  --body:'Epilogue',sans-serif;
+}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--body);font-weight:300;line-height:1.65;overflow-x:hidden;}
+
+/* Grain overlay */
+body::after{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.03'/%3E%3C/svg%3E");pointer-events:none;z-index:999;opacity:.4;}
+
+/* Ambient glow */
+.ambient{position:fixed;top:-40vh;left:50%;transform:translateX(-50%);width:900px;height:600px;background:radial-gradient(ellipse,rgba(0,152,166,.04) 0%,transparent 70%);pointer-events:none;z-index:0;}
+
+/* NAV */
+nav{position:sticky;top:0;z-index:100;background:rgba(247,249,252,.92);backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 clamp(1.5rem,5vw,4rem);display:flex;align-items:center;justify-content:space-between;height:58px;}
+.nav-brand{display:flex;align-items:center;gap:.7rem;text-decoration:none;}
+.logo-mark{width:34px;height:34px;background:linear-gradient(135deg,var(--cyan),#0080C8);border-radius:9px;display:grid;place-items:center;font-family:var(--mono);font-size:10px;font-weight:500;color:#fff;letter-spacing:.05em;box-shadow:0 0 20px var(--cyan-glow);}
+.brand-name{font-family:var(--syne);font-size:15px;font-weight:700;color:var(--white);letter-spacing:.03em;}
+.nav-pills{display:flex;gap:.5rem;}
+.pill{font-family:var(--mono);font-size:9px;color:var(--text);background:var(--surface);border:1px solid var(--border2);padding:.2rem .6rem;border-radius:4px;letter-spacing:.08em;}
+.nav-author{font-size:.78rem;color:var(--text);display:flex;align-items:center;gap:.5rem;}
+.nav-dot{width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);}
+
+/* HERO */
+.hero{position:relative;z-index:1;max-width:1100px;margin:0 auto;padding:clamp(4rem,10vw,7rem) clamp(1.5rem,5vw,4rem) 0;}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cyan);border:1px solid rgba(0,212,232,.25);background:var(--cyan-dim);padding:.35rem .8rem;border-radius:5px;margin-bottom:2rem;}
+.hero-badge::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--cyan);box-shadow:0 0 8px var(--cyan);}
+h1{font-family:var(--syne);font-size:clamp(2.4rem,6vw,4.8rem);font-weight:800;color:var(--white);line-height:1.05;letter-spacing:-.03em;margin-bottom:1.5rem;}
+h1 .accent{color:var(--cyan);}
+h1 .muted{color:var(--text);}
+.hero-desc{font-size:1.05rem;color:var(--text);max-width:620px;line-height:1.7;margin-bottom:2.5rem;}
+.hero-author{display:flex;align-items:center;gap:.8rem;padding-top:1.5rem;border-top:1px solid var(--border);}
+.avatar{width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg,var(--cyan),var(--purple));display:grid;place-items:center;font-family:var(--mono);font-size:11px;font-weight:500;color:#fff;flex-shrink:0;}
+.author-info .name{font-size:.875rem;font-weight:500;color:var(--white);}
+.author-info .role{font-size:.75rem;color:var(--text);}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--border);border:1px solid var(--border);border-radius:16px;overflow:hidden;margin-top:4rem;}
+.hstat{background:var(--surface);padding:1.8rem 1.5rem;text-align:center;}
+.hstat-num{font-family:var(--syne);font-size:clamp(2rem,4vw,3rem);font-weight:800;color:var(--white);line-height:1;display:block;margin-bottom:.3rem;}
+.hstat-num.cyan{color:var(--cyan);}
+.hstat-num.amber{color:var(--amber);}
+.hstat-num.green{color:var(--green);}
+.hstat-label{font-family:var(--mono);font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);}
+
+/* SECTION SYSTEM */
+.wrap{max-width:1100px;margin:0 auto;padding:0 clamp(1.5rem,5vw,4rem);}
+.section{padding:5rem 0;border-top:1px solid var(--border);position:relative;z-index:1;}
+.section-eyebrow{font-family:var(--mono);font-size:9px;letter-spacing:.2em;text-transform:uppercase;color:var(--cyan);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem;}
+.section-eyebrow::before{content:attr(data-num);color:var(--surface3);background:var(--surface2);border:1px solid var(--border2);padding:.1rem .45rem;border-radius:3px;}
+h2{font-family:var(--syne);font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:700;color:var(--white);line-height:1.15;letter-spacing:-.02em;margin-bottom:1rem;}
+.lead{font-size:1rem;color:var(--text);max-width:640px;line-height:1.75;margin-bottom:2.5rem;}
+
+/* TIER PIPELINE */
+.pipeline{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border:1px solid var(--border2);border-radius:16px;overflow:hidden;margin:2.5rem 0;}
+.pipe-item{background:var(--surface);padding:1.6rem 1.2rem;position:relative;overflow:hidden;transition:background .2s;}
+.pipe-item:hover{background:var(--surface2);}
+.pipe-item::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;}
+.pipe-1::before{background:var(--blue);}
+.pipe-2::before{background:var(--cyan);}
+.pipe-3::before{background:var(--purple);}
+.pipe-4::before{background:var(--amber);}
+.pipe-label{font-family:var(--mono);font-size:8px;letter-spacing:.18em;text-transform:uppercase;margin-bottom:.6rem;display:block;}
+.pipe-1 .pipe-label{color:var(--blue);}
+.pipe-2 .pipe-label{color:var(--cyan);}
+.pipe-3 .pipe-label{color:var(--purple);}
+.pipe-4 .pipe-label{color:var(--amber);}
+.pipe-title{font-family:var(--syne);font-size:1rem;font-weight:700;color:var(--white);margin-bottom:.4rem;}
+.pipe-tech{font-size:.78rem;color:var(--text);margin-bottom:.7rem;}
+.pipe-time{font-family:var(--mono);font-size:.75rem;padding:.2rem .5rem;border-radius:4px;display:inline-block;}
+.pipe-1 .pipe-time{background:var(--blue-dim);color:var(--blue);}
+.pipe-2 .pipe-time{background:var(--cyan-dim);color:var(--cyan);}
+.pipe-3 .pipe-time{background:var(--purple-dim);color:var(--purple);}
+.pipe-4 .pipe-time{background:var(--amber-dim);color:var(--amber);}
+.pipe-arrow{position:absolute;right:-1px;top:50%;transform:translateY(-50%);z-index:2;font-size:.6rem;color:var(--border2);}
+@media(max-width:700px){.pipeline{grid-template-columns:1fr 1fr;}}
+
+/* ARCHITECTURE DIAGRAM */
+.arch-diagram{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:2rem;margin:2rem 0;overflow:hidden;}
+.arch-caption{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);text-align:center;margin-top:1rem;}
+
+/* STAT GRID */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:1rem;margin:2rem 0;}
+.stat-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem 1.2rem;text-align:center;}
+.stat-big{font-family:var(--syne);font-size:2.2rem;font-weight:800;line-height:1;margin-bottom:.3rem;display:block;}
+.stat-label{font-size:.75rem;color:var(--text);}
+
+/* FEATURE GRID */
+.feature-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:1rem;margin:2rem 0;}
+.feature-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.4rem;transition:border-color .2s,background .2s;}
+.feature-card:hover{border-color:var(--border2);background:var(--surface2);}
+.f-icon{width:38px;height:38px;border-radius:9px;display:grid;place-items:center;font-size:1.1rem;margin-bottom:.9rem;}
+.f-title{font-family:var(--syne);font-size:.92rem;font-weight:700;color:var(--white);margin-bottom:.4rem;}
+.f-body{font-size:.82rem;color:var(--text);line-height:1.55;}
+
+/* RULES VISUAL */
+.rules-list{display:flex;flex-direction:column;gap:.6rem;margin:1.5rem 0;}
+.rule-row{display:flex;align-items:center;gap.9rem;padding:.9rem 1.1rem;background:var(--surface);border:1px solid var(--border);border-radius:10px;gap:.8rem;transition:background .2s;}
+.rule-row:hover{background:var(--surface2);}
+.rule-icon{width:32px;height:32px;border-radius:7px;display:grid;place-items:center;font-size:1rem;flex-shrink:0;}
+.rule-content{flex:1;}
+.rule-title{font-size:.875rem;font-weight:500;color:var(--white);margin-bottom:.15rem;}
+.rule-sub{font-size:.78rem;color:var(--text);}
+.rule-badge{font-family:var(--mono);font-size:8px;letter-spacing:.08em;padding:.2rem .55rem;border-radius:4px;text-transform:uppercase;flex-shrink:0;white-space:nowrap;}
+
+/* STACK TABLE */
+.stack-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1px;background:var(--border);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin:2rem 0;}
+.stack-item{background:var(--surface);padding:1.2rem 1.3rem;display:flex;gap:.9rem;align-items:flex-start;}
+.stack-layer{font-family:var(--mono);font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--text);flex-shrink:0;margin-top:.2rem;min-width:80px;}
+.stack-content{flex:1;}
+.stack-tech{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.35rem;}
+code{font-family:var(--mono);font-size:.77em;background:rgba(255,255,255,.05);border:1px solid var(--border2);padding:.1em .4em;border-radius:4px;color:var(--cyan);}
+.stack-desc{font-size:.8rem;color:var(--text);}
+
+/* MARKET */
+.market-grid{display:flex;flex-direction:column;gap:.7rem;margin:2rem 0;}
+.market-card{display:flex;align-items:center;gap:1rem;padding:1.1rem 1.3rem;background:var(--surface);border:1px solid var(--border);border-radius:12px;transition:background .2s;}
+.market-card:hover{background:var(--surface2);}
+.market-icon{width:42px;height:42px;border-radius:10px;display:grid;place-items:center;font-size:1.2rem;flex-shrink:0;}
+.market-body{flex:1;min-width:0;}
+.market-title{font-family:var(--syne);font-size:.9rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+.market-sub{font-size:.8rem;color:var(--text);line-height:1.45;}
+.market-badge{font-family:var(--mono);font-size:8px;letter-spacing:.1em;padding:.25rem .6rem;border-radius:5px;text-transform:uppercase;flex-shrink:0;align-self:flex-start;}
+
+/* DECISION QUOTES */
+.decisions{display:flex;flex-direction:column;gap:1px;background:var(--border);border:1px solid var(--border2);border-radius:14px;overflow:hidden;margin:2rem 0;}
+.decision{background:var(--surface);padding:1.5rem 1.6rem;transition:background .2s;}
+.decision:hover{background:var(--surface2);}
+.decision-q{font-family:var(--syne);font-size:1rem;font-weight:600;color:var(--white);margin-bottom:.5rem;display:flex;align-items:flex-start;gap:.6rem;}
+.decision-q::before{content:'"';color:var(--cyan);font-size:1.4rem;line-height:1;flex-shrink:0;margin-top:-.1rem;}
+.decision-body{font-size:.85rem;color:var(--text);line-height:1.65;padding-left:1.2rem;}
+
+/* TEST RESULTS */
+.test-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:1rem;margin:2rem 0;}
+.test-card{background:var(--surface);border:1px solid var(--border);border-radius:12px;padding:1.3rem;position:relative;overflow:hidden;}
+.test-card::before{content:'';position:absolute;bottom:0;left:0;height:3px;background:var(--green);}
+.test-icon-wrap{width:36px;height:36px;border-radius:8px;display:grid;place-items:center;font-size:1rem;margin-bottom:.8rem;}
+.test-name{font-family:var(--syne);font-size:.88rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+.test-items{font-size:.76rem;color:var(--text);margin-bottom:.8rem;}
+.test-pass{font-family:var(--mono);font-size:1.4rem;font-weight:500;color:var(--green);}
+
+/* PRICE CALLOUT */
+.price-spotlight{background:linear-gradient(135deg,rgba(0,212,232,.05),rgba(74,158,255,.05));border:1px solid rgba(0,212,232,.2);border-radius:16px;padding:2.5rem;text-align:center;margin:2rem 0;}
+.price-num{font-family:var(--syne);font-size:clamp(2.5rem,6vw,4rem);font-weight:800;color:var(--cyan);line-height:1;margin-bottom:.4rem;}
+.price-vs{font-size:.9rem;color:var(--text);margin-bottom:.4rem;}
+.price-tag{display:inline-block;font-family:var(--mono);font-size:11px;letter-spacing:.12em;padding:.35rem .8rem;border-radius:6px;background:rgba(0,212,232,.1);color:var(--cyan);border:1px solid rgba(0,212,232,.25);}
+
+/* CONCLUSION */
+.conclusion{background:var(--surface);border:1px solid var(--border2);border-radius:16px;padding:2.5rem;margin:2rem 0;position:relative;overflow:hidden;}
+.conclusion::before{content:'';position:absolute;top:-60px;right:-60px;width:200px;height:200px;background:radial-gradient(circle,rgba(0,212,232,.06),transparent 70%);pointer-events:none;}
+.conclusion p{font-size:.95rem;line-height:1.75;color:var(--text-bright);}
+.conclusion p+p{margin-top:1rem;}
+.highlight{color:var(--cyan);}
+
+/* CALLOUT */
+.callout{border-radius:10px;padding:1.2rem 1.4rem;border-left:3px solid;margin:1.5rem 0;display:flex;gap:.8rem;align-items:flex-start;}
+.callout-icon{font-size:1.1rem;flex-shrink:0;margin-top:.1rem;}
+.callout-amber{background:var(--amber-dim);border-color:var(--amber);}
+.callout-teal{background:var(--cyan-dim);border-color:var(--cyan);}
+.callout-blue{background:var(--blue-dim);border-color:var(--blue);}
+.callout-green{background:var(--green-dim);border-color:var(--green);}
+.callout-red{background:var(--red-dim);border-color:var(--red);}
+.callout-content{}
+.callout-title{font-family:var(--mono);font-size:8.5px;letter-spacing:.15em;text-transform:uppercase;margin-bottom:.4rem;font-weight:500;}
+.callout-amber .callout-title{color:var(--amber);}
+.callout-teal .callout-title{color:var(--cyan);}
+.callout-blue .callout-title{color:var(--blue);}
+.callout-green .callout-title{color:var(--green);}
+.callout-red .callout-title{color:var(--red);}
+.callout p{font-size:.875rem;margin:0;color:var(--text);}
+
+/* ROADMAP */
+.roadmap{display:flex;gap:.6rem;flex-wrap:wrap;margin:1.5rem 0;}
+.roadmap-item{background:var(--surface2);border:1px solid var(--border2);border-radius:8px;padding:.55rem 1rem;font-size:.8rem;color:var(--text-bright);display:flex;align-items:center;gap:.45rem;}
+.roadmap-item::before{content:'→';color:var(--cyan);font-size:.75rem;}
+
+/* FOOTER */
+footer{border-top:1px solid var(--border);padding:2.5rem clamp(1.5rem,5vw,4rem);max-width:1100px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:1rem;position:relative;z-index:1;}
+.footer-left{display:flex;align-items:center;gap:.8rem;}
+.footer-right{font-family:var(--mono);font-size:.75rem;color:var(--text);}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:5px}::-webkit-scrollbar-track{background:var(--bg)}::-webkit-scrollbar-thumb{background:var(--surface3);border-radius:3px}
+
+/* ANIMATIONS */
+@keyframes fadeUp{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
+.hero{animation:fadeUp .6s ease both;}
+.hero-stats{animation:fadeUp .6s .15s ease both;}
+
+/* RESPONSIVE */
+@media(max-width:600px){
+  .hero-stats{grid-template-columns:1fr 1fr;}
+  .hero-stats .hstat:last-child{grid-column:1/-1;}
+  .pipeline{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+<div class="ambient"></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-brand">
+    <div class="logo-mark">SQ</div>
+    <span class="brand-name">SwiftIQ</span>
+  </a>
+  <div class="nav-pills">
+    <span class="pill">AML</span>
+    <span class="pill">SWIFT</span>
+    <span class="pill">ML</span>
+    <span class="pill">LLM</span>
+  </div>
+  <div class="nav-author">
+    <div class="nav-dot"></div>
+    <span>Sanjana Palkar · March 2026</span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<div class="hero wrap">
+  <div class="hero-badge" data-text="Engineering Deep Dive">Engineering Deep Dive</div>
+  <h1>Enterprise AML<br><span class="accent">Without</span> the<br><span class="muted">Enterprise Price Tag</span></h1>
+  <p class="hero-desc">A privacy-first, on-premise SWIFT message screening platform using a 4-tier AI decision chain — from deterministic rules to on-premise Llama 3.1.</p>
+  <div class="hero-author">
+    <div class="avatar">SP</div>
+    <div class="author-info">
+      <div class="name">Sanjana Palkar</div>
+      <div class="role">Engineering · SwiftIQ Guard</div>
+    </div>
+  </div>
+</div>
+
+<div class="wrap">
+  <div class="hero-stats">
+    <div class="hstat">
+      <span class="hstat-num cyan">200×</span>
+      <span class="hstat-label">Cheaper than enterprise</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-num amber">&lt;3s</span>
+      <span class="hstat-label">End-to-end screening</span>
+    </div>
+    <div class="hstat">
+      <span class="hstat-num green">105/105</span>
+      <span class="hstat-label">Tests passing</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1: PROBLEM -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="01">The Problem</div>
+  <h2>Compliance is legally required.<br>Enterprise tools are not affordable.</h2>
+
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin:2rem 0;">
+    <div class="callout callout-red">
+      <div class="callout-icon">⚠️</div>
+      <div class="callout-content">
+        <div class="callout-title">The Status Quo</div>
+        <p>Mid-tier banks run AML compliance on <strong style="color:#E2EAF4">Excel spreadsheets</strong> + manual officer review. SWIFT messages go unscreened or under-screened. Failure is criminal liability — not a fine.</p>
+      </div>
+    </div>
+    <div class="callout callout-amber">
+      <div class="callout-icon">💸</div>
+      <div class="callout-content">
+        <div class="callout-title">The Cost Gap</div>
+        <p>Enterprise AML tools (Actimize, FCCM, Fircosoft) cost <strong style="color:#E2EAF4">$500K–$5M/yr</strong>. Mid-tier banks legally need compliance but cannot afford this. SwiftIQ closes this gap.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 2: THE SOLUTION -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="02">The Solution</div>
+  <h2>4-Tier AI Decision Chain</h2>
+  <p class="lead">Every SWIFT message passes through all four tiers before a consensus verdict is produced. The Safe-Path policy ensures the highest severity always wins.</p>
+
+  <div class="pipeline">
+    <div class="pipe-item pipe-1">
+      <span class="pipe-label">Tier 1</span>
+      <div class="pipe-title">Rule Engine</div>
+      <div class="pipe-tech">Deterministic · Vanilla JS</div>
+      <div class="pipe-time">&lt; 5ms</div>
+    </div>
+    <div class="pipe-item pipe-2">
+      <span class="pipe-label">Tier 2</span>
+      <div class="pipe-title">ML Intelligence</div>
+      <div class="pipe-tech">XGBoost · Isolation Forest</div>
+      <div class="pipe-time">~120ms</div>
+    </div>
+    <div class="pipe-item pipe-3">
+      <span class="pipe-label">Tier 3</span>
+      <div class="pipe-title">Sanctions Screen</div>
+      <div class="pipe-tech">OFAC · EU · UN · Fuzzy match</div>
+      <div class="pipe-time">&lt; 200ms</div>
+    </div>
+    <div class="pipe-item pipe-4">
+      <span class="pipe-label">Tier 4</span>
+      <div class="pipe-title">AI Synthesis</div>
+      <div class="pipe-tech">Llama 3.1 · Ollama · On-prem</div>
+      <div class="pipe-time">&lt; 2s</div>
+    </div>
+  </div>
+
+  <div class="arch-diagram">
+    <svg viewBox="0 0 720 118" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="cg" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" stop-color="#4A9EFF" stop-opacity=".5"/>
+          <stop offset="100%" stop-color="#F5A623" stop-opacity=".5"/>
+        </linearGradient>
+      </defs>
+      <line x1="8" y1="55" x2="712" y2="55" stroke="url(#cg)" stroke-width="1" stroke-dasharray="3,2"/>
+      <rect x="8" y="12" width="158" height="88" rx="9" fill="#0D1520" stroke="#4A9EFF" stroke-width="1.5"/>
+      <rect x="8" y="12" width="158" height="5" rx="3" fill="#4A9EFF"/>
+      <text x="87" y="38" font-family="JetBrains Mono,monospace" font-size="9" fill="#4A9EFF" text-anchor="middle" letter-spacing="1.5">TIER 1</text>
+      <text x="87" y="57" font-family="Syne,sans-serif" font-size="13" fill="#F0F6FF" text-anchor="middle" font-weight="700">Rule Engine</text>
+      <text x="87" y="72" font-family="DM Sans,sans-serif" font-size="9" fill="#8FA8C8" text-anchor="middle">Deterministic</text>
+      <text x="87" y="86" font-family="JetBrains Mono,monospace" font-size="8" fill="#4A9EFF" text-anchor="middle">&lt; 5ms</text>
+      <polygon points="175,50 188,55 175,60" fill="#182336"/>
+      <rect x="192" y="12" width="158" height="88" rx="9" fill="#0D1520" stroke="#00D4E8" stroke-width="1.5"/>
+      <rect x="192" y="12" width="158" height="5" rx="3" fill="#00D4E8"/>
+      <text x="271" y="38" font-family="JetBrains Mono,monospace" font-size="9" fill="#00D4E8" text-anchor="middle" letter-spacing="1.5">TIER 2</text>
+      <text x="271" y="57" font-family="Syne,sans-serif" font-size="13" fill="#F0F6FF" text-anchor="middle" font-weight="700">ML Intelligence</text>
+      <text x="271" y="72" font-family="DM Sans,sans-serif" font-size="9" fill="#8FA8C8" text-anchor="middle">XGBoost · IForest</text>
+      <text x="271" y="86" font-family="JetBrains Mono,monospace" font-size="8" fill="#00D4E8" text-anchor="middle">~120ms</text>
+      <polygon points="359,50 372,55 359,60" fill="#182336"/>
+      <rect x="376" y="12" width="158" height="88" rx="9" fill="#0D1520" stroke="#A78BFA" stroke-width="1.5"/>
+      <rect x="376" y="12" width="158" height="5" rx="3" fill="#A78BFA"/>
+      <text x="455" y="38" font-family="JetBrains Mono,monospace" font-size="9" fill="#A78BFA" text-anchor="middle" letter-spacing="1.5">TIER 3</text>
+      <text x="455" y="57" font-family="Syne,sans-serif" font-size="13" fill="#F0F6FF" text-anchor="middle" font-weight="700">Sanctions Screen</text>
+      <text x="455" y="72" font-family="DM Sans,sans-serif" font-size="9" fill="#8FA8C8" text-anchor="middle">OFAC · EU · UN</text>
+      <text x="455" y="86" font-family="JetBrains Mono,monospace" font-size="8" fill="#A78BFA" text-anchor="middle">&lt; 200ms</text>
+      <polygon points="543,50 556,55 543,60" fill="#182336"/>
+      <rect x="560" y="12" width="152" height="88" rx="9" fill="#0D1520" stroke="#F5A623" stroke-width="1.5"/>
+      <rect x="560" y="12" width="152" height="5" rx="3" fill="#F5A623"/>
+      <text x="636" y="38" font-family="JetBrains Mono,monospace" font-size="9" fill="#F5A623" text-anchor="middle" letter-spacing="1.5">TIER 4</text>
+      <text x="636" y="57" font-family="Syne,sans-serif" font-size="13" fill="#F0F6FF" text-anchor="middle" font-weight="700">AI Synthesis</text>
+      <text x="636" y="72" font-family="DM Sans,sans-serif" font-size="9" fill="#8FA8C8" text-anchor="middle">Llama 3.1 · On-prem</text>
+      <text x="636" y="86" font-family="JetBrains Mono,monospace" font-size="8" fill="#F5A623" text-anchor="middle">&lt; 2s</text>
+      <text x="360" y="112" font-family="JetBrains Mono,monospace" font-size="8" fill="#3A5270" text-anchor="middle" letter-spacing=".5">Safe-Path consensus · Highest severity wins · Zero external data transfer · End-to-end &lt; 3s</text>
+    </svg>
+    <div class="arch-caption">SwiftIQ Guard — Complete 4-Tier Decision Chain</div>
+  </div>
+</div>
+
+<!-- SECTION 3: ARCHITECTURE DEEP DIVE -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="03">Architecture Deep Dive</div>
+  <h2>Inside Each Tier</h2>
+
+  <div class="rules-list">
+    <div class="rule-row">
+      <div class="rule-icon" style="background:var(--blue-dim);">⚡</div>
+      <div class="rule-content">
+        <div class="rule-title">Tier 1 — Deterministic Rule Engine</div>
+        <div class="rule-sub">3 AML rule categories: High-Risk Corridor Detection (FATF blacklist) · Structuring alerts ($9,500–$9,999 CTR threshold) · TBML dual-use HS codes (MT700). A CRITICAL flag activates Safe-Path immediately.</div>
+      </div>
+      <div class="rule-badge" style="background:var(--blue-dim);color:var(--blue);border:1px solid rgba(74,158,255,.25);">&lt;5ms</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-icon" style="background:var(--cyan-dim);">🧠</div>
+      <div class="rule-content">
+        <div class="rule-title">Tier 2 — ML Intelligence</div>
+        <div class="rule-sub">6 feature vectors → Flask microservice. XGBoost (50K training vectors, 4-class risk) + Isolation Forest (unsupervised anomaly detection). Catches novel structuring patterns no rule would detect.</div>
+      </div>
+      <div class="rule-badge" style="background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,212,232,.25);">~120ms</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-icon" style="background:var(--purple-dim);">🔍</div>
+      <div class="rule-content">
+        <div class="rule-title">Tier 3 — Sanctions Screening</div>
+        <div class="rule-sub">Screens :50: and :59: fields against OFAC SDN, EU Consolidated, and UN Security Council simultaneously. Levenshtein fuzzy matching at 80% threshold — "TEHERAN IMPORT EXPORT CO" matches at 92%.</div>
+      </div>
+      <div class="rule-badge" style="background:var(--purple-dim);color:var(--purple);border:1px solid rgba(167,139,250,.25);">&lt;200ms</div>
+    </div>
+    <div class="rule-row">
+      <div class="rule-icon" style="background:var(--amber-dim);">✍️</div>
+      <div class="rule-content">
+        <div class="rule-title">Tier 4 — AI Narrative (On-Prem Llama 3.1)</div>
+        <div class="rule-sub">Synthesises all upstream signals into a 2–4 sentence professional audit narrative. Temperature 0.2 for regulatory consistency. Stored in Supabase with INSERT-only RLS — deletion blocked even for DB admins.</div>
+      </div>
+      <div class="rule-badge" style="background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,166,35,.25);">&lt;2s</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 4: MARKET POSITIONING -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="04">Market Positioning</div>
+  <h2>A Distinct Value Proposition for Every Bank Tier</h2>
+
+  <div class="price-spotlight">
+    <div class="price-num">200×</div>
+    <div class="price-vs">Cheaper than enterprise AML licensing</div>
+    <div style="margin:.8rem 0;font-size:.85rem;color:var(--text);">$500–$3K/month infrastructure cost vs $500K–$5M/yr enterprise</div>
+    <span class="price-tag">$500 – $3,000 / month</span>
+  </div>
+
+  <div class="market-grid">
+    <div class="market-card">
+      <div class="market-icon" style="background:rgba(99,102,241,.12);">🏛️</div>
+      <div class="market-body">
+        <div class="market-title">Tier 1 — Large Global Institutions</div>
+        <div class="market-sub">Not a replacement for Actimize/FCCM. SwiftIQ adds the <strong style="color:var(--text-bright)">narrative + explainability layer</strong> those tools can't provide. ISO 20022 gap flagging + challenger scoring.</div>
+      </div>
+      <div class="market-badge" style="background:var(--surface3);color:var(--text);border:1px solid var(--border2);">Augmentation</div>
+    </div>
+    <div class="market-card">
+      <div class="market-icon" style="background:var(--cyan-dim);">🏦</div>
+      <div class="market-body">
+        <div class="market-title">Tier 2 — Mid-Tier & Regional Banks</div>
+        <div class="market-sub"><strong style="color:var(--text-bright)">Primary commercial target.</strong> AML required by law. No budget for enterprise tools. Currently on Excel. SwiftIQ is the complete standalone platform.</div>
+      </div>
+      <div class="market-badge" style="background:var(--cyan-dim);color:var(--cyan);border:1px solid rgba(0,212,232,.3);">Primary Target</div>
+    </div>
+    <div class="market-card">
+      <div class="market-icon" style="background:rgba(167,139,250,.1);">📱</div>
+      <div class="market-body">
+        <div class="market-title">Fintechs, Neobanks & PSPs</div>
+        <div class="market-sub">SWIFT screening required. No compliance team. Engineers running rules manually. SwiftIQ delivers <strong style="color:var(--text-bright)">compliance-grade screening</strong> without a compliance department.</div>
+      </div>
+      <div class="market-badge" style="background:rgba(167,139,250,.15);color:var(--purple);border:1px solid rgba(167,139,250,.3);">Secondary</div>
+    </div>
+    <div class="market-card">
+      <div class="market-icon" style="background:var(--amber-dim);">🏢</div>
+      <div class="market-body">
+        <div class="market-title">RegTech Consultancies</div>
+        <div class="market-sub">Audit compliance for 10–50 small banks. <strong style="color:var(--text-bright)">White-label opportunity:</strong> deploy SwiftIQ under their own brand across their entire client portfolio.</div>
+      </div>
+      <div class="market-badge" style="background:var(--amber-dim);color:var(--amber);border:1px solid rgba(245,166,35,.3);">Channel Partner</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 5: TECH STACK -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="05">Technical Stack</div>
+  <h2>Open-Source. On-Premise. No Vendor Lock-In.</h2>
+
+  <div class="stack-grid">
+    <div class="stack-item">
+      <div class="stack-layer">Frontend</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>React</code><code>Vite</code><code>Tailwind</code></div>
+        <div class="stack-desc">Compliance dashboard, screening form, audit log UI</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-layer">Parsing</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>Vanilla JS</code></div>
+        <div class="stack-desc">Custom MT (FIN) and MX (ISO 20022) parsers — zero external dependencies</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-layer">ML Service</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>Flask</code><code>XGBoost</code><code>scikit-learn</code></div>
+        <div class="stack-desc">Risk classification and behavioural anomaly detection</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-layer">AI Narrative</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>Llama 3.1</code><code>Ollama</code></div>
+        <div class="stack-desc">On-premise audit narrative generation — zero external data transfer</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-layer">Auth / RBAC</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>JWT</code></div>
+        <div class="stack-desc">Admin, Officer, Viewer roles enforced on every API route</div>
+      </div>
+    </div>
+    <div class="stack-item">
+      <div class="stack-layer">Persistence</div>
+      <div class="stack-content">
+        <div class="stack-tech"><code>Supabase</code><code>PostgreSQL</code></div>
+        <div class="stack-desc">Insert-only audit log, case records, row-level security</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 6: KEY DECISIONS -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="06">Engineering Decisions</div>
+  <h2>Four Choices That Define the Platform</h2>
+
+  <div class="decisions">
+    <div class="decision">
+      <div class="decision-q">On-premise LLM is not a compromise — it is a feature.</div>
+      <div class="decision-body">Llama 3.1 via Ollama: no external rate limits, predictable latency, audit quality indistinguishable from frontier APIs for this constrained task. Temperature 0.2 ensures regulatory consistency.</div>
+    </div>
+    <div class="decision">
+      <div class="decision-q">The Safe-Path policy eliminates a category of false negatives.</div>
+      <div class="decision-body">Weighted averages allowed CRITICAL TBML flags to be diluted by LOW ML scores. Maximum-severity override eliminates this failure mode entirely — asymmetric consequences demand asymmetric policy.</div>
+    </div>
+    <div class="decision">
+      <div class="decision-q">Fuzzy matching threshold is a business decision, not a technical one.</div>
+      <div class="decision-body">The 80% Levenshtein threshold was set in consultation with compliance requirements — not optimised for F1 score alone. Too low floods queues. Too high lets phonetic variants of sanctioned names through.</div>
+    </div>
+    <div class="decision">
+      <div class="decision-q">Immutability at the database policy level, not the application layer.</div>
+      <div class="decision-body">Supabase row-level security enforces INSERT-only — a direct SQL <code>DELETE</code> returns a 403 even for administrators. This is the guarantee regulators need and lawyers can defend in court.</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 7: TESTING -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="07">Testing Strategy</div>
+  <h2>4-Layer Automated Test Suite</h2>
+  <p class="lead">Every tier validated independently and in combination — from isolated unit functions to real browser end-to-end flows.</p>
+
+  <div class="test-grid">
+    <div class="test-card">
+      <div class="test-icon-wrap" style="background:var(--blue-dim);">🧪</div>
+      <div class="test-name">Unit Tests</div>
+      <div class="test-items">Jest · Parsers · Rule engine · Fuzzy matcher · Safe-Path · RBAC</div>
+      <div class="test-pass">55 / 55 ✓</div>
+    </div>
+    <div class="test-card">
+      <div class="test-icon-wrap" style="background:var(--cyan-dim);">🔗</div>
+      <div class="test-name">Integration Tests</div>
+      <div class="test-items">Jest · Flask endpoints · 4-tier pipeline · Supabase · Audit immutability</div>
+      <div class="test-pass">29 / 29 ✓</div>
+    </div>
+    <div class="test-card">
+      <div class="test-icon-wrap" style="background:var(--green-dim);">🎭</div>
+      <div class="test-name">E2E Tests</div>
+      <div class="test-items">Playwright · Auth · Screening UI · Queue actions · 3 browsers</div>
+      <div class="test-pass">21 / 21 ✓</div>
+    </div>
+    <div class="test-card">
+      <div class="test-icon-wrap" style="background:var(--amber-dim);">⚡</div>
+      <div class="test-name">Performance Tests</div>
+      <div class="test-items">k6 · P95 pipeline &lt;3,000ms · ML P95 &lt;500ms · 100 concurrent users</div>
+      <div class="test-pass" style="font-size:1rem;color:var(--amber);">P95 &lt;3s ✓</div>
+    </div>
+  </div>
+
+  <!-- Stat bar -->
+  <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1rem;margin:1.5rem 0;">
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;">
+      <div style="font-family:var(--syne);font-size:1.8rem;font-weight:800;color:var(--green);">105</div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);">Total Tests</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;">
+      <div style="font-family:var(--syne);font-size:1.8rem;font-weight:800;color:var(--green);">100%</div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);">Pass Rate</div>
+    </div>
+    <div style="background:var(--surface);border:1px solid var(--border);border-radius:10px;padding:1rem;text-align:center;">
+      <div style="font-family:var(--syne);font-size:1.8rem;font-weight:800;color:var(--cyan);">3</div>
+      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.1em;text-transform:uppercase;color:var(--text);">Browser Coverage</div>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 8: CONCLUSION -->
+<div class="section wrap">
+  <div class="section-eyebrow" data-num="08">Conclusion</div>
+  <h2>No External Data. No Vendor Lock-In. No Black Box.</h2>
+
+  <div class="conclusion">
+    <p>SwiftIQ demonstrates that enterprise-grade AML compliance doesn't require expensive vendor platforms or external data sharing. An open-source stack — React, Flask, XGBoost, Isolation Forest, Supabase, and <span class="highlight">Llama 3.1 on Ollama</span> — delivers screening quality, audit trail depth, and regulatory defensibility at the level of production financial institution deployment.</p>
+    <p>The four-tier decision chain with Safe-Path consensus is the core insight: combining deterministic rules, probabilistic ML, fuzzy entity matching, and AI narrative synthesis with a maximum-severity override achieves both <span class="highlight">high recall on true positives</span> and a professionally auditable record of every decision — while running entirely within the institution's own network.</p>
+  </div>
+
+  <div class="callout callout-amber" style="margin-top:1.5rem;">
+    <div class="callout-icon">🗺️</div>
+    <div class="callout-content">
+      <div class="callout-title">Roadmap</div>
+      <div class="roadmap">
+        <div class="roadmap-item">Real-time watchlist sync</div>
+        <div class="roadmap-item">FATF country risk scoring</div>
+        <div class="roadmap-item">Expanded ISO 20022 MX coverage</div>
+        <div class="roadmap-item">White-label RegTech deployment</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-left">
+    <div class="avatar">SP</div>
+    <div class="author-info">
+      <div class="name">Sanjana Palkar</div>
+      <div class="role">SwiftIQ Guard · Engineering</div>
+    </div>
+  </div>
+  <div class="footer-right">SwiftIQ · March 2026</div>
+</footer>
+
+<script>
+// Fade in sections on scroll
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if(e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+    }
+  });
+}, {threshold:.08});
+
+document.querySelectorAll('.section').forEach(s => {
+  s.style.cssText += 'opacity:0;transform:translateY(20px);transition:opacity .6s ease,transform .6s ease;';
+  observer.observe(s);
+});
+</script>
+</body>
+</html>
