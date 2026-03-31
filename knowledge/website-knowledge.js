@@ -1,182 +1,164 @@
-/**
- * FlairMinds Website Knowledge Base
- * Injected as system context into every Gemini chatbot prompt.
- * Keep this updated as the website content changes.
- */
-
+// FlairMinds Website Knowledge Base — compact format for LLM context efficiency
 const websiteKnowledge = `
-# FlairMinds — Company Overview
+# FlairMinds
+AI + technology consulting firm. Builds & deploys production-ready AI systems end-to-end.
+Site: flairminds.com | /about | /contact | /careers | /case-study | /blogs
 
-FlairMinds is a technology consulting and AI engineering company that helps global enterprises solve complex technical challenges through AI, cloud, data, and software engineering.
+# SERVICES (/services)
 
-**Website:** https://flairminds.com  
-**Contact page:** /contact  
-**About us:** /about  
-**Careers:** /careers
+/services/ai-data-science — AI & Data Science
+LLM integration, RAG pipelines, agentic AI, multi-agent systems, NLP, computer vision, predictive analytics, XGBoost, Isolation Forest, FAISS, Ollama, on-premise AI, MLOps.
 
----
+/services/web-mobile-development — Web & Mobile
+React, Next.js, Node.js, Python, Vite, TypeScript, enterprise SaaS, API-first, responsive UI.
 
-# Services
+/services/cloud-devops — Cloud & DevOps
+AWS/Azure/GCP architecture, Kubernetes, Terraform, CI/CD, Azure App Service, multi-tenant cloud security, cost optimization.
 
-FlairMinds offers the following services (all accessible from /services):
+/services/quality-engineering — Quality Engineering & Test Automation
+Playwright, Selenium, Jest, k6, UI regression, API testing, performance testing, P95 SLA validation.
 
-## 1. AI & Data Science
-Route: /services/ai-data-science  
-Description: End-to-end AI/ML development — from data strategy and model development to deployment and monitoring. Covers LLM integration, RAG pipelines, predictive analytics, NLP, computer vision, and on-premise AI solutions.
+/services/digital-transformation — Digital Transformation
+Legacy migration, process automation, RPA, change management, technology strategy.
 
-## 2. Web & Mobile Development
-Route: /services/web-mobile-development  
-Description: Full-stack web and mobile applications using React, Next.js, Node.js, Python, and cloud-native architectures. Specializes in enterprise-grade SaaS products, responsive UIs, and API-first design.
+/services/it-management — IT Management
+Managed IT, infrastructure monitoring, helpdesk, strategic IT planning.
 
-## 3. Cloud & DevOps
-Route: /services/cloud-devops  
-Description: Cloud architecture design, migration, and optimization on AWS, Azure, and GCP. CI/CD pipelines, Kubernetes orchestration, Infrastructure-as-Code (Terraform), and cost optimization.
+/services/ai-tech-stack — AI Tech Stack
+LLMs, vector DBs, embeddings, Ollama, LangChain, LangGraph, RAG, agentic AI, MLOps advisory.
 
-## 4. Quality Engineering & Test Automation
-Route: /services/quality-engineering  
-Description: Automated testing suites using Playwright, Selenium, Jest, and k6. UI regression, API testing, performance testing, and end-to-end test coverage for mission-critical systems.
+# CASE STUDIES (/case-study)
 
-## 5. Digital Transformation
-Route: /services/digital-transformation  
-Description: Guiding organizations through modernization — legacy system migration, process automation, RPA, change management, and technology strategy consulting.
+/case-study/swiftiq-guard — SwiftIQ Guard: AML Compliance Platform [DEPLOYED]
+Privacy-first on-premise SWIFT message AML screening for banks. 200× cheaper than Actimize/FCCM/Fircosoft ($500–$3K/mo vs $500K–$5M/yr). End-to-end in <3s. 105/105 tests passing.
+4-tier AI chain: Tier1=Rule Engine <5ms (structuring alerts $9.5K–$9.9K, FATF corridors, TBML HS codes) → Tier2=ML ~120ms (XGBoost + Isolation Forest, 50K training set) → Tier3=Sanctions <200ms (OFAC/EU/UN, Levenshtein 80%) → Tier4=AI Synthesis <2s (Llama 3.1 on-premise via Ollama, audit narrative). Safe-Path: highest severity wins. INSERT-only audit log (Supabase RLS). RBAC: Admin/Officer/Viewer.
+Stack: React, Vite, Vanilla JS SWIFT parsers MT103/MT700/MX, Python Flask, XGBoost, Isolation Forest, Llama 3.1, Ollama, Supabase, PostgreSQL, JWT.
 
-## 6. IT Management
-Route: /services/it-management  
-Description: Managed IT services, infrastructure monitoring, helpdesk operations, and strategic IT planning for mid-to-large enterprises.
+/case-study/ai-mdm-platform — AI MDM Platform [DEPLOYED]
+AI-powered Master Data Management. Automates ingestion, profiling, deduplication, enrichment, pipeline building. 80% reduction in manual data cleaning. Visual pipeline builder (ReactFlow).
+Stack: React, ReactFlow, FastAPI, Python, RapidFuzz, scikit-learn, Oracle DB, OpenAI GPT, RAG.
 
-## 7. AI Technology Stack (AI Tech Stack)
-Route: /services/ai-tech-stack  
-Description: Advisory and implementation of the full AI technology stack — LLMs, vector databases, embedding models, Ollama, LangChain, RAG architectures, and MLOps pipelines.
+/case-study/ai-poc-development — AI PoC Development [CAPABILITY]
+AI-accelerated proof-of-concept delivery across SDLC. 60% faster turnaround, enterprise-quality output.
 
----
+/case-study/test-automation — Enterprise Test Automation [DEPLOYED]
+Automated UI regression for PLC programming. 85% reduction in regression time, 100% release confidence. Stack: Playwright, Jest, CI/CD.
 
-# Case Studies
+/case-study/ai_automation — AI Automation / Deloitte [COMPLETED]
+AI extraction of structured data from commercial tax documents (US, Netherlands, Canada) for financial due diligence.
 
-All case studies are listed at: /case-study
+/case-study/ent_data_transformation — Enterprise Data Transformation [PRODUCTION]
+Centralized fragmented data streams for a global investment leader. Reduced operational risk, improved compliance reporting.
 
-## SwiftIQ Guard — AML Compliance Platform
-Route: /case-study/swiftiq-guard  
-ID: CASE_AML_10  
-Status: DEPLOYED  
-Summary: A privacy-first, on-premise SWIFT message AML screening platform built for banks and financial institutions. Uses a 4-tier AI decision chain:
-- Tier 1: Deterministic Rule Engine (<5ms) — structuring alerts, high-risk corridor detection, TBML HS code flags
-- Tier 2: ML Intelligence (~120ms) — XGBoost risk classification + Isolation Forest anomaly detection
-- Tier 3: Sanctions Screening (<200ms) — OFAC, EU, UN watchlists with Levenshtein fuzzy matching
-- Tier 4: AI Synthesis (<2s) — On-premise Llama 3.1 via Ollama generates professional audit narratives
-Key stats: 200× cheaper than enterprise AML tools (Actimize, FCCM), end-to-end screening in <3 seconds, 105/105 tests passing, $500–$3,000/month infrastructure cost vs $500K–$5M/yr enterprise licensing.
-Tech stack: React, Vite, Vanilla JS SWIFT parsers, Python Flask, XGBoost, Isolation Forest, Llama 3.1, Ollama, Supabase, PostgreSQL, JWT/RBAC.
+/case-study/cloud_optimization — Cloud Optimization [SCALED]
+Full redesign/migration of SaaS AI platform cloud architecture for scalability and security.
 
-## AI MDM Platform
-Route: /case-study/ai-mdm-platform  
-ID: CASE_MDM_09  
-Status: DEPLOYED  
-Summary: An AI-powered Master Data Management platform that automates data ingestion, profiling, deduplication, enrichment, and pipeline building — replacing weeks of manual cleaning with intelligent AI pipelines. 80% reduction in manual data cleaning effort.
-Tech stack: React, ReactFlow, FastAPI, Python, RapidFuzz, scikit-learn, Oracle DB, OpenAI GPT, RAG.
+/case-study/quant_finance — Quantfinance Preparation Platform [ACTIVE]
+Platform for mastering quantitative finance topics and quant interview preparation.
 
-## AI-Powered PoC Development
-Route: /case-study/ai-poc-development  
-ID: CASE_AI_POC_01  
-Status: CAPABILITY  
-Summary: Accelerating proof-of-concept delivery with AI across the entire SDLC — reducing turnaround time by 60% while maintaining enterprise-quality standards.
+/case-study/e_sign_platform — E-Sign Platform [STABLE]
+E-signature platform replacing paper workflows. Robust security, real-time auth, multi-party signing.
 
-## Enterprise Test Automation
-Route: /case-study/test-automation  
-ID: CASE_QA_01  
-Status: DEPLOYED  
-Summary: Fully automated UI regression suite for PLC programming — eliminating manual testing and delivering 85% reduction in regression time with 100% release confidence.
-Tech stack: Playwright, Jest, CI/CD pipelines.
+/case-study/fable_fintech — Fable Fintech [DEPLOYED]
+High-value cross-border remittance transactions. Standardized API integration for global banking partners.
 
-## AI Automation (Deloitte)
-Route: /case-study/ai_automation  
-ID: CASE_AI_02  
-Status: COMPLETED  
-Summary: AI-powered solution to extract structured data from diverse commercial tax documents enabling faster, more accurate financial due diligence for US, Netherlands, and Canada.
+/case-study/vendor_risk_assessment — Vendor Risk Assessment [LIVE]
+Fast, data-driven third-party vendor/tenant risk evaluation. Reduced underwriting time for a major bank.
 
-## Enterprise Data Transformation
-Route: /case-study/ent_data_transformation  
-ID: CASE_DATA_03  
-Status: PRODUCTION  
-Summary: A global investment leader overcame data silos by centralizing fragmented data streams, reducing operational risk and improving reporting and compliance.
+# BLOGS (/blogs)
 
-## Cloud Optimization
-Route: /case-study/cloud_optimization  
-ID: CASE_CLOUD_04  
-Status: SCALED  
-Summary: Complete redesign and migration of a SaaS AI platform cloud architecture to build a robust, secure, and highly scalable foundation.
+/blogs/pdf-analyzer — Financial Analyzer: From PDFs to Interactive Insights [Oct 28, 2025]
+Tags: Financial Analysis, AI Chatbot, PDF Processing
+LLM extracts structured financial metrics from PDFs via strict prompt contract → time-series visualization → traceable PDF page preview → RAG chatbot (FAISS) for contextual Q&A over the document library. Solves manual analyst extraction pain.
 
-## Quantfinance Preparation Platform
-Route: /case-study/quant_finance  
-ID: CASE_QUANT_05  
-Status: ACTIVE  
-Summary: A specialized platform for mastering complex quantitative finance topics and interview preparation.
+/blogs/ai-productivity-challenge — AI Productivity Challenge: Empowering Innovation [Jan 19, 2026]
+Tags: AI, Productivity, Innovation, Team Learning
+Internal FlairMinds team AI challenge. Winning solutions: AI Decision Memory Systems, intelligent workflow automation. Key theme: AI augments human intelligence, doesn't replace it. Showcases FlairMinds' AI-first culture.
 
-## E-Sign Platform
-Route: /case-study/e_sign_platform  
-ID: CASE_SIGN_06  
-Status: STABLE  
-Summary: Comprehensive e-signature platform replacing manual paper-based workflows with robust security, real-time authentication, and multi-party signing.
+/blogs/ai-powered-web-scraping-and-reporting — AI-Powered Web Scraping & Report Generation [Feb 2, 2026]
+Tags: Web Scraping, AI, LLM, Python, Streamlit
+Technical guide: async web crawling + document parsing + LLM integration in Streamlit. Covers async-sync context handling, model fallbacks, smart content extraction. Stack: Python async/await, Streamlit, LLM integration.
 
-## Fable Fintech
-Route: /case-study/fable_fintech  
-ID: CASE_FABLE_07  
-Status: DEPLOYED  
-Summary: Seamless and secure high-value remittance transactions across international corridors with standardized API integration for global banking partners.
+/blogs/shadowlight — ShadowLight: AI-Powered Accessibility in Record Time [Feb 16, 2026]
+Tags: AI, Chrome Extension, Accessibility, React, TypeScript, Intern Project
+FlairMinds intern team built a production Chrome extension in 2 weeks using AI-accelerated dev (50% faster build). ShadowLight: real-time AI guidance, visual accessibility features, intelligent navigation. Tech: Chrome Extension APIs, React, TypeScript.
 
-## Vendor Risk Assessment
-Route: /case-study/vendor_risk_assessment  
-ID: CASE_RISK_08  
-Status: LIVE  
-Summary: Fast, accurate, data-driven evaluation of third-party vendors and tenants — reducing underwriting time significantly for a major bank.
+/blogs/azure-sandbox — Inside Azure App Service Sandboxing [Mar 2, 2026]
+Tags: Azure, App Service, Cloud Security, Multi-Tenant, PaaS, DevOps
+Deep technical dive: Azure App Service isolation, process sandboxing, shared resource governance, noisy-neighbor elimination at cloud scale. For architects making PaaS decisions.
 
----
+/blogs/strapi-blog — Decoupling Content from Code: Strapi CMS Architecture [Mar 13, 2026]
+Tags: Strapi, CMS, Headless CMS, API, Content Architecture, GraphQL
+How FlairMinds uses Strapi headless CMS to decouple content from frontend code — zero-deployment content updates, REST/GraphQL API integration, scalable content workflows.
 
-# Blogs
+/blogs/agentic-ai — From Chatbots to Digital Employees: Agentic AI & Multi-Agent Systems [Mar 18, 2026]
+Tags: Agentic AI, Multi-Agent Systems, LLM, ReAct, AI Architecture, RAG, LangGraph
+Comprehensive guide: shift from passive GenAI to autonomous agentic systems. Covers ReAct loop (Reason+Act), Multi-Agent architecture, agent decision frameworks, reliability engineering, tool use, function calling, LangGraph orchestration, enterprise implementation. FlairMinds' flagship AI strategy article.
 
-All blogs listed at: /blogs
+# COMPANY
 
-## Agentic AI Blog
-Route: /blogs/agentic-ai  
-Summary: Deep dive into agentic AI systems — what they are, how multi-agent architectures work, and how FlairMinds implements them for enterprise use cases.
+About (/about): Led by engineers, data scientists, strategists. Serves fintech, banking, healthcare, enterprise globally.
+Careers (/careers): Hiring AI/ML engineers, full-stack devs, DevOps, PMs. Strong intern programme (ShadowLight).
+Contact (/contact): Project inquiries, demos, pricing. Responds within 24hrs.
 
----
+# KEY DIFFERENTIATORS
+- Privacy-first: On-premise LLMs (Ollama/Llama 3.1) — data never leaves client network (banking/regulated industries)
+- Full-stack AI: Build + deploy production systems end-to-end, not just consulting
+- Domain depth: Fintech AML, SWIFT messaging, MDM, enterprise data, cloud (Azure/AWS/GCP), accessibility
+- Open-source stack: No vendor lock-in (React, Python, PostgreSQL, Ollama, FAISS, LangGraph)
+- Outcomes: 200× cost reduction (SwiftIQ), 80% effort saved (MDM), 85% regression cut (QA), 50% faster build (ShadowLight), 60% faster delivery (PoC)
+- Culture: Internal AI challenges, intern empowerment, active technical blog
 
-# Company Information
+# PRODUCTS / SOLUTIONS STORE (/store or /)
+20+ AI solutions, 100% enterprise-ready, ROI-focused. AI-powered search available on the store page.
 
-## About FlairMinds
-Route: /about  
-FlairMinds is led by a team of experienced engineers, data scientists, and technology strategists. The company is headquartered in India and serves global clients across fintech, banking, healthcare, and enterprise sectors.
+/store#n8n_ci_cd — Agentic AI + CI/CD using n8n [RELEASED]
+Tags: DevOps, Tech Managers, Code Review | Tech: n8n, CI/CD
+Automated AI-powered code review & security review platform. Closed environment (data security), tailored workflows per project, PR suggestions. Link: https://n8n.flairminds.com/workflow/TTS3rskm8Stfhtn1
 
-## Careers
-Route: /careers  
-FlairMinds is actively hiring engineers, data scientists, and consultants. Open positions span AI/ML engineering, full-stack development, DevOps, and project management.
+/store#intellivoice — Intellivoice [RELEASED]
+Tags: Healthcare, Legal, Finance | 99% accurate transcription
+HIPAA/GDPR-compliant call & meeting transcription. Auto-flags sensitive terms, searchable highlight-ready records, AI extracts deadlines/actions/key terms. Demo: https://app.storylane.io/share/wdbldbm4vg0i | Link: http://sparkvoice.centralindia.cloudapp.azure.com:8000/
 
-## Contact
-Route: /contact  
-Visitors can reach FlairMinds through the contact page to discuss projects, request demos, or get pricing information. The team typically responds within 24 hours.
+/store#infra_monitoring — Infra-Monitoring [RELEASED]
+Tags: DevOps, SaaS, Telecom | Tech: Grafana
+Unified log ingestion from apps/containers/cloud. AI/SQL-like log parsing, Grafana dashboards for real-time error/uptime/usage, anomaly detection, custom alerts (Slack/Email/PagerDuty). Link: http://infra-monitoring.centralindia.cloudapp.azure.com:3000
 
----
+/store#leverage_modelling — Leverage Modelling [RELEASED]
+Tags: Investment Managers, Finance | Tech: Python
+Python-powered leverage scenario modelling. 1-click what-if simulations, transparent math (no black boxes), portfolio risk exposure across assets. Excel-friendly. Link: https://leveragemodel.azurewebsites.net/
 
-# Key Differentiators
+/store#borrowing_base — Borrowing Base [RELEASED]
+Tags: Asset-Based Lending, ABL, Finance
+Automates ABL collateral tracking, limits & compliance. Instant discrepancy detection (AI checks uploaded files), live scenario testing (adjust asset values → real-time impact), concentration alerts (smart overexposure thresholds). Link: https://borrowing-base-uat.azurewebsites.net/
 
-1. **Privacy-first AI**: On-premise LLM deployments (Ollama, Llama) ensuring data never leaves the client's network — critical for banking and regulated industries.
-2. **Full-stack AI engineering**: Not just consulting — FlairMinds builds and deploys production-ready AI systems end-to-end.
-3. **Domain expertise**: Deep experience in fintech, AML compliance, MDM, and enterprise data management.
-4. **Open-source stack**: No vendor lock-in — solutions built on proven open-source technologies.
-5. **Measurable outcomes**: Every engagement is tied to specific business metrics (200× cost reduction, 80% effort saved, 85% regression time reduction).
+/store#scrap_management — SCRAPECO [RELEASED]
+Tags: Heavy Industries, Scrap, Supply Chain
+AI-powered scrap buyer/seller matching by grade & location. Paperless contracts/payments/docs, real-time tracking of inventory value. Link: http://13.201.70.253:9082/sc
 
----
+/store#product_matching — Product Matching Engine [RELEASED]
+Tags: E-commerce, Retail, Ads | 94% accuracy
+AI matches competitor SKUs instantly. Auto-categorises messy product feeds, scalable to millions of SKUs. Enables pricing intelligence and smarter ad targeting.
 
-# Navigation Summary
+/store#legal_ai — Legal AI [RELEASED]
+Tags: Legal, Compliance, Law | 80% drafting time reduction
+AI paralegal: Contract Summarizer (key terms/risks/obligations in seconds), Change Radar (version comparison, critical edits), Virtual Courtroom (AI-generated hearing Q&A prep). Link: https://happy-dune-0ee899c00.6.azurestaticapps.net/
 
-| Page | Route |
-|------|-------|
-| Home | / |
-| About | /about |
-| Services | /services (and sub-routes above) |
-| Case Studies | /case-study |
-| Blogs | /blogs |
-| Contact | /contact |
-| Careers | /careers |
+/store#tpvra — TPVRA: Financial Third-Party Risk Management [RELEASED]
+Tags: Financial Institutions, TPRM, Compliance, Regulatory
+Bank-grade third-party risk management. Centralized due diligence, continuous monitoring, immutable audit trails. Features: Standardized Due Diligence, Unified Risk Taxonomy, Regulatory-Grade Auditability (granular immutable decision logs), Automated Policy Enforcement (risk scoring + re-assessment cycles), Secure Vendor Collaboration portal. Built for auditors & regulators. Link: https://tprva.flairminds.com
+
+/store#ai_agent — AI Agent for Integrations [RELEASED]
+Tags: Tech Architects, Integration Engineers, Product Managers | 70% less POC coding time
+Excel-to-POC Converter (auto-extracts partner API details from Excel, generates integration-ready code), Smart Decision Engine (LangGraph + Gemini AI per-partner logic), Reusable AI Agents (consistent cross-API workflows). Link: http://4.186.25.221:8080/
+
+/store#document_search — Document Search Platform [RELEASED]
+Tags: BFSI, Portfolio Managers, Auditors | Tech: Elasticsearch, OCR
+AI-powered document search for contracts/reports/compliance files. Instant PDF/Word ingestion, Elasticsearch with OCR and clause/figure/risk filters, compliance-ready storage. 10× faster critical data retrieval. Link: http://dev-docsearch.centralindia.azurecontainer.io
+
+/store#rag — RAG-Context Aware Chatbots [RELEASED]
+Tags: Telecom, Banking, Regulated Industries | Tech: RAG, Streamlit
+Turns knowledge base into real-time decision engine. FM Doc Summarizer (boardroom-ready insights from reports), TeleConnect Companion (instant customer query resolution), Jargon-Smart AI (plain English or industry-specific). Optimized for professionals, researchers, everyday users. Demos: FM Doc Summarizer → https://fm-doc-summarizer.streamlit.app/ | FM Doc Summary & Upload → https://fm-doc-summary-upload.streamlit.app/
 `;
 
 export default websiteKnowledge;

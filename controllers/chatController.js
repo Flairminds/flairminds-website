@@ -6,8 +6,8 @@ const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 
 // Models to try in order — if one fails (e.g. 404 not available), the next is used
 const MODEL_FALLBACKS = [
+    'gemini-3.1-flash-lite-preview',
     'gemini-2.5-flash',
-    'gemini-3.0-flash',
     'gemini-2.0-flash-lite',
 ];
 
