@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import Navbar from '../navbar/Navbar'
 import { Outlet } from 'react-router-dom'
 import Footer from '../footer/Footer'
-import Footer1 from '../footer1/Footer1'
+import Chatbot from '../chatbot/Chatbot'
 
 const GeneralLayout = () => {
   const [scrolled, setScrolled] = useState()
@@ -32,7 +32,8 @@ const GeneralLayout = () => {
         <Outlet />
         <Footer />
       </div>
-      {/* <Footer1/> */}
+      {/* Floating AI Chatbot — visible on all public pages */}
+      <Chatbot />
     </div>
   )
 }
