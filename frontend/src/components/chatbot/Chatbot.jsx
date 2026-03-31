@@ -4,7 +4,7 @@ import styles from './Chatbot.module.css';
 import { FaRobot, FaTimes, FaPaperPlane, FaSpinner } from 'react-icons/fa';
 import { MdOutlineSmartToy } from 'react-icons/md';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5001';
+const API_BASE = import.meta.env.VITE_API_URL || '/';
 
 /* ─── Markdown-to-React renderer ───────────────────────────────────────────
    Block-based: split on \n\n for paragraphs so punctuation after links
