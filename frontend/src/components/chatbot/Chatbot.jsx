@@ -134,31 +134,39 @@ export default function Chatbot() {
             .filter(m => m.id !== 'welcome')
             .map(m => ({ role: m.role, text: m.text }));
 
-        try {
-            const res = await fetch(`${API_BASE}/chat/ask`, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ question, history }),
-            });
+        setMessages(prev => [...prev, {
+            role: 'bot',
+            text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
+            id: Date.now() + 1,
+            error: true,
+        }]);
+        setLoading(false);
 
-            const data = await res.json();
-            if (!res.ok) throw new Error(data.error || 'API error');
+        // try {
+        //     const res = await fetch(`${API_BASE}/chat/ask`, {
+        //         method: 'POST',
+        //         headers: { 'Content-Type': 'application/json' },
+        //         body: JSON.stringify({ question, history }),
+        //     });
 
-            setMessages(prev => [...prev, {
-                role: 'bot',
-                text: data.answer,
-                id: Date.now() + 1,
-            }]);
-        } catch (err) {
-            setMessages(prev => [...prev, {
-                role: 'bot',
-                text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
-                id: Date.now() + 1,
-                error: true,
-            }]);
-        } finally {
-            setLoading(false);
-        }
+        //     const data = await res.json();
+        //     if (!res.ok) throw new Error(data.error || 'API error');
+
+        //     setMessages(prev => [...prev, {
+        //         role: 'bot',
+        //         text: data.answer,
+        //         id: Date.now() + 1,
+        //     }]);
+        // } catch (err) {
+        //     setMessages(prev => [...prev, {
+        //         role: 'bot',
+        //         text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
+        //         id: Date.now() + 1,
+        //         error: true,
+        //     }]);
+        // } finally {
+        //     setLoading(false);
+        // }
     };
 
     const handleKey = (e) => {
