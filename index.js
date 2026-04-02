@@ -62,12 +62,12 @@ app.use((req, res, next) => {
 // app.use('/auth', authRoute)
 // app.use('/admin', adminActionsRoute)
 app.use('/chat', chatRoute)
-// Serve static files from the 'frontend/dist' folder
-app.use(express.static('frontend/dist', { root: '.' }));
+// Serve static files from the 'dist' folder
+app.use(express.static('dist', { root: '.' }));
 
 // Serve index.html for all routes (SPA fallback)
 app.get('*', (req, res) => {
-    res.sendFile('frontend/dist/index.html', { root: '.' })
+    res.sendFile('dist/index.html', { root: '.' })
 });
 
 // DB associations & sync disabled — re-enable when DB credentials are configured
