@@ -29,16 +29,19 @@ app.use(bodyParser.urlencoded({ extended: true }))
 const allowedOrigins = [
     "https://store.flairminds.com",
     "https://flairminds.com",
+    "https://www.flairminds.com",
     "http://localhost:5173",
     "http://localhost:5174",
     "http://localhost:4173",
+    "http://localhost:5001",
 ];
 app.use(cors({
     origin: (origin, callback) => {
         if (!origin || allowedOrigins.includes(origin)) {
             callback(null, true);
         } else {
-            callback(new Error('Not allowed by CORS'));
+            console.warn(`[CORS] Blocked request from origin: ${origin}`);
+            callback(new Error(`Not allowed by CORS: ${origin}`));
         }
     },
     methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
