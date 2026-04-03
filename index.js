@@ -27,13 +27,8 @@ app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
 const allowedOrigins = [
-    "https://store.flairminds.com",
     "https://flairminds.com",
-    "https://www.flairminds.com",
-    "http://localhost:5173",
-    "http://localhost:5174",
-    "http://localhost:4173",
-    "http://localhost:5001",
+    "https://www.flairminds.com"
 ];
 app.use(cors({
     origin: (origin, callback) => {
