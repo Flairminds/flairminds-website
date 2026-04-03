@@ -4,7 +4,7 @@ import styles from './Chatbot.module.css';
 import { FaRobot, FaTimes, FaPaperPlane, FaSpinner } from 'react-icons/fa';
 import { MdOutlineSmartToy } from 'react-icons/md';
 
-const API_BASE = import.meta.env.VITE_API_URL || '/';
+const API_BASE = import.meta.env.VITE_API_URL || 'https://www.flairminds.com';
 
 /* ─── Markdown-to-React renderer ───────────────────────────────────────────
    Block-based: split on \n\n for paragraphs so punctuation after links
@@ -134,39 +134,31 @@ export default function Chatbot() {
             .filter(m => m.id !== 'welcome')
             .map(m => ({ role: m.role, text: m.text }));
 
-        setMessages(prev => [...prev, {
-            role: 'bot',
-            text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
-            id: Date.now() + 1,
-            error: true,
-        }]);
-        setLoading(false);
+        try {
+            const res = await fetch(`${API_BASE}/chat/ask`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, history }),
+            });
 
-        // try {
-        //     const res = await fetch(`${API_BASE}/chat/ask`, {
-        //         method: 'POST',
-        //         headers: { 'Content-Type': 'application/json' },
-        //         body: JSON.stringify({ question, history }),
-        //     });
+            const data = await res.json();
+            if (!res.ok) throw new Error(data.error || 'API error');
 
-        //     const data = await res.json();
-        //     if (!res.ok) throw new Error(data.error || 'API error');
-
-        //     setMessages(prev => [...prev, {
-        //         role: 'bot',
-        //         text: data.answer,
-        //         id: Date.now() + 1,
-        //     }]);
-        // } catch (err) {
-        //     setMessages(prev => [...prev, {
-        //         role: 'bot',
-        //         text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
-        //         id: Date.now() + 1,
-        //         error: true,
-        //     }]);
-        // } finally {
-        //     setLoading(false);
-        // }
+            setMessages(prev => [...prev, {
+                role: 'bot',
+                text: data.answer,
+                id: Date.now() + 1,
+            }]);
+        } catch (err) {
+            setMessages(prev => [...prev, {
+                role: 'bot',
+                text: "Sorry, I couldn't reach the server right now. Please try again in a moment, or [contact us](/contact) directly!",
+                id: Date.now() + 1,
+                error: true,
+            }]);
+        } finally {
+            setLoading(false);
+        }
     };
 
     const handleKey = (e) => {

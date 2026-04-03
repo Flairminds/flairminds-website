@@ -40,12 +40,22 @@ export const askQuestion = async (req, res) => {
     try {
         const { question, history = [] } = req.body;
 
-        if (!question || question.trim() === '') {
-            return res.status(400).json({ error: 'Question is required.' });
+        if (!question || typeof question !== 'string' || question.trim() === '') {
+            return res.status(400).json({ error: 'Question is required and must be a valid string.' });
         }
 
-        if (!GEMINI_KEY) {
-            return res.status(500).json({ error: 'Gemini API key not configured.' });
+        // 1. Validate payload size constraints
+        if (question.length > 1000) {
+            return res.status(400).json({ error: 'Question is too long. Please limit to 1000 characters.' });
+        }
+
+        if (!Array.isArray(history) || history.length > 20) {
+            return res.status(400).json({ error: 'Invalid history format or history too long (max 20 messages).' });
+        }
+
+        if (!GEMINI_KEY || GEMINI_KEY.trim() === '') {
+            console.error('[Chatbot] ERROR: GEMINI_API_KEY environment variable is not configured.');
+            return res.status(500).json({ error: 'Chat service is improperly configured.' });
         }
 
         // Build chat history for multi-turn conversation
