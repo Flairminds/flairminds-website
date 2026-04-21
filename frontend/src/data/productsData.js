@@ -103,7 +103,7 @@ export const products = [
     highlight: ["1-Click Simulations", "Transparent Math", "Portfolio Insights", "Investment Managers", "From Data to Strategy"],
     projectLink: "https://leveragemodel.azurewebsites.net/",
     buttonText: "Try Now",
-    status: "released",
+    status: "old",
     tagline: "Model leverage scenarios in minutes—Python-powered transparency meets Excel simplicity for smarter investments.",
     cta: "From Data to Strategy – Model Like a Pro.",
   },

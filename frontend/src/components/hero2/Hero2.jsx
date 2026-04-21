@@ -79,20 +79,31 @@ const Hero2 = () => {
   return (
     <div className={hero2Styles.main}>
       <div className={hero2Styles.inner_container}>
-        <h2 className={hero2Styles.heading}>
-          AI That Works Like Your Best Analyst
-        </h2>
-        <h2 className={hero2Styles.heading}>
-          Faster, Smarter, and Built for Your Industry
-        </h2>
+        <motion.h2
+          className={hero2Styles.heading}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, ease: "easeOut" }}
+        >
+          Stop Losing Hours to Manual Work.
+        </motion.h2>
+        <motion.h2
+          className={hero2Styles.heading}
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.7, delay: 0.2, ease: "easeOut" }}
+        >
+          Let AI Handle It - <span className={hero2Styles.highlight}>Cheaper. Faster.</span>
+        </motion.h2>
         <motion.p
           className={hero2Styles.sub_heading}
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 1, delay: 0.6 }}
         >
-          Portfolio Managers, Enterprise Leaders & Regulated Sectors: Ditch
-          Manual Work. Get AI-Powered Precision for Documents, Data & Decisions.
+          FlairMinds deploys production-ready AI for fintech, banking, legal &amp; enterprise teams -
+          from AML compliance and document intelligence to agentic workflows and risk automation.
+          Real outcomes: 80% less manual effort, 60% faster delivery, zero vendor lock-in.
         </motion.p>
         <motion.div
           className={hero2Styles.hero_button_container}
@@ -104,12 +115,12 @@ const Hero2 = () => {
             className={hero2Styles.get_in_touch}
             onClick={() => navigate("/contact")}
           >
-            Get in Touch
+            Book a Free Demo
           </button>
           <FaArrowRight />
         </motion.div>
       </div>
-      <div className={hero2Styles.slideshow}>
+      {/* <div className={hero2Styles.slideshow}>
         <Swiper
           modules={[Autoplay, Navigation, Pagination]}
           slidesPerView={1}
@@ -131,7 +142,7 @@ const Hero2 = () => {
             </SwiperSlide>
           ))}
         </Swiper>
-      </div>
+      </div> */}
       {/* <div className={hero2Styles.slideshow}>
 			<Swiper
 				onSwiper={setSwiperRef}
