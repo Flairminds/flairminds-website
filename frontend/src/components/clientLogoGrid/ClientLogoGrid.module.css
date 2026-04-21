@@ -1,0 +1,118 @@
+/* ===== SECTION ===== */
+.section {
+    /* background: #f8fafc;
+    border-top: 1px solid rgba(0, 91, 161, 0.08);
+    border-bottom: 1px solid rgba(0, 91, 161, 0.08); */
+    padding: 2.2rem 0 2rem;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+}
+
+/* ===== EYEBROW ===== */
+.eyebrow {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: #005ba1;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* ===== SLIDER WRAPPER ===== */
+.sliderWrapper {
+    position: relative;
+    overflow: hidden;
+    /* Extra vertical padding so scaled-up center cards don't clip */
+    padding: 2rem 0 1rem 0;
+}
+
+/* Soft fade edges */
+.fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 140px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade[data-side="left"] {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc 0%, transparent 100%);
+}
+
+.fade[data-side="right"] {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+}
+
+/* ===== SCROLLING TRACK ===== */
+.track {
+    display: flex;
+    align-items: center;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+    /* pause on hover — JS scale still runs, only the translate stops */
+    will-change: transform;
+}
+
+.track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ===== LOGO CARD ===== */
+.logoCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 2.8rem;
+    flex-shrink: 0;
+    /* JS updates transform & opacity every frame */
+    will-change: transform, opacity;
+    transform-origin: center center;
+    /* No CSS transition — RAF updates are already per-frame smooth */
+}
+
+/* ===== LOGO IMAGE ===== */
+.logo {
+    height: 52px;
+    max-width: 140px;
+    width: auto;
+    object-fit: contain;
+    display: block;
+    /* Slight grayscale that fades off as JS pushes opacity up toward 1 */
+    filter: grayscale(30%);
+    pointer-events: none;
+    user-select: none;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .logoCard {
+        padding: 0.5rem 1.8rem;
+    }
+
+    .logo {
+        height: 38px;
+        max-width: 110px;
+    }
+
+    .fade {
+        width: 70px;
+    }
+}

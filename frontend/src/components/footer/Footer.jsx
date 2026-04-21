@@ -31,6 +31,37 @@ const Footer = () => {
     return (
         <footer className={footerStyles.footer}>
             <div className={footerStyles.footerContainer}>
+
+                {/* ── Explore CTA Banner ── */}
+                <div className={footerStyles.exploreBanner}>
+                    <div className={footerStyles.exploreText}>
+                        <p className={footerStyles.exploreEyebrow}>See it in action</p>
+                        <h2 className={footerStyles.exploreHeading}>
+                            Real problems. <span className={footerStyles.exploreAccent}>Real results.</span>
+                        </h2>
+                        <p className={footerStyles.exploreSubtext}>
+                            From AML compliance platforms to AI-powered document intelligence — explore how FlairMinds delivers production-ready solutions, and browse the tools available right now.
+                        </p>
+                    </div>
+                    <div className={footerStyles.exploreCards}>
+                        <a href="/case-study" className={`${footerStyles.exploreCard} ${footerStyles.cardBlue}`}>
+                            {/* <span className={footerStyles.cardIcon}>📂</span> */}
+                            <div>
+                                <p className={footerStyles.cardTitle}>Case Studies</p>
+                                <p className={footerStyles.cardDesc}>Deep dives into our deployed AI systems and measurable outcomes</p>
+                            </div>
+                            <FaArrowRight className={footerStyles.cardArrow} />
+                        </a>
+                        <a href="/store" className={`${footerStyles.exploreCard} ${footerStyles.cardGreen}`}>
+                            {/* <span className={footerStyles.cardIcon}>🛒</span> */}
+                            <div>
+                                <p className={footerStyles.cardTitle}>Solutions</p>
+                                <p className={footerStyles.cardDesc}>20+ enterprise-ready AI tools — try demos, explore features</p>
+                            </div>
+                            <FaArrowRight className={footerStyles.cardArrow} />
+                        </a>
+                    </div>
+                </div>
                 <div className={footerStyles.footerGrid}>
                     {/* Brand Section */}
                     <div className={footerStyles.brandSection}>

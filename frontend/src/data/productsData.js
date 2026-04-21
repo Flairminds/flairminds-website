@@ -33,6 +33,7 @@ export const products = [
     status: "released",
     tagline: "Find any file, clause, or contract instantly—AI-driven search built for compliance and speed",
     cta: "",
+    developer: "Atharva Bhandvalkar",
   },
   {
     id: 3,
@@ -58,6 +59,7 @@ export const products = [
     status: "released",
     tagline: "Transcribe meetings with 99% accuracy—compliant, searchable, and action-ready audio intelligence.",
     cta: "Get Audit-Proof Transcripts",
+    developer: "",
   },
   {
     id: 4,
@@ -83,6 +85,7 @@ export const products = [
     status: "released",
     tagline: "From logs to insights—visualize, monitor, and predict app performance with Grafana-driven intelligence.",
     cta: "Predict app performance with Grafana-driven intelligence",
+    developer: "DevOps",
   },
   {
     id: 5,
@@ -103,9 +106,10 @@ export const products = [
     highlight: ["1-Click Simulations", "Transparent Math", "Portfolio Insights", "Investment Managers", "From Data to Strategy"],
     projectLink: "https://leveragemodel.azurewebsites.net/",
     buttonText: "Try Now",
-    status: "released",
+    status: "old",
     tagline: "Model leverage scenarios in minutes—Python-powered transparency meets Excel simplicity for smarter investments.",
     cta: "From Data to Strategy – Model Like a Pro.",
+    developer: "Onpepper",
   },
   {
     id: 6,
@@ -129,6 +133,7 @@ export const products = [
     status: "released",
     tagline: "Ditch spreadsheet chaos—automate asset-based lending with real-time tracking and smart compliance checks.",
     cta: "Lend Smarter, Not Harder – Demo ABL AI.",
+    developer: "Onpepper",
   },
   {
     id: 7,
@@ -152,6 +157,7 @@ export const products = [
     status: "released",
     tagline: "Transform industrial scrap into revenue—AI matches buyers and sellers, paperlessly and profitably.",
     cta: "Sell Scrap Smarter – Get a Custom Workflow Demo.",
+    developer: "Sammyak",
   },
   {
     id: 8,
@@ -175,6 +181,7 @@ export const products = [
     status: "released",
     tagline: "Match millions of SKUs with 94% accuracy—cleaner data, better ads, smarter selling.",
     cta: "Launch Better Campaigns with AI Matching – Try It.",
+    developer: "Data Science",
   },
   {
     id: 9,
@@ -200,6 +207,7 @@ export const products = [
     demoButton: true,
     tagline: "Draft, summarize, and prep legal docs in minutes—AI that works like your legal team.",
     cta: "Let AI Handle the Paperwork – Focus on Winning Cases.",
+    developer: "Sairushi",
   },
   {
     id: 11,
@@ -241,7 +249,8 @@ export const products = [
     demoButton: true,
 
     tagline: "The definitive TPRM operating system for modern finance—unifying Admin oversight, Assessor analytics, and Vendor compliance.",
-    cta: "Where confidence meets compliance!"
+    cta: "Where confidence meets compliance!",
+    developer: "Sairushi",
   },
   {
     id: 10,
@@ -267,6 +276,7 @@ export const products = [
     demoButton: false,
     tagline: "Accelerate backend development by letting AI generate reliable POC code from your API specs—so your team can focus on building real value.",
     cta: "Built for Tech Architects, Integration Engineers & Product Managers – Empower Your Development with AI. Focus on What Matters Most.",
+    developer: "Roshan",
   },
   {
     id: 2,
@@ -289,6 +299,7 @@ export const products = [
     status: "released",
     tagline: "Find any file, clause, or contract instantly—AI-driven search built for compliance and speed",
     cta: "Try AI-Powered Search – Find Critical Data 10x Faster.",
+    developer: "Utkarsh",
   },
   {
     id: 2,
@@ -325,5 +336,6 @@ export const products = [
     status: "released",
     tagline: "Smartest chatbots in regulated industries—turn your documents into real-time, decision-making machines.",
     cta: "Deploy a Chatbot That Talks Like Your Top Analyst – Demo Today.",
+    developer: "",
   },
 ]
