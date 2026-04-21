@@ -61,8 +61,8 @@ const ProjectsSection = () => {
                                 src={archImage}
                                 alt="Technical Architecture"
                                 className={styles.archImage}
-                                width={600}
-                                height={400}
+                                width={400}
+                                // height={500}
                                 loading="lazy"
                                 decoding="async"
                             />

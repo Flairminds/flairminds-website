@@ -8,6 +8,7 @@ import AiToolsStrip from "../../components/aiToolsStrip/AiToolsStrip"
 import CaseStudiesStrip from "../../components/aiToolsStrip/CaseStudiesStrip"
 import SolutionsStrip from "../../components/aiToolsStrip/SolutionsStrip"
 import ClientLogoGrid from "../../components/clientLogoGrid/ClientLogoGrid"
+import IndustriesSection from "../../components/industriesSection/IndustriesSection"
 
 const Home = () => {
     return (
@@ -18,6 +19,7 @@ const Home = () => {
             <SolutionsStrip />
             <div className="content-sections">
                 <ProjectsSection />
+                <IndustriesSection />
                 <ServicesSection />
                 <AboutUs />
                 <ClientsSection />
