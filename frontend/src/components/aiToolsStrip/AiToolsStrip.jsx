@@ -1,4 +1,4 @@
-import styles from "./AiToolsStrip.module.css";
+import MarqueeStrip from "./MarqueeStrip";
 import {
   SiLangchain,
   SiOpenai,
@@ -13,48 +13,26 @@ import { GiBrain } from "react-icons/gi";
 import { FaRobot } from "react-icons/fa6";
 
 const tools = [
-  { icon: <FaRobot />, label: "Agentic AI" },
-  { icon: <SiLangchain />, label: "LangChain" },
-  { icon: <GiBrain />, label: "LangGraph" },
-  { icon: <SiOpenai />, label: "LLMs" },
-  { icon: <SiPython />, label: "RAG Pipelines" },
-  { icon: <SiReact />, label: "n8n Workflows" },
-  { icon: <SiDocker />, label: "MLOps" },
-  { icon: <TbBrandAws />, label: "AWS / Azure / GCP" },
+  { icon: <FaRobot />,      label: "Agentic AI" },
+  { icon: <SiLangchain />,  label: "LangChain" },
+  { icon: <GiBrain />,      label: "LangGraph" },
+  { icon: <SiOpenai />,     label: "LLMs" },
+  { icon: <SiPython />,     label: "RAG Pipelines" },
+  { icon: <SiReact />,      label: "n8n Workflows" },
+  { icon: <SiDocker />,     label: "MLOps" },
+  { icon: <TbBrandAws />,   label: "AWS / Azure / GCP" },
   { icon: <SiKubernetes />, label: "Kubernetes" },
-  { icon: <SiTerraform />, label: "Terraform" },
+  { icon: <SiTerraform />,  label: "Terraform" },
 ];
 
-const AiToolsStrip = () => {
-  // Duplicate for seamless infinite scroll
-  const repeated = [...tools, ...tools];
-
-  return (
-    <div className={styles.strip}>
-      <div className={styles.badge}>
-        <span className={styles.dot} />
-        <span
-          style={{ textDecoration: "underline", cursor: "pointer" }}
-          onClick={() => {
-            window.location.href = "/services/ai-tech-stack";
-          }}
-        >
-          AI-Powered Solutioning
-        </span>
-      </div>
-
-      <div className={styles.marqueeWrapper} aria-hidden="true">
-        <div className={styles.marqueeTrack}>
-          {repeated.map((tool, i) => (
-            <div className={styles.pill} key={i}>
-              <span className={styles.pillIcon}>{tool.icon}</span>
-              <span className={styles.pillLabel}>{tool.label}</span>
-            </div>
-          ))}
-        </div>
-      </div>
-    </div>
-  );
-};
+const AiToolsStrip = () => (
+  <MarqueeStrip
+    items={tools}
+    badge="AI-Powered Solutioning"
+    badgeLink="/services/ai-tech-stack"
+    reverse={false}
+    accentColor="#b9ed5e"
+  />
+);
 
 export default AiToolsStrip;

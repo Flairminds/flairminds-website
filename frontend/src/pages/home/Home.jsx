@@ -5,12 +5,16 @@ import ClientLogos from "../../components/clientLogos/ClientLogos"
 import AboutUs from "../../components/aboutUs/AboutUs"
 import HeroSection from "../../components/heroSlider/HeroSection"
 import AiToolsStrip from "../../components/aiToolsStrip/AiToolsStrip"
+import CaseStudiesStrip from "../../components/aiToolsStrip/CaseStudiesStrip"
+import SolutionsStrip from "../../components/aiToolsStrip/SolutionsStrip"
 
 const Home = () => {
     return (
         <div>
             <HeroSection />
             <AiToolsStrip />
+            <CaseStudiesStrip />
+            <SolutionsStrip />
             <div className="content-sections">
                 <ProjectsSection />
                 <ServicesSection />
