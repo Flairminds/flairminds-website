@@ -45,7 +45,147 @@
     z-index: 10;
 }
 
+/* ── Explore CTA Banner ── */
+.exploreBanner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 3rem;
+    margin-bottom: 5rem;
+    padding: 3rem 3.5rem;
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid rgba(185, 237, 94, 0.12);
+    border-radius: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.exploreBanner::before {
+    content: '';
+    position: absolute;
+    top: -80px;
+    right: -80px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(0, 91, 161, 0.12) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+.exploreText {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    min-width: 220px;
+}
+
+.exploreEyebrow {
+    font-size: 0.75rem;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #b9ed5e;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.exploreHeading {
+    font-size: clamp(1.6rem, 3vw, 2.4rem);
+    font-weight: 800;
+    color: #fff;
+    line-height: 1.15;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+.exploreAccent {
+    color: #b9ed5e;
+}
+
+.exploreSubtext {
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.6);
+    line-height: 1.65;
+    max-width: 360px;
+}
+
+.exploreCards {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    flex-shrink: 0;
+    width: 340px;
+}
+
+.exploreCard {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1.1rem 1.4rem;
+    border-radius: 14px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    position: relative;
+    overflow: hidden;
+}
+
+.exploreCard:hover {
+    transform: translateX(6px);
+}
+
+.cardBlue {
+    background: rgba(0, 91, 161, 0.15);
+    border-color: rgba(0, 91, 161, 0.3);
+}
+
+.cardBlue:hover {
+    background: rgba(0, 91, 161, 0.28);
+    border-color: rgba(0, 115, 204, 0.5);
+    box-shadow: 0 8px 24px rgba(0, 91, 161, 0.2);
+}
+
+.cardGreen {
+    background: rgba(185, 237, 94, 0.07);
+    border-color: rgba(185, 237, 94, 0.2);
+}
+
+.cardGreen:hover {
+    background: rgba(185, 237, 94, 0.13);
+    border-color: rgba(185, 237, 94, 0.4);
+    box-shadow: 0 8px 24px rgba(185, 237, 94, 0.1);
+}
+
+.cardIcon {
+    font-size: 1.6rem;
+    flex-shrink: 0;
+}
+
+.cardTitle {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 0.2rem;
+}
+
+.cardDesc {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.55);
+    line-height: 1.4;
+}
+
+.cardArrow {
+    margin-left: auto;
+    flex-shrink: 0;
+    color: rgba(255, 255, 255, 0.3);
+    font-size: 0.85rem;
+    transition: all 0.3s ease;
+}
+
+.exploreCard:hover .cardArrow {
+    color: #b9ed5e;
+    transform: translateX(4px);
+}
+
 .footerGrid {
+
     display: grid;
     grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
     gap: 4rem;
@@ -304,5 +444,15 @@
 
     .legalLinks {
         justify-content: center;
+    }
+
+    .exploreBanner {
+        flex-direction: column;
+        padding: 2rem 1.5rem;
+        gap: 2rem;
+    }
+
+    .exploreCards {
+        width: 100%;
     }
 }
