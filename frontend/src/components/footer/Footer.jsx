@@ -55,7 +55,7 @@ const Footer = () => {
                         <a href="/store" className={`${footerStyles.exploreCard} ${footerStyles.cardGreen}`}>
                             {/* <span className={footerStyles.cardIcon}>🛒</span> */}
                             <div>
-                                <p className={footerStyles.cardTitle}>Solutions Store</p>
+                                <p className={footerStyles.cardTitle}>Solutions</p>
                                 <p className={footerStyles.cardDesc}>20+ enterprise-ready AI tools — try demos, explore features</p>
                             </div>
                             <FaArrowRight className={footerStyles.cardArrow} />

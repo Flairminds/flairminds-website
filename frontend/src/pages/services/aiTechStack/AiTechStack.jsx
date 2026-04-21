@@ -5,14 +5,15 @@ import {
     FaArrowRight, FaClock, FaCode, FaCogs,
     FaShieldAlt, FaGlobe, FaBug, FaTools,
     FaMicroscope, FaBrain, FaRobot, FaMicrophone,
-    FaBook, FaHeart, FaStickyNote, FaDraftingCompass, FaWater, FaChalkboardTeacher
+    FaBook, FaHeart, FaStickyNote, FaDraftingCompass, FaWater, FaChalkboardTeacher,
+    FaDatabase, FaSearch, FaTerminal, FaPalette
 } from 'react-icons/fa';
 import {
     SiGithubcopilot, SiAnthropic, SiMeta, SiNotion,
     SiNodedotjs, SiPython, SiOpenai, SiGooglegemini,
-    SiLangchain, SiGithubactions
+    SiLangchain, SiGithubactions, SiReplit, SiStackblitz, SiVercel
 } from 'react-icons/si';
-import { MdAutoAwesome, MdSpeed, MdSmartToy } from 'react-icons/md';
+import { MdAutoAwesome, MdSpeed, MdSmartToy, MdAutoFixHigh } from 'react-icons/md';
 import { VscCode } from 'react-icons/vsc';
 import { useNavigate } from 'react-router-dom';
 
@@ -316,6 +317,110 @@ const tools = [
             'Amazon Q Developer assists with IaC generation, CloudFormation, and CDK templates.',
             'Provides AI-guided root cause analysis for production incidents and CloudWatch anomalies.',
             'Cuts infrastructure provisioning time by 60% and MTTR for incidents by 40%.'
+        ]
+    },
+
+    // ── Design & Prototyping (new) ───────────────────────────────
+    {
+        icon: <SiReplit />,
+        name: 'Replit Agent',
+        category: ['Design & Prototyping', 'AI IDEs & Copilots'],
+        color: '#f26207',
+        visible: true,
+        points: [
+            'Cloud IDE where the AI agent plans architecture, writes code, installs deps, and deploys — all in-browser.',
+            'Describe your app in plain English; Agent builds full-stack apps with live preview and automated testing.',
+            'Zero local environment setup: ideal for rapid PoC delivery and client demos with instant public URLs.'
+        ]
+    },
+    {
+        icon: <SiStackblitz />,
+        name: 'Bolt.new',
+        category: ['Design & Prototyping'],
+        color: '#1389fd',
+        visible: true,
+        points: [
+            'Browser-based prompt-to-full-stack builder using WebContainers — no server or local install needed.',
+            'AI controls the filesystem, package manager, terminal, and browser console for complete app lifecycle management.',
+            'Compresses full-stack PoC delivery from days to under an hour with built-in hosting and database support.'
+        ]
+    },
+    {
+        icon: <FaPalette />,
+        name: 'Google Stitch',
+        category: ['Design & Prototyping'],
+        color: '#4285f4',
+        visible: true,
+        points: [
+            "Google's Gemini-powered AI tool that generates mobile and web UIs from natural language descriptions.",
+            'Rapidly iterates on interface concepts — from prompt to polished screen without writing CSS.',
+            'Bridges the gap between designer intent and developer output, accelerating early-stage design sprints.'
+        ]
+    },
+    {
+        icon: <SiVercel />,
+        name: 'v0 by Vercel',
+        category: ['Design & Prototyping'],
+        color: '#000000',
+        visible: true,
+        points: [
+            'Generates production-ready React + Tailwind UI components from plain text prompts.',
+            'Integrates with Git workflows and supports one-click Vercel deployment for instant live previews.',
+            'Compresses UI prototyping from days to minutes — used heavily for client demos and design sprints.'
+        ]
+    },
+
+    // ── Planning & Requirements (new) ────────────────────────────
+    {
+        icon: <FaSearch />,
+        name: 'Perplexity AI',
+        category: ['Planning & Requirements', 'Generative AI'],
+        color: '#20808d',
+        visible: true,
+        points: [
+            'AI-powered research engine that surfaces cited, real-time web sources for feasibility and market analysis.',
+            'Used for competitive intelligence, technical due diligence, and synthesising large research corpora.',
+            'Cuts research phase duration by up to 60% with source-backed, context-rich answers.'
+        ]
+    },
+
+    // ── AI IDEs & Copilots (new) ─────────────────────────────────
+    {
+        icon: <FaTerminal />,
+        name: 'Cline',
+        category: ['AI IDEs & Copilots'],
+        color: '#a97bff',
+        visible: true,
+        points: [
+            'Open-source VS Code AI agent (BYOM) — pair it with Ollama/Llama for fully on-premise coding assistance.',
+            'Autonomously reads, writes, and executes multi-file changes from plain English instructions.',
+            'Privacy-first alternative to cloud copilots — ideal for regulated industries where code must stay on-prem.'
+        ]
+    },
+
+    // ── Agentic Platforms (new) ──────────────────────────────────
+    {
+        icon: <FaDatabase />,
+        name: 'LlamaIndex',
+        category: ['Agentic Platforms'],
+        color: '#6b3fa0',
+        visible: true,
+        points: [
+            'Industry-standard data framework for building RAG pipelines and LLM-powered agents grounded in enterprise data.',
+            'Connects LLMs to internal databases, PDFs, APIs, and knowledge bases with structured query routing.',
+            'Dramatically reduces hallucinations by grounding AI responses in verified proprietary data sources.'
+        ]
+    },
+    {
+        icon: <MdAutoFixHigh />,
+        name: 'Dify.ai',
+        category: ['Agentic Platforms'],
+        color: '#1d4ed8',
+        visible: true,
+        points: [
+            'Open-source visual platform with drag-and-drop workflow studio, Prompt IDE, and LLMOps monitoring.',
+            'Orchestrates custom AI agents and pipelines — non-technical stakeholders can build and deploy without code.',
+            'Supports any LLM backend (OpenAI, Claude, Ollama) with built-in observability and version control.'
         ]
     },
 ];
