@@ -15,16 +15,16 @@ const ServicesSection = () => {
             path: "/services/web-mobile-development"
         },
         {
-            icon: <FaCloud />,
-            title: "Cloud & DevOps Engineering",
-            description: "Streamlining operations with automated CI/CD and secure cloud architecture.",
-            path: "/services/cloud-devops"
-        },
-        {
             icon: <FaBrain />,
             title: "AI & Data Science Solutions",
             description: "Transforming raw data into actionable intelligence with custom ML models.",
             path: "/services/ai-data-science"
+        },
+        {
+            icon: <FaCloud />,
+            title: "Cloud & DevOps Engineering",
+            description: "Streamlining operations with automated CI/CD and secure cloud architecture.",
+            path: "/services/cloud-devops"
         },
         {
             icon: <FaCheckCircle />,
@@ -43,14 +43,15 @@ const ServicesSection = () => {
             title: "IT Management",
             description: "Full-lifecycle IT management to drive business agility and innovation.",
             path: "/services/it-management"
-        },
-        {
-            icon: <MdAutoAwesome />,
-            title: "AI-Powered Tech Stack",
-            description: "Discover the cutting-edge AI tools we use across every SDLC stage to build faster and smarter.",
-            path: "/services/ai-tech-stack"
         }
     ];
+
+    const aiService = [{
+        icon: <MdAutoAwesome />,
+        title: "AI-Powered Tech Stack",
+        description: "Discover the cutting-edge AI tools we use across every SDLC stage to build faster and smarter.",
+        path: "/services/ai-tech-stack"
+    }];
 
     return (
         <section className={styles.servicesSection}>
@@ -92,8 +93,27 @@ const ServicesSection = () => {
                             <div className={styles.glassBackground}></div>
                             <div className={styles.cardContent}>
                                 <div className={styles.serviceIcon}>{service.icon}</div>
-                                <h4 className={styles.serviceTitle}>{service.title}</h4>
-                                <p className={styles.serviceDescription}>{service.description}</p>
+                                <div className={styles.serviceTextGroup}>
+                                    <h4 className={styles.serviceTitle}>{service.title}</h4>
+                                    <p className={styles.serviceDescription}>{service.description}</p>
+                                </div>
+                            </div>
+                            <div className={styles.cardIndicator}></div>
+                        </div>
+                    ))}
+                    {aiService.map((service, index) => (
+                        <div
+                            key={index}
+                            className={`${styles.serviceCard} ${styles.aiServiceCard}`}
+                            onClick={() => navigate(service.path)}
+                        >
+                            <div className={styles.glassBackground}></div>
+                            <div className={styles.cardContent}>
+                                <div className={styles.serviceIcon}>{service.icon}</div>
+                                <div className={styles.serviceTextGroup}>
+                                    <h4 className={styles.serviceTitle}>{service.title}</h4>
+                                    <p className={styles.serviceDescription}>{service.description}</p>
+                                </div>
                             </div>
                             <div className={styles.cardIndicator}></div>
                         </div>
