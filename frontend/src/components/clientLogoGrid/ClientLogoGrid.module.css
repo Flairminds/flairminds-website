@@ -1,0 +1,116 @@
+/* ===== SECTION ===== */
+.section {
+    /* background: #f8fafc; */
+    /* border-top: 1px solid rgba(0, 91, 161, 0.08); */
+    /* border-bottom: 1px solid rgba(0, 91, 161, 0.08); */
+    padding: 2.2rem 0 2rem;
+}
+
+.inner {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+/* ===== EYEBROW LABEL ===== */
+.eyebrow {
+    text-align: center;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1rem;
+    letter-spacing: 3px;
+    color: #005ba1;
+    text-transform: uppercase;
+    opacity: 0.7;
+}
+
+/* ===== SLIDER ===== */
+.sliderWrapper {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Soft fade masks on left & right */
+.fade {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    width: 120px;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.fade[data-side="left"] {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc 0%, transparent 100%);
+}
+
+.fade[data-side="right"] {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc 0%, transparent 100%);
+}
+
+/* ===== TRACK ===== */
+.track {
+    display: flex;
+    align-items: center;
+    gap: 0;
+    width: max-content;
+    animation: scroll 40s linear infinite;
+}
+
+.track:hover {
+    animation-play-state: paused;
+}
+
+@keyframes scroll {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-50%);
+    }
+}
+
+/* ===== LOGO CARD ===== */
+.logoCard {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.75rem 2.5rem;
+    /* border-right: 1px solid rgba(0, 91, 161, 0.08); */
+    flex-shrink: 0;
+    transition: background 0.25s ease;
+}
+
+.logo {
+    height: 75px;
+    max-width: 130px;
+    width: auto;
+    object-fit: contain;
+    /* Greyscale by default, full color on hover */
+    /* filter: grayscale(100%) brightness(0.7); */
+    opacity: 0.85;
+    transition: filter 0.3s ease, opacity 0.3s ease;
+}
+
+.logoCard:hover .logo {
+    filter: grayscale(0%) brightness(1);
+    opacity: 1;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 768px) {
+    .logoCard {
+        padding: 0.75rem 1.8rem;
+    }
+
+    .logo {
+        height: 28px;
+        max-width: 100px;
+    }
+
+    .fade {
+        width: 60px;
+    }
+}

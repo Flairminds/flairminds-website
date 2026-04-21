@@ -7,6 +7,7 @@ import HeroSection from "../../components/heroSlider/HeroSection"
 import AiToolsStrip from "../../components/aiToolsStrip/AiToolsStrip"
 import CaseStudiesStrip from "../../components/aiToolsStrip/CaseStudiesStrip"
 import SolutionsStrip from "../../components/aiToolsStrip/SolutionsStrip"
+import ClientLogoGrid from "../../components/clientLogoGrid/ClientLogoGrid"
 
 const Home = () => {
     return (
@@ -21,6 +22,7 @@ const Home = () => {
                 <AboutUs />
                 <ClientsSection />
                 <ClientLogos />
+                {/* <ClientLogoGrid /> */}
             </div>
         </div>
     )
