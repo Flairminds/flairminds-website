@@ -5,6 +5,7 @@ import ShadowLightBlog from './shadowlight/ShadowLightBlog';
 import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
 import StrapiBlog from './strapi-blog/StrapiBlog';
 import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
+import DocExtractBlog from './doc-extract-research/DocExtractBlog';
 
 export const blogs = [{
     id: 1,
@@ -69,4 +70,13 @@ export const blogs = [{
     author: 'FlairMinds Team',
     tags: ['Agentic AI', 'Multi-Agent Systems', 'LLM', 'ReAct', 'AI Architecture', 'RAG', 'LangGraph'],
     component: AgenticAIBlog,
+}, {
+    id: 8,
+    file: 'doc-extract-research',
+    title: 'Benchmarking Modern Document Intelligence: OCR, VLMs, and Layout Parsers',
+    excerpt: 'A comprehensive benchmarking study comparing PaddleOCR, LlamaParse, Gemini Vision, PyMuPDF4LLM, MinerU, and Azure Document Intelligence across various document types. We evaluate their performance on digital text, scanned images, complex tables, charts, and handwritten notes.',
+    date: 'April 23, 2026',
+    author: 'FlairMinds Research',
+    tags: ['Document Intelligence', 'OCR', 'RAG', 'VLM', 'AzureDI'],
+    component: DocExtractBlog,
 }];
