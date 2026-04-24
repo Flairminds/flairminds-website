@@ -77,13 +77,13 @@ const ContactForm = () => {
       }
 
       // Also save visitor details to backend API
-      const response = await axios.post(`${baseUrl}/visitors/enter-visitor`, visitorDetails, { headers: { Accept: 'application/json', "Content-Type": "application/json" } })
-      redirectUrl && (window.location.href = redirectUrl)
-      setVisitorDetails({ name: "", phone: "", email: "", industry: "", organization: "", message: "" })
-      setSubmitResponse(response.data)
+      // const response = await axios.post(`${baseUrl}/visitors/enter-visitor`, visitorDetails, { headers: { Accept: 'application/json', "Content-Type": "application/json" } })
+      // redirectUrl && (window.location.href = redirectUrl)
+      // setVisitorDetails({ name: "", phone: "", email: "", industry: "", organization: "", message: "" })
+      // setSubmitResponse(response.data)
       setSubmitting(false)
-      dispatch(toggleModal({ interest: null, redirectUrl: null }))
-      demoLink && dispatch(toggleDemoModal())
+      // dispatch(toggleModal({ interest: null, redirectUrl: null }))
+      // demoLink && dispatch(toggleDemoModal())
     } catch (error) {
       setError(true)
       setSubmitting(false)
