@@ -12,7 +12,7 @@ const Navbar = React.memo(({ scrolled }) => {
   const navigate = useNavigate();
 
   // Detect light background pages
-  const isLightBg = ['/blogs', '/store', '/case-study', '/contact', '/services/ai-data-science'].includes(location.pathname);
+  const isLightBg = ['/blogs', '/store', '/contact'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
 
   useEffect(() => {
     setUser(document.cookie.includes("auth=true"));

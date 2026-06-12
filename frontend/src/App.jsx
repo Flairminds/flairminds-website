@@ -40,6 +40,8 @@ const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'
 const AiPocDevelopment = lazy(() => import('./pages/aiPocDevelopment/AiPocDevelopment'));
 const AiMdmCaseStudy = lazy(() => import('./pages/aiMdmCaseStudy/AiMdmCaseStudy'));
 const SwiftIQCaseStudy = lazy(() => import('./pages/swiftiqCaseStudy/SwiftIQCaseStudy'));
+const SupplyChainCaseStudy = lazy(() => import('./pages/supplyChainCaseStudy/SupplyChainCaseStudy'));
+
 
 // Service Pages
 const WebMobileDevelopment = lazy(
@@ -71,7 +73,7 @@ const RedirectToHome = lazy(
   () => import("./components/redirectToHome/RedirectToHome"),
 );
 const BlogsLayout = lazy(() =>
-  import("./blogs/BlogsLayout").then((module) => ({
+  import("./pages/blogsLayout/BlogsLayout").then((module) => ({
     default: module.BlogsLayout,
   })),
 );
@@ -117,6 +119,8 @@ function App() {
               <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
               <Route exact path='/case-study/ai-mdm-platform' element={<AiMdmCaseStudy />} />
               <Route exact path='/case-study/swiftiq-guard' element={<SwiftIQCaseStudy />} />
+              <Route exact path='/case-study/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
+
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />
               <Route exact path='/services/web-mobile-development' element={<WebMobileDevelopment />} />
