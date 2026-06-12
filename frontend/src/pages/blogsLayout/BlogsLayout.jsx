@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom";
-import { blogs } from "./index";
+import { blogs } from "../../blogs/index";
 import styles from "./BlogsLayout.module.css";
 
 export const BlogsLayout = () => {
