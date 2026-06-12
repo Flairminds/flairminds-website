@@ -65,6 +65,14 @@ High-value cross-border remittance transactions. Standardized API integration fo
 /case-study/vendor_risk_assessment — Vendor Risk Assessment [LIVE]
 Fast, data-driven third-party vendor/tenant risk evaluation. Reduced underwriting time for a major bank.
 
+/case-study/supply-chain-orchestration — Supply Chain Decision Orchestration [LIVE]
+Next-Gen Supply Chain Orchestration: "We Don't Just Provide Supply Chain Intelligence. We Orchestrate Decisions."
+FlairMinds autonomous decision engine synchronizes demand signals, procurement, inventory, and production in real-time across every node of the supply chain.
+Key sections: Dynamic Orchestration Loop (Demand Signals → Decision Brain → Cross-Node Action Reconciliation → Optimized Execution), Supply Chain Challenges We Solve (Inventory Inefficiencies, Logistics Cost Escalation, Demand Volatility, Manual Planning Processes), Intelligence Across Every Node (Demand Planning, Procurement, Inventory, Production Planning & Scheduling), Platform Showcase, Delivery Approach (Problem-first discovery → Data & process analysis → Architecture design → Build & deploy → Continuous optimization), Vertical Industries Served (Manufacturing & Assembly, Consumer Packaged Goods, Logistics & Distribution, Enterprise E-commerce, Pharmaceuticals & Healthcare).
+Measurable Outcomes: Working Capital reduced by up to 22% via dynamic buffer stock synchronization, improved Forecast Accuracy capturing real-time demand fluctuations, decreased operational Costs by smoothing production queues, slashed Machine Idle Time across all work centers.
+CTA: "Ready to Orchestrate Decisions? Discuss Your Orchestration Challenge."
+Stack: React, CSS Modules, LangGraph-style orchestration AI, real-time demand ingestion, enterprise integrations.
+
 # BLOGS (/blogs)
 
 /blogs/pdf-analyzer — Financial Analyzer: From PDFs to Interactive Insights [Oct 28, 2025]
