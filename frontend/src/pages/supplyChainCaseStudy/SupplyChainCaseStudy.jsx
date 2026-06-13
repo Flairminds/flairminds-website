@@ -24,8 +24,7 @@ const tabs = [
       { label: "Drag & Drop", cls: "teal" },
       { label: "Constraint-Aware", cls: "green" }
     ],
-    // img: ppds_workbench,
-    img: sc_gantt
+    img: ppds_workbench,
   },
   {
     title: "Gantt Chart & Production Timeline",
@@ -45,8 +44,7 @@ const tabs = [
       { label: "Capacity Analysis", cls: "teal" },
       { label: "Resource Balancing", cls: "green" }
     ],
-    // img: sc_capacity
-    img: sc_gantt
+    img: sc_capacity
   },
   {
     title: "Dashboard & KPI Overview",
@@ -66,8 +64,7 @@ const tabs = [
       { label: "Setup Times", cls: "teal" },
       { label: "Dependency Mgmt", cls: "green" }
     ],
-    // img: ppds_detail
-    img: sc_gantt
+    img: ppds_detail
   }
 ];
 
