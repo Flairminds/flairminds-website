@@ -24,7 +24,8 @@ const tabs = [
       { label: "Drag & Drop", cls: "teal" },
       { label: "Constraint-Aware", cls: "green" }
     ],
-    img: ppds_workbench
+    // img: ppds_workbench,
+    img: sc_gantt
   },
   {
     title: "Gantt Chart & Production Timeline",
@@ -44,7 +45,8 @@ const tabs = [
       { label: "Capacity Analysis", cls: "teal" },
       { label: "Resource Balancing", cls: "green" }
     ],
-    img: sc_capacity
+    // img: sc_capacity
+    img: sc_gantt
   },
   {
     title: "Dashboard & KPI Overview",
@@ -64,7 +66,8 @@ const tabs = [
       { label: "Setup Times", cls: "teal" },
       { label: "Dependency Mgmt", cls: "green" }
     ],
-    img: ppds_detail
+    // img: ppds_detail
+    img: sc_gantt
   }
 ];
 
@@ -368,6 +371,22 @@ export default function SupplyChainCaseStudy() {
                       {b.label}
                     </span>
                   ))}
+                </div>
+              </div>
+              <div className={styles.showcaseCardBody}>
+                <div className={styles.appWindow}>
+                  <div className={styles.windowTitlebar}>
+                    <span className={`${styles.windowDot} ${styles.dotRed}`}></span>
+                    <span className={`${styles.windowDot} ${styles.dotYellow}`}></span>
+                    <span className={`${styles.windowDot} ${styles.dotGreen}`}></span>
+                    <span className={styles.windowUrl}>app.flairminds.com/production-scheduler</span>
+                  </div>
+                  <img
+                    src={tabs[activeTab].img}
+                    alt={tabs[activeTab].title}
+                    loading="lazy"
+                    className={styles.appImage}
+                  />
                 </div>
               </div>
             </div>
