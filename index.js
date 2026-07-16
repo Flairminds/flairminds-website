@@ -1,5 +1,5 @@
+import 'dotenv/config' // load .env before any other module reads process.env
 import express from 'express'
-import dotenv from 'dotenv'
 import bodyParser from 'body-parser'
 import cors from 'cors'
 import cookieParser from 'cookie-parser'
@@ -19,7 +19,6 @@ import path from 'path'
 // import adminActionsRoute from './routes/adminActionsRoute.js'
 import chatRoute from './routes/chatRoute.js'
 
-dotenv.config()
 // Setting up server
 const PORT = process.env.PORT || 5001
 const app = express()

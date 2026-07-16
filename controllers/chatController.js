@@ -1,7 +1,7 @@
 import { GoogleGenerativeAI } from '@google/generative-ai';
 import websiteKnowledge from '../knowledge/website-knowledge.js';
 
-const GEMINI_KEY = process.env.GEMINI_API_KEY || 'AIzaSyC9RE8U-UPMMqI5pyXUocUQlCC0vVCspWI';
+const GEMINI_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_KEY);
 
 // Models to try in order — if one fails (e.g. 404 not available), the next is used
