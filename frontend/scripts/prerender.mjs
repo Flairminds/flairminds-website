@@ -17,7 +17,6 @@ const routes = [
   "/store",
   "/contact",
   "/about",
-  "/careers",
   "/case-study",
   "/case-study/ai_automation",
   "/case-study/ent_data_transformation",
