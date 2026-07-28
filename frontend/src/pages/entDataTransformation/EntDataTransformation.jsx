@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import styles from './EntDataTransformation.module.css';
+import Seo from '../../components/seo/Seo';
 import { FaDownload, FaCogs, FaStar, FaChartBar, FaDatabase, FaCloud, FaCheckCircle } from 'react-icons/fa';
 import { MdCloudDownload, MdTransform } from 'react-icons/md';
 
@@ -157,6 +158,11 @@ const EntDataTransformation = () => {
 
   return (
     <div className={styles.container}>
+      <Seo
+        title="Enterprise Data Transformation Case Study | FlairMinds"
+        description="A global investment leader overcame data silos and inconsistencies by centralizing fragmented data streams, reducing operational risk and improving reporting and compliance."
+        path="/case-study/ent_data_transformation"
+      />
       <div className={styles.wrapper}>
         <header className={styles.header}>
           <h1 className={styles.mainTitle}>Case Study: Enterprise Data Transformation</h1>

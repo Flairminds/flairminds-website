@@ -2,6 +2,7 @@ import React from 'react';
 import { useNavigate } from 'react-router-dom';
 import styles from './CaseStudies.module.css';
 import { FaArrowRight } from 'react-icons/fa';
+import Seo from '../../components/seo/Seo';
 
 // Assets
 import documentSearch from "../../assets/documentSearch.png"
@@ -156,6 +157,11 @@ export default function CaseStudies() {
 
     return (
         <div className={styles.mainContainer}>
+            <Seo
+                title="Case Studies | FlairMinds"
+                description="Discover how FlairMinds has helped global leaders solve their most complex technical challenges through innovation, precision, and architectural excellence."
+                path="/case-study"
+            />
             <section className={styles.heroSection}>
                 <div className={styles.heroContent}>
                     <div className={styles.systemStatus}>

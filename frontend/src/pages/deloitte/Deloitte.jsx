@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import Chart from 'chart.js/auto';
 import styles from './Deloitte.module.css';
+import Seo from '../../components/seo/Seo';
 
 const Deloitte = () => {
   useEffect(() => {
@@ -72,6 +73,11 @@ const Deloitte = () => {
 
   return (
     <div className={styles.container}>
+      <Seo
+        title="AI Automation Case Study | FlairMinds"
+        description="An AI-powered solution to extract structured data from diverse commercial tax documents, enabling faster, more accurate financial due diligence for US, Netherlands, and Canada."
+        path="/case-study/ai_automation"
+      />
       {/* <header className={styles.header}>
         <div className={styles.headerContent}>
           <h1 className={styles.headerTitle}>AI Automation Case Study</h1>

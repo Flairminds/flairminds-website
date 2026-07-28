@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import styles from './ESignPlatform.module.css';
+import Seo from '../../components/seo/Seo';
 
 Chart.register(...registerables);
 
@@ -94,8 +95,13 @@ const ESignPlatform = () => {
 
   return (
     <div className={styles.container}>
+      <Seo
+        title="E-Sign Platform Case Study | FlairMinds"
+        description="A comprehensive e-signature platform replacing manual paper-based workflows, with robust security, real-time authentication, and multi-party signing."
+        path="/case-study/e_sign_platform"
+      />
       <div className={styles.containerInner}>
-        
+
         <header className={styles.header}>
           <h1 className={styles.mainTitle}>Everysign: The Future of Digital Agreements</h1>
           <p className={styles.subtitle}>A case study by Flairminds on building a next-generation e-signature platform.</p>

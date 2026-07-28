@@ -4,6 +4,7 @@ import styles from './TestAutomation.module.css';
 import { FaPython, FaCogs, FaBullseye, FaChartBar, FaCube, FaRocket, FaLock, FaCheckCircle, FaCamera, FaProjectDiagram, FaBolt, FaDollarSign, FaShippingFast, FaTools, FaFileAlt, FaWrench, FaChartLine, FaMicrosoft } from 'react-icons/fa';
 import { SiPytest } from 'react-icons/si';
 import { GiArtificialIntelligence } from 'react-icons/gi';
+import Seo from '../../components/seo/Seo';
 
 const TestAutomation = () => {
     useEffect(() => {
@@ -128,6 +129,11 @@ const TestAutomation = () => {
 
     return (
         <div className={styles.container}>
+            <Seo
+                title="Enterprise Test Automation Case Study | FlairMinds"
+                description="A fully automated UI regression suite for PLC programming, eliminating manual testing and delivering an 85% reduction in regression time with 100% release confidence."
+                path="/case-study/test-automation"
+            />
             <main className="max-w-7xl mx-auto p-4 sm:p-6 lg:p-8">
                 <section id="hero" className={styles.hero}>
                     <h2 className={styles.heroTitle}>Enterprise Test Automation Framework</h2>

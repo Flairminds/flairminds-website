@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import Chart from 'chart.js/auto';
 import styles from './QuantFinance.module.css';
+import Seo from '../../components/seo/Seo';
 
 const QuantFinance = () => {
   const curriculumChartRef = useRef(null);
@@ -114,6 +115,11 @@ const QuantFinance = () => {
 
   return (
     <div className={styles.container}>
+      <Seo
+        title="Quantfinance Preparation Platform Case Study | FlairMinds"
+        description="A specialized resource for mastering complex quantitative finance topics and succeeding in rigorous interviews, built to lead quant interview preparation."
+        path="/case-study/quant_finance"
+      />
       <div className={styles.innerContainer}>
         <header className={styles.header}>
           <h1 className={styles.mainTitle}>

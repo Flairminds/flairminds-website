@@ -10,6 +10,7 @@ import { MdAutoAwesome, MdSpeed, MdTimeline, MdSecurity } from 'react-icons/md';
 import { GiArtificialIntelligence } from 'react-icons/gi';
 import { SiPython, SiReact, SiPostgresql } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
+import Seo from '../../components/seo/Seo';
 
 /* ─── Data ─────────────────────────────────────────────────────────────── */
 
@@ -217,6 +218,11 @@ const SwiftIQCaseStudy = () => {
 
     return (
         <div className={styles.container}>
+            <Seo
+                title="SwiftIQ Guard AML Compliance Platform Case Study | FlairMinds"
+                description="A privacy-first, on-premise SWIFT message screening platform with a 4-tier AI decision chain, delivering enterprise-grade AML compliance at 200x lower cost."
+                path="/case-study/swiftiq-guard"
+            />
             <main className={styles.mainContent}>
 
                 {/* ── Hero ─────────────────────────────────────── */}
