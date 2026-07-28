@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import styles from './FableFintech.module.css';
+import Seo from '../../components/seo/Seo';
 
 Chart.register(...registerables);
 
@@ -93,8 +94,13 @@ const FableFintech = () => {
 
   return (
     <div className={styles.container}>
+      <Seo
+        title="Fable Fintech Case Study | FlairMinds"
+        description="A seamless and secure way to handle high-value remittance transactions across international corridors, with standardized API integration for global banking partners."
+        path="/case-study/fable_fintech"
+      />
       <div className={styles.containerInner}>
-        
+
         <header className={styles.header}>
           <h1 className={styles.mainTitle}>Powering Global Remittance with AlfaNow</h1>
           <p className={styles.subtitle}>How Fable Fintech built a scalable API gateway for its financial partners.</p>

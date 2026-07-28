@@ -13,6 +13,7 @@ import { GiArtificialIntelligence } from 'react-icons/gi';
 import { MdSpeed, MdAutoAwesome, MdArchitecture, MdTimeline } from 'react-icons/md';
 import { SiPytorch, SiFastapi } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
+import Seo from '../../components/seo/Seo';
 
 const AiPocDevelopment = () => {
     const navigate = useNavigate();
@@ -173,6 +174,11 @@ const AiPocDevelopment = () => {
 
     return (
         <div className={styles.container}>
+            <Seo
+                title="AI-Powered PoC Development Case Study | FlairMinds"
+                description="Accelerating proof-of-concept delivery with AI across the entire SDLC, reducing turnaround time by 60% while maintaining enterprise-quality standards."
+                path="/case-study/ai-poc-development"
+            />
             <main className={styles.mainContent}>
                 {/* Hero Section */}
                 <section className={styles.hero}>

@@ -11,6 +11,7 @@ import { MdAutoAwesome, MdTimeline, MdSpeed, MdDragIndicator } from 'react-icons
 import { GiArtificialIntelligence } from 'react-icons/gi';
 import { SiFastapi, SiOracle, SiReact, SiPython, SiOllama } from 'react-icons/si';
 import { useNavigate } from 'react-router-dom';
+import Seo from '../../components/seo/Seo';
 
 const features = [
     {
@@ -117,6 +118,11 @@ const AiMdmCaseStudy = () => {
 
     return (
         <div className={styles.container}>
+            <Seo
+                title="AI MDM Platform Case Study | FlairMinds"
+                description="An AI-powered Master Data Management platform that automates data ingestion, profiling, deduplication, enrichment and pipeline building."
+                path="/case-study/ai-mdm-platform"
+            />
             <main className={styles.mainContent}>
 
                 {/* ── Hero ────────────────────────────────────────── */}

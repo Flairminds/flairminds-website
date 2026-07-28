@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Chart, registerables } from 'chart.js';
 import styles from './CloudOptimization.module.css';
+import Seo from '../../components/seo/Seo';
 
 Chart.register(...registerables);
 
@@ -123,6 +124,11 @@ const CloudOptimization = () => {
 
   return (
     <div className={styles.body}>
+      <Seo
+        title="Cloud Optimization Case Study | FlairMinds"
+        description="A rapidly growing SaaS AI platform required a complete redesign and migration of its existing cloud architecture to support increasing customer demands."
+        path="/case-study/cloud_optimization"
+      />
       <div className={styles.container}>
         <header className={styles.header}>
           <h1 className={styles.mainTitle}>Integrations. By AI. For AI.</h1>

@@ -17,6 +17,7 @@ const routes = [
   "/store",
   "/contact",
   "/about",
+  "/careers",
   "/case-study",
   "/case-study/ai_automation",
   "/case-study/ent_data_transformation",
@@ -101,9 +102,16 @@ async function main() {
         () => "<!DOCTYPE html>\n" + document.documentElement.outerHTML,
       );
 
-      const outDir = route === "/" ? distDir : path.join(distDir, route);
-      await mkdir(outDir, { recursive: true });
-      await writeFile(path.join(outDir, "index.html"), html, "utf-8");
+      // Flat "<route>.html" files, not "<route>/index.html": Azure Static Web
+      // Apps (and vite preview locally) only auto-resolve extensionless URLs
+      // to a sibling ".html" file, not to a subdirectory's index.html. Every
+      // internal link/canonical on this site omits the trailing slash, so a
+      // directory-based layout would silently miss the navigationFallback
+      // rewrite and serve the generic shell instead of the prerendered page.
+      const outPath =
+        route === "/" ? path.join(distDir, "index.html") : path.join(distDir, `${route}.html`);
+      await mkdir(path.dirname(outPath), { recursive: true });
+      await writeFile(outPath, html, "utf-8");
       count += 1;
       console.log(`prerendered ${route}`);
     } catch (err) {
