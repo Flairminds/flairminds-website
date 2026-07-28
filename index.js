@@ -60,7 +60,23 @@ app.use((req, res, next) => {
 // app.use('/admin', adminActionsRoute)
 app.use('/chat', chatRoute)
 // Serve static files from the 'dist' folder
-app.use(express.static('dist', { root: '.' }));
+app.use(express.static('dist', {
+    root: '.',
+    // Resolve extensionless routes (e.g. /about) to their prerendered
+    // "<route>.html" snapshot, matching how Azure Static Web Apps'
+    // navigationFallback behaves — without this, every route except "/"
+    // falls through to the generic index.html shell.
+    extensions: ['html'],
+    setHeaders: (res, filePath) => {
+        if (filePath.endsWith('.html')) {
+            // HTML must always revalidate so a new deploy is visible immediately.
+            res.setHeader('Cache-Control', 'no-cache');
+        } else {
+            // JS/CSS/etc are content-hashed by Vite, safe to cache long-term.
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+    },
+}));
 
 // Serve index.html for all routes (SPA fallback)
 app.get('*', (req, res) => {
