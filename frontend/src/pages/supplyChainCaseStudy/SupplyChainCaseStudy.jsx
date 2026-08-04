@@ -79,7 +79,7 @@ export default function SupplyChainCaseStudy() {
       <Seo
         title="AI-Powered Supply Chain Orchestration Case Study | FlairMinds"
         description="Explore how FlairMinds transformed supply chain operations with an AI-powered Supply Chain Orchestration solution, improving visibility, efficiency, and decision-making."
-        path="/case-study/supply-chain-orchestration"
+        path="/supply-chain-orchestration"
       />
       <section className={styles.heroSection}>
         <div className={`${styles.maxW7xl} ${styles.heroGrid}`}>

@@ -119,7 +119,7 @@ function App() {
               <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
               <Route exact path='/case-study/ai-mdm-platform' element={<AiMdmCaseStudy />} />
               <Route exact path='/case-study/swiftiq-guard' element={<SwiftIQCaseStudy />} />
-              <Route exact path='/case-study/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
+              <Route exact path='/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
 
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />

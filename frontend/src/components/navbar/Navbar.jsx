@@ -12,7 +12,7 @@ const Navbar = React.memo(({ scrolled }) => {
   const navigate = useNavigate();
 
   // Detect light background pages
-  const isLightBg = ['/blogs', '/store', '/contact'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
+  const isLightBg = ['/blogs', '/store', '/contact', '/supply-chain-orchestration'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
 
   useEffect(() => {
     setUser(document.cookie.includes("auth=true"));
@@ -36,7 +36,7 @@ const Navbar = React.memo(({ scrolled }) => {
       ]
     },
     { name: "Case Studies", activePath: "/case-study" },
-    { name: "Supply Chain", activePath: "/case-study/supply-chain-orchestration" },
+    { name: "Supply Chain", activePath: "/supply-chain-orchestration" },
     { name: "Solutions", activePath: "/store" },
     { name: "Blogs", activePath: "/blogs" },
     { name: "Careers", activePath: "/careers" },

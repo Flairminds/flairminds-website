@@ -30,7 +30,7 @@ const routes = [
   "/case-study/ai-poc-development",
   "/case-study/ai-mdm-platform",
   "/case-study/swiftiq-guard",
-  "/case-study/supply-chain-orchestration",
+  "/supply-chain-orchestration",
   "/blogs",
   "/blogs/pdf-analyzer",
   "/blogs/ai-productivity-challenge",
