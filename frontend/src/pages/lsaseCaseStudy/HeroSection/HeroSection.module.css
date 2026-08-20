@@ -1,0 +1,135 @@
+.hero {
+    background: linear-gradient(135deg, #0B1D35 0%, #132847 45%, #0E1521 100%);
+    text-align: center;
+    padding: 10rem 2rem 5rem;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+        radial-gradient(ellipse 80% 60% at 50% -10%, rgba(227, 166, 62, 0.12) 0%, transparent 60%),
+        radial-gradient(circle at 20% 80%, rgba(10, 147, 150, 0.06) 0%, transparent 40%),
+        radial-gradient(circle at 80% 20%, rgba(227, 166, 62, 0.08) 0%, transparent 40%);
+    pointer-events: none;
+}
+
+.heroContent {
+    position: relative;
+    z-index: 1;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.heroBadge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    background: rgba(227, 166, 62, 0.12);
+    border: 1px solid rgba(227, 166, 62, 0.35);
+    padding: 0.6rem 1.5rem;
+    border-radius: 50px;
+    margin-bottom: 2rem;
+    font-size: 0.83rem;
+    color: #E3A63E;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.heroBadgeIcon {
+    font-size: 1.1rem;
+}
+
+.heroTitle {
+    font-size: 3.2rem;
+    font-weight: 800;
+    color: #ffffff;
+    letter-spacing: -0.03em;
+    margin-bottom: 1.5rem;
+    line-height: 1.14;
+}
+
+.heroTitle mark {
+    background: none;
+    color: #E3A63E;
+}
+
+.heroSubtitle {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 740px;
+    margin: 0 auto 3rem;
+    line-height: 1.75;
+}
+
+.heroStats {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    margin-bottom: 2.5rem;
+}
+
+.heroStat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.heroStatNumber {
+    font-size: 2.6rem;
+    font-weight: 900;
+    color: #E3A63E;
+    line-height: 1;
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+}
+
+.heroStatLabel {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.65);
+    margin-top: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+.heroStatDivider {
+    width: 1px;
+    height: 50px;
+    background: rgba(255, 255, 255, 0.15);
+}
+
+.heroTags {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.6rem;
+}
+
+.heroTag {
+    font-size: 0.74rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    padding: 0.3rem 0.85rem;
+    border-radius: 99px;
+    border: 1.5px solid;
+}
+
+@media (max-width: 768px) {
+    .heroTitle {
+        font-size: 2.1rem;
+    }
+
+    .heroStats {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .heroStatDivider {
+        width: 50px;
+        height: 1px;
+    }
+}
