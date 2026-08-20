@@ -1,0 +1,113 @@
+.impactSection {
+    padding: 5rem 2rem;
+    background: #ffffff;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0B1D35;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.titleIcon {
+    color: #0A9396;
+}
+
+.sectionSubtitle {
+    color: #4B5563;
+    font-size: 1.05rem;
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.68;
+}
+
+.compareGrid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.compareCol {
+    border-radius: 1rem;
+    padding: 2rem 2rem 2.2rem;
+    border: 1px solid #E5E7EB;
+    background: #F8FAFC;
+}
+
+.compareColAfter {
+    border-color: rgba(196, 131, 26, 0.4);
+    background: linear-gradient(135deg, #fdf6e8 0%, #ffffff 100%);
+}
+
+.compareCol h3 {
+    font-size: 0.72rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #9CA3AF;
+    margin: 0;
+}
+
+.compareColAfter h3 {
+    color: #C4831A;
+}
+
+.compareList {
+    list-style: none;
+    margin: 1.1rem 0 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0.85rem;
+}
+
+.compareList li {
+    font-size: 0.9rem;
+    padding-left: 1.4rem;
+    position: relative;
+    color: #4B5563;
+    line-height: 1.55;
+}
+
+.compareColBefore li::before {
+    content: "\2013";
+    position: absolute;
+    left: 0;
+    color: #B23A2E;
+    font-weight: 700;
+}
+
+.compareColAfter li {
+    color: #1F2937;
+}
+
+.compareColAfter li::before {
+    content: "+";
+    position: absolute;
+    left: 0;
+    color: #0A9396;
+    font-weight: 700;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 1.75rem;
+        flex-direction: column;
+    }
+
+    .compareGrid {
+        grid-template-columns: 1fr;
+    }
+}

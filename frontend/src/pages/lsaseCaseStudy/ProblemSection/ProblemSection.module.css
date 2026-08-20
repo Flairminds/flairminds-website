@@ -1,0 +1,85 @@
+.problemSection {
+    padding: 5rem 2rem;
+    background: #ffffff;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.sectionTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0B1D35;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.titleIcon {
+    color: #0A9396;
+}
+
+.sectionSubtitle {
+    color: #4B5563;
+    font-size: 1.05rem;
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.68;
+}
+
+.problemGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.75rem;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.problemCard {
+    background: linear-gradient(135deg, #fdf6e8 0%, #ffffff 100%);
+    border: 1px solid rgba(196, 131, 26, 0.18);
+    border-radius: 1rem;
+    padding: 2rem;
+    transition: all 0.3s ease;
+}
+
+.problemCard:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 20px 40px rgba(196, 131, 26, 0.12);
+    border-color: #C4831A;
+}
+
+.problemNum {
+    font-family: 'JetBrains Mono', 'Courier New', monospace;
+    font-size: 0.85rem;
+    font-weight: 800;
+    color: #C4831A;
+    margin-bottom: 0.9rem;
+    letter-spacing: 0.05em;
+}
+
+.problemCard p {
+    color: #4B5563;
+    line-height: 1.65;
+    font-size: 0.93rem;
+    margin: 0;
+}
+
+.problemCard strong {
+    color: #1F2937;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 1.75rem;
+        flex-direction: column;
+    }
+
+    .problemGrid {
+        grid-template-columns: 1fr;
+    }
+}

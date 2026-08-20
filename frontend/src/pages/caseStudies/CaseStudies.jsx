@@ -10,8 +10,18 @@ import infraMonitoring from "../../assets/infraMonitoring.png"
 import leverageModelling from "../../assets/leverageModelling1.png"
 import aiagent from "../../assets/aiagent.png"
 import swiftiqGuard from "../../assets/swiftiqGuard.png"
+import lsaseLeadScoring from "../../assets/lsaseLeadScoring.svg"
 
 const caseStudiesData = [
+    {
+        id: "CASE_LSASE_12",
+        title: "LSASE — Lead Intelligence for Trading & Brokerage Sales",
+        description: "An explainable lead-scoring platform that blends retention, liquidity risk, and trading activity into a single 1–1000 priority score - so sales teams know which lead is worth the call before they dial.",
+        imageUrl: lsaseLeadScoring,
+        link: "lsase-lead-scoring",
+        status: "MVP",
+        developer: "Ganesh Phutane",
+    },
     // {
     //     id: "CASE_SC_11",
     //     title: "Supply Chain Decision Orchestration",

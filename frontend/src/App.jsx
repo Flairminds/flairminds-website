@@ -40,6 +40,7 @@ const TestAutomation = lazy(() => import('./pages/testAutomation/TestAutomation'
 const AiPocDevelopment = lazy(() => import('./pages/aiPocDevelopment/AiPocDevelopment'));
 const AiMdmCaseStudy = lazy(() => import('./pages/aiMdmCaseStudy/AiMdmCaseStudy'));
 const SwiftIQCaseStudy = lazy(() => import('./pages/swiftiqCaseStudy/SwiftIQCaseStudy'));
+const LsaseCaseStudy = lazy(() => import('./pages/lsaseCaseStudy/LsaseCaseStudy'));
 const SupplyChainCaseStudy = lazy(() => import('./pages/supplyChainCaseStudy/SupplyChainCaseStudy'));
 
 
@@ -119,6 +120,7 @@ function App() {
               <Route exact path='/case-study/ai-poc-development' element={<AiPocDevelopment />} />
               <Route exact path='/case-study/ai-mdm-platform' element={<AiMdmCaseStudy />} />
               <Route exact path='/case-study/swiftiq-guard' element={<SwiftIQCaseStudy />} />
+              <Route exact path='/case-study/lsase-lead-scoring' element={<LsaseCaseStudy />} />
               <Route exact path='/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
 
               <Route exact path='/blogs' element={<Blogs />} />
