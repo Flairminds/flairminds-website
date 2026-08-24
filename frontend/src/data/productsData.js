@@ -11,10 +11,40 @@ import legalai from '../assets/legalai.png'
 import aiagent from '../assets/aiagent.png'
 import n8nCiCd from '../assets/product-displays/n8n-cicd.png'
 import tpvra from '../assets/tpvra.jpg'
+import aiExecutiveAssistantImage from '../assets/product-displays/ai-executive-assistant/AI-exec-assistane-solutions.webp'
+import aiExecutiveAssistantDemo from '../assets/product-displays/ai-executive-assistant/ai-executive-assistant-demo.mp4'
 // import legalai from '../assets/Legal AI solution.mp4'
 export const products = [
   {
     id: 1,
+    linkDisplay: "ai_executive_assistant",
+    name: "AI Executive Assistant",
+    image: aiExecutiveAssistantImage,
+    detailsParagraphs: [
+      "Your Intelligent Executive Partner for Smarter Communication, Scheduling & Productivity.",
+      "Save 10+ Hours Every Week – Automate Emails, Meetings & Follow-ups.",
+    ],
+    subHeading: "Key Features of the Platform:",
+    list: [
+      "AI Email Assistant: Automatically prioritises, summarises, and extracts key actions from incoming emails, ensuring nothing important is missed.",
+      "Meeting Intelligence: Generates meeting briefs before discussions and creates Minutes of Meeting (MoM), decisions, and action items afterwards.",
+      "Smart Task & Follow-up Engine: Detects commitments from emails and meetings, assigns tasks, tracks deadlines, and drafts follow-up emails automatically.",
+      "Calendar & Scheduling Assistant: Organises meetings intelligently, manages schedules, and keeps your day on track with proactive reminders.",
+      "Enterprise-Ready & Secure: Deploy on-premises or private cloud with seamless integration across Gmail, Outlook, Teams, Zoom, Slack, and Google Calendar.",
+      "Built for CXOs, Founders, Executive Assistants, Project Managers & Enterprise Leaders – Let AI Handle the Routine While You Focus on Strategic Decisions."
+    ],
+    highlight: ["Save 10+ Hours Every Week", "AI Email Assistant", "Meeting Intelligence", "Smart Task & Follow-up Engine", "Calendar & Scheduling Assistant", "Enterprise-Ready & Secure", "CXOs, Founders, Executive Assistants, Project Managers & Enterprise Leaders"],
+    tags: ["CXOs", "Founders", "Executive Assistants", "Project Managers", "Enterprise Leaders"],
+    techTags: [],
+    upcomingFeatures: [],
+    demoButton: true,
+    demoLink: aiExecutiveAssistantDemo,
+    status: "released",
+    tagline: "Built for CXOs, Founders, Executive Assistants, Project Managers & Enterprise Leaders – Let AI Handle the Routine While You Focus on Strategic Decisions.",
+    cta: "Let AI Handle the Routine While You Focus on Strategic Decisions.",
+    developer: "",
+  }, {
+    id: 2,
     linkDisplay: "n8n_ci_cd",
     name: "Agentic AI + CI/CD using n8n",
     image: n8nCiCd,

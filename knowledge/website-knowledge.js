@@ -120,6 +120,10 @@ Contact (/contact): Project inquiries, demos, pricing. Responds within 24hrs.
 # PRODUCTS / SOLUTIONS STORE (/store or /)
 20+ AI solutions, 100% enterprise-ready, ROI-focused. AI-powered search available on the store page.
 
+/store#ai_executive_assistant — AI Executive Assistant [RELEASED]
+Tags: CXOs, Founders, Executive Assistants, Project Managers, Enterprise Leaders
+Save 10+ hrs/week automating emails, meetings & follow-ups. AI Email Assistant (prioritises/summarises/extracts actions), Meeting Intelligence (pre-meeting briefs + auto MoM/decisions/action items), Smart Task & Follow-up Engine (detects commitments, tracks deadlines, drafts follow-ups), Calendar & Scheduling Assistant (proactive reminders), Enterprise-Ready & Secure (on-prem/private cloud, integrates Gmail, Outlook, Teams, Zoom, Slack, Google Calendar). Demo video available.
+
 /store#n8n_ci_cd — Agentic AI + CI/CD using n8n [RELEASED]
 Tags: DevOps, Tech Managers, Code Review | Tech: n8n, CI/CD
 Automated AI-powered code review & security review platform. Closed environment (data security), tailored workflows per project, PR suggestions. Link: https://n8n.flairminds.com/workflow/TTS3rskm8Stfhtn1

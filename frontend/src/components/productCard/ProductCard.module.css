@@ -82,6 +82,33 @@
   word-wrap: break-word;
 }
 
+/* Tags */
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.tag,
+.tech_tag {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+}
+
+.tag {
+  background: rgba(0, 91, 161, 0.08);
+  color: #005ba1;
+}
+
+.tech_tag {
+  background: rgba(15, 23, 42, 0.06);
+  color: #0f172a;
+}
+
 /* Paragraph */
 
 .details_container p {
