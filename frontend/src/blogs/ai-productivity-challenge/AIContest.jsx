@@ -6,15 +6,16 @@ import eventPhoto1 from '../../assets/blogs/ai-contest-1.jpg';
 import eventPhoto2 from '../../assets/blogs/ai-contest-2.jpg';
 import shivaniPhoto from '../../assets/blogs/ai-contest-3.jpg';
 import gauravPhoto from '../../assets/blogs/ai-contest-4.jpg';
+import Seo from '../../components/seo/Seo';
 
 const AIContest = () => {
     return (
         <>
-            <head>
-                <title>AI Productivity Challenge - Empowering Innovation</title>
-                <meta name="description" content="Celebrating our team's journey in harnessing AI for enhanced productivity and innovation" />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="AI Productivity Challenge - Empowering Innovation"
+                description="Celebrating our team's journey in harnessing AI for enhanced productivity and innovation"
+                path="/blogs/ai-productivity-challenge"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>

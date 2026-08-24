@@ -4,8 +4,8 @@
 User-agent: *
 Allow: /
 
-# Sitemap location (update with your actual domain)
-# Sitemap: https://www.flairminds.com/sitemap.xml
+# Sitemap location
+Sitemap: https://www.flairminds.com/sitemap.xml
 
 # Disallow admin/dashboard areas
 Disallow: /dashboard

@@ -24,18 +24,16 @@ import { MdApi, MdAutoFixHigh, MdHub } from 'react-icons/md';
 import HeroImage from './agentic-ai-hero.png';
 import SpectrumDiagram from './ai-spectrum-diagram.jpeg';
 import MasArchDiagram from './mas-architecture-diagram.png';
+import Seo from '../../components/seo/Seo';
 
 const AgenticAIBlog = () => {
     return (
         <>
-            <head>
-                <title>From Chatbots to Digital Employees: The Rise of Agentic AI &amp; Multi-Agent Systems | FlairMinds</title>
-                <meta
-                    name="description"
-                    content="Explore the architectural shift from Generative AI to Agentic Systems. Learn how to build autonomous AI agents and multi-agent systems — including when to use them, how to implement them, and key engineering considerations."
-                />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="From Chatbots to Digital Employees: The Rise of Agentic AI & Multi-Agent Systems | FlairMinds"
+                description="Explore the architectural shift from Generative AI to Agentic Systems. Learn how to build autonomous AI agents and multi-agent systems — including when to use them, how to implement them, and key engineering considerations."
+                path="/blogs/agentic-ai"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>

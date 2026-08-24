@@ -1,0 +1,41 @@
+// Single source of truth for every public route on the site.
+// Shared by scripts/prerender.mjs (static HTML snapshots for crawlers) and
+// scripts/generate-sitemap.mjs (sitemap.xml) so the two can never drift apart —
+// add a new page here once and both the prerendered snapshot and the sitemap
+// entry follow automatically.
+export const routes = [
+  "/",
+  "/store",
+  "/contact",
+  "/about",
+  "/careers",
+  "/case-study",
+  "/case-study/ai_automation",
+  "/case-study/ent_data_transformation",
+  "/case-study/cloud_optimization",
+  "/case-study/quant_finance",
+  "/case-study/e_sign_platform",
+  "/case-study/fable_fintech",
+  "/case-study/vendor_risk_assessment",
+  "/case-study/test-automation",
+  "/case-study/ai-poc-development",
+  "/case-study/ai-mdm-platform",
+  "/case-study/swiftiq-guard",
+  "/supply-chain-orchestration",
+  "/blogs",
+  "/blogs/pdf-analyzer",
+  "/blogs/ai-productivity-challenge",
+  "/blogs/ai-powered-web-scraping-and-reporting",
+  "/blogs/shadowlight",
+  "/blogs/azure-sandbox",
+  "/blogs/strapi-blog",
+  "/blogs/agentic-ai",
+  "/blogs/doc-extract-research",
+  "/services/web-mobile-development",
+  "/services/cloud-devops",
+  "/services/ai-data-science",
+  "/services/quality-engineering",
+  "/services/digital-transformation",
+  "/services/it-management",
+  "/services/ai-tech-stack",
+];

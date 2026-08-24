@@ -1,14 +1,15 @@
 import React from 'react';
 import styles from './PdfAnalyzer.module.css';
+import Seo from '../../components/seo/Seo';
 
 const PdfAnalyzer = () => {
   return (
     <>
-      <head>
-        <title>Financial Analyzer Project Documentation</title>
-        <meta name="description" content="Turn messy financial PDFs into analyzable, interactive insights" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-      </head>
+      <Seo
+        title="Financial Analyzer Project Documentation"
+        description="Turn messy financial PDFs into analyzable, interactive insights"
+        path="/blogs/pdf-analyzer"
+      />
 
       <div className={styles.container}>
         <div className={styles.content}>

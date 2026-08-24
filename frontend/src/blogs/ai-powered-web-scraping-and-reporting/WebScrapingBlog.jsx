@@ -20,15 +20,16 @@ import {
 } from 'react-icons/fa';
 import { MdOutlineDocumentScanner, MdAutorenew } from 'react-icons/md';
 import { BiGitBranch } from 'react-icons/bi';
+import Seo from '../../components/seo/Seo';
 
 const WebScrapingBlog = () => {
     return (
         <>
-            <head>
-                <title>AI-Powered Web Scraping & Report Generation - Technical Deep Dive</title>
-                <meta name="description" content="A comprehensive look at the engineering challenges and solutions behind combining async web crawling, document parsing, and LLM integration in a Streamlit application." />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="AI-Powered Web Scraping & Report Generation - Technical Deep Dive"
+                description="A comprehensive look at the engineering challenges and solutions behind combining async web crawling, document parsing, and LLM integration in a Streamlit application."
+                path="/blogs/ai-powered-web-scraping-and-reporting"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>

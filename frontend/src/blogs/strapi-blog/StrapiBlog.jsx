@@ -22,18 +22,16 @@ import { MdApi, MdContentPaste, MdDashboard, MdSecurity } from 'react-icons/md';
 import HeroImage from './strapi-hero.png';
 import FlowDiagram from './strapi-flow-diagram.png';
 import ArchDiagram from './strapi-arch-diagram.png';
+import Seo from '../../components/seo/Seo';
 
 const StrapiBlog = () => {
     return (
         <>
-            <head>
-                <title>Decoupling Content from Code: Strapi-Powered CMS Architecture | FlairMinds</title>
-                <meta
-                    name="description"
-                    content="How FlairMinds implemented Strapi as a headless CMS to decouple content management from frontend code — enabling faster publishing, zero deployments, and scalable content workflows."
-                />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="Decoupling Content from Code: Strapi-Powered CMS Architecture | FlairMinds"
+                description="How FlairMinds implemented Strapi as a headless CMS to decouple content management from frontend code — enabling faster publishing, zero deployments, and scalable content workflows."
+                path="/blogs/strapi-blog"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>
