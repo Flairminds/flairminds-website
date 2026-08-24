@@ -35,6 +35,16 @@ jobs:
          rm -rf dist
          mv frontend/dist dist
 
+      - name: Trim build artifact
+        # index.js only needs the repo-root node_modules (Express etc.) and
+        # dist/ at runtime. frontend/node_modules (~600MB+) and .git are
+        # dev-time-only weight that bloated the deploy zip enough to cause
+        # Kudu 504 timeouts on `az webapp deploy`.
+        run: |
+         rm -rf frontend/node_modules
+         rm -rf .git
+         rm -f "site 3.html"
+
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v4
         with:
@@ -86,4 +96,5 @@ jobs:
             --src-path app.zip \
             --type zip \
             --clean true \
-            --restart true
+            --restart true \
+            --timeout 1800
