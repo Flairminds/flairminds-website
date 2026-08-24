@@ -21,18 +21,16 @@ import HeroImage from './azure-sandbox-hero.png';
 import IsolationImage from './azure-sandbox-isolation.png';
 import SandboxArchitectureImage from './sandboxing-architecture.jpg';
 import MultitenantImage from './azure-multitenant-arch.png';
+import Seo from '../../components/seo/Seo';
 
 const AzureSandboxBlog = () => {
     return (
         <>
-            <head>
-                <title>Inside Azure App Service Sandboxing | FlairMinds</title>
-                <meta
-                    name="description"
-                    content="An in-depth look at how Microsoft secures multi-tenant cloud applications through sandboxing in Azure App Service — isolation, resource governance, and architecture explained."
-                />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="Inside Azure App Service Sandboxing | FlairMinds"
+                description="An in-depth look at how Microsoft secures multi-tenant cloud applications through sandboxing in Azure App Service — isolation, resource governance, and architecture explained."
+                path="/blogs/azure-sandbox"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>

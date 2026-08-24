@@ -7,47 +7,11 @@ import puppeteer from "puppeteer";
 import { mkdir, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
+import { routes } from "./routes.mjs";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const rootDir = path.resolve(__dirname, "..");
 const distDir = path.join(rootDir, "dist");
-
-const routes = [
-  "/",
-  "/store",
-  "/contact",
-  "/about",
-  "/careers",
-  "/case-study",
-  "/case-study/ai_automation",
-  "/case-study/ent_data_transformation",
-  "/case-study/cloud_optimization",
-  "/case-study/quant_finance",
-  "/case-study/e_sign_platform",
-  "/case-study/fable_fintech",
-  "/case-study/vendor_risk_assessment",
-  "/case-study/test-automation",
-  "/case-study/ai-poc-development",
-  "/case-study/ai-mdm-platform",
-  "/case-study/swiftiq-guard",
-  "/supply-chain-orchestration",
-  "/blogs",
-  "/blogs/pdf-analyzer",
-  "/blogs/ai-productivity-challenge",
-  "/blogs/ai-powered-web-scraping-and-reporting",
-  "/blogs/shadowlight",
-  "/blogs/azure-sandbox",
-  "/blogs/strapi-blog",
-  "/blogs/agentic-ai",
-  "/blogs/doc-extract-research",
-  "/services/web-mobile-development",
-  "/services/cloud-devops",
-  "/services/ai-data-science",
-  "/services/quality-engineering",
-  "/services/digital-transformation",
-  "/services/it-management",
-  "/services/ai-tech-stack",
-];
 
 async function main() {
   const server = await preview({

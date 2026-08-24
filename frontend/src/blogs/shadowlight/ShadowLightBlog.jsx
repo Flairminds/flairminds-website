@@ -22,15 +22,16 @@ import AccessibilityImage from './accesibility image.png';
 import IntelligenceImage from './Intelligence image.png';
 import AssistantImage from './Assistant image.png';
 import HeroImage from './hero-image.png';
+import Seo from '../../components/seo/Seo';
 
 const ShadowLightBlog = () => {
     return (
         <>
-            <head>
-                <title>ShadowLight: AI-Powered Accessibility - Building with AI in Record Time</title>
-                <meta name="description" content="How our intern team leveraged AI to build a production-ready Chrome extension in 2 weeks. Discover the technical architecture, AI-accelerated development workflow, and a 50% reduction in build time." />
-                <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-            </head>
+            <Seo
+                title="ShadowLight: AI-Powered Accessibility - Building with AI in Record Time"
+                description="How our intern team leveraged AI to build a production-ready Chrome extension in 2 weeks. Discover the technical architecture, AI-accelerated development workflow, and a 50% reduction in build time."
+                path="/blogs/shadowlight"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>

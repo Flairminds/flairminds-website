@@ -11,17 +11,16 @@ import HeroImage from './doc-extract-hero.png';
 import BenchmarkChart from './benchmark-scores-chart.png';
 import ArchitectureDiagram from './docextract-architecture.png';
 import SelectionGuide from './engine-selection-guide.png';
+import Seo from '../../components/seo/Seo';
 
 const DocExtractBlog = () => {
     return (
         <>
-            <head>
-                <title>Benchmarking Modern Document Intelligence | FlairMinds</title>
-                <meta
-                    name="description"
-                    content="A comprehensive benchmarking study comparing PaddleOCR, LlamaParse, Gemini Vision, PyMuPDF4LLM, MinerU, and Azure Document Intelligence across various document types."
-                />
-            </head>
+            <Seo
+                title="Benchmarking Modern Document Intelligence | FlairMinds"
+                description="A comprehensive benchmarking study comparing PaddleOCR, LlamaParse, Gemini Vision, PyMuPDF4LLM, MinerU, and Azure Document Intelligence across various document types."
+                path="/blogs/doc-extract-research"
+            />
 
             <div className={styles.container}>
                 <div className={styles.content}>
