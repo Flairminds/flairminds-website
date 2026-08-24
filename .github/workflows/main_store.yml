@@ -38,8 +38,9 @@ jobs:
       - name: Trim build artifact
         # index.js only needs the repo-root node_modules (Express etc.) and
         # dist/ at runtime. frontend/node_modules (~600MB+) and .git are
-        # dev-time-only weight that bloated the deploy zip enough to cause
-        # Kudu 504 timeouts on `az webapp deploy`.
+        # dev-time-only weight with no runtime purpose — trimming them
+        # speeds up the artifact upload/download between jobs regardless
+        # of which deploy mechanism is used.
         run: |
          rm -rf frontend/node_modules
          rm -rf .git
@@ -71,30 +72,10 @@ jobs:
           tenant-id: ${{ secrets.AZUREAPPSERVICE_TENANTID_B7564F0F2D824A15B243011F37BFBDE4 }}
           subscription-id: ${{ secrets.AZUREAPPSERVICE_SUBSCRIPTIONID_F1DAF8C807074433813C25EAF4564CBA }}
 
-      - name: Zip artifact for deployment
-        run: zip -r app.zip . -x 'app.zip'
-
-      - name: 'Deploy to Azure Web App (clean)'
+      - name: 'Deploy to Azure Web App'
         id: deploy-to-webapp
-        run: |
-          RG=$(az webapp list --query "[?name=='store'].resourceGroup" -o tsv | head -n1)
-          if [ -z "$RG" ]; then
-            echo "Could not resolve resource group for Web App 'store'" >&2
-            exit 1
-          fi
-          # --clean true wipes /home/site/wwwroot before extracting the new
-          # zip, so files removed or renamed in this deploy (e.g. the old
-          # per-route "<slug>/index.html" prerender snapshots superseded by
-          # flat "<slug>.html" files) can't linger and shadow the new ones.
-          # No --slot: this app has no named deployment slots, so the
-          # default/production slot is implicit (matches the previous
-          # step's slot-name: 'Production', which is that action's way of
-          # saying the same thing).
-          az webapp deploy \
-            --resource-group "$RG" \
-            --name store \
-            --src-path app.zip \
-            --type zip \
-            --clean true \
-            --restart true \
-            --timeout 1800
+        uses: azure/webapps-deploy@v3
+        with:
+          app-name: 'store'
+          slot-name: 'Production'
+          package: .
