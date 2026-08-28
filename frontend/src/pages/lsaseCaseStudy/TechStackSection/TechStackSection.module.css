@@ -1,0 +1,84 @@
+.techSection {
+    padding: 1.5rem 2rem 4rem;
+    background: #ffffff;
+}
+
+.sectionHeader {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.sectionTitle {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: #0B1D35;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+}
+
+.titleIcon {
+    color: #0A9396;
+}
+
+.sectionSubtitle {
+    color: #4B5563;
+    font-size: 1.05rem;
+    max-width: 660px;
+    margin: 0 auto;
+    line-height: 1.68;
+}
+
+.techGrid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.9rem;
+    max-width: 1180px;
+    margin: 0 auto;
+}
+
+.techCard {
+    display: flex;
+    align-items: center;
+    gap: 0.65rem;
+    background: #F8FAFC;
+    border: 1px solid #E5E7EB;
+    border-radius: 50px;
+    padding: 0.75rem 1.5rem;
+    white-space: nowrap;
+    transition: all 0.25s ease;
+}
+
+.techCard:hover {
+    border-color: #C4831A;
+    background: rgba(196, 131, 26, 0.05);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(196, 131, 26, 0.1);
+}
+
+.techIcon {
+    font-size: 1.5rem;
+    color: #C4831A;
+}
+
+.techLabel {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #1F2937;
+}
+
+@media (max-width: 768px) {
+    .sectionTitle {
+        font-size: 1.75rem;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 460px) {
+    .techCard {
+        white-space: normal;
+    }
+}
