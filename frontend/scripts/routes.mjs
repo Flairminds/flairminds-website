@@ -22,6 +22,7 @@ export const routes = [
   "/case-study/ai-mdm-platform",
   "/case-study/swiftiq-guard",
   "/supply-chain-orchestration",
+  "/industrial-building-automation",
   "/blogs",
   "/blogs/pdf-analyzer",
   "/blogs/ai-productivity-challenge",

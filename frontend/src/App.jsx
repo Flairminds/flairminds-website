@@ -42,6 +42,7 @@ const AiMdmCaseStudy = lazy(() => import('./pages/aiMdmCaseStudy/AiMdmCaseStudy'
 const SwiftIQCaseStudy = lazy(() => import('./pages/swiftiqCaseStudy/SwiftIQCaseStudy'));
 const LsaseCaseStudy = lazy(() => import('./pages/lsaseCaseStudy/LsaseCaseStudy'));
 const SupplyChainCaseStudy = lazy(() => import('./pages/supplyChainCaseStudy/SupplyChainCaseStudy'));
+const IndustrialBuildingAutomation = lazy(() => import('./pages/industrialBuildingAutomation/IndustrialBuildingAutomation'));
 
 
 // Service Pages
@@ -122,6 +123,7 @@ function App() {
               <Route exact path='/case-study/swiftiq-guard' element={<SwiftIQCaseStudy />} />
               <Route exact path='/case-study/lsase-lead-scoring' element={<LsaseCaseStudy />} />
               <Route exact path='/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
+              <Route exact path='/industrial-building-automation' element={<IndustrialBuildingAutomation />} />
 
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />

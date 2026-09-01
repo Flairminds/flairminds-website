@@ -8,11 +8,11 @@ const Navbar = React.memo(({ scrolled }) => {
   const location = useLocation();
   const [activeNavbar, setActiveNavbar] = useState(false);
   const [user, setUser] = useState(false);
-  const [servicesDropdown, setServicesDropdown] = useState(false);
+  const [openDropdown, setOpenDropdown] = useState(null);
   const navigate = useNavigate();
 
   // Detect light background pages
-  const isLightBg = ['/blogs', '/store', '/contact', '/supply-chain-orchestration'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
+  const isLightBg = ['/blogs', '/store', '/contact', '/supply-chain-orchestration', '/industrial-building-automation'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
 
   useEffect(() => {
     setUser(document.cookie.includes("auth=true"));
@@ -36,7 +36,15 @@ const Navbar = React.memo(({ scrolled }) => {
       ]
     },
     { name: "Case Studies", activePath: "/case-study" },
-    { name: "Supply Chain", activePath: "/supply-chain-orchestration" },
+    {
+      name: "Industries",
+      activePath: "/industries",
+      hasDropdown: true,
+      dropdownItems: [
+        { name: "Supply Chain", path: "/supply-chain-orchestration" },
+        { name: "Industrial & Building Automation", path: "/industrial-building-automation" },
+      ]
+    },
     { name: "Solutions", activePath: "/store" },
     { name: "Blogs", activePath: "/blogs" },
     { name: "Careers", activePath: "/careers" },
@@ -47,6 +55,15 @@ const Navbar = React.memo(({ scrolled }) => {
     setActiveNavbar(false);
     navigate(path);
   }, [navigate]);
+
+  const isLinkActive = useCallback((link) => {
+    if (location.pathname === link.activePath) return true;
+    if (link.hasDropdown) {
+      if (link.dropdownItems.some((item) => location.pathname === item.path)) return true;
+      if (link.activePath && location.pathname.startsWith(link.activePath)) return true;
+    }
+    return false;
+  }, [location.pathname]);
 
   return (
     <nav className={`${navbarStyles.navbarWrapper} ${scrolled ? navbarStyles.scrolled : ""} ${isLightBg && !scrolled ? navbarStyles.lightBg : ""} ${activeNavbar ? navbarStyles.navOpened : ""}`}>
@@ -66,20 +83,20 @@ const Navbar = React.memo(({ scrolled }) => {
           {navLinks.map((link, index) => (
             <li
               key={index}
-              className={`${navbarStyles.navItem} ${link.hasDropdown ? navbarStyles.dropdownContainer : ""} ${location.pathname === link.activePath || (link.hasDropdown && location.pathname.startsWith('/services')) ? navbarStyles.activeItem : ""}`}
+              className={`${navbarStyles.navItem} ${link.hasDropdown ? navbarStyles.dropdownContainer : ""} ${isLinkActive(link) ? navbarStyles.activeItem : ""}`}
               onClick={() => {
                 if (link.hasDropdown) {
-                  setServicesDropdown(!servicesDropdown);
+                  setOpenDropdown(openDropdown === link.name ? null : link.name);
                 } else {
                   handleNavLinkClick(link.activePath);
                 }
               }}
-              onMouseEnter={() => link.hasDropdown && setServicesDropdown(true)}
-              onMouseLeave={() => link.hasDropdown && setServicesDropdown(false)}
+              onMouseEnter={() => link.hasDropdown && setOpenDropdown(link.name)}
+              onMouseLeave={() => link.hasDropdown && setOpenDropdown(null)}
             >
               {link.name}
               {link.hasDropdown && (
-                <ul className={`${navbarStyles.dropdownMenu} ${servicesDropdown ? navbarStyles.showDropdown : ""}`}>
+                <ul className={`${navbarStyles.dropdownMenu} ${openDropdown === link.name ? navbarStyles.showDropdown : ""}`}>
                   {link.dropdownItems.map((item, i) => (
                     <li
                       key={i}
@@ -87,7 +104,7 @@ const Navbar = React.memo(({ scrolled }) => {
                       onClick={(e) => {
                         e.stopPropagation();
                         handleNavLinkClick(item.path);
-                        setServicesDropdown(false);
+                        setOpenDropdown(null);
                       }}
                     >
                       {item.name}
@@ -136,24 +153,24 @@ const Navbar = React.memo(({ scrolled }) => {
                 style={{ transitionDelay: `${index * 0.1}s` }}
                 onClick={() => {
                   if (link.hasDropdown) {
-                    setServicesDropdown(!servicesDropdown);
+                    setOpenDropdown(openDropdown === link.name ? null : link.name);
                   } else {
                     handleNavLinkClick(link.activePath);
                   }
                 }}
-                className={link.hasDropdown && servicesDropdown ? navbarStyles.mobileActive : ""}
+                className={link.hasDropdown && openDropdown === link.name ? navbarStyles.mobileActive : ""}
               >
                 {link.name}
-                {link.hasDropdown && <span className={`${navbarStyles.arrow} ${servicesDropdown ? navbarStyles.arrowRotate : ""}`}>▾</span>}
+                {link.hasDropdown && <span className={`${navbarStyles.arrow} ${openDropdown === link.name ? navbarStyles.arrowRotate : ""}`}>▾</span>}
               </li>
               {link.hasDropdown && (
-                <ul className={`${navbarStyles.mobileSubLinks} ${servicesDropdown ? navbarStyles.showMobileSubLinks : ""}`}>
+                <ul className={`${navbarStyles.mobileSubLinks} ${openDropdown === link.name ? navbarStyles.showMobileSubLinks : ""}`}>
                   {link.dropdownItems.map((item, i) => (
                     <li
                       key={i}
                       onClick={() => {
                         handleNavLinkClick(item.path);
-                        setServicesDropdown(false);
+                        setOpenDropdown(null);
                       }}
                     >
                       {item.name}

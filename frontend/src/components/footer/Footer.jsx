@@ -1,7 +1,7 @@
 import React from 'react'
 import footerStyles from './Footer.module.css'
 import shortLogo from '../../assets/flairminds-short-logo.png'
-import { FaLinkedin, FaYoutube, FaEnvelope } from "react-icons/fa";
+import { FaLinkedin, FaYoutube, FaInstagram, FaEnvelope } from "react-icons/fa";
 import { FaLocationDot, FaArrowRight } from "react-icons/fa6";
 
 const Footer = () => {
@@ -73,11 +73,14 @@ const Footer = () => {
                             Your Trusted Global Partner for Innovation, Efficiency, and Resiliency in Tech Solutions.
                         </p>
                         <div className={footerStyles.socialLinks}>
-                            <a href="https://www.linkedin.com/company/flairmindssoftware/" target='_blank' rel="noreferrer" aria-label="LinkedIn">
+                            <a href="https://www.linkedin.com/company/flairmindssoftware/" target='_blank' aria-label="LinkedIn">
                                 <FaLinkedin />
                             </a>
-                            <a href="https://www.youtube.com/@flairmindssoftware" target='_blank' rel="noreferrer" aria-label="YouTube">
+                            <a href="https://www.youtube.com/@flairmindssoftware" target='_blank' aria-label="YouTube">
                                 <FaYoutube />
+                            </a>
+                            <a href="https://www.instagram.com/flairmindstech?igsi=MWpnOTljZXltemtkNQ==" target='_blank' aria-label="Instagram">
+                                <FaInstagram />
                             </a>
                         </div>
                     </div>
