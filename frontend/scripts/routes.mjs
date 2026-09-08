@@ -23,6 +23,7 @@ export const routes = [
   "/case-study/swiftiq-guard",
   "/supply-chain-orchestration",
   "/industrial-building-automation",
+  "/bfsi-technology-solutions",
   "/blogs",
   "/blogs/pdf-analyzer",
   "/blogs/ai-productivity-challenge",

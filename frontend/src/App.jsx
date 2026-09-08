@@ -43,6 +43,7 @@ const SwiftIQCaseStudy = lazy(() => import('./pages/swiftiqCaseStudy/SwiftIQCase
 const LsaseCaseStudy = lazy(() => import('./pages/lsaseCaseStudy/LsaseCaseStudy'));
 const SupplyChainCaseStudy = lazy(() => import('./pages/supplyChainCaseStudy/SupplyChainCaseStudy'));
 const IndustrialBuildingAutomation = lazy(() => import('./pages/industrialBuildingAutomation/IndustrialBuildingAutomation'));
+const BfsiIndustry = lazy(() => import('./pages/bfsiIndustry/BfsiIndustry'));
 
 
 // Service Pages
@@ -124,6 +125,7 @@ function App() {
               <Route exact path='/case-study/lsase-lead-scoring' element={<LsaseCaseStudy />} />
               <Route exact path='/supply-chain-orchestration' element={<SupplyChainCaseStudy />} />
               <Route exact path='/industrial-building-automation' element={<IndustrialBuildingAutomation />} />
+              <Route exact path='/bfsi-technology-solutions' element={<BfsiIndustry />} />
 
               <Route exact path='/blogs' element={<Blogs />} />
               <Route exact path='/blogs/*' element={<BlogsLayout />} />

@@ -12,7 +12,7 @@ const Navbar = React.memo(({ scrolled }) => {
   const navigate = useNavigate();
 
   // Detect light background pages
-  const isLightBg = ['/blogs', '/store', '/contact', '/supply-chain-orchestration', '/industrial-building-automation'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
+  const isLightBg = ['/blogs', '/store', '/contact', '/supply-chain-orchestration', '/industrial-building-automation', '/bfsi-technology-solutions'].includes(location.pathname) || location.pathname.startsWith('/case-study') || location.pathname.startsWith('/services');
 
   useEffect(() => {
     setUser(document.cookie.includes("auth=true"));
@@ -43,6 +43,7 @@ const Navbar = React.memo(({ scrolled }) => {
       dropdownItems: [
         { name: "Supply Chain", path: "/supply-chain-orchestration" },
         { name: "Industrial & Building Automation", path: "/industrial-building-automation" },
+        { name: "BFSI", path: "/bfsi-technology-solutions" },
       ]
     },
     { name: "Solutions", activePath: "/store" },
