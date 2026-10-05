@@ -33,6 +33,7 @@ export const routes = [
   "/blogs/strapi-blog",
   "/blogs/agentic-ai",
   "/blogs/doc-extract-research",
+  "/blogs/lessons-from-building-client-websites",
   "/services/web-mobile-development",
   "/services/cloud-devops",
   "/services/ai-data-science",

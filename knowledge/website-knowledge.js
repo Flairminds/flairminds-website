@@ -112,6 +112,10 @@ How FlairMinds uses Strapi headless CMS to decouple content from frontend code �
 Tags: Agentic AI, Multi-Agent Systems, LLM, ReAct, AI Architecture, RAG, LangGraph
 Comprehensive guide: shift from passive GenAI to autonomous agentic systems. Covers ReAct loop (Reason+Act), Multi-Agent architecture, agent decision frameworks, reliability engineering, tool use, function calling, LangGraph orchestration, enterprise implementation. FlairMinds' flagship AI strategy article.
 
+/blogs/lessons-from-building-client-websites — Lessons from Building Websites for Real Clients [Oct 5, 2026]
+Tags: Website Design, Client Work, Design Process, Responsive Design
+By Manish. Reflective essay on designing static, content-driven client websites. Nine lessons: start with content before layout; the same content can be presented in very different ways; a design a client dislikes isn't necessarily a bad design — fit matters more than preference; look behind the instruction and ask what the site should communicate; show work early since feedback is part of the process, not a final step; real client content breaks neat placeholder-based layouts; a section must be judged against the full page, not alone; build reusable components and responsive behavior from day one; the "last 10%" of spacing/alignment polish is what makes a page feel finished. Concludes that there's no single perfect design — only the right fit for a given client, content and brand.
+
 # COMPANY
 
 About (/about): Led by engineers, data scientists, strategists. Serves fintech, banking, healthcare, enterprise globally.

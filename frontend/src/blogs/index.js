@@ -6,6 +6,7 @@ import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
 import StrapiBlog from './strapi-blog/StrapiBlog';
 import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
 import DocExtractBlog from './doc-extract-research/DocExtractBlog';
+import LessonsFromBuildingWebsites from './website-building/LessonsFromBuildingWebsites';
 
 export const blogs = [{
     id: 1,
@@ -79,4 +80,13 @@ export const blogs = [{
     author: 'FlairMinds Research',
     tags: ['Document Intelligence', 'OCR', 'RAG', 'VLM', 'AzureDI'],
     component: DocExtractBlog,
+}, {
+    id: 9,
+    file: 'lessons-from-building-client-websites',
+    title: 'Lessons from Building Websites for Real Clients',
+    excerpt: 'What working on real client websites taught me about content, feedback, responsive design and why a design the client dislikes isn\'t always a bad one.',
+    date: 'October 5, 2026',
+    author: 'Manish',
+    tags: ['Website Design', 'Client Work', 'Design Process', 'Responsive Design'],
+    component: LessonsFromBuildingWebsites,
 }];
