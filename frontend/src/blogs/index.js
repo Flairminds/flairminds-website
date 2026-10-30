@@ -6,6 +6,7 @@ import AzureSandboxBlog from './azure-sandbox/AzureSandboxBlog';
 import StrapiBlog from './strapi-blog/StrapiBlog';
 import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
 import DocExtractBlog from './doc-extract-research/DocExtractBlog';
+import AnalyticsToAIBlog from './analytics-to-ai/AnalyticsToAIBlog';
 
 export const blogs = [{
     id: 1,
@@ -79,4 +80,14 @@ export const blogs = [{
     author: 'FlairMinds Research',
     tags: ['Document Intelligence', 'OCR', 'RAG', 'VLM', 'AzureDI'],
     component: DocExtractBlog,
+}, {
+    id: 9,
+    file: 'analytics-to-ai',
+    layout: 'light',
+    title: 'Beyond Dashboards: From Business Intelligence to AI',
+    excerpt: '12 years in analytics and what machine learning is changing. Three real examples - predictive modelling that challenged an assumption, semantic search for intelligent data matching, and AI-assisted customer intelligence - show how analytics is moving from reporting to decision-making.',
+    date: 'October 30, 2026',
+    author: 'Rashmi Deolasi',
+    tags: ['Business Intelligence', 'Data Analytics', 'Machine Learning', 'Artificial Intelligence', 'Generative AI', 'Data Science', 'NLP'],
+    component: AnalyticsToAIBlog,
 }];
