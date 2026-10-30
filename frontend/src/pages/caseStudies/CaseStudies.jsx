@@ -12,15 +12,15 @@ import aiagent from "../../assets/aiagent.png"
 import swiftiqGuard from "../../assets/swiftiqGuard.png"
 
 const caseStudiesData = [
-    {
-        id: "CASE_SC_11",
-        title: "Supply Chain Decision Orchestration",
-        description: "A next-generation supply chain orchestration platform that moves from passive dashboards to automated, high-precision action plans - synchronizing every node to drive real-world outcomes.",
-        imageUrl: leverageModelling,
-        link: "supply-chain-orchestration",
-        status: "ACTIVE",
-        developer: "FlairMinds",
-    },
+    // {
+    //     id: "CASE_SC_11",
+    //     title: "Supply Chain Decision Orchestration",
+    //     description: "A next-generation supply chain orchestration platform that moves from passive dashboards to automated, high-precision action plans - synchronizing every node to drive real-world outcomes.",
+    //     imageUrl: leverageModelling,
+    //     link: "supply-chain-orchestration",
+    //     status: "ACTIVE",
+    //     developer: "FlairMinds",
+    // },
     {
         id: "CASE_AML_10",
         title: "SwiftIQ Guard — AML Compliance Platform",
