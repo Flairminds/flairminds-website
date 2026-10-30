@@ -7,6 +7,7 @@ import StrapiBlog from './strapi-blog/StrapiBlog';
 import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
 import DocExtractBlog from './doc-extract-research/DocExtractBlog';
 import AnalyticsToAIBlog from './analytics-to-ai/AnalyticsToAIBlog';
+import LessonsFromBuildingWebsites from './website-building/LessonsFromBuildingWebsites';
 
 export const blogs = [{
     id: 1,
@@ -90,4 +91,14 @@ export const blogs = [{
     author: 'Rashmi Deolasi',
     tags: ['Business Intelligence', 'Data Analytics', 'Machine Learning', 'Artificial Intelligence', 'Generative AI', 'Data Science', 'NLP'],
     component: AnalyticsToAIBlog,
-}];
+}, {
+    id: 10,
+    file: 'lessons-from-building-client-websites',
+    title: 'Lessons from Building Websites for Real Clients',
+    excerpt: 'What working on real client websites taught me about content, feedback, responsive design and why a design the client dislikes isn\'t always a bad one.',
+    date: 'October 5, 2026',
+    author: 'Manish',
+    tags: ['Website Design', 'Client Work', 'Design Process', 'Responsive Design'],
+    component: LessonsFromBuildingWebsites,
+}
+];
