@@ -73,6 +73,15 @@ Measurable Outcomes: Working Capital reduced by up to 22% via dynamic buffer sto
 CTA: "Ready to Orchestrate Decisions? Discuss Your Orchestration Challenge."
 Stack: React, CSS Modules, LangGraph-style orchestration AI, real-time demand ingestion, enterprise integrations.
 
+/industrial-building-automation — Industrial & Building Automation [LIVE]
+Mission-critical automation software: generic PLC Ladder Logic environments, direct firmware execution, and BACnet building automation protocol integration.
+Key sections: BACnet Integration for Intelligent Control (Master Schedules via Schedule/Calendar objects, Intuitive UI for Control with direct object property linking, UI-to-Ladder-Logic dual-trigger capability), Client Case Study Highlight — XMPS-2000 Custom Ladder Logic Platform built for a leading Indian PLC manufacturing pioneer (Visual Ladder Logic Editor converting standard ladder symbols into native hardware code without 3rd-party software, Real-time Memory/OM Mapping fetching PLC memory addresses into the UI; benefits: Zero 3rd-Party Costs, Streamlined Global Deployment, Intuitive UI Adaptation to global PLC standards, Low Latency Sync between visual canvas and firmware), FAQ section.
+CTA: "Ready to Build Your Custom Automation Platform? Discuss Your Automation Project."
+Stack: React, CSS Modules, custom PLC IDE, BACnet protocol, hardware-agnostic firmware gateway.
+
+# INDUSTRIES
+The navbar groups "Supply Chain" (/supply-chain-orchestration) and "Industrial & Building Automation" (/industrial-building-automation) under an "Industries" dropdown.
+
 # BLOGS (/blogs)
 
 /blogs/pdf-analyzer — Financial Analyzer: From PDFs to Interactive Insights [Oct 28, 2025]
