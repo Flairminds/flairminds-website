@@ -22,6 +22,7 @@ import chatRoute from './routes/chatRoute.js'
 // Setting up server
 const PORT = process.env.PORT || 5001
 const app = express()
+app.set('trust proxy', true) // behind Vercel/Azure proxies: req.protocol must reflect https
 app.use(cookieParser())
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -29,19 +30,26 @@ const allowedOrigins = [
     "https://flairminds.com",
     "https://www.flairminds.com"
 ];
-app.use(cors({
-    origin: (origin, callback) => {
-        if (!origin || allowedOrigins.includes(origin)) {
-            callback(null, true);
-        } else {
-            console.warn(`[CORS] Blocked request from origin: ${origin}`);
-            callback(new Error(`Not allowed by CORS: ${origin}`));
-        }
-    },
-    methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
-    preflightContinue: false,
-    optionsSuccessStatus: 200,
-    credentials: true,
+app.use(cors((req, callback) => {
+    const origin = req.header('Origin')
+    // Same-origin requests (e.g. module scripts / CSS with the crossorigin
+    // attribute, which browsers send an Origin header for) must always pass,
+    // otherwise the site's own assets 500 on any host that isn't in the list
+    // (Vercel previews, custom domains, etc.).
+    const sameOrigin = origin && origin === `${req.protocol}://${req.get('host')}`
+    const allowed = !origin || sameOrigin || allowedOrigins.includes(origin)
+    if (!allowed) {
+        console.warn(`[CORS] Blocked request from origin: ${origin}`)
+    }
+    // Disallowed origins just get no CORS headers (browser blocks them);
+    // never throw, which would turn the response into a 500.
+    callback(null, {
+        origin: allowed,
+        methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
+        preflightContinue: false,
+        optionsSuccessStatus: 200,
+        credentials: true,
+    })
 }))
 // On Vercel the platform invokes the exported app per request; no listener needed.
 if (!process.env.VERCEL) {
