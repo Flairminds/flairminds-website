@@ -1,0 +1,6 @@
+{
+  "buildCommand": "cd frontend && npm install && npm run build && cd .. && rm -rf dist && mv frontend/dist dist",
+  "functions": {
+    "index.js": { "includeFiles": "dist/**" }
+  }
+}

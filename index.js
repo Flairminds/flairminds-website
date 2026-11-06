@@ -43,9 +43,12 @@ app.use(cors({
     optionsSuccessStatus: 200,
     credentials: true,
 }))
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`)
-})
+// On Vercel the platform invokes the exported app per request; no listener needed.
+if (!process.env.VERCEL) {
+    app.listen(PORT, () => {
+        console.log(`Server is running on port ${PORT}`)
+    })
+}
 
 const __filename = new URL(import.meta.url).href;
 const __dirname = path.dirname(__filename);
@@ -89,3 +92,4 @@ app.get('*', (req, res) => {
 // Visit.belongsTo(Visitor, { foreignKey: 'visitorId', as: "visitor" })
 // sequelize.authenticate().then(() => console.log('Connected to database')).catch(err => console.log(err))
 // sequelize.sync().then(() => console.log("database is synchronized")).catch(err => console.log({ err }))
+export default app
