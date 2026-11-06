@@ -18,6 +18,7 @@
     "@react-three/drei": "^9.88.16",
     "@react-three/fiber": "^8.15.11",
     "@reduxjs/toolkit": "^2.5.0",
+    "@sparticuz/chromium": "^148.0.0",
     "antd": "^5.23.2",
     "axios": "^1.7.9",
     "chart.js": "^4.5.0",

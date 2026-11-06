@@ -21,10 +21,21 @@ async function main() {
   const baseUrl = server.resolvedUrls.local[0].replace(/\/$/, "");
   const baseOrigin = new URL(baseUrl).origin;
 
-  const browser = await puppeteer.launch({
+  // On Vercel's build image Puppeteer's own Chrome download is unreliable and
+  // system libs are missing, so use the serverless-friendly Chromium build.
+  let launchOptions = {
     headless: true,
     args: ["--no-sandbox", "--disable-setuid-sandbox"],
-  });
+  };
+  if (process.env.VERCEL) {
+    const { default: chromium } = await import("@sparticuz/chromium");
+    launchOptions = {
+      headless: "shell",
+      args: chromium.args,
+      executablePath: await chromium.executablePath(),
+    };
+  }
+  const browser = await puppeteer.launch(launchOptions);
   const page = await browser.newPage();
   await page.setViewport({ width: 1280, height: 800 });
 
