@@ -85,7 +85,7 @@ const FrontendDebuggingBlog = () => {
             />
             <div className={styles.content}>
                 <h1 className={styles.title}>Why Frontend Bugs Are the Hardest to Chase Down</h1>
-                <p className={styles.meta}>by Gaurav Singh | November 20, 2026 | Blog</p>
+                <p className={styles.meta}>By Gaurav Singh | November 20, 2026 | Blog</p>
 
                 <p className={styles.lead}>
                     Every developer has a bug that refused to die. Mine was a search box on a product listing page.
