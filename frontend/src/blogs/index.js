@@ -8,6 +8,7 @@ import AgenticAIBlog from './agentic-ai/AgenticAIBlog';
 import DocExtractBlog from './doc-extract-research/DocExtractBlog';
 import AnalyticsToAIBlog from './analytics-to-ai/AnalyticsToAIBlog';
 import LessonsFromBuildingWebsites from './website-building/LessonsFromBuildingWebsites';
+import FrontendDebuggingBlog from './frontend-debugging/FrontendDebuggingBlog';
 
 export const blogs = [{
     id: 1,
@@ -100,5 +101,15 @@ export const blogs = [{
     author: 'Manish',
     tags: ['Website Design', 'Client Work', 'Design Process', 'Responsive Design'],
     component: LessonsFromBuildingWebsites,
+}, {
+    id: 11,
+    file: 'frontend-bugs-hard-to-debug',
+    layout: 'light',
+    title: 'Why Frontend Bugs Are the Hardest to Chase Down',
+    excerpt: 'Why are frontend bugs so hard to find? The bugs that cost the most time, from race conditions to hydration errors, and a 5-step method to debug and fix them.',
+    date: 'November 20, 2026',
+    author: 'Gaurav Singh',
+    tags: ['frontend debugging', 'React', 'race condition', 'Chrome DevTools', 'Playwright'],
+    component: FrontendDebuggingBlog,
 }
 ];
