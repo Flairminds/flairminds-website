@@ -34,6 +34,7 @@ export const routes = [
   "/blogs/agentic-ai",
   "/blogs/doc-extract-research",
   "/blogs/lessons-from-building-client-websites",
+  "/blogs/frontend-bugs-hard-to-debug",
   "/services/web-mobile-development",
   "/services/cloud-devops",
   "/services/ai-data-science",
