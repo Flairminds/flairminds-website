@@ -10,7 +10,8 @@ import AnalyticsToAIBlog from './analytics-to-ai/AnalyticsToAIBlog';
 import LessonsFromBuildingWebsites from './website-building/LessonsFromBuildingWebsites';
 import FrontendDebuggingBlog from './frontend-debugging/FrontendDebuggingBlog';
 
-export const blogs = [{
+export const blogs = [
+{
     id: 1,
     file: 'pdf-analyzer',
     title: 'Financial Analyzer: From PDFs to Interactive Insights',
